@@ -1,0 +1,150 @@
+<!--
+title: Der Ernährungskreis – eine runde Sache
+short: Ernährungskreis
+time: 1 Unterrichtsstunde
+book: S. 56–57
+q: Was zeigt der Kreis, was die Pyramide nicht zeigt?
+facts: DGE-Ernährungskreis mit sieben Lebensmittelgruppen | Mehr als ¾ pflanzlich, knapp ¼ tierisch | Nährstoffverteilung: 55 % Kohlenhydrate, 30 % Fett, 15 % Eiweiß | DGE-Empfehlungen „Gut essen und trinken“
+inter: Interaktiver Ernährungskreis · Pflanzlich oder tierisch · Kernaussagen der DGE · Pyramide und Kreis vergleichen
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Der Ernährungskreis – eine runde Sache</h1>
+      <p class="lead">Neben der Pyramide gibt es ein zweites einfaches Modell: den Ernährungskreis der Deutschen Gesellschaft für Ernährung (DGE). Er zeigt, wie eine ökologisch nachhaltige und vollwertige Ernährung aussieht.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Was zeigt der Kreis, was die Pyramide nicht zeigt?</p></div>
+      <div class="controls"><button class="btn primary" data-go="kreis">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="kreis" data-label="Aufbau" data-yr="Erarbeitung" data-title="Sieben Lebensmittelgruppen" data-sub="Je größer, desto mehr">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Sieben Lebensmittelgruppen</h2>
+      <p class="lead">Der Ernährungskreis teilt die Lebensmittel in <b>sieben Gruppen</b>. Die Größe eines Segments zeigt den empfehlenswerten Anteil: Je größer, desto mehr kannst du daraus essen.</p>
+      <ul class="facts">
+        <li>Die größte Gruppe sind die <b>Getränke in der Mitte</b>.</li>
+        <li>Süße und fettreiche Snacks sind <b>nicht abgebildet</b> – sie liefern keine lebensnotwendigen Nährstoffe.</li>
+        <li><b>Wochenbilanz:</b> Nicht jeder Tag muss perfekt sein. Zu viel oder zu wenig gleichst du in den nächsten Tagen aus.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf ein Segment</h3></div>
+      <div style="max-width:24rem;margin:0 auto;width:100%;position:relative" id="ring"></div>
+      <div class="ex-panel" id="ring-info"><p class="muted">Welche Lebensmittel gehören dazu?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="verteilung" data-label="Verteilung" data-yr="Erarbeitung" data-title="Pflanzlich und tierisch" data-sub="Und die Nährstoffverteilung">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Mehr als drei Viertel pflanzlich</h2>
+      <p class="lead">Iss <b>mehr als ¾ pflanzliche</b> und <b>knapp ¼ tierische</b> Lebensmittel. Berücksichtige die Mengenverhältnisse, damit eine optimale Nährstoffverteilung gewährleistet ist.</p>
+      <div style="max-width:15rem" id="ring-n"></div>
+      <p class="note">Optimale Nährstoffverteilung bezogen auf die tägliche Gesamtenergiezufuhr</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Pflanzlich oder tierisch?</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="regeln" data-label="Empfehlungen" data-yr="Vertiefung" data-title="Gut essen und trinken" data-sub="Die Kernaussagen der DGE">
+  <div class="section-head"><p class="eyebrow">Station 3 · Vertiefung</p><h2>DGE-Empfehlungen: Gut essen und trinken</h2><p class="lead">Diese Empfehlungen unterstützen dich bei der Gestaltung deines Essalltags. So schützt du deine Gesundheit und gleichzeitig die Umwelt.</p></div>
+  <div id="ex-r"></div>
+</section>
+
+<section class="station" id="vergleich" data-label="Vergleich" data-yr="Anwendung" data-title="Pyramide und Kreis" data-sub="Unterschiede und Gemeinsamkeiten">
+  <div class="section-head"><p class="eyebrow">Station 4 · Anwendung</p><h2>Pyramide und Kreis im Vergleich</h2><p class="lead">Tippe auf ein graues Feld, um die Antwort aufzudecken – oder decke alles auf.</p></div>
+  <div class="table-wrap"><table class="cmp quiz" id="cmp">
+    <thead><tr><th></th><th>Ernährungspyramide (BZfE)</th><th>Ernährungskreis (DGE)</th></tr></thead>
+    <tbody>
+      <tr><th>Form</th><td class="q"><span>Pyramide aus 22 Bausteinen</span></td><td class="q"><span>Kreis mit Segmenten</span></td></tr>
+      <tr><th>Gruppen</th><td class="q"><span>acht</span></td><td class="q"><span>sieben</span></td></tr>
+      <tr><th>Mengen</th><td class="q"><span>abzählbare Portionen pro Tag</span></td><td class="q"><span>Anteile (Größe der Segmente)</span></td></tr>
+      <tr><th>Bewertung</th><td class="q"><span>Ampelfarben grün, gelb, rot</span></td><td class="q"><span>Größe der Gruppe</span></td></tr>
+      <tr><th>Süßes, Snacks</th><td class="q"><span>als „Extras“, 1 Portion am Tag</span></td><td class="q"><span>nicht abgebildet</span></td></tr>
+      <tr><th>Getränke</th><td class="q"><span>unterste Reihe, 6 Portionen</span></td><td class="q"><span>in der Mitte, größte Gruppe</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="controls" style="margin-top:.8rem"><button class="btn" id="cmp-q">Wieder verdecken</button><button class="btn primary" id="cmp-a">Alles aufdecken</button></div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Der Ernährungskreis</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Der Ernährungskreis</h3><span>AES · Klasse 7</span></div>
+      <ol>
+        <li data-step>Der <b>Ernährungskreis der DGE</b> zeigt eine ideale Lebensmittelauswahl für eine ökologisch nachhaltige und vollwertige Ernährung.</li>
+        <li data-step>Er teilt die Lebensmittel in <b>sieben Gruppen</b>: Getränke (Mitte), Getreide und Kartoffeln, Gemüse und Salat, Obst, Milch und Milchprodukte, Fleisch/Wurst/Fisch/Eier, Fette und Öle.</li>
+        <li data-step>Je größer ein Segment, desto mehr sollte man davon essen. Mehr als ¾ pflanzlich, knapp ¼ tierisch.</li>
+        <li data-step>Nährstoffverteilung: ca. <b>55 % Kohlenhydrate, 30 % Fett, 15 % Eiweiß</b>.</li>
+        <li data-step>Kernaussagen: Wasser trinken, 5 am Tag, Vollkorn, Hülsenfrüchte und Nüsse, Fisch jede Woche, Fleisch weniger, pflanzliche Öle, Süßes stehen lassen, genießen, bewegen.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Essprotokoll</span><p>Schreibe einen Tag lang auf, was du isst und trinkst. Vergleiche mit dem Ernährungskreis: Welche Empfehlungen sind leicht, welche schwer umzusetzen?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Kreis-Check</h2></div>
+  <div id="cz"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+const K = [
+  {l: 'Getreide, Getreideprodukte, Kartoffeln', short: 'Getreide', v: 30, c: 'c5', d: 'Brot, Nudeln, Reis, Flocken, Kartoffeln – am besten Vollkorn: nährstoffreich und lange sättigend.'},
+  {l: 'Gemüse und Salat', short: 'Gemüse', v: 26, c: 'c2', d: '3 Portionen am Tag, roh und gegart, frisch und saisonal. Auch Hülsenfrüchte und Nüsse regelmäßig essen.'},
+  {l: 'Obst', short: 'Obst', v: 17, c: 'c7', d: '2 Portionen am Tag. Ab und zu darf es auch ein Saft oder Smoothie sein.'},
+  {l: 'Milch und Milchprodukte', short: 'Milch', v: 18, c: 'c6', d: 'Täglich: liefern Eiweiß und Calcium für die Knochen.'},
+  {l: 'Fleisch, Wurst, Fisch, Eier', short: 'Fleisch', v: 7, c: 'c1', d: 'Fleisch und Wurst: höchstens 300 g pro Woche. 1–2 Portionen Fisch pro Woche – Lachs, Hering, Makrele liefern Omega-3-Fettsäuren.'},
+  {l: 'Fette und Öle', short: 'Öl', v: 2, c: 'c4', d: 'Pflanzliche Öle bevorzugen: Raps-, Lein-, Soja- und Olivenöl liefern ungesättigte Fettsäuren und Vitamin E.'}
+];
+const rg = ringSVG($('#ring'), K, {inner: .38, size: 320, aria: 'Ernährungskreis der DGE', onPick: k => { $('#ring-info').innerHTML = k == null ? '' : `<h4>${K[k].l} · ca. ${K[k].v} %</h4><p>${K[k].d}</p>`; }});
+$('#ring svg').insertAdjacentHTML('beforeend', `<g class="hit" data-mid="1"><circle cx="160" cy="160" r="56" fill="${col('water')}" fill-opacity=".3" stroke="${col('water')}"/><text x="160" y="155" text-anchor="middle" class="lbl">Getränke</text><text x="160" y="172" text-anchor="middle" class="sm">ca. 1,5 l</text></g>`);
+$('#ring svg [data-mid]').addEventListener('click', e => { e.stopPropagation(); rg.pick(null); $('#ring-info').innerHTML = '<h4>Getränke – die größte Gruppe</h4><p>Am besten Wasser trinken: ca. 1,5 Liter am Tag. Wasser und kalorienfreie Getränke wie ungesüßter Tee sind am besten.</p>'; });
+ringSVG($('#ring-n'), [{l: 'Kohlenhydrate 55 %', short: 'KH 55 %', v: 55, c: 'c5'}, {l: 'Fett 30 %', short: 'Fett 30 %', v: 30, c: 'c4'}, {l: 'Eiweiß 15 %', short: 'Eiweiß', v: 15, c: 'c1'}], {inner: .45, size: 240, aria: 'Nährstoffverteilung'});
+
+sorter($('#sort'), [{id: 'p', name: 'pflanzlich (mehr als ¾)'}, {id: 't', name: 'tierisch (knapp ¼)'}], [
+  {t: 'Vollkornbrot', c: 'p'}, {t: 'Rapsöl', c: 'p'}, {t: 'Kichererbsen', c: 'p'}, {t: 'Äpfel', c: 'p'}, {t: 'Haferdrink', c: 'p'}, {t: 'Walnüsse', c: 'p'},
+  {t: 'Gouda', c: 't'}, {t: 'Makrele', c: 't'}, {t: 'Salami', c: 't'}, {t: 'Joghurt', c: 't'}, {t: 'Rührei', c: 't'}
+]);
+
+explore($('#ex-r'), [
+  {ico: 'tropfen', t: 'Am besten Wasser trinken', d: 'Ca. 1,5 Liter am Tag. Wasser und andere kalorienfreie Getränke wie Tee sind am besten.'},
+  {ico: 'apfel', t: 'Obst und Gemüse – viel und bunt', d: '„5 am Tag“: jeden Tag 5 Hände voll Gemüse und Obst, am besten frisch und saisonal.'},
+  {ico: 'blatt', t: 'Hülsenfrüchte und Nüsse regelmäßig', d: 'Mindestens einmal pro Woche Hülsenfrüchte (Erbse, Bohne, Linse, Kichererbse, Lupine) und täglich eine kleine Handvoll Nüsse.'},
+  {ico: 'brot', t: 'Vollkorn ist die beste Wahl', d: 'Bei Mehl, Brot, Nudeln oder Reis die nährstoffreiche, länger sättigende Vollkornvariante wählen.'},
+  {ico: 'milch', t: 'Milch und Milchprodukte jeden Tag', d: 'Sie liefern Eiweiß und Calcium und unterstützen die Knochengesundheit.'},
+  {ico: 'fisch', t: 'Fisch jede Woche', d: '1–2 Portionen Fisch pro Woche. Lachs, Hering und Makrele liefern wertvolle Omega-3-Fettsäuren.'},
+  {ico: 'fleisch', t: 'Fleisch und Wurst – weniger ist mehr', d: '300 g Fleisch und Wurst pro Woche reichen aus, um den Körper z. B. mit Eisen, Zink und Selen zu versorgen.'},
+  {ico: 'oel', t: 'Pflanzliche Öle bevorzugen', d: 'Raps-, Lein-, Soja- und Olivenöl sind reich an ungesättigten Fettsäuren und Vitamin E.'},
+  {ico: 'zucker', t: 'Süßes, Salziges, Fettiges stehen lassen', d: 'In Fast Food, Fertigprodukten, Gebäck und Süßigkeiten stecken oft große Mengen Zucker, Salz und Fett.'},
+  {ico: 'gruppe', t: 'Mahlzeiten genießen', d: 'Nimm dir Zeit zum gemeinsamen Essen. Wer langsam isst, merkt schneller, wann er satt ist.'},
+  {ico: 'laufen', t: 'In Bewegung bleiben', d: 'Sei aktiv im Alltag und treibe Sport – und achte auf dein Gewicht.'}
+], {hint: 'Tippe auf eine Kernaussage.'});
+quizTable($('#cmp'), $('#cmp-q'), $('#cmp-a'));
+
+cloze($('#cz'), 'Der Ernährungskreis wurde von der {DGE|WHO|EU} entwickelt. Er hat {sieben|acht|fünf} Lebensmittelgruppen. Die größte Gruppe sind die {Getränke|Obst|Fette und Öle} in der Mitte. Man sollte mehr als {drei Viertel|die Hälfte|ein Viertel} pflanzliche Lebensmittel essen. Fleisch und Wurst: höchstens {300 g|1 kg|100 g} pro Woche. Süße Snacks sind im Kreis {nicht abgebildet|in der Mitte|die größte Gruppe}.');
+mcQuiz($('#quiz'), [
+  {q: 'Wie ist die empfohlene Nährstoffverteilung?', a: ['55 % KH, 30 % Fett, 15 % Eiweiß', '30 % KH, 55 % Fett, 15 % Eiweiß', 'je ein Drittel', '15 % KH, 30 % Fett, 55 % Eiweiß'], ok: 0},
+  {q: 'Wie oft sollte man Fisch essen?', a: ['1–2-mal pro Woche', 'täglich', 'nie', 'einmal im Monat'], ok: 0},
+  {q: 'Was bedeutet „Wochenbilanz“?', a: ['Zu viel oder zu wenig kann man an den nächsten Tagen ausgleichen', 'Man isst nur einmal pro Woche', 'Man zählt Kalorien', 'Man wiegt sich jede Woche'], ok: 0},
+  {q: 'Welche Gruppe ist im Kreis am kleinsten?', a: ['Fette und Öle', 'Getreide', 'Gemüse', 'Getränke'], ok: 0},
+  {q: 'Warum sind Süßigkeiten im Kreis nicht abgebildet?', a: ['Sie liefern keine lebensnotwendigen Nährstoffe', 'Sie sind verboten', 'Sie passen nicht ins Bild', 'Sie sind zu teuer'], ok: 0}
+]);
+</script>

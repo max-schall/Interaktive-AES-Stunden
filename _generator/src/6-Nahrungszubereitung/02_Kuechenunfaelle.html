@@ -1,0 +1,209 @@
+<!--
+title: Küchenunfälle – Vorsicht, heiß und fettig!
+short: Unfälle
+time: 1 Unterrichtsstunde
+book: S. 28–29
+q: Warum darf man brennendes Fett nie mit Wasser löschen?
+facts: Die meisten Unfälle passieren zu Hause | Schnittverletzungen, Verbrennungen, Stürze vermeiden | Fettbrand: ersticken, nie mit Wasser löschen | Schutzvorrichtungen und Gefahrensymbole auf Reinigungsmitteln
+inter: Unfallgefahren und Regeln · Fettbrand-Simulation · Notfall-Entscheidungen · Gefahrensymbole zuordnen · Schulküchen-Rallye
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Küchenunfälle – Vorsicht, heiß und fettig!</h1>
+      <p class="lead">Wusstest du, dass die meisten Unfälle nicht im Straßenverkehr, sondern zu Hause passieren? Zu Hause fühlen wir uns sicher – und schätzen riskante Situationen oft falsch ein.</p>
+      <div class="teaser"><span class="tag info">Was denkst du?</span><p>Hast du dich in der Küche schon einmal geschnitten oder verbrannt? Wie ist das passiert?</p></div>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Warum darf man brennendes Fett nie mit Wasser löschen?</p></div>
+      <div class="controls"><button class="btn primary" data-go="gefahren">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="gefahren" data-label="Unfallgefahren" data-yr="Erarbeitung" data-title="Die häufigsten Küchenunfälle" data-sub="Schneiden, Verbrennen, Stürzen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Die häufigsten Küchenunfälle</h2>
+      <p class="lead"><b>Schnittverletzungen, Verbrennungen und Stürze</b> kommen in der Küche am häufigsten vor. Mit einfachen Regeln lassen sie sich vermeiden.</p>
+      <p class="quote">Vorsorge ist besser als Nachsorge.</p>
+      <ul class="words-box"><li>der Küchenunfall</li><li>die Schutzvorrichtung</li><li>der Not-Aus-Schalter</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Gefahrenquellen und Regeln</h3></div>
+      <div id="ex-g"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="fettbrand" data-label="Fettbrand" data-yr="Experiment" data-title="Fettbrand richtig löschen" data-sub="Wasser oder Deckel?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Experiment (Simulation)</p>
+      <h2>Fettbrand richtig löschen</h2>
+      <p class="lead">Wird Fett zu stark erhitzt, kann es spritzen oder sich sogar entzünden.</p>
+      <ul class="facts">
+        <li>Wasser auf brennendem Fett verdampft <b>explosionsartig</b> und reißt brennende Fetttröpfchen mit – eine Stichflamme entsteht.</li>
+        <li>Richtig: Herd ausschalten und den Brand <b>ersticken</b> – mit einem Deckel oder der Löschdecke.</li>
+      </ul>
+      <div class="achtung"><p>Fettbrände darfst du nie mit Wasser löschen! Es besteht die Gefahr schwerer Verbrennungen.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Was passiert, wenn …</h3><div id="fb-seg"></div></div>
+      <canvas id="cv-fb" class="wide" aria-label="Simulation eines Fettbrands in der Pfanne"></canvas>
+      <div class="controls"><button class="btn primary" id="fb-go">Ausprobieren</button><button class="btn" id="fb-reset">Zurücksetzen</button></div>
+      <p class="status" id="fb-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="notfall" data-label="Im Notfall" data-yr="Anwendung" data-title="Richtig reagieren" data-sub="Situationen entscheiden">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Richtig reagieren</h2>
+      <p class="lead">Im Notfall muss es schnell gehen. Darum solltest du wissen, wo sich in der Schulküche Notausgang, Verbandskasten, Löschdecke und Not-Aus-Schalter befinden.</p>
+      <ul class="facts">
+        <li>Drückst du den <b>Not-Aus-Schalter</b>, geht der Strom in der ganzen Küche aus.</li>
+        <li>Wenn jemand verletzt ist: ruhig bleiben, für die Person da sein, Lehrkraft holen.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Was tust du?</h3></div>
+      <div id="sc-n"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="symbole" data-label="Gefahrensymbole" data-yr="Erarbeitung" data-title="Gefahrensymbole" data-sub="Reinigungsmittel mit Vorsicht">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Erarbeitung</p>
+      <h2>Gefahrensymbole auf Reinigungsmitteln</h2>
+      <p class="lead">Backofenreiniger und Co. können ätzend, umweltgefährdend oder gesundheitsschädlich sein. Darum sind auf fast allen Reinigungsmitteln Gefahrensymbole aufgedruckt.</p>
+      <ul class="facts">
+        <li>Reinigungsmittel nicht bei Lebensmitteln aufbewahren.</li>
+        <li>Meistens reicht <b>Spülmittel</b> zum Reinigen aus.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf ein Symbol</h3></div>
+      <div id="ghs" class="ex-tiles" style="grid-template-columns:repeat(4,minmax(0,1fr))"></div>
+      <div class="ex-panel" id="ghs-info"><p class="muted">Was bedeutet das Symbol?</p></div>
+      <div class="vis-head"><h3>Schulküchen-Rallye</h3></div>
+      <div id="chk"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Küchenunfälle vermeiden</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Küchenunfälle vermeiden</h3><span>AES · Klasse 6</span></div>
+      <ol>
+        <li data-step>Die häufigsten Küchenunfälle sind <b>Schnittverletzungen, Verbrennungen und Stürze</b>.</li>
+        <li data-step>Schnitte: Tunnel- und Krallengriff, immer auf einem Brett schneiden, fallende Messer nie auffangen. Verbrennungen: Topfhandschuhe, Abstand beim Öffnen des Backofens. Stürze: Boden sauber und trocken, Stolperfallen wegräumen, Leiter benutzen.</li>
+        <li data-step>Einen <b>Fettbrand</b> nie mit Wasser löschen, sondern mit Deckel oder Löschdecke ersticken.</li>
+        <li data-step>Schutzvorrichtungen kennen: Notausgang, Verbandskasten, Löschdecke, Not-Aus-Schalter.</li>
+        <li data-step>Reinigungsmittel tragen <b>Gefahrensymbole</b>. Oft reicht Spülmittel.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Merke</span><p>Wenn jemand verletzt ist, bleibe ruhig und sei für die Person da.</p></div>
+      <div class="box"><span class="tag info">Zu Hause</span><p>Suche zu Hause Reinigungsmittel mit Gefahrensymbolen und notiere, wofür sie verwendet werden.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Sicher in der Küche</h2></div>
+  <div id="sort"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+explore($('#ex-g'), [
+  {ico: 'messer', t: 'Schnittverletzungen', d: '<ul><li>Tunnel- und Krallengriff verwenden</li><li>immer auf einem Brett schneiden</li><li>Messer zum Spülen am Griff festhalten, nie ins Spülbecken legen</li><li>fallende Messer nie auffangen</li><li>Vorsicht bei scharfkantigen Dosenrändern</li></ul>'},
+  {ico: 'flamme', t: 'Verbrennungen', d: '<ul><li>heiße Töpfe, Pfannen, Bleche nur mit Topfhandschuhen anfassen – auch Deckel!</li><li>Abstand beim Öffnen des Backofens: Wasserdampf ist extrem heiß</li><li>heiße Flüssigkeiten (Nudelwasser) immer vom Körper weg ausschütten</li><li>Herdplatten ausschalten, wenn du sie nicht mehr brauchst</li><li>Herd erst reinigen, wenn er abgekühlt ist</li></ul>'},
+  {ico: 'laufen', t: 'Stürze', d: '<ul><li>Boden sauber und trocken halten</li><li>Stolperfallen wie Besen und Eimer wegräumen</li><li>für obere Schränke immer eine Leiter verwenden</li></ul>'},
+  {ico: 'blitz', t: 'Elektrische Geräte', d: '<p>Reihenfolge: <b>startklar machen – einstecken – benutzen – ausstecken</b>. Erst ausstecken, dann reinigen!</p>'}
+], {cols2: true, hint: 'Tippe auf eine Gefahrenquelle.'});
+
+/* Fettbrand-Simulation */
+(() => {
+  let mode = 'wasser', tt = -1;
+  const reset = () => { tt = -1; $('#fb-go').disabled = false; $('#fb-st').innerHTML = 'Das Öl in der Pfanne ist überhitzt und hat Feuer gefangen. Wähle oben eine Reaktion.'; };
+  seg($('#fb-seg'), [['wasser', 'Wasser drauf'], ['deckel', 'Deckel drauf']], v => { mode = v; reset(); });
+  $('#fb-go').onclick = () => { tt = 0; $('#fb-go').disabled = true; };
+  $('#fb-reset').onclick = reset;
+  const P = [...Array(60)].map((_, i) => { const r = rng(i * 13 + 5); return {vx: (r() - .5) * 2.4, vy: -.6 - r() * 1.6, s: 2 + r() * 4}; });
+  canvasLoop($('#cv-fb'), 'fettbrand', (ctx, w, h, t, dt) => {
+    if (tt >= 0 && tt < 6) tt += dt;
+    const cx = w * .5, py = h * .78, pw = w * .36;
+    // Herd
+    ctx.fillStyle = col('surface-2'); roundRect(ctx, cx - pw * .8, py + 10, pw * 1.6, h * .12, 8); ctx.fill();
+    // Pfanne
+    ctx.fillStyle = '#4a4f55'; ctx.beginPath(); ctx.ellipse(cx, py, pw / 2, 16, 0, 0, 7); ctx.fill();
+    ctx.fillRect(cx + pw / 2 - 4, py - 5, w * .2, 9);
+    ctx.fillStyle = '#d6a93c'; ctx.beginPath(); ctx.ellipse(cx, py - 3, pw / 2 - 8, 9, 0, 0, 7); ctx.fill();
+    const fire = (k, sc) => { for (let i = 0; i < 9; i++) { const x = cx + (i - 4) * pw * .1, fh = h * (.18 + .08 * Math.sin(t * 7 + i * 1.7)) * sc; const g = ctx.createLinearGradient(0, py, 0, py - fh); g.addColorStop(0, alpha('#ff9a2e', .95 * k)); g.addColorStop(.6, alpha('#ff5a1f', .7 * k)); g.addColorStop(1, alpha('#ffd25a', 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(x - pw * .07, py - 4); ctx.quadraticCurveTo(x, py - fh * 1.2, x + pw * .07, py - 4); ctx.fill(); } };
+    if (tt < 0) { fire(1, 1); return; }
+    if (mode === 'wasser') {
+      if (tt < .8) { fire(1, 1); const y = lerp(h * .05, py - 10, tt / .8); ctx.fillStyle = col('water'); ctx.beginPath(); ctx.ellipse(cx - pw * .1, y, 12, 18, 0, 0, 7); ctx.fill(); }
+      else {
+        const u = tt - .8, k = clamp(1 - (u - 2.5) / 2, 0, 1);
+        fire(k, 1 + Math.min(3.2, u * 6) * Math.exp(-u * .5));
+        for (const p of P) { const x = cx + p.vx * u * w * .12, y = py - 10 + p.vy * u * h * .35 + u * u * h * .08; ctx.fillStyle = alpha('#ff7a2a', clamp(1 - u / 3, 0, 1)); ctx.beginPath(); ctx.arc(x, y, p.s, 0, 7); ctx.fill(); }
+        ctx.fillStyle = alpha('#bbbbbb', .35 * clamp(1 - u / 4, 0, 1)); ctx.beginPath(); ctx.arc(cx, py - h * .45, h * .25 * Math.min(1, u), 0, 7); ctx.fill();
+        if (tt > 1.2) $('#fb-st').innerHTML = '<b class="bad">Stichflamme!</b> Das Wasser sinkt unter das heiße Fett, verdampft schlagartig (1 Liter Wasser → etwa 1700 Liter Dampf) und schleudert brennendes Fett nach oben. Schwere Verbrennungen drohen.';
+      }
+    } else {
+      const lid = clamp(tt / 1, 0, 1), y = lerp(h * .1, py - 18, ease(lid));
+      fire(tt < 1 ? 1 : clamp(1 - (tt - 1) * 1.2, 0, 1), tt < 1 ? 1 : .5);
+      ctx.fillStyle = '#7d858e'; ctx.beginPath(); ctx.ellipse(cx, y, pw / 2 + 4, 10, 0, Math.PI, 0); ctx.fill(); ctx.fillRect(cx - 10, y - 18, 20, 9);
+      if (tt > 1.3) $('#fb-st').innerHTML = '<b class="good">Gelöscht.</b> Der Deckel schneidet die Luft ab: Ohne Sauerstoff erstickt die Flamme. Herd ausschalten, Deckel liegen lassen, bis die Pfanne abgekühlt ist.';
+    }
+  });
+  reset();
+})();
+
+scenes($('#sc-n'), [
+  {s: 'In der Pfanne fängt das Öl Feuer.', a: ['Herd aus, Deckel oder Löschdecke drauf', 'Ein Glas Wasser darüber gießen', 'Die Pfanne zum Spülbecken tragen'], ok: 0, why: 'Ersticken – niemals mit Wasser löschen.'},
+  {s: 'Ein Messer rutscht dir vom Brett und fällt Richtung Boden.', a: ['Zurücktreten und fallen lassen', 'Schnell auffangen', 'Mit dem Fuß abfangen'], ok: 0, why: 'Fallende Messer nie auffangen!'},
+  {s: 'Ein Mitschüler hat sich am Backblech verbrannt.', a: ['Ruhig bleiben, Stelle unter lauwarmes Wasser halten, Lehrkraft holen', 'Butter auf die Brandwunde streichen', 'Weglaufen und Hilfe rufen, ohne bei ihm zu bleiben'], ok: 0, why: 'Ruhig bleiben, kühlen (nicht eiskalt), für die Person da sein.'},
+  {s: 'Am Handrührgerät qualmt es plötzlich und riecht verbrannt.', a: ['Not-Aus-Schalter drücken bzw. Stecker ziehen', 'Weiter rühren, bis der Teig fertig ist', 'Mit nassem Lappen abwischen'], ok: 0, why: 'Der Not-Aus-Schalter macht die ganze Küche stromlos.'},
+  {s: 'Auf dem Boden ist Nudelwasser verschüttet.', a: ['Sofort aufwischen und trocknen', 'Später aufwischen', 'Ein Schild hinstellen und weiterkochen'], ok: 0, why: 'Nasser Boden ist eine Rutschgefahr.'}
+], {label: 'Notfall'});
+
+/* Gefahrensymbole (vereinfachte Darstellung) */
+(() => {
+  const dia = inner => `<svg viewBox="0 0 60 60" style="width:3.4rem;height:3.4rem"><rect x="12" y="12" width="36" height="36" transform="rotate(45 30 30)" fill="#fff" stroke="#d01c1f" stroke-width="4"/><g transform="translate(18 18) scale(1)" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">${inner}</g></svg>`;
+  const S = [
+    {k: 'aetzend', t: 'ätzend', svg: '<path d="M4 4 l5 7 M14 3 l4 7"/><path d="M2 18 h9 v4 h-9z M13 18 h10 v4 h-10z" fill="#111"/><path d="M6 13 v3 M17 12 v4" stroke-dasharray="1 2"/>', d: 'Kann Haut und Augen schwer verätzen und Metalle angreifen, z. B. Backofenreiniger, Rohrreiniger, Entkalker. Handschuhe tragen, nicht einatmen.'},
+    {k: 'gesund', t: 'gesundheits­schädlich', svg: '<path d="M12 3 v12" stroke-width="3.5"/><circle cx="12" cy="21" r="1.8" fill="#111"/>', d: 'Ausrufezeichen: kann reizen, Allergien auslösen oder beim Verschlucken schädlich sein, z. B. manche Spülmaschinentabs und Weichspüler.'},
+    {k: 'umwelt', t: 'umwelt­gefährdend', svg: '<path d="M5 22 v-8 M5 14 l-3 2 M5 15 l3 -3 M2 22 h20"/><path d="M12 18 q4 -4 8 0 q-4 4 -8 0z M20 18 l3 -2 v4z"/>', d: 'Toter Baum und Fisch: giftig für Wasserlebewesen. Nie in den Ausguss kippen, sparsam verwenden, Reste zum Schadstoffmobil.'},
+    {k: 'brand', t: 'leicht entzündlich', svg: '<path d="M12 22 c-5 0 -7 -4 -6 -7 c1 -3 3 -4 3 -7 c2 1 3 3 3 5 c1 -2 2 -4 1 -7 c4 2 6 7 6 10 c0 4 -3 6 -7 6z"/><path d="M4 23 h16"/>', d: 'Flamme: fängt leicht Feuer, z. B. Spiritus, Grillanzünder, manche Sprays. Von Hitze und offener Flamme fernhalten.'}
+  ];
+  $('#ghs').innerHTML = S.map((s, i) => `<button class="ex-tile" data-k="${i}" aria-pressed="false" style="align-items:center;text-align:center">${dia(s.svg)}<b>${s.t}</b></button>`).join('');
+  $('#ghs').addEventListener('click', e => { const b = e.target.closest('[data-k]'); if (!b) return; $$('#ghs .ex-tile').forEach(x => x.setAttribute('aria-pressed', x === b)); const s = S[+b.dataset.k]; $('#ghs-info').innerHTML = `<h4>${s.t}</h4><p>${s.d}</p>`; });
+})();
+checks($('#chk'), ['Notausgang', 'Verbandskasten', 'Löschdecke', 'Feuerlöscher', 'Not-Aus-Schalter', 'Topfhandschuhe'], {eval: (n, t) => n === t ? '<b class="good">Alles gefunden!</b> Merkt euch die Orte.' : `Sucht in eurer Schulküche: ${n} von ${t} gefunden.`});
+
+sorter($('#sort'), [{id: 's', name: 'Schnittverletzung'}, {id: 'v', name: 'Verbrennung'}, {id: 'f', name: 'Sturz'}], [
+  {t: 'Messer liegt im Spülwasser', c: 's'}, {t: 'Dose mit scharfem Rand', c: 's'}, {t: 'in der Hand schneiden', c: 's'},
+  {t: 'Topf ohne Handschuh anfassen', c: 'v'}, {t: 'Backofen öffnen, Gesicht davor', c: 'v'}, {t: 'Nudelwasser zum Körper hin abgießen', c: 'v'},
+  {t: 'auf einen Stuhl steigen', c: 'f'}, {t: 'Eimer im Weg', c: 'f'}, {t: 'nasser Fußboden', c: 'f'}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Wo passieren die meisten Unfälle?', a: ['zu Hause', 'im Straßenverkehr', 'in der Schule', 'im Schwimmbad'], ok: 0},
+  {q: 'Womit löscht man einen Fettbrand?', a: ['Deckel oder Löschdecke', 'Wasser', 'Mehl aus der Packung schütten', 'Pusten'], ok: 0, why: 'Der Brand wird erstickt.'},
+  {q: 'Was bewirkt der Not-Aus-Schalter?', a: ['Er schaltet den Strom in der ganzen Küche ab', 'Er ruft die Feuerwehr', 'Er schaltet das Licht ein', 'Er öffnet die Fenster'], ok: 0},
+  {q: 'Was ist die richtige Reihenfolge bei elektrischen Geräten?', a: ['startklar machen – einstecken – benutzen – ausstecken', 'einstecken – startklar machen – benutzen – reinigen', 'benutzen – einstecken – reinigen', 'reinigen – benutzen – einstecken'], ok: 0},
+  {q: 'Was reicht meistens zum Reinigen?', a: ['Spülmittel', 'Backofenreiniger', 'Spiritus', 'Chlorreiniger'], ok: 0}
+]);
+</script>

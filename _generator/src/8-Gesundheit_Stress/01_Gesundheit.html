@@ -1,0 +1,151 @@
+<!--
+title: Gesundheit – was ist das eigentlich?
+short: Gesundheit
+time: 1 Unterrichtsstunde
+book: S. 110–111
+q: Kann ein Mensch mit einer chronischen Krankheit gesund sein?
+facts: WHO: Zustand vollständigen körperlichen, seelischen und sozialen Wohlbefindens | Salutogenese: Gesundheit als Prozess zwischen gesund und krank | Kohärenzgefühl: Verstehbarkeit, Bewältigbarkeit, Sinnhaftigkeit | Faktoren: Körper, Geist, Ernährung, Bewegung, Entspannung, Motivation
+inter: Gesundheit in drei Dimensionen · Das Gesundheits-Krankheits-Kontinuum · Kohärenzgefühl erkunden · Welcher Bereich ist betroffen?
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Gesundheit – was ist das eigentlich?</h1>
+      <p class="lead">Deine Gesundheit ist wertvoll – niemand möchte krank sein. Aber Gesundheit bedeutet mehr als die Abwesenheit von Krankheit und hängt von vielen verschiedenen Faktoren ab.</p>
+      <div class="teaser"><span class="tag info">Was denkst du?</span><p>Wann fühlst du dich richtig gesund und fit?</p></div>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Kann ein Mensch mit einer chronischen Krankheit gesund sein?</p></div>
+      <div class="controls"><button class="btn primary" data-go="who">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="who" data-label="WHO" data-yr="Erarbeitung" data-title="Gesundheit nach der WHO" data-sub="Körper, Seele, soziales Miteinander">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Gesundheit aus Sicht der WHO</h2>
+      <p class="quote">„Gesundheit ist ein Zustand vollständigen körperlichen, seelischen und sozialen Wohlbefindens und nicht nur das Freisein von Krankheit oder Gebrechen.“<cite>Weltgesundheitsorganisation (WHO)</cite></p>
+      <p>Die WHO ist die größte Organisation für Gesundheit weltweit. Ein wichtiges Ziel ist es, die Lebensbedingungen der Menschen zu verbessern, um Gesundheit zu fördern.</p>
+      <ul class="words-box"><li>die WHO</li><li>die Gesundheit</li><li>die Salutogenese</li><li>das Kohärenzgefühl</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Körperlich, seelisch oder sozial?</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="kontinuum" data-label="Salutogenese" data-yr="Erarbeitung" data-title="Gesundheit als Prozess" data-sub="Die Salutogenese">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Gesundheit als Prozess</h2>
+      <p class="lead">Die <b>Salutogenese</b> (lat. <i>salus</i> = gesund, <i>genese</i> = Entstehung) sieht Gesundheit nicht als Zustand, sondern als <b>Prozess</b>. Zwischen Gesundheit und Krankheit gibt es einen fließenden Übergang.</p>
+      <ul class="facts">
+        <li>Jeder Mensch bewegt sich täglich auf dieser Linie hin und her.</li>
+        <li>Auch Menschen mit langwierigen oder chronischen Krankheiten können ihre Gesundheit in eine positive Richtung bewegen.</li>
+        <li>Ein besonders großer Einflussfaktor ist <b>Stress</b>.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wo stehst du heute?</h3></div>
+      <canvas id="cv-k" class="low" style="aspect-ratio:3/1" aria-label="Linie zwischen gesund und krank"></canvas>
+      <div id="chk"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="kohaerenz" data-label="Kohärenzgefühl" data-yr="Vertiefung" data-title="Das Kohärenzgefühl" data-sub="Drei Bereiche">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Vertiefung</p>
+      <h2>Das Kohärenzgefühl</h2>
+      <p class="lead">Wenn du viele positive Lebenserfahrungen sammelst, entwickelst du ein <b>Kohärenzgefühl</b>: die Zuversicht, dass dein Leben verstehbar, sinnvoll und zu bewältigen ist. Ein hohes Kohärenzgefühl führt zu mehr Gesundheit.</p>
+      <p class="note">Mit ausreichend Widerstandsressourcen kann die Auseinandersetzung mit einem Stressauslöser sogar zur Stärkung deiner Gesundheit führen.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Drei Bereiche – sie beeinflussen sich gegenseitig</h3></div>
+      <div id="ex-k"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="faktoren" data-label="Faktoren" data-yr="Anwendung" data-title="Bin ich gesund?" data-sub="Aussagen beurteilen">
+  <div class="section-head"><p class="eyebrow">Station 4 · Anwendung</p><h2>Bin ich gesund?</h2><p class="lead">Körper, Geist, Ernährung, Bewegung, Entspannung und Motivation beeinflussen die Gesundheit. In welchem Bereich liegt bei diesen Personen eine Einschränkung vor?</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Gesundheit</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Was ist Gesundheit?</h3><span>AES · Klasse 8</span></div>
+      <ol>
+        <li data-step>Laut <b>WHO</b> ist Gesundheit ein Zustand vollständigen <b>körperlichen, seelischen und sozialen</b> Wohlbefindens – nicht nur das Freisein von Krankheit.</li>
+        <li data-step>Die <b>Salutogenese</b> beschreibt Gesundheit als <b>Prozess</b>: Zwischen gesund und krank gibt es einen fließenden Übergang.</li>
+        <li data-step>Das <b>Kohärenzgefühl</b> ist eine positive Sicht auf die eigene Lebenssituation. Es besteht aus Verstehbarkeit, Bewältigbarkeit und Sinnhaftigkeit.</li>
+        <li data-step>Gesundheit wird beeinflusst von Körper, Geist, Ernährung, Bewegung, Entspannung und Motivation.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Sprichwort</span><p>„Gesundheit ist nicht alles, aber ohne Gesundheit ist alles nichts.“ Erkläre.</p></div>
+      <div class="box"><span class="tag info">Zur Leitfrage</span><p>Nach der Salutogenese ja: Auch mit Diabetes kann man sich auf der Linie Richtung „gesund“ bewegen – durch Wissen, Bewältigung und Sinn.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Gesundheits-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+sorter($('#sort'), [{id: 'k', name: 'körperlich'}, {id: 's', name: 'seelisch'}, {id: 'o', name: 'sozial'}], [
+  {t: 'kein Fieber, keine Schmerzen', c: 'k'}, {t: 'fit beim Treppensteigen', c: 'k'}, {t: 'gut geschlafen', c: 'k'},
+  {t: 'zufrieden mit mir selbst', c: 's'}, {t: 'keine Angst vor der Zukunft', c: 's'}, {t: 'gut gelaunt', c: 's'},
+  {t: 'gute Freundschaften', c: 'o'}, {t: 'in der Klasse akzeptiert', c: 'o'}, {t: 'Unterstützung durch die Familie', c: 'o'}
+]);
+(() => {
+  let pos = .5;
+  checks($('#chk'), ['Ich habe gut geschlafen.', 'Ich habe heute schon gefrühstückt.', 'Ich habe mich bewegt.', 'Ich fühle mich wohl in der Klasse.', 'Ich habe gerade keine Schmerzen.', 'Ich freue mich auf etwas.'], {eval: (n, t) => { pos = n / t; return `Heute eher Richtung <b>${pos > .66 ? 'gesund' : pos > .33 ? 'Mitte' : 'krank'}</b> – morgen kann es schon anders aussehen. Das ist der Gedanke der Salutogenese.`; }});
+  let cur = .5;
+  canvasLoop($('#cv-k'), 'kontinuum', (ctx, w, h, t, dt) => {
+    cur += (pos - cur) * Math.min(1, dt * 4);
+    const x0 = w * .08, x1 = w * .92, y = h * .5, g = ctx.createLinearGradient(x0, 0, x1, 0); g.addColorStop(0, col('bad')); g.addColorStop(.5, col('warn')); g.addColorStop(1, col('good'));
+    ctx.fillStyle = g; roundRect(ctx, x0, y - 8, x1 - x0, 16, 8); ctx.fill();
+    label(ctx, 'krank', x0, y + 30, {size: 14, align: 'left', color: C.bad}); label(ctx, 'gesund', x1, y + 30, {size: 14, align: 'right', color: C.good});
+    const x = lerp(x0, x1, cur); ctx.fillStyle = C.surface; ctx.strokeStyle = C.ink; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(x, y, 14, 0, 7); ctx.fill(); ctx.stroke();
+    label(ctx, 'ich', x, y - 28, {size: 13, color: C.ink});
+  });
+})();
+explore($('#ex-k'), [
+  {ico: 'idee', t: 'Verstehbarkeit', d: 'Das Empfinden, dass das eigene Leben verstehbar und strukturiert ist: „Ich verstehe, was um mich herum passiert.“'},
+  {ico: 'hand', t: 'Bewältigbarkeit', d: 'Die Zuversicht, Anforderungen bewältigen zu können, die auf einen zukommen: „Ich schaffe das – und wenn nicht allein, dann mit Hilfe.“'},
+  {ico: 'stern', t: 'Sinnhaftigkeit', d: 'Das Grundgefühl, dass das eigene Leben sinnvoll ist und es sich lohnt, Anforderungen zu meistern: „Es lohnt sich, sich anzustrengen.“'}
+], {cols2: true, hint: 'Tippe auf einen Bereich.'});
+scenes($('#sc'), [
+  {s: 'Mia hat sich das Bein gebrochen, ist aber gut gelaunt und wird von ihren Freunden besucht.', a: ['körperlich eingeschränkt', 'seelisch eingeschränkt', 'sozial eingeschränkt'], ok: 0},
+  {s: 'Paul ist sportlich und kerngesund, fühlt sich aber seit Wochen einsam, weil er in eine neue Stadt gezogen ist.', a: ['sozial eingeschränkt', 'körperlich eingeschränkt', 'gar nicht eingeschränkt'], ok: 0},
+  {s: 'Lea hat Diabetes Typ 1. Sie kennt sich gut aus, misst regelmäßig und spielt Handball im Verein.', a: ['Sie bewegt sich Richtung „gesund“ – trotz chronischer Krankheit', 'Sie ist auf jeden Fall krank', 'Sie ist sozial eingeschränkt'], ok: 0, why: 'So sieht es die Salutogenese.'},
+  {s: 'Ali hat vor jeder Klassenarbeit Bauchschmerzen und schläft schlecht.', a: ['seelisch (Stress) mit körperlichen Folgen', 'nur körperlich', 'sozial'], ok: 0, why: 'Die Bereiche beeinflussen sich gegenseitig.'}
+], {label: 'Person'});
+trueFalse($('#tf'), [
+  {t: 'Gesundheit bedeutet nur, nicht krank zu sein.', ok: false, why: 'Laut WHO geht es um körperliches, seelisches und soziales Wohlbefinden.'},
+  {t: 'Die Salutogenese sieht Gesundheit als Prozess.', ok: true},
+  {t: 'Das Kohärenzgefühl besteht aus Verstehbarkeit, Bewältigbarkeit und Sinnhaftigkeit.', ok: true},
+  {t: 'Wer chronisch krank ist, kann seine Gesundheit nicht verbessern.', ok: false, why: 'Laut Salutogenese schon.'},
+  {t: 'Stress ist ein großer Einflussfaktor auf die Gesundheit.', ok: true}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Was bedeutet „Salutogenese“?', a: ['Entstehung von Gesundheit', 'Entstehung von Krankheit', 'Salzgehalt im Blut', 'eine Diät'], ok: 0},
+  {q: 'Welche drei Dimensionen nennt die WHO?', a: ['körperlich, seelisch, sozial', 'Essen, Trinken, Schlafen', 'Schule, Familie, Freizeit', 'jung, mittel, alt'], ok: 0},
+  {q: 'Was gehört zum Kohärenzgefühl?', a: ['Sinnhaftigkeit', 'Schnelligkeit', 'Ehrgeiz', 'Reichtum'], ok: 0},
+  {q: 'Was führt laut Salutogenese zu einem hohen Kohärenzgefühl?', a: ['viele positive Lebenserfahrungen', 'viel Geld', 'nie Probleme haben', 'viele Medikamente'], ok: 0}
+]);
+</script>

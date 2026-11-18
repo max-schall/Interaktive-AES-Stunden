@@ -1,0 +1,135 @@
+<!--
+title: Fleischkonsum frisst Ressourcen
+short: Fleischkonsum
+time: 1 Unterrichtsstunde
+book: S. 160–161
+q: Wie viel Wasser steckt in einem Burger?
+facts: Fleischkonsum in Deutschland fast doppelt so hoch wie von der DGE empfohlen (300–600 g pro Woche) | Gesundheitliche, ökologische, soziale und wirtschaftliche Auswirkungen | Virtuelles Wasser: 15 400 l für 1 kg Rindfleisch | Methan ist 25-mal klimaschädlicher als CO₂; bewusst und weniger Fleisch essen
+inter: Virtuelles Wasser im Vergleich · Mein Fleisch pro Woche · Vier Auswirkungen · Bewusst genießen
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Fleischkonsum frisst Ressourcen</h1>
+      <p class="lead">Viele Menschen in Deutschland lieben Fleisch und Wurst. Weißt du, woher dein Fleisch kommt – und welche Auswirkungen es auf die Umwelt, andere Menschen und deine Gesundheit hat?</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie viel Wasser steckt in einem Burger?</p></div>
+      <div class="controls"><button class="btn primary" data-go="wasser">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="wasser" data-label="Virtuelles Wasser" data-yr="Einstieg" data-title="Virtuelles Wasser" data-sub="Unsichtbar, aber verbraucht">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Virtuelles Wasser</h2>
+      <p class="lead"><b>Virtuelles Wasser</b> ist die gesamte Wassermenge, die für die Herstellung eines Produkts verwendet wurde. Bei Fleisch zählt das Wasser für den Futteranbau, die Tränke, die Schlachtung und die Verarbeitung.</p>
+      <p class="prompt"><b>Schätze zuerst:</b> Wie viele Liter Wasser stecken in 1 kg Rindfleisch?</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Liter virtuelles Wasser pro kg</h3><button class="btn" id="vw-show">Auflösen</button></div>
+      <div id="bars"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="konsum" data-label="Wie viel?" data-yr="Anwendung" data-title="Wie viel Fleisch?" data-sub="DGE-Empfehlung und Wirklichkeit">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Anwendung</p>
+      <h2>Wie viel Fleisch ist genug?</h2>
+      <p class="lead">Die DGE empfiehlt höchstens <b>300–600 g Fleisch und Wurst pro Woche</b> (15–30 kg pro Jahr) – das sind zwei bis drei Fleischmahlzeiten. In Deutschland wird im Durchschnitt fast doppelt so viel gegessen.</p>
+      <p>Weltweit hat sich der Fleischkonsum in den letzten zwanzig Jahren verdoppelt – auch, weil Fleisch heute günstig produziert wird.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Meine Woche (Schätzung)</h3></div>
+      <div id="calc-k"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="folgen" data-label="Auswirkungen" data-yr="Erarbeitung" data-title="Vier Auswirkungen" data-sub="Gesundheit, Umwelt, Soziales, Wirtschaft">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Erarbeitung</p>
+      <h2>Vier Auswirkungen</h2>
+      <p class="lead">Dein Fleischkonsum hat gesundheitliche, ökologische, soziale und wirtschaftliche Auswirkungen.</p>
+      <ul class="words-box"><li>das virtuelle Wasser</li><li>das CO₂-Äquivalent</li><li>der Import</li><li>der Export</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf einen Bereich</h3></div>
+      <div id="ex-a"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="bewusst" data-label="Bewusst essen" data-yr="Übung" data-title="Bewusst genießen" data-sub="Was kannst du tun?">
+  <div class="section-head"><p class="eyebrow">Station 4 · Übung</p><h2>Bewusst genießen</h2><p class="lead">Du kannst etwas für dich und die Umwelt tun – ohne ganz verzichten zu müssen.</p></div>
+  <div id="sort"></div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Fleischkonsum</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Fleischkonsum und Ressourcen</h3><span>AES · Klasse 9</span></div>
+      <ol>
+        <li data-step>Der Fleischkonsum in Deutschland ist fast doppelt so hoch wie von der DGE empfohlen (300–600 g pro Woche).</li>
+        <li data-step><b>Gesundheit:</b> Viel rotes Fleisch begünstigt Herz-Kreislauf-Erkrankungen und Schlaganfälle.</li>
+        <li data-step><b>Umwelt:</b> Fleisch braucht viel Fläche (Regenwald wird abgeholzt), Wasser (1 kg Rind ≈ 15 400 l virtuelles Wasser) und verursacht Treibhausgase (Methan ist 25-mal klimaschädlicher als CO₂).</li>
+        <li data-step><b>Soziales und Wirtschaft:</b> Futtermittelanbau in Entwicklungsländern verdrängt Nahrungsmittel für die Menschen dort.</li>
+        <li data-step>Bewusst handeln: weniger und hochwertiges Fleisch, öfter fleischlose Gerichte.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Praxis</span><p>Plant und kocht ein fleischloses Gericht, das auch Fleischfans überzeugt.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Fleisch-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+(() => {
+  const D = [['Rindfleisch', 15400, 'c1'], ['Schweinefleisch', 6000, 'c1'], ['Hähnchen', 4300, 'c1'], ['Käse', 3200, 'c5'], ['Reis', 2500, 'c5'], ['Getreide', 1300, 'c2'], ['Kartoffeln', 290, 'c2'], ['Tomaten', 210, 'c2']];
+  let shown = false;
+  const draw = () => shown ? bars($('#bars'), D.map(([l, v, c]) => ({l, v, c})), {unit: 'l', dec: 0, note: 'Gerundete Werte (Water Footprint Network). Ein Burger mit 150 g Rind: ca. 2300 l – etwa 15 volle Badewannen.'}) : ($('#bars').innerHTML = '<p class="muted">Schätzt zuerst: 150 l? 1500 l? 15 000 l?</p>');
+  $('#vw-show').onclick = () => { shown = !shown; $('#vw-show').textContent = shown ? 'Verdecken' : 'Auflösen'; draw(); }; draw();
+})();
+calc($('#calc-k'), [{id: 'm', l: 'Fleischmahlzeiten pro Woche (je ca. 150 g)', min: 0, max: 14, v: 5}, {id: 'w', l: 'Wurstbrote pro Woche (je ca. 30 g)', min: 0, max: 21, v: 7}], v => {
+  const g = v.m * 150 + v.w * 30, y = g * 52 / 1000;
+  return `<span class="big">${g} g pro Woche</span><p>≈ ${numDE(y, 0)} kg pro Jahr · ${g <= 600 ? '<b class="good">im Rahmen der DGE-Empfehlung</b> (300–600 g).' : `<b class="bad">${numDE(g / 600, 1)}-mal so viel</b> wie die Obergrenze der DGE-Empfehlung.`}</p><p>Virtuelles Wasser (bei Rind): ca. ${numDE(g / 1000 * 15400, 0)} l pro Woche.</p>`;
+});
+explore($('#ex-a'), [
+  {ico: 'herz', t: 'gesundheitlich', d: 'Ein hoher Konsum, vor allem von rotem Fleisch, begünstigt Herz-Kreislauf-Erkrankungen und Schlaganfälle. Wurst ist oft sehr fett- und salzreich.'},
+  {ico: 'erde', t: 'ökologisch', d: 'Fleischproduktion braucht viel Platz: Weil er bei uns knapp ist, wird anderswo Regenwald für Weiden und Futtermittel (Soja) abgeholzt – Lebensraum vieler Tiere geht verloren. Dazu kommen Wasserverbrauch und Treibhausgase: Methan ist 25-mal klimaschädlicher als CO₂.'},
+  {ico: 'gruppe', t: 'sozial', d: 'In Entwicklungsländern wird auf Ackerflächen Futter für unsere Tiere angebaut. Den Menschen dort fehlen Flächen für eigene Nahrungsmittel.'},
+  {ico: 'euro', t: 'wirtschaftlich', d: 'Durch weltweiten Import und Export konkurrieren kleine Betriebe mit großen Konzernen. Die Folge: Reiche werden immer reicher, kleine Höfe geben auf.'}
+], {hint: 'Tippe auf einen Bereich.'});
+sorter($('#sort'), [{id: 'g', name: 'hilft'}, {id: 'n', name: 'hilft nicht'}], [
+  {t: 'öfter fleischlose Gerichte planen', c: 'g'}, {t: 'qualitativ hochwertiges Fleisch aus artgerechter Haltung', c: 'g'}, {t: 'kleinere Portionen', c: 'g'}, {t: 'Fleisch aus der Region', c: 'g'}, {t: 'Hülsenfrüchte als Eiweißquelle', c: 'g'},
+  {t: 'Billigfleisch im Großpack', c: 'n'}, {t: 'jeden Tag Wurst und Fleisch', c: 'n'}, {t: 'Fleischreste wegwerfen', c: 'n'}
+]);
+trueFalse($('#tf'), [
+  {t: 'In 1 kg Rindfleisch stecken ca. 15 400 l virtuelles Wasser.', ok: true},
+  {t: 'Methan ist weniger klimaschädlich als CO₂.', ok: false, why: '25-mal klimaschädlicher.'},
+  {t: 'Die DGE empfiehlt höchstens 300–600 g Fleisch und Wurst pro Woche.', ok: true},
+  {t: 'In Deutschland wird weniger Fleisch gegessen als empfohlen.', ok: false, why: 'Fast doppelt so viel.'},
+  {t: 'Für Futtermittel wird Regenwald abgeholzt.', ok: true}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Was ist virtuelles Wasser?', a: ['das gesamte Wasser, das für ein Produkt verwendet wurde', 'Wasser im Computer', 'Mineralwasser', 'Regenwasser'], ok: 0},
+  {q: 'Wie viel Wasser steckt in 1 kg Getreide?', a: ['ca. 1300 l', 'ca. 13 l', 'ca. 15 400 l', 'gar keins'], ok: 0},
+  {q: 'Welche Krankheiten begünstigt viel rotes Fleisch?', a: ['Herz-Kreislauf-Erkrankungen', 'Erkältungen', 'Karies', 'Allergien'], ok: 0},
+  {q: 'Was bedeutet „Import“?', a: ['Einfuhr von Gütern', 'Ausfuhr von Gütern', 'Herstellung', 'Verkauf'], ok: 0}
+]);
+</script>

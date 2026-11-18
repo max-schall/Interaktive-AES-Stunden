@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+_generator/shots/
+_generator/visshots/
+book_ocr.pdf
+*.pdf.bak
+.DS_Store

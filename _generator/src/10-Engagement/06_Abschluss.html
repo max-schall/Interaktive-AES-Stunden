@@ -1,0 +1,105 @@
+<!--
+title: Großer Abschlusstest AES
+short: Abschlusstest
+time: 1 Unterrichtsstunde
+book: S. 264–281
+q: Was habe ich in fünf Jahren AES gelernt?
+facts: Fachbegriffe aus allen Klassenstufen | Großes Quiz mit 30 Fragen (12 zufällig pro Runde) | Fallbeispiel: Mein Projekt fürs Leben | „Ich kann …“-Liste mit Links in alle Reihen
+inter: Begriffe aus fünf Jahren · Großes Quiz · Fallbeispiel · Selbsteinschätzung über alle Reihen
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Großer Abschlusstest AES</h1>
+      <p class="lead">Von den Tischsitten in Klasse 6 bis zur Versicherung in Klasse 10: Teste dein Wissen aus dem ganzen Fach Alltagskultur, Ernährung, Soziales.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Was habe ich in fünf Jahren AES gelernt?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Begriffe aus fünf Jahren" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Begriffe aus fünf Jahren AES</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="12 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 2 · Quiz</p><h2>Großes Quiz über alle Klassenstufen</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="fall" data-label="Fallbeispiel" data-yr="Anwenden" data-title="Ein Tag mit Mara" data-sub="Alles hängt zusammen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Fallbeispiel</p><h2>Ein Tag mit Mara</h2><p class="lead">Mara (19) macht eine Ausbildung zur Köchin, wohnt in einer WG und engagiert sich in der Jugendfeuerwehr. Begleite sie durch einen Tag – und entscheide mit.</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['Sättigung', 'Gefühl, genug gegessen zu haben'], ['Krallengriff', 'sichere Haltung beim Schneiden'], ['Ernährungskreis', 'DGE-Modell der Lebensmittelgruppen'], ['Planetary Health Diet', 'Speiseplan für Gesundheit und Planet'], ['Nutri-Score', 'Nährwertampel von A bis E'], ['Resilienz', 'seelische Widerstandskraft'], ['Fast Fashion', 'billige Mode im schnellen Wechsel'], ['Gewährleistung', '2 Jahre Recht bei Mängeln'], ['Work-Life-Balance', 'Gleichgewicht von Arbeit und Privatleben'], ['Ich-Botschaft', 'Gefühle ohne Vorwurf äußern'], ['Health Claims', 'gesundheitsbezogene Werbeaussagen'], ['Solidaritätsprinzip', 'Beitrag nach Einkommen, gleiche Leistungen'], ['Ehrenamt', 'freiwillige, unbezahlte Arbeit fürs Gemeinwohl']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+mcQuiz($('#quiz'), [
+  {q: 'Kl. 6: Welche Sinne „essen mit“?', a: ['Augen, Nase, Ohren, Tastsinn', 'nur die Zunge', 'nur die Augen', 'keine'], ok: 0},
+  {q: 'Kl. 6: Was tust du als Erstes vor dem Kochen?', a: ['Hände waschen', 'Herd anschalten', 'Messer schärfen', 'probieren'], ok: 0},
+  {q: 'Kl. 6: Welches Garverfahren gehört zu den feuchten?', a: ['Dünsten', 'Braten', 'Grillen', 'Backen'], ok: 0},
+  {q: 'Kl. 6: Wie hältst du beim Schneiden die Finger?', a: ['im Krallengriff, Fingerkuppen eingezogen', 'flach ausgestreckt', 'unter dem Messer', 'egal'], ok: 0},
+  {q: 'Kl. 7: Was steht in der Mitte des DGE-Ernährungskreises?', a: ['Getränke', 'Fette und Öle', 'Fleisch', 'Süßigkeiten'], ok: 0},
+  {q: 'Kl. 7: Welcher Nährstoff liefert am meisten Energie pro Gramm?', a: ['Fett', 'Eiweiß', 'Kohlenhydrate', 'Wasser'], ok: 0},
+  {q: 'Kl. 7: Wie weist man Stärke nach?', a: ['mit Iod-Kaliumiodid-Lösung (Blaufärbung)', 'mit Salz', 'mit Wasser', 'mit Essig'], ok: 0},
+  {q: 'Kl. 7: Was bedeutet „saisonal“?', a: ['zur Erntezeit in der Region', 'aus dem Ausland', 'tiefgefroren', 'in Dosen'], ok: 0},
+  {q: 'Kl. 8: Was zeigt das Mindesthaltbarkeitsdatum?', a: ['bis wann das Produkt mindestens seine Eigenschaften behält', 'ab wann es giftig ist', 'das Herstellungsdatum', 'den Preis'], ok: 0},
+  {q: 'Kl. 8: Was sind E-Nummern?', a: ['Kennzeichnung zugelassener Zusatzstoffe', 'Energiewerte', 'Preise', 'Eier-Codes'], ok: 0},
+  {q: 'Kl. 8: Welche Notrufnummer gilt in Europa?', a: ['112', '110', '911', '116 111'], ok: 0},
+  {q: 'Kl. 8: Was hilft gegen Stress?', a: ['Bewegung, Pausen, Gespräche, Schlaf', 'mehr Bildschirmzeit', 'Energydrinks', 'alles gleichzeitig'], ok: 0},
+  {q: 'Kl. 9: Welche Funktion hat Kleidung?', a: ['Schutz, Ausdruck, Zugehörigkeit', 'nur Wärme', 'keine', 'nur Mode'], ok: 0},
+  {q: 'Kl. 9: Was ist der ökologische Fußabdruck?', a: ['Fläche, die mein Lebensstil verbraucht', 'Schuhgröße', 'ein Siegel', 'ein Tanz'], ok: 0},
+  {q: 'Kl. 9: Was ist Slow Fashion?', a: ['bewusst, langlebig und fair kaufen', 'langsames Anziehen', 'billige Mode', 'Wintermode'], ok: 0},
+  {q: 'Kl. 9: Wie lange gilt das Widerrufsrecht online?', a: ['14 Tage', '2 Jahre', '1 Monat', '1 Woche'], ok: 0},
+  {q: 'Kl. 9: Was bedeutet Fair Trade?', a: ['faire Preise und Arbeitsbedingungen für Produzenten', 'billige Ware', 'Tauschhandel', 'nur bio'], ok: 0},
+  {q: 'Kl. 10: Wozu dient der Zick-Zack-Stich?', a: ['zum Versäubern', 'zum Verriegeln', 'zum Heften', 'zum Sticken'], ok: 0},
+  {q: 'Kl. 10: Welche Arbeitsform ist bezahlt?', a: ['Erwerbsarbeit', 'Hausarbeit', 'Familienarbeit', 'Ehrenamt'], ok: 0},
+  {q: 'Kl. 10: Was ist eine Patchworkfamilie?', a: ['Kinder haben nicht alle die gleichen Eltern', 'eine Großfamilie', 'ein Elternteil mit Kind', 'Pflegefamilie'], ok: 0},
+  {q: 'Kl. 10: Was verpflichtet Kinder zur Mithilfe im Haushalt?', a: ['§ 1619 BGB', 'Art. 3 GG', 'die Schulordnung', 'nichts'], ok: 0},
+  {q: 'Kl. 10: Was bezahlt man mit der Kaltmiete?', a: ['nur den Wohnraum', 'auch Heizung', 'auch Strom', 'alles'], ok: 0},
+  {q: 'Kl. 10: Ab welchem GVO-Anteil muss gekennzeichnet werden?', a: ['über 0,9 %', 'über 5 %', 'über 50 %', 'nie'], ok: 0},
+  {q: 'Kl. 10: Sind Nahrungsergänzungsmittel Arzneimittel?', a: ['nein, Lebensmittel', 'ja', 'nur Pulver', 'nur Tabletten'], ok: 0},
+  {q: 'Kl. 10: Was ist Greenwashing?', a: ['ein grünes Image vortäuschen', 'Gemüse waschen', 'ein Siegel', 'Recycling'], ok: 0},
+  {q: 'Kl. 10: Was ist die 50:30:20-Regel?', a: ['Fixkosten, Wünsche, Rücklage', 'Miete, Essen, Kino', 'Zinsen, Raten, Laufzeit', 'Sport, Schlaf, Arbeit'], ok: 0},
+  {q: 'Kl. 10: Welche Versicherung zahlt, wenn du etwas von anderen beschädigst?', a: ['Privathaftpflicht', 'Hausrat', 'Rentenversicherung', 'Krankenversicherung'], ok: 0},
+  {q: 'Kl. 10: Was ist Landgrabbing?', a: ['Landraub in Entwicklungsländern', 'Gartenarbeit', 'ein Spiel', 'Bodenschutz'], ok: 0},
+  {q: 'Kl. 10: Welche drei Phasen hat ein Projekt?', a: ['Planung, Durchführung, Bewertung', 'Start, Mitte, Ende', 'Idee, Geld, Party', 'Lesen, Schreiben, Rechnen'], ok: 0},
+  {q: 'Kl. 10: Was ist Service Learning?', a: ['Lernen mit gesellschaftlichem Engagement verbinden', 'Kellnern lernen', 'Online-Kurs', 'Nachhilfe gegen Geld'], ok: 0}
+], {pick: 12});
+scenes($('#sc'), [
+  {s: '6:30 Uhr – Mara hat verschlafen und keine Zeit fürs Frühstück.', a: ['Banane und Vollkornbrot mitnehmen, Wasser trinken', 'Energydrink an der Tanke', 'bis mittags nichts essen'], ok: 0},
+  {s: '9:00 Uhr – In der Ausbildungsküche soll sie 5 kg Zwiebeln schneiden.', a: ['Krallengriff, scharfes Messer, rutschfestes Brett', 'schnell und ohne hinzusehen', 'Finger flach auf der Zwiebel'], ok: 0},
+  {s: '12:30 Uhr – Ein Kollege bietet ihr „Power-Kapseln“ für mehr Energie an.', a: ['Ablehnen – bei vollwertiger Ernährung unnötig und ungeprüft', 'gleich zwei nehmen', 'täglich kaufen'], ok: 0},
+  {s: '16:00 Uhr – Ihr Handy fällt ihr aus der Hand und beschädigt die Brille einer Mitbewohnerin.', a: ['Die Privathaftpflicht übernimmt den Schaden.', 'Die Mitbewohnerin muss selbst zahlen.', 'Die Krankenkasse zahlt.'], ok: 0},
+  {s: '18:00 Uhr – Die WG streitet über das dreckige Bad.', a: ['Ich-Botschaften, gemeinsamer Putzplan, Kompromiss', 'Ausziehen', 'Schweigen und ärgern'], ok: 0},
+  {s: '19:30 Uhr – Übung bei der Jugendfeuerwehr. Danach ist sie müde, aber glücklich.', a: ['Ehrenamt stärkt Gemeinschaft und Selbstwirksamkeit – gut für die Work-Life-Balance, wenn genug Erholung bleibt.', 'Ehrenamt ist Zeitverschwendung.', 'Sie sollte nie mehr Pause machen.'], ok: 0}
+], {label: 'Szene'});
+selfCheck($('#sci'), [
+  {t: 'Ich kann erklären, was mein Essverhalten beeinflusst.', href: '../6-Essverhalten/00_Uebersicht.html'},
+  {t: 'Ich kann sicher und hygienisch in der Küche arbeiten.', href: '../6-Nahrungszubereitung/00_Uebersicht.html'},
+  {t: 'Ich kenne die Nährstoffe und den Ernährungskreis.', href: '../7-Ernaehrung_Grundlagen/00_Uebersicht.html'},
+  {t: 'Ich kann mich nachhaltig ernähren.', href: '../7-Nachhaltige_Ernaehrung/00_Uebersicht.html'},
+  {t: 'Ich kann Lebensmittel anhand der Kennzeichnung beurteilen.', href: '../8-Lebensmittelqualitaet/00_Uebersicht.html'},
+  {t: 'Ich kenne Strategien für Gesundheit und gegen Stress.', href: '../8-Gesundheit_Stress/00_Uebersicht.html'},
+  {t: 'Ich gehe selbstbewusst mit meinem Körper um.', href: '../9-Koerper/00_Uebersicht.html'},
+  {t: 'Ich kann nachhaltig konsumieren – auch bei Kleidung.', href: '../9-Nachhaltiger_Konsum/00_Uebersicht.html'},
+  {t: 'Ich kenne meine Rechte als Verbraucherin oder Verbraucher.', href: '../9-Qualitaetsorientierung/00_Uebersicht.html'},
+  {t: 'Ich kann Arbeit, Freizeit und Familie gerecht gestalten.', href: '../10-Haushalt_Familie/00_Uebersicht.html'},
+  {t: 'Ich kann Ernährungstrends kritisch beurteilen.', href: '../10-Ernaehrung_Gesundheit/00_Uebersicht.html'},
+  {t: 'Ich kann Finanzen planen und mich absichern.', href: '../10-Lebensgestaltung/00_Uebersicht.html'},
+  {t: 'Ich kann ein Projekt planen, durchführen und bewerten.', href: '02_Projektmethode.html#phasen'}
+]);
+</script>

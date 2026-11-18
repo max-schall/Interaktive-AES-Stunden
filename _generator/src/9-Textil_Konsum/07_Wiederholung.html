@@ -1,0 +1,84 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 180–181
+q: Kann ich Kleidung und Konsumgüter verantwortungsvoll auswählen und nutzen?
+facts: Fachbegriffe als Karteikarten und Paare | Fallbeispiel: die neue Jacke | Quiz mit 16 Fragen (10 zufällig pro Runde) | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Fallbeispiel · Großes Quiz · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Textile Kette, Fast Fashion, Slow Fashion, Kreislaufwirtschaft und Fair Trade: Prüfe, was du weißt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Kann ich Kleidung und Konsumgüter verantwortungsvoll auswählen und nutzen?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="fall" data-label="Fallbeispiel" data-yr="Anwenden" data-title="Die neue Jacke" data-sub="Gut entscheiden">
+  <div class="section-head"><p class="eyebrow">Station 2 · Fallbeispiel</p><h2>Die neue Jacke</h2><p class="lead">Aylins Winterjacke ist zu klein geworden. Sie möchte eine neue – und dabei nachhaltig handeln.</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['textile Kette', 'Lebensweg einer Textilie von der Faser bis zur Entsorgung'], ['Wertschöpfungskette', 'mit jedem Schritt steigt der Wert'], ['Mischgewebe', 'aus mehreren Faserarten, kaum recycelbar'], ['Imprägnieren', 'Textilien wasserabweisend machen'], ['Fast Fashion', 'billige, schnell wechselnde Mode'], ['Bekleidungsökologie', 'Human-, Produktions-, Entsorgungsökologie'], ['Gewerkschaft', 'Organisation von Arbeitnehmenden'], ['Slow Fashion', 'bewusste, langlebige Mode'], ['Upcycling', 'aus Altem wird etwas Hochwertigeres'], ['Downcycling', 'aus Altem wird etwas Minderwertigeres'], ['geplante Obsoleszenz', 'absichtlich verkürzte Lebensdauer'], ['Kreislaufwirtschaft', 'Produktion ohne Abfall'], ['Mindestpreis', 'fester Preis bei Fairtrade'], ['Fairtrade-Prämie', 'Geld für Gemeinschaftsprojekte']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+scenes($('#sc'), [
+  {s: 'Erster Gedanke:', a: ['Gibt es eine Jacke von Geschwistern, Cousinen oder secondhand?', 'Sofort die billigste neue Jacke bestellen', 'Drei Jacken bestellen und zwei zurückschicken'], ok: 0},
+  {s: 'Secondhand gibt es nichts Passendes. Beim Neukauf …', a: ['achtet sie auf Langlebigkeit und Siegel wie Fair Wear', 'nimmt sie die Jacke mit dem größten Logo', 'kauft sie eine Trendjacke für eine Saison'], ok: 0},
+  {s: 'Die Jacke ist aus Polyester und Baumwolle gemischt.', a: ['Gut pflegen und lange tragen – Mischgewebe ist kaum recycelbar', 'Egal, wird ja recycelt', 'Gleich in den Container'], ok: 0},
+  {s: 'Pflege: Auf dem Etikett ist ein durchgestrichener Trockner.', a: ['Lufttrocknen', 'Heiß im Trockner', 'Auf die Heizung legen'], ok: 0},
+  {s: 'Die alte Jacke ist noch gut.', a: ['Weitergeben oder an eine gemeinnützige Kleiderkammer spenden', 'In den Restmüll', 'Verbrennen'], ok: 0}
+], {label: 'Schritt'});
+mcQuiz($('#quiz'), [
+  {q: 'Was entsteht beim Spinnen?', a: ['Garn', 'Stoff', 'Faser', 'Jacke'], ok: 0},
+  {q: 'Welche ist eine Naturfaser?', a: ['Leinen', 'Polyester', 'Elasthan', 'Polyamid'], ok: 0},
+  {q: 'Wie viel der Altkleider geht an Bedürftige?', a: ['ca. 10 %', 'ca. 90 %', 'ca. 50 %', '0 %'], ok: 0},
+  {q: 'Wie viel Wasser braucht ein Baumwoll-T-Shirt?', a: ['ca. 2700 l', 'ca. 27 l', 'ca. 270 000 l', 'ca. 2 l'], ok: 0},
+  {q: 'Welche Bereiche hat die Bekleidungsökologie?', a: ['Human-, Produktions-, Entsorgungsökologie', 'Mode, Preis, Marke', 'Waschen, Trocknen, Bügeln', 'Sommer, Winter'], ok: 0},
+  {q: 'Wie viel erhält die Näherin bei einem 4,99-€-T-Shirt?', a: ['ca. 5 Cent', 'ca. 2 €', 'ca. 1 €', 'ca. 4 €'], ok: 0},
+  {q: 'Wie lange arbeiten viele Näherinnen am Tag?', a: ['bis zu 16 Stunden', '4 Stunden', '6 Stunden', '24 Stunden'], ok: 0},
+  {q: 'Ist ein teures T-Shirt immer fair?', a: ['nein', 'ja', 'nur bei Marken', 'nur im Winter'], ok: 0},
+  {q: 'Was ist am nachhaltigsten?', a: ['weniger Kleidung kaufen', 'mehr Bio kaufen', 'öfter waschen', 'Altkleidercontainer nutzen'], ok: 0},
+  {q: 'Was bedeutet ein Dreieck mit Kreuz?', a: ['nicht bleichen', 'nicht waschen', 'nicht bügeln', 'chemisch reinigen'], ok: 0},
+  {q: 'Was ist Upcycling?', a: ['aus Altem etwas Hochwertigeres machen', 'Putzlappen herstellen', 'wegwerfen', 'verbrennen'], ok: 0},
+  {q: 'Was gehört in den technischen Kreislauf?', a: ['Smartphone', 'Bananenschale', 'Kaffeesatz', 'Bio-Baumwolle'], ok: 0},
+  {q: 'Welche R-Strategie bedeutet „ablehnen“?', a: ['Refuse', 'Recycle', 'Rot', 'Reuse'], ok: 0},
+  {q: 'Was garantiert Fairtrade?', a: ['einen Mindestpreis und eine Prämie', 'den billigsten Preis', 'Bio-Qualität immer', 'regionale Herkunft'], ok: 0},
+  {q: 'Wie viel faire Zutaten braucht ein Mischprodukt?', a: ['mind. 20 %', '100 %', '1 %', '50 %'], ok: 0},
+  {q: 'Was ist eine Gewerkschaft?', a: ['Organisation von Arbeitnehmenden', 'eine Fabrik', 'ein Siegel', 'ein Geschäft'], ok: 0}
+], {pick: 10});
+selfCheck($('#sci'), [
+  {t: 'Ich kann die textile Kette beschreiben.', href: '01_Textile_Kette.html#kette'},
+  {t: 'Ich kann Natur- und Chemiefasern unterscheiden.', href: '01_Textile_Kette.html#fasern'},
+  {t: 'Ich kann ökologische Folgen von Fast Fashion erklären.', href: '02_Fast_Fashion_Umwelt.html#tshirt'},
+  {t: 'Ich kann soziale Folgen von Fast Fashion erklären.', href: '03_Fast_Fashion_Sozial.html#preis'},
+  {t: 'Ich kann Pflegesymbole lesen und Kleidung lange nutzen.', href: '04_Slow_Fashion.html#pflege'},
+  {t: 'Ich kann Kreislaufwirtschaft und geplante Obsoleszenz erklären.', href: '05_Kreislaufwirtschaft.html#kreis'},
+  {t: 'Ich kann erklären, was Fair Trade bewirkt.', href: '06_Fair_Trade.html#preis'}
+]);
+</script>

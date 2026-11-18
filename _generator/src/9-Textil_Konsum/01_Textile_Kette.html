@@ -1,0 +1,164 @@
+<!--
+title: Textile Kette – Lebensweg deiner Kleidung
+short: Textile Kette
+time: 1 Unterrichtsstunde
+book: S. 168–169
+q: Welche Weltreise hat mein T-Shirt hinter sich?
+facts: Die textile Kette von der Faser bis zur Entsorgung | Naturfasern und Chemiefasern, Mischgewebe schwer recycelbar | Wertschöpfungskette: Produktion in Ländern mit niedrigen Löhnen und Sozialstandards | Altkleider: nur ca. 10 % an Bedürftige, 40 % Export, 40 % Recycling, 10 % verbrannt
+inter: Die textile Kette Schritt für Schritt · Weltreise einer Jeans · Natur- oder Chemiefaser? · Was passiert mit Altkleidern?
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Textile Kette – Lebensweg deiner Kleidung</h1>
+      <p class="lead">Wusstest du, dass deine Jeans aus Bangladesch und deine Winterjacke aus der Türkei kommen? Deine Kleidung legt meist eine Weltreise zurück, bevor du sie in Deutschland kaufen kannst.</p>
+      <div class="teaser"><span class="tag info">Was denkst du?</span><p>Schau auf das Etikett deines Pullis: Wo wurde er hergestellt?</p></div>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Welche Weltreise hat mein T-Shirt hinter sich?</p></div>
+      <div class="controls"><button class="btn primary" data-go="kette">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="kette" data-label="Die Kette" data-yr="Erarbeitung" data-title="Acht Stationen" data-sub="Von der Faser bis zur Tonne">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Die textile Kette</h2>
+      <p class="lead">Den gesamten Prozess, den eine Textilie von der Herstellung des Rohstoffs bis zur Entsorgung durchläuft, nennt man <b>textile Kette</b>. Entlang dieser <b>Wertschöpfungskette</b> steigt mit jedem Schritt der Wert des Produkts.</p>
+      <ul class="words-box"><li>die textile Kette</li><li>die Wertschöpfungskette</li><li>das Mischgewebe</li><li>das Imprägnieren</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Schritt für Schritt</h3></div>
+      <canvas id="cv-k" class="wide" aria-label="Die textile Kette als Kreislauf"></canvas>
+      <div id="k-step"></div>
+      <p class="status" id="k-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="reise" data-label="Weltreise" data-yr="Vertiefung" data-title="Die Weltreise einer Jeans" data-sub="Tausende Kilometer">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Vertiefung</p>
+      <h2>Die Weltreise einer Jeans</h2>
+      <p class="lead">Viele Länder produzieren aufgrund geringerer Lohnkosten und niedriger Sozialstandards billiger als Deutschland. Deshalb sind die Schritte der textilen Kette über die ganze Welt verteilt.</p>
+      <p class="note">Beispielroute (typisch, vereinfacht).</p>
+    </div>
+    <div class="vis">
+      <canvas id="cv-r" class="wide" aria-label="Route einer Jeans durch sechs Länder"></canvas>
+      <div class="controls"><button class="btn primary" id="r-go">Reise starten</button></div>
+      <p class="status" id="r-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="fasern" data-label="Fasern" data-yr="Übung" data-title="Natur- oder Chemiefaser?" data-sub="Woraus ist Kleidung?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Übung</p>
+      <h2>Natur- oder Chemiefaser?</h2>
+      <dl class="kv2">
+        <dt>Naturfasern</dt><dd>pflanzlich (Baumwolle, Leinen) oder tierisch (Wolle, Seide)</dd>
+        <dt>Chemiefasern</dt><dd>aus Erdöl (synthetisch: Polyester, Polyamid, Elasthan) oder aus Cellulose von Holz (Viskose)</dd>
+      </dl>
+      <div class="achtung"><p>Viele Textilien bestehen heute aus <b>Mischgeweben</b> (z. B. Baumwolle + Elasthan). Diese sind nicht oder nur schwer recycelbar.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Sortiere</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="altkleider" data-label="Altkleider" data-yr="Erarbeitung" data-title="Was passiert mit Altkleidern?" data-sub="Nicht alles hilft Bedürftigen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Erarbeitung</p>
+      <h2>Was passiert mit Altkleidern?</h2>
+      <p class="lead">Mit dem Gefühl, etwas Gutes zu tun, entsorgen viele ihre Kleidung im Altkleidercontainer. Allerdings gehen nur etwa 10 % an Bedürftige oder in Secondhandläden.</p>
+      <p>Neue, hochwertige Textilien entstehen bislang kaum aus Altkleidern.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Verbleib von Altkleidern (ca.)</h3></div>
+      <div style="max-width:18rem;margin:0 auto;width:100%" id="ring"></div>
+      <div class="ex-panel" id="ring-info"><p class="muted">Tippe auf ein Segment.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Die textile Kette</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Die textile Kette</h3><span>AES · Klasse 9</span></div>
+      <ol>
+        <li data-step>Die <b>textile Kette</b> umfasst alle Schritte von der Faser bis zur Entsorgung: 1. Faserherstellung, 2. Garnherstellung (Spinnen), 3. Flächenherstellung (Weben, Stricken), 4. Veredelung, 5. Konfektion (Nähen), 6. Transport und Handel, 7. Gebrauch und Pflege, 8. Entsorgung oder Recycling.</li>
+        <li data-step>Textilien bestehen aus <b>Naturfasern</b> (Baumwolle, Leinen, Wolle, Seide) oder <b>Chemiefasern</b> (aus Erdöl oder Cellulose). Mischgewebe sind kaum recycelbar.</li>
+        <li data-step>Wegen niedriger Löhne und Sozialstandards wird vor allem im Ausland produziert; Kleidung legt eine Weltreise zurück.</li>
+        <li data-step>Von Altkleidern gehen nur ca. 10 % an Bedürftige, je ca. 40 % in den Export und ins Recycling, ca. 10 % werden verbrannt.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Recherche</span><p>Lies die Etiketten von fünf Kleidungsstücken: Herkunftsland und Material. Markiert die Länder auf einer Weltkarte.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Die Kette ordnen</h2></div>
+  <div id="seq"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+const ST = [['Faserherstellung', 'Naturfasern wie Baumwolle werden angebaut und geerntet; Chemiefasern aus Erdöl oder Holz-Cellulose hergestellt.', 'blatt'], ['Garnherstellung', 'Aus den einzelnen Fasern wird durch Spinnen ein Garn.', 'kreislauf'], ['Flächenherstellung', 'Durch Weben, Stricken oder Filzen entsteht aus dem Garn eine textile Fläche – ein Stoff.', 'paket'], ['Textilveredelung', 'Chemisch, mechanisch oder thermisch werden die Eigenschaften verändert: Bleichen, Mercerisieren (Baumwolle mit Natronlauge behandeln), Färben, Bedrucken, Imprägnieren (wasserabweisend machen).', 'pinsel'], ['Konfektion', 'Zuschneiden und Nähen des Kleidungsstücks.', 'nadel'], ['Transport und Handel', 'Transport nach Deutschland, Verkauf im Geschäft oder online.', 'lkw'], ['Gebrauch und Pflege', 'Lüften, waschen, trocknen, bügeln – damit die Kleidung lange schön bleibt.', 'waschen'], ['Entsorgung oder Recycling', 'Altkleidercontainer, Secondhand, Faserrückgewinnung, Verbrennung.', 'muell']];
+(() => {
+  let k = 0;
+  stepper($('#k-step'), 8, i => { k = i; $('#k-st').innerHTML = `<b>${i + 1}. ${ST[i][0]}:</b> ${ST[i][1]}`; });
+  canvasLoop($('#cv-k'), 'kette', (ctx, w, h, t) => {
+    const cx = w / 2, cy = h / 2, R = Math.min(w * .38, h * .38);
+    ctx.strokeStyle = alpha(C.ink2, .25); ctx.lineWidth = 3; ctx.beginPath(); ctx.ellipse(cx, cy, R * 1.25, R, 0, 0, 7); ctx.stroke();
+    ST.forEach(([n, , ico], i) => { const a = -Math.PI / 2 + i / 8 * Math.PI * 2, x = cx + R * 1.25 * Math.cos(a), y = cy + R * Math.sin(a), on = i === k, done = i < k;
+      ctx.fillStyle = on ? col('accent') : done ? alpha(C.accent, .35) : col('surface-2'); ctx.beginPath(); ctx.arc(x, y, on ? 24 : 18, 0, 7); ctx.fill();
+      ctx.save(); ctx.translate(x - 10, y - 10); ctx.scale(.85, .85); ctx.strokeStyle = on ? '#fff' : C.ink2; ctx.lineWidth = 1.8; ctx.stroke(new Path2D(ICONS[ico])); ctx.restore();
+      label(ctx, String(i + 1), x + (on ? 22 : 16), y - (on ? 18 : 14), {size: 11, color: C.ink2}); });
+    label(ctx, ST[k][0], cx, cy, {size: 16, font: DISPLAY, weight: 600, color: C.accent});
+    const p = (t * .1) % 1, a = -Math.PI / 2 + p * Math.PI * 2; dotAt(ctx, cx + R * 1.25 * Math.cos(a), cy + R * Math.sin(a), C.ink, 3);
+  });
+})();
+(() => {
+  const P = [['Baumwolle anbauen', 'Usbekistan', 0], ['Spinnen', 'Türkei', 3000], ['Weben, Färben', 'China', 6500], ['Nähen', 'Bangladesch', 3000], ['Veredeln (Used-Look)', 'Tunesien', 8000], ['Verkauf', 'Deutschland', 1800]];
+  let tt = -1;
+  $('#r-go').onclick = () => { tt = 0; };
+  canvasLoop($('#cv-r'), 'reise', (ctx, w, h, t, dt) => {
+    if (tt >= 0 && tt < P.length) tt += dt * .8;
+    const n = tt < 0 ? 0 : Math.min(P.length - 1, Math.floor(tt)), f = tt < 0 ? 0 : clamp(tt - n, 0, 1);
+    const pos = i => [lerp(40, w - 40, i / (P.length - 1)), h * (.5 + (i % 2 ? .18 : -.18))];
+    for (let i = 0; i < P.length - 1; i++) { const [x0, y0] = pos(i), [x1, y1] = pos(i + 1); ctx.strokeStyle = alpha(C.ink2, .25); ctx.lineWidth = 2; ctx.setLineDash([4, 5]); ctx.beginPath(); ctx.moveTo(x0, y0); ctx.quadraticCurveTo((x0 + x1) / 2, h * .5, x1, y1); ctx.stroke(); ctx.setLineDash([]);
+      const g = i < n ? 1 : i === n && tt >= 0 && n < P.length - 1 ? f : 0; if (g > 0) { ctx.strokeStyle = C.accent; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x0, y0); for (let k = 1; k <= 20 * g; k++) { const u = k / 20, mx = (x0 + x1) / 2, my = h * .5; ctx.lineTo((1 - u) ** 2 * x0 + 2 * u * (1 - u) * mx + u * u * x1, (1 - u) ** 2 * y0 + 2 * u * (1 - u) * my + u * u * y1); } ctx.stroke(); } }
+    let km = 0; P.forEach(([s, l, d], i) => { const [x, y] = pos(i), on = tt >= 0 && i <= n; if (on) km += d; dotAt(ctx, x, y, on ? C.accent : alpha(C.ink2, .4), on ? 8 : 6); const up = i % 2 === 0; label(ctx, l, x, y + (up ? -30 : 30), {size: 13, weight: 700, color: on ? C.ink : C.ink2}); label(ctx, s, x, y + (up ? -15 : 45), {size: 11, weight: 400, color: C.ink2}); });
+    if (tt >= 0) { label(ctx, `≈ ${numDE(km, 0)} km`, w / 2, h - 14, {size: 16, font: DISPLAY, weight: 600, color: C.accent}); $('#r-st').innerHTML = `<b>${n + 1}. ${P[n][0]}</b> in ${P[n][1]}${n === P.length - 1 ? ' – je nach Route legt eine Jeans bis zu 50 000 km zurück!' : ''}`; }
+  });
+})();
+sorter($('#sort'), [{id: 'n', name: 'Naturfaser'}, {id: 'c', name: 'Chemiefaser'}], [
+  {t: 'Baumwolle', c: 'n'}, {t: 'Leinen', c: 'n'}, {t: 'Wolle', c: 'n'}, {t: 'Seide', c: 'n'},
+  {t: 'Polyester', c: 'c'}, {t: 'Polyamid', c: 'c'}, {t: 'Elasthan', c: 'c'}, {t: 'Viskose', c: 'c'}
+]);
+(() => {
+  const P = [{l: 'an Bedürftige, Secondhand', short: '10 %', v: 10, c: 'c2', d: 'Nur etwa jedes zehnte Kleidungsstück wird in Deutschland an Bedürftige gegeben oder in Secondhandläden verkauft.'}, {l: 'Export (Osteuropa, Afrika)', short: '40 %', v: 40, c: 'c5', d: 'Werden nach Osteuropa oder Afrika verkauft. Dort können sie lokale Textilmärkte schädigen; vieles landet auf Deponien.'}, {l: 'Recycling (Putzlappen, Dämmstoff)', short: '40 %', v: 40, c: 'c3', d: 'Recyclingfirmen stellen daraus Putzlappen oder Dämmmaterial her – Downcycling.'}, {l: 'verbrannt', short: '10 %', v: 10, c: 'c1', d: 'Der Rest wird verbrannt.'}];
+  ringSVG($('#ring'), P, {inner: .45, size: 260, onPick: k => $('#ring-info').innerHTML = `<h4>${P[k].l} · ca. ${P[k].v} %</h4><p>${P[k].d}</p>`});
+})();
+sequence($('#seq'), ST.map(s => s[0]));
+mcQuiz($('#quiz'), [
+  {q: 'Was entsteht beim Spinnen?', a: ['Garn', 'Stoff', 'Faser', 'Kleidung'], ok: 0},
+  {q: 'Was ist Imprägnieren?', a: ['Textilien wasserabweisend machen', 'Nähen', 'Weben', 'Bügeln'], ok: 0},
+  {q: 'Woraus werden synthetische Chemiefasern hergestellt?', a: ['aus Erdöl', 'aus Baumwolle', 'aus Wolle', 'aus Seide'], ok: 0},
+  {q: 'Warum sind Mischgewebe ein Problem?', a: ['Sie sind kaum recycelbar', 'Sie sind zu warm', 'Sie sind zu teuer', 'Sie riechen'], ok: 0},
+  {q: 'Wie viel der Altkleider gehen an Bedürftige?', a: ['ca. 10 %', 'ca. 90 %', 'ca. 50 %', '100 %'], ok: 0}
+]);
+</script>

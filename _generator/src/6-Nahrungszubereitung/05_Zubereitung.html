@@ -1,0 +1,166 @@
+<!--
+title: Zubereitung – Jetzt kannst du loslegen!
+short: Arbeitstechniken
+time: 1–2 Unterrichtsstunden (mit Praxis)
+book: S. 34–35
+q: Warum wird ein Kuchen fest, wenn man den Eischnee unterrührt statt unterhebt?
+facts: Zerkleinern: schneiden, hobeln, raspeln, reiben, hacken, pürieren, passieren | Mischen: rühren, schlagen, kneten, mixen, unterheben | Das richtige Arbeitsgerät zur Technik | Rezeptbegriffe genau befolgen
+inter: Techniken mit Beispielen und Geräten · Zerkleinern oder mischen? · Technik und Lebensmittel zuordnen · Rühren oder Unterheben (Simulation)
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Zubereitung – Jetzt kannst du loslegen!</h1>
+      <p class="lead">Raspeln oder reiben? Rühren oder unterheben? In Rezepten stehen viele Arbeitstechniken. Wer sie kennt und das richtige Arbeitsgerät benutzt, hat Erfolg.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Warum wird ein Kuchen fest, wenn man den Eischnee unterrührt statt unterhebt?</p></div>
+      <div class="controls"><button class="btn primary" data-go="zerkleinern">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="zerkleinern" data-label="Zerkleinern" data-yr="Erarbeitung" data-title="Lebensmittel zerkleinern" data-sub="Sieben Techniken">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Lebensmittel zerkleinern</h2>
+      <p class="lead">Mit einem Messer entstehen Scheiben, Würfel, Streifen oder Stifte. An der <b>Vierkantreibe</b> kann man hobeln, raspeln und reiben.</p>
+      <ul class="words-box"><li>die Arbeitstechnik</li><li>die Vierkantreibe</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf eine Technik</h3></div>
+      <div id="ex-z"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="mischen" data-label="Mischen" data-yr="Erarbeitung" data-title="Lebensmittel mischen" data-sub="Fünf Techniken">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Lebensmittel mischen</h2>
+      <p class="lead">Beim Mischen werden Zutaten verbunden – manchmal kräftig, manchmal ganz vorsichtig.</p>
+      <div class="tipp"><p>Bei Sahne, Eiweiß oder größeren Mengen spart das Handrührgerät Zeit und Kraft.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf eine Technik</h3></div>
+      <div id="ex-m"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="unterheben" data-label="Unterheben" data-yr="Experiment" data-title="Rühren oder unterheben?" data-sub="Die Luft muss drin bleiben">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Experiment (Simulation)</p>
+      <h2>Rühren oder unterheben?</h2>
+      <p class="lead">Eischnee und Schlagsahne sind voller winziger Luftbläschen. Sie machen Kuchen und Cremes locker.</p>
+      <ul class="facts">
+        <li><b>Unterheben:</b> Die luftige Masse wird mit Teigschaber oder großem Schneebesen vorsichtig untergezogen – von unten nach oben.</li>
+        <li><b>Rühren:</b> Die Bläschen platzen, die Masse fällt zusammen. Der Kuchen wird fest statt locker.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Eischnee in den Teig</h3><div id="uh-seg"></div></div>
+      <canvas id="cv-uh" class="wide" aria-label="Luftbläschen im Teig"></canvas>
+      <div class="controls"><button class="btn primary" id="uh-go">Los</button><button class="btn" id="uh-reset">Zurücksetzen</button></div>
+      <p class="status" id="uh-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="zuordnen" data-label="Zuordnen" data-yr="Übung" data-title="Zerkleinern oder mischen?" data-sub="Techniken ordnen">
+  <div class="section-head"><p class="eyebrow">Station 4 · Übung</p><h2>Zerkleinern oder mischen?</h2></div>
+  <div id="sort"></div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Arbeitstechniken</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Arbeitstechniken</h3><span>AES · Klasse 6</span></div>
+      <ol>
+        <li data-step><b>Zerkleinern:</b> schneiden, hobeln (Scheiben), raspeln (grobe Streifen), reiben (feine Streifen oder Mus), hacken (fein zerkleinern), pürieren (einheitliche Masse), passieren (durch ein Sieb drücken).</li>
+        <li data-step><b>Mischen:</b> rühren (einheitliche Masse), schlagen (Luft einschlagen), kneten (fester Teig unter Druck), mixen (zerkleinern und mischen), unterheben (luftige Masse vorsichtig untermischen).</li>
+        <li data-step>Für jede Arbeitstechnik das richtige Arbeitsgerät verwenden.</li>
+        <li data-step>Arbeitstechniken im Rezept genau befolgen: Wer rührt statt unterhebt, bekommt einen festen statt lockeren Kuchen.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Praxis</span><p>Nimm eine Karotte: Schneide sie in Scheiben, hoble, raspele und reibe sie. Vergleicht die Ergebnisse.</p></div>
+      <div class="box"><span class="tag info">Vergleich</span><p>Schlagt Sahne einmal mit dem Schneebesen und einmal mit dem Handrührgerät. Was ist besser – und warum?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Technik, Lebensmittel, Gerät</h2></div>
+  <div id="match"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+explore($('#ex-z'), [
+  {ico: 'messer', t: 'Schneiden', d: 'Mit dem Messer entstehen Scheiben, Würfel, Streifen oder Stifte. Beispiel: Gurkensalat.'},
+  {ico: 'paket', t: 'Hobeln', d: 'An der Vierkantreibe entstehen <b>Scheiben</b>. Beispiel: Gurkensalat, Kartoffelchips.'},
+  {ico: 'karotte', t: 'Raspeln', d: 'Es entstehen <b>grobe, unregelmäßige Streifen</b>. Beispiel: Karottensalat.'},
+  {ico: 'salz', t: 'Reiben', d: 'Es entstehen <b>sehr feine Streifen oder eine musartige Masse</b>. Beispiel: Zitronenschale, Apfel, Käse.'},
+  {ico: 'blatt', t: 'Hacken', d: 'Mit Wiegemesser oder großem Kochmesser wird <b>fein zerkleinert</b>. Beispiel: Kräuter, Nüsse.'},
+  {ico: 'blitz', t: 'Pürieren', d: 'Weiche oder gekochte Lebensmittel werden zu einer <b>einheitlichen Masse</b>. Beispiel: Bananen, Gemüsesuppe, Apfelmus. Gerät: Pürierstab.'},
+  {ico: 'schuessel', t: 'Passieren', d: 'Weiche, meist gekochte Lebensmittel werden <b>durch ein Sieb oder gelochte Einsätze gedrückt</b>. Beispiel: Kartoffeln für Kartoffelbrei, Konfitüre ohne Kerne.'}
+], {hint: 'Tippe auf eine Technik.'});
+explore($('#ex-m'), [
+  {ico: 'loeffel', t: 'Rühren', d: 'Zutaten werden zu einer <b>einheitlichen Masse</b> vermischt. Beispiel: Rührteig, Joghurtcreme. Geräte: Kochlöffel, Schneebesen, Handrührgerät.'},
+  {ico: 'wind', t: 'Schlagen', d: 'Viel <b>Luft</b> wird in eine flüssige Masse eingeschlagen. Beispiel: Sahne, Eischnee. Geräte: Schneebesen, Handrührgerät.'},
+  {ico: 'hand', t: 'Kneten', d: 'Zutaten werden <b>unter Druck</b> zu einem festen Teig verarbeitet. Beispiel: Hefeteig, Hackfleischteig. Geräte: Hände, Knethaken.'},
+  {ico: 'blitz', t: 'Mixen', d: 'Flüssige und feste Lebensmittel werden durch ein <b>rotierendes Messerkreuz</b> zerkleinert und gleichzeitig vermischt. Beispiel: Smoothie, Bananenmilch. Geräte: Standmixer, Pürierstab.'},
+  {ico: 'kreislauf', t: 'Unterheben', d: 'Eine luftgelockerte Masse wird <b>vorsichtig</b> unter eine flüssigere Masse gemischt. Die Masse darf nicht zusammenfallen! Beispiel: Eischnee, Sahne. Geräte: großer Schneebesen, Teigschaber.'}
+], {hint: 'Tippe auf eine Technik.'});
+
+/* Unterheben-Simulation */
+(() => {
+  let mode = 'heben', tt = -1;
+  const B = [...Array(70)].map((_, i) => { const r = rng(i * 7 + 2); return {x: r(), y: r(), r: 3 + r() * 5, ph: r() * 6}; });
+  const reset = () => { tt = -1; $('#uh-go').disabled = false; $('#uh-st').innerHTML = 'Oben der luftige Eischnee, unten der Teig. Wähle eine Technik und starte.'; };
+  seg($('#uh-seg'), [['heben', 'unterheben'], ['ruehren', 'kräftig rühren']], v => { mode = v; reset(); });
+  $('#uh-go').onclick = () => { tt = 0; $('#uh-go').disabled = true; };
+  $('#uh-reset').onclick = reset;
+  canvasLoop($('#cv-uh'), 'unterheben', (ctx, w, h, t, dt) => {
+    if (tt >= 0 && tt < 4) tt += dt;
+    const u = clamp(tt / 3, 0, 1), bx = w * .2, bw = w * .6, by = h * .12, bh = h * .78;
+    ctx.fillStyle = col('surface-2'); ctx.strokeStyle = col('ink-2'); ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(bx, by); ctx.quadraticCurveTo(bx, by + bh, bx + bw / 2, by + bh); ctx.quadraticCurveTo(bx + bw, by + bh, bx + bw, by); ctx.stroke();
+    const keep = mode === 'heben' ? 1 - u * .15 : 1 - u * .85, vol = mode === 'heben' ? 1 : 1 - u * .35;
+    const top = by + bh * (1 - .9 * vol);
+    ctx.save(); ctx.beginPath(); ctx.moveTo(bx, by); ctx.quadraticCurveTo(bx, by + bh, bx + bw / 2, by + bh); ctx.quadraticCurveTo(bx + bw, by + bh, bx + bw, by); ctx.closePath(); ctx.clip();
+    const split = lerp(top + (by + bh - top) * .45, top, u);
+    ctx.fillStyle = '#e9c77f'; ctx.fillRect(bx, top, bw, by + bh - top);
+    ctx.fillStyle = alpha('#fffaf0', 1 - u * .7); ctx.fillRect(bx, top, bw, split - top);
+    B.forEach((b, i) => {
+      if (i / B.length > keep) return;
+      const yy = u < .05 ? lerp(top, split, b.y) : lerp(top, by + bh, b.y), xx = bx + b.x * bw + Math.sin(t * 2 + b.ph) * (mode === 'ruehren' && tt >= 0 && tt < 3 ? 6 : 1);
+      ctx.strokeStyle = alpha('#ffffff', .95); ctx.fillStyle = alpha('#ffffff', .55); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(xx, yy, b.r, 0, 7); ctx.fill(); ctx.stroke();
+    });
+    ctx.restore();
+    if (tt >= 3) $('#uh-st').innerHTML = mode === 'heben' ? '<b class="good">Locker!</b> Die meisten Luftbläschen sind erhalten. Der Kuchen wird luftig und groß.' : '<b class="bad">Zusammengefallen.</b> Beim kräftigen Rühren platzen die Bläschen. Die Masse wird schwer, der Kuchen fest und flach.';
+  });
+  reset();
+})();
+
+sorter($('#sort'), [{id: 'z', name: 'Zerkleinern'}, {id: 'm', name: 'Mischen'}], [
+  {t: 'hobeln', c: 'z'}, {t: 'raspeln', c: 'z'}, {t: 'reiben', c: 'z'}, {t: 'hacken', c: 'z'}, {t: 'pürieren', c: 'z'}, {t: 'passieren', c: 'z'},
+  {t: 'rühren', c: 'm'}, {t: 'schlagen', c: 'm'}, {t: 'kneten', c: 'm'}, {t: 'unterheben', c: 'm'}
+]);
+matcher($('#match'), [['raspeln', 'Karottensalat'], ['reiben', 'Zitronenschale'], ['hacken', 'Petersilie'], ['passieren', 'Kartoffelbrei'], ['kneten', 'Hefeteig'], ['schlagen', 'Sahne'], ['mixen', 'Smoothie'], ['hobeln', 'Gurkenscheiben']]);
+mcQuiz($('#quiz'), [
+  {q: 'Womit hackt man Kräuter?', a: ['Wiegemesser oder großes Kochmesser', 'Sparschäler', 'Schneebesen', 'Sieb'], ok: 0},
+  {q: 'Welche Technik schlägt Luft in eine Masse?', a: ['schlagen', 'kneten', 'passieren', 'hobeln'], ok: 0},
+  {q: 'Was entsteht beim Hobeln?', a: ['Scheiben', 'Mus', 'grobe Streifen', 'Würfel'], ok: 0},
+  {q: 'Warum hebt man Eischnee unter?', a: ['Damit die Luftbläschen erhalten bleiben', 'Damit er schneller schmilzt', 'Damit der Teig fester wird', 'Damit er süßer wird'], ok: 0},
+  {q: 'Welches Gerät nimmt man zum Kneten von Hefeteig?', a: ['Knethaken oder Hände', 'Rührbesen', 'Schöpfkelle', 'Wiegemesser'], ok: 0}
+]);
+</script>

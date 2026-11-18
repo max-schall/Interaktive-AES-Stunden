@@ -1,0 +1,83 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 22–23
+q: Kann ich erklären, warum ich esse, was ich esse?
+facts: Fachbegriffe als Karteikarten und Paare | Quiz mit 16 Fragen (10 zufällig pro Runde) | Einflussfaktoren ordnen | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Multiple-Choice-Quiz · Einflussfaktoren sortieren · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Geschmack, Hunger und Sättigung, Einflüsse aus der Umwelt, Tischsitten und das Sinnexperiment: Prüfe, was du weißt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Kann ich erklären, warum ich esse, was ich esse?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="ordnen" data-label="Ordnen" data-yr="Anwenden" data-title="Einflussfaktoren ordnen" data-sub="Innen oder außen?">
+  <div class="section-head"><p class="eyebrow">Station 2 · Anwenden</p><h2>Einflussfaktoren ordnen</h2><p class="lead">Ordne nach physiologischen, psychologischen und soziokulturellen Einflussfaktoren.</p></div>
+  <div id="sort"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sc"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['Essbiografie', 'alle Erfahrungen, die man bisher mit Essen und Trinken gemacht hat'], ['Geschmacksvorliebe', 'angeboren für Süßes, Salziges, Fettiges und Umami'], ['Geschmacksabneigung', 'angeboren gegen Saures und Bitteres'], ['Geschmacksgewöhnung', 'durch häufiges Probieren lernt man neue Lebensmittel mögen'], ['umami', 'fünfte Geschmacksrichtung: herzhaft, würzig'], ['Hunger', 'körperliches Signal bei sinkendem Blutzucker'], ['Appetit', 'Lust auf etwas Bestimmtes, auch ohne Hunger'], ['Sättigung', 'Signal: genug gegessen'], ['physiologisch', 'Vorgänge im Körper betreffend'], ['psychologisch', 'die Seele, Gefühle betreffend'], ['soziokulturell', 'Gesellschaft und Kultur betreffend'], ['halal / koscher', 'im Islam / Judentum erlaubte Lebensmittel'], ['Tischsitten', 'Verhaltensregeln beim Essen'], ['Sinnexperiment', 'Lebensmittel mit allen fünf Sinnen prüfen']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+sorter($('#sort'), [{id: 'p', name: 'physiologisch'}, {id: 'y', name: 'psychologisch'}, {id: 's', name: 'soziokulturell'}], [
+  {t: 'Durst', c: 'p'}, {t: 'Allergie gegen Nüsse', c: 'p'}, {t: 'Blutzucker sinkt', c: 'p'}, {t: 'Stress vor der Klassenarbeit', c: 'y'}, {t: 'Kindheitserinnerung', c: 'y'}, {t: 'Belohnung mit Süßigkeiten', c: 'y'},
+  {t: 'Fastenmonat Ramadan', c: 's'}, {t: 'Werbung auf Social Media', c: 's'}, {t: 'regionale Küche', c: 's'}, {t: 'Familieneinkommen', c: 's'}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Wie viele Grundgeschmacksrichtungen gibt es?', a: ['fünf', 'drei', 'vier', 'zehn'], ok: 0, why: 'süß, salzig, sauer, bitter, umami.'},
+  {q: 'Wofür sicherte die Vorliebe für Süßes das Überleben?', a: ['Süßes ist reif und energiereich', 'Süßes ist immer giftig', 'Süßes macht satt ohne Energie', 'gar nicht'], ok: 0},
+  {q: 'Wie oft sollte man ein neues Lebensmittel probieren?', a: ['8- bis 10-mal', 'einmal', 'nie', '50-mal'], ok: 0},
+  {q: 'Was löst Hunger aus?', a: ['ein sinkender Blutzuckerspiegel', 'Werbung', 'ein voller Magen', 'Langeweile'], ok: 0},
+  {q: 'Welcher Einflussfaktor ist soziokulturell?', a: ['Religion', 'Durst', 'Müdigkeit', 'Sättigung'], ok: 0},
+  {q: 'Was bedeutet „koscher“?', a: ['im Judentum erlaubt', 'im Islam verboten', 'vegan', 'scharf gewürzt'], ok: 0},
+  {q: 'Was ist Frustessen?', a: ['Essen als Trost bei negativen Gefühlen', 'Essen bei großem Hunger', 'Fasten', 'Essen nach dem Sport'], ok: 0},
+  {q: 'Wo darf Schlürfen als Kompliment gelten?', a: ['in China', 'in Deutschland', 'im Edelrestaurant', 'nirgends'], ok: 0},
+  {q: 'Wo liegt die Gabel beim Mittagsgedeck?', a: ['links vom Teller', 'rechts vom Teller', 'über dem Teller', 'auf dem Teller'], ok: 0},
+  {q: 'Wie benutzt man das Besteck bei einem Menü?', a: ['von außen nach innen', 'von innen nach außen', 'nur das Messer', 'beliebig'], ok: 0},
+  {q: 'Womit beginnt das Sinnexperiment?', a: ['Sehen', 'Schmecken', 'Hören', 'Tasten'], ok: 0},
+  {q: 'Welches Adjektiv beschreibt neutral?', a: ['knackig', 'lecker', 'eklig', 'super'], ok: 0},
+  {q: 'Wer prägt die Essbiografie in der Kindheit am stärksten?', a: ['die Familie', 'die Werbung', 'der Chef', 'niemand'], ok: 0},
+  {q: 'Warum isst man in Indien nur mit der rechten Hand?', a: ['Die linke gilt als unrein', 'Die rechte ist stärker', 'Wegen der Stäbchen', 'Das stimmt nicht'], ok: 0},
+  {q: 'Was zeigt die Sättigung an?', a: ['dass man genug gegessen hat', 'dass man Durst hat', 'dass das Essen kalt ist', 'dass man Appetit hat'], ok: 0},
+  {q: 'Was gilt in Russland als höflich?', a: ['einen Rest auf dem Teller lassen', 'laut schmatzen', 'mit der linken Hand essen', 'den Teller ablecken'], ok: 0}
+], {pick: 10});
+selfCheck($('#sc'), [
+  {t: 'Ich kann die fünf Geschmacksrichtungen nennen und angeborene Vorlieben erklären.', href: '01_Geschmack.html#evolution'},
+  {t: 'Ich kann erklären, wie sich Geschmack durch Gewöhnung verändert.', href: '01_Geschmack.html#gewoehnung'},
+  {t: 'Ich kann meine eigene Essbiografie darstellen.', href: '01_Geschmack.html#biografie'},
+  {t: 'Ich kann Hunger, Appetit und Sättigung unterscheiden.', href: '02_Koerper.html#hunger'},
+  {t: 'Ich kann Einflussfaktoren nach physiologisch, psychologisch und soziokulturell ordnen.', href: '02_Koerper.html#faktoren'},
+  {t: 'Ich kann äußere Einflussfaktoren mit Beispielen erklären.', href: '03_Umwelt.html#faktoren'},
+  {t: 'Ich kann Tischsitten anderer Länder beschreiben.', href: '04_Tischsitten.html#welt'},
+  {t: 'Ich kann einen Tisch für ein Mittagessen richtig decken.', href: '04_Tischsitten.html#gedeck'},
+  {t: 'Ich kann ein Sinnexperiment planen und durchführen.', href: '05_Sinnexperiment.html#schritte'}
+]);
+</script>

@@ -1,0 +1,196 @@
+<!--
+title: Stress – was steckt dahinter?
+short: Stress & Umfrage
+time: 2 Unterrichtsstunden (mit Umfrage)
+book: S. 120–123
+q: Ist Stress immer schlecht?
+facts: Stress entsteht durch Stressoren; Bewertung ist subjektiv | Körperreaktionen: Adrenalin, Puls, Atmung, Muskelspannung | Eustress und Distress; Unter- und Überforderung | Methode: Eine Umfrage durchführen (fünf Schritte, Fragetypen)
+inter: Was passiert im Körper? · Eustress oder Distress? · Optimaler Anreiz (Modell) · Fragetypen erkennen · Live-Klassenumfrage
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}} · Methode</p>
+      <h1>Stress – was steckt dahinter?</h1>
+      <p class="lead">Du fühlst dich, als ob du unter Strom stehst, und hast das Gefühl, eine Situation nicht bewältigen zu können. Dieses Gefühl kennen viele: Stress. Was ist Stress – und wie kannst du damit umgehen?</p>
+      <div class="teaser"><span class="tag info">Was denkst du?</span><p>Beschreibe eine Situation, in der du Stress empfunden hast. Woran hast du das gemerkt?</p></div>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Ist Stress immer schlecht?</p></div>
+      <div class="controls"><button class="btn primary" data-go="koerper">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="koerper" data-label="Im Körper" data-yr="Erarbeitung" data-title="Was passiert bei Stress?" data-sub="Bärenkräfte für kurze Zeit">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Was passiert bei Stress?</h2>
+      <p class="lead">Von Stress spricht man, wenn durch äußere Stressoren (Auslöser) Belastungen entstehen. Wie stark du sie empfindest, ist <b>subjektiv</b> – es hängt davon ab, wie du die Belastung bewertest und welche Bewältigungsmöglichkeiten du hast.</p>
+      <p>Bei Stress wird <b>Adrenalin</b> ausgeschüttet, Puls und Atmung beschleunigen sich, die Muskeln spannen sich an, das Gehirn wird besser durchblutet: Du entwickelst Bärenkräfte.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Stresspegel</h3></div>
+      <div class="slider"><label for="sp">Belastung <output id="sp-o"></output></label><input type="range" id="sp" min="0" max="100" value="20"></div>
+      <canvas id="cv-s" class="wide" aria-label="Puls und Atmung je nach Stresspegel"></canvas>
+      <p class="status" id="sp-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="eustress" data-label="Eu- & Distress" data-yr="Erarbeitung" data-title="Eustress und Distress" data-sub="Positiv und negativ">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Eustress und Distress</h2>
+      <dl class="kv2">
+        <dt>Eustress</dt><dd>positiver Stress: eine Herausforderung, die du gut gemeistert hast, z. B. eine schwierige Aufgabe im Sport oder in der Schule – oder Verliebtsein. Dein Selbstvertrauen steigt.</dd>
+        <dt>Distress</dt><dd>negativer Stress: Der Druck bleibt dauerhaft, du stehst ständig unter Spannung, z. B. durch Ärger im Umfeld, Dauererreichbarkeit per Handy oder Dauerbeschallung.</dd>
+      </dl>
+      <div class="achtung"><p>Warnsignale für Dauerstress: Konzentrationsschwierigkeiten, Nervosität, Kopf-, Rücken- oder Bauchschmerzen, Schlafstörungen. Ernst nehmen – sonst droht ein Erschöpfungszustand (Burnout).</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Optimaler Anreiz – zwischen Unter- und Überforderung</h3></div>
+      <canvas id="cv-u" class="low" aria-label="Leistungskurve zwischen Unter- und Überforderung"></canvas>
+      <div class="slider"><label for="an">Anforderung <output id="an-o"></output></label><input type="range" id="an" min="0" max="100" value="50"></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="umfrage" data-label="Methode Umfrage" data-yr="Methode" data-title="Eine Umfrage durchführen" data-sub="Fünf Schritte, vier Fragetypen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Methode</p>
+      <h2>Eine Umfrage durchführen</h2>
+      <p class="lead">Eine Umfrage hat das Ziel, mithilfe gezielter Fragen Daten von Personen zu sammeln und die Ergebnisse zu analysieren – z. B. „Wie nehmen Mitschülerinnen und Mitschüler Stress im Schulalltag wahr?“</p>
+      <ol class="facts" style="list-style:decimal;padding-left:1.2rem">
+        <li style="padding-left:.2rem"><b>Thema und Zielgruppe</b> festlegen (Wie viele? Welches Alter? Zeitraum?)</li>
+        <li style="padding-left:.2rem"><b>Fragebogen</b> erstellen, testen, überarbeiten</li>
+        <li style="padding-left:.2rem"><b>Durchführung:</b> kurz informieren, diskret bleiben, für Fragen da sein</li>
+        <li style="padding-left:.2rem"><b>Auswertung</b> mit Diagrammen und Tabellen</li>
+        <li style="padding-left:.2rem"><b>Präsentation:</b> Plakat, Wandzeitung, digital</li>
+      </ol>
+      <p class="note">Persönliche Daten nur abfragen, wenn sie für die Auswertung nötig sind (z. B. Alter, Klasse). Umfragen sind anonym.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Welcher Fragetyp ist das?</h3></div>
+      <div id="sort-f"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="live" data-label="Live-Umfrage" data-yr="Praxis" data-title="Klassenumfrage live" data-sub="Gleich auswerten">
+  <div class="section-head"><p class="eyebrow">Station 4 · Praxis</p><h2>Klassenumfrage live</h2><p class="lead">Die Lehrkraft liest die Frage vor, alle antworten per Handzeichen – oder nacheinander am Gerät. Die Ergebnisse erscheinen sofort als Diagramm. (Es wird nichts gespeichert.)</p></div>
+  <div class="two">
+    <div class="vis"><div class="vis-head"><h3 id="lv-q"></h3><div id="lv-seg"></div></div><div id="lv-btn" class="chip-row"></div><div class="controls"><button class="btn" id="lv-r">Zurücksetzen</button></div></div>
+    <div class="vis"><div class="vis-head"><h3>Ergebnis</h3><span class="muted" id="lv-n"></span></div><div id="lv-bars"></div></div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Stress</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Stress</h3><span>AES · Klasse 8 · Methode</span></div>
+      <ol>
+        <li data-step>Stress wird durch <b>Stressoren</b> ausgelöst. Wie stark Stress empfunden wird, ist subjektiv.</li>
+        <li data-step>Körperreaktionen: Adrenalin, schneller Puls und Atmung, Muskelanspannung, bessere Durchblutung des Gehirns.</li>
+        <li data-step>Zwei Arten: positiver <b>Eustress</b> (Herausforderung gemeistert) und negativer <b>Distress</b> (dauerhafter Druck).</li>
+        <li data-step>Dauerstress macht krank (Kopf-, Bauchschmerzen, Schlafstörungen). Eine Aufgabe soll herausfordern, aber nicht dauerhaft unter- oder überfordern.</li>
+        <li data-step>Umfrage: 1. Thema und Zielgruppe – 2. Fragebogen – 3. Durchführung – 4. Auswertung – 5. Präsentation. Fragetypen: geschlossen, Alternativ-, Multiple-Choice- und offene Fragen.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Projekt</span><p>Führt eine Umfrage zum Thema „Stress im Schulalltag“ in eurer Jahrgangsstufe durch und präsentiert die Ergebnisse.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Stress-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+(() => {
+  const upd = () => { const s = +$('#sp').value; $('#sp-o').textContent = s < 30 ? 'entspannt' : s < 70 ? 'angespannt' : 'starker Stress'; $('#sp-st').innerHTML = s < 30 ? 'Puls ruhig (ca. 70/min), Atmung langsam, Muskeln locker.' : s < 70 ? 'Adrenalin wird ausgeschüttet: Puls und Atmung werden schneller, die Muskeln spannen sich an – du bist hellwach.' : '<b>Alarmzustand:</b> Puls über 120/min, flache schnelle Atmung, Muskeln stark angespannt. Kurzfristig: Bärenkräfte. Dauerhaft: macht krank.'; };
+  $('#sp').oninput = upd; upd();
+  canvasLoop($('#cv-s'), 'koerper', (ctx, w, h, t) => {
+    const s = +$('#sp').value / 100, bpm = 70 + s * 60, br = 14 + s * 16;
+    const ecg = x => { const ph = (((x * bpm / 60) % 1) + 1) % 1; return ph < .04 ? -ph * 25 : ph < .07 ? -1 + (ph - .04) * 60 : ph < .1 ? .8 - (ph - .07) * 26 : 0; };
+    ctx.strokeStyle = C.bad; ctx.lineWidth = 2.5; ctx.beginPath(); for (let x = 0; x < w * .9; x += 2) { const tt = t - (w * .9 - x) / (w * .9) * 3; const y = h * .3 + ecg(tt) * h * .14; x ? ctx.lineTo(x + w * .05, y) : ctx.moveTo(x + w * .05, y); } ctx.stroke();
+    label(ctx, `Puls ${Math.round(bpm)}/min`, w * .05, h * .08, {size: 13, align: 'left', color: C.bad});
+    /* Lunge: zwei Lungenflügel, die sich im Atemrhythmus heben */
+    const lx = w * .27, ly = h * .72, k = 1 + .14 * Math.sin(t * br / 60 * Math.PI * 2), R = h * .17 * k;
+    ctx.strokeStyle = '#8a6a6a'; ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(lx, ly - R * 1.25); ctx.lineTo(lx, ly - R * .5); ctx.moveTo(lx, ly - R * .5); ctx.lineTo(lx - R * .35, ly - R * .2); ctx.moveTo(lx, ly - R * .5); ctx.lineTo(lx + R * .35, ly - R * .2); ctx.stroke();
+    [-1, 1].forEach(sd => {
+      ctx.fillStyle = mix('#f2b3b0', '#e07c78', s); ctx.strokeStyle = '#a65a57'; ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.moveTo(lx + sd * R * .12, ly - R * .9); ctx.bezierCurveTo(lx + sd * R * .95, ly - R * 1.05, lx + sd * R * 1.05, ly + R * .7, lx + sd * R * .7, ly + R * .9); ctx.quadraticCurveTo(lx + sd * R * .3, ly + R * .95, lx + sd * R * .15, ly + R * .6); ctx.closePath(); ctx.fill(); ctx.stroke();
+    });
+    label(ctx, `Atmung ${Math.round(br)}/min`, lx, h * .97, {size: 13, color: C.water});
+    /* Arm mit Bizeps */
+    const ax = w * .64, ay = h * .8, m = s, arm = Math.min(w * .3, h * .9);
+    ctx.fillStyle = '#f0c29e'; ctx.strokeStyle = '#8a5a3c'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ax + arm * .62, ay); ctx.quadraticCurveTo(ax + arm * .78, ay, ax + arm * .74, ay - arm * .16); ctx.lineTo(ax + arm * .66, ay - arm * .5); ctx.lineTo(ax + arm * .54, ay - arm * .5); ctx.lineTo(ax + arm * .56, ay - arm * .18); ctx.lineTo(ax, ay - arm * .18); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = mix('#e8b48f', '#d96b4f', m); ctx.beginPath(); ctx.ellipse(ax + arm * .3, ay - arm * .18, arm * (.2 + m * .04), arm * (.05 + m * .1), 0, Math.PI, 0); ctx.fill(); ctx.stroke();
+    ctx.beginPath(); ctx.arc(ax + arm * .6, ay - arm * .55, arm * .08, 0, 7); ctx.fillStyle = '#f0c29e'; ctx.fill(); ctx.stroke();
+    label(ctx, m > .6 ? 'Muskeln angespannt' : 'Muskeln locker', ax + arm * .38, h * .97, {size: 13, color: C.ink2});
+  });
+})();
+(() => {
+  const upd = () => { const a = +$('#an').value; $('#an-o').textContent = a < 30 ? 'zu wenig Anreiz' : a > 70 ? 'zu viel' : 'optimaler Anreiz'; };
+  $('#an').oninput = upd; upd();
+  canvasLoop($('#cv-u'), 'eustress', (ctx, w, h) => {
+    const {X, Y} = axes(ctx, w, h, {x: [0, 100], y: [0, 100], xt: [], yt: [], xl: 'Anforderung', yl: 'Wohlbefinden, Leistung', pad: {l: 36, b: 30, t: 22}});
+    const f = a => 95 * Math.exp(-Math.pow((a - 50) / 26, 2));
+    ctx.fillStyle = alpha(C.good, .1); ctx.fillRect(X(30), Y(100), X(70) - X(30), Y(0) - Y(100));
+    const pts = []; for (let a = 0; a <= 100; a++) pts.push([X(a), Y(f(a))]); polyline(ctx, pts, C.accent, 3);
+    label(ctx, 'Unterforderung', X(14), Y(92), {size: 11, color: C.ink2}); label(ctx, 'Herausforderung', X(50), Y(102) + 8, {size: 11, color: C.good}); label(ctx, 'Überforderung', X(86), Y(92), {size: 11, color: C.ink2});
+    label(ctx, 'Langeweile, Müdigkeit, Frust', X(14), Y(20), {size: 10, color: C.ink2, weight: 400}); label(ctx, 'Angst, Erschöpfung', X(86), Y(20), {size: 10, color: C.ink2, weight: 400});
+    const a = +$('#an').value; dotAt(ctx, X(a), Y(f(a)), C.accent, 7);
+  });
+})();
+sorter($('#sort'), [{id: 'e', name: 'Eustress'}, {id: 'd', name: 'Distress'}], [
+  {t: 'Aufregung vor dem Finale – und dann gewonnen', c: 'e'}, {t: 'verliebt sein', c: 'e'}, {t: 'eine schwierige Matheaufgabe endlich gelöst', c: 'e'},
+  {t: 'seit Wochen Streit zu Hause', c: 'd'}, {t: 'ständig Nachrichten auf dem Handy', c: 'd'}, {t: 'drei Klassenarbeiten in einer Woche, kein Schlaf', c: 'd'}
+]);
+sorter($('#sort-f'), [{id: 'g', name: 'geschlossene Frage (Skala)'}, {id: 'a', name: 'Alternativfrage'}, {id: 'm', name: 'Multiple Choice'}, {id: 'o', name: 'offene Frage'}], [
+  {t: '„Wie gestresst fühlst du dich? 1 – 2 – 3 – 4 – 5“', c: 'g'}, {t: '„Fühlst du dich vor Klassenarbeiten gestresst? Ja / Nein / Weiß nicht“', c: 'a'},
+  {t: '„Was hilft dir gegen Stress? Sport / Musik / Freunde / Schlafen“', c: 'm'}, {t: '„Beschreibe eine Situation, die dich stresst.“', c: 'o'},
+  {t: '„Hast du genug Pausen? Ja / Nein / Weiß nicht“', c: 'a'}, {t: '„Was würdest du an der Schule ändern?“', c: 'o'}
+]);
+(() => {
+  const Q = {a: ['Wie gestresst fühlst du dich heute?', ['gar nicht', 'wenig', 'mittel', 'stark', 'sehr stark']], b: ['Was stresst dich am meisten?', ['Klassenarbeiten', 'Hausaufgaben', 'Streit', 'Handy/Social Media', 'Zeitdruck']], c: ['Was hilft dir gegen Stress?', ['Sport', 'Musik', 'Freunde', 'Schlafen', 'Zocken']]};
+  let q = 'a', cnt = {};
+  const draw = () => {
+    const [txt, opts] = Q[q]; $('#lv-q').textContent = txt;
+    $('#lv-btn').innerHTML = opts.map((o, i) => `<button class="btn" data-i="${i}">${o} +1</button>`).join('');
+    const c = cnt[q] || opts.map(() => 0), n = c.reduce((a, b) => a + b, 0);
+    $('#lv-n').textContent = n + ' Antworten';
+    bars($('#lv-bars'), opts.map((o, i) => ({l: o, v: c[i], c: PAL[i]})), {dec: 0, max: Math.max(1, ...c)});
+  };
+  seg($('#lv-seg'), [['a', 'Frage 1'], ['b', 'Frage 2'], ['c', 'Frage 3']], v => { q = v; draw(); });
+  $('#lv-btn').addEventListener('click', e => { const b = e.target.closest('[data-i]'); if (!b) return; cnt[q] = cnt[q] || Q[q][1].map(() => 0); cnt[q][+b.dataset.i]++; draw(); });
+  $('#lv-r').onclick = () => { cnt[q] = null; draw(); };
+})();
+trueFalse($('#tf'), [
+  {t: 'Stress ist immer schlecht.', ok: false, why: 'Eustress ist positiv und stärkt das Selbstvertrauen.'},
+  {t: 'Bei Stress wird Adrenalin ausgeschüttet.', ok: true},
+  {t: 'Alle Menschen empfinden dieselbe Situation gleich stressig.', ok: false, why: 'Stressempfinden ist subjektiv.'},
+  {t: 'Dauerstress kann zu Schlafstörungen führen.', ok: true},
+  {t: 'Offene Fragen lassen sich besonders gut in Diagrammen darstellen.', ok: false, why: 'Offene Antworten werden einzeln aufgelistet.'},
+  {t: 'Bei Umfragen sollte man nur nötige persönliche Daten abfragen.', ok: true}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Was ist Eustress?', a: ['positiver Stress, z. B. eine gemeisterte Herausforderung', 'negativer Dauerstress', 'Stress im Urlaub', 'ein Medikament'], ok: 0},
+  {q: 'Welche Körperreaktion gehört NICHT zu Stress?', a: ['Puls wird langsamer', 'Atmung wird schneller', 'Muskeln spannen sich an', 'Adrenalin wird ausgeschüttet'], ok: 0},
+  {q: 'Was ist der erste Schritt einer Umfrage?', a: ['Thema und Zielgruppe festlegen', 'Präsentation', 'Auswertung', 'Diagramm zeichnen'], ok: 0},
+  {q: 'Welche Frage ist eine Alternativfrage?', a: ['„Machst du Sport? Ja/Nein/Weiß nicht“', '„Was ist dein Hobby?“', '„Wie alt bist du?“', '„Beschreibe deinen Tag.“'], ok: 0},
+  {q: 'Was hilft, Stressoren zu entgehen?', a: ['Bewegung an der frischen Luft und Sport', 'ständige Erreichbarkeit', 'weniger Schlaf', 'mehr Termine'], ok: 0}
+]);
+</script>

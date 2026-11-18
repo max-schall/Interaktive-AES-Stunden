@@ -1,0 +1,142 @@
+<!--
+title: Nachhaltigkeit leben – denkst du heute schon an morgen?
+short: Nachhaltigkeit
+time: 1 Unterrichtsstunde
+book: S. 154–155
+q: Was bedeutet „enkeltauglich“ leben?
+facts: Herkunft aus der Forstwirtschaft vor 300 Jahren | Nachhaltig: so leben, dass nachfolgende Generationen ihre Bedürfnisse auch befriedigen können | Drei-Säulen-Modell: Ökologie, Ökonomie, Soziales | Agenda 2030 mit 17 Nachhaltigkeitszielen (SDGs)
+inter: Der Wald-Versuch · Drei Säulen zuordnen · 17 Ziele erkunden · Enkeltauglich oder nicht?
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Nachhaltigkeit leben</h1>
+      <p class="lead">Eine neue Hose, das sechste Paar Sneaker, immer das neueste Smartphone? Jeder Kauf hat Auswirkungen auf dein Leben, auf andere Menschen und auf die Umwelt. Durch den Lebensstil der Menschen werden die Ressourcen immer knapper.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Was bedeutet „enkeltauglich“ leben?</p></div>
+      <div class="controls"><button class="btn primary" data-go="wald">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="wald" data-label="Wald" data-yr="Einstieg" data-title="Ein Begriff aus dem Wald" data-sub="Nur so viel, wie nachwächst">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Ein Begriff aus dem Wald</h2>
+      <p class="lead">Bereits vor 300 Jahren wurde der Begriff <b>Nachhaltigkeit</b> in der Forstwirtschaft verwendet: Es sollten nur so viele Bäume gefällt werden, wie in absehbarer Zeit nachwachsen können. So blieb der Wald erhalten.</p>
+      <p class="prompt"><b>Ausprobieren:</b> Wie viele Bäume kannst du pro Jahr fällen, damit der Wald 50 Jahre überlebt?</p>
+    </div>
+    <div class="vis">
+      <div class="slider"><label for="wf">Bäume fällen pro Jahr <output id="wf-o"></output></label><input type="range" id="wf" min="0" max="40" value="22"></div>
+      <canvas id="cv-w" class="wide" aria-label="Waldbestand über 50 Jahre"></canvas>
+      <p class="status" id="wf-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="saeulen" data-label="Drei Säulen" data-yr="Erarbeitung" data-title="Das Drei-Säulen-Modell" data-sub="Ökologie, Ökonomie, Soziales">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Das Drei-Säulen-Modell</h2>
+      <p class="lead"><b>Nachhaltigkeit</b> bedeutet, so zu leben, dass die nachfolgenden Generationen ihre Bedürfnisse auch noch befriedigen können.</p>
+      <dl class="kv2">
+        <dt>Ökologie</dt><dd>Umwelt schützen: Ressourcen sparen, Klima schützen, Entsorgung mitdenken</dd>
+        <dt>Ökonomie</dt><dd>effizient und wirtschaftlich: wenig Energie und Rohstoffe, langfristige Unternehmensstrategie</dd>
+        <dt>Soziales</dt><dd>gleiche Rechte, Chancengleichheit (Bildung, Nahrung, Arbeit, Gesundheit), faire Arbeitsbedingungen und Löhne</dd>
+      </dl>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Welche Säule?</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="sdg" data-label="17 Ziele" data-yr="Vertiefung" data-title="Die Agenda 2030" data-sub="17 Ziele für die Welt">
+  <div class="section-head"><p class="eyebrow">Station 3 · Vertiefung</p><h2>Die Agenda 2030</h2><p class="lead">2015 haben die Vereinten Nationen die Agenda 2030 als globale Nachhaltigkeitsstrategie beschlossen: <b>17 Ziele für nachhaltige Entwicklung</b> (Sustainable Development Goals, SDGs), die für alle Menschen gelten. Tippe auf ein Ziel.</p></div>
+  <div id="ex-s"></div>
+</section>
+
+<section class="station" id="enkel" data-label="Enkeltauglich" data-yr="Anwendung" data-title="Enkeltauglich?" data-sub="Den Alltag prüfen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Anwendung</p>
+      <h2>Enkeltauglich?</h2>
+      <p class="lead">„Enkeltauglichkeit“ ist ein anderes Wort für Nachhaltigkeit: Würden meine Enkel mein Verhalten gutheißen – weil sie noch gut leben können?</p>
+      <p class="quote">„Was du heute tust, entscheidet darüber, wie die Welt morgen aussieht.“<cite>frei nach Marie von Ebner-Eschenbach</cite></p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Enkeltauglich oder nicht?</h3></div>
+      <div id="sort2"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Nachhaltigkeit</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Nachhaltigkeit</h3><span>AES · Klasse 9</span></div>
+      <ol>
+        <li data-step>Der Begriff stammt aus der <b>Forstwirtschaft</b>: nur so viele Bäume fällen, wie nachwachsen.</li>
+        <li data-step><b>Nachhaltigkeit</b> bedeutet, so zu leben, dass die nachfolgenden Generationen ihre Bedürfnisse auch noch befriedigen können („enkeltauglich“).</li>
+        <li data-step>Drei Dimensionen: <b>Ökologie</b> (Umwelt), <b>Ökonomie</b> (Wirtschaft), <b>Soziales</b> (Gerechtigkeit).</li>
+        <li data-step>Die <b>Agenda 2030</b> der Vereinten Nationen umfasst 17 Nachhaltigkeitsziele für alle Menschen.</li>
+        <li data-step>Nachhaltigkeit betrifft alle Menschen und alle Bereiche unseres Lebens.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Austausch</span><p>Erklärt die drei Säulen der Nachhaltigkeit an je zwei Beispielen aus eurem Alltag.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Nachhaltigkeits-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+(() => {
+  const sim = f => { let b = 500; const r = []; for (let y = 0; y <= 50; y++) { r.push(b); b = Math.max(0, b + b * .1 * (1 - b / 600) - f); } return r; };
+  const upd = () => { const f = +$('#wf').value, r = sim(f); $('#wf-o').textContent = f; $('#wf-st').innerHTML = r[50] <= 0 ? `<b class="bad">Der Wald ist nach ${r.findIndex(x => x <= 0)} Jahren verschwunden.</b> Es wurde mehr gefällt, als nachwachsen konnte.` : r[50] >= r[0] * .95 ? '<b class="good">Nachhaltig!</b> Es wird nur so viel gefällt, wie nachwächst – der Wald bleibt erhalten.' : `<b>Der Wald schrumpft</b> auf ${Math.round(r[50])} Bäume. Auf Dauer nicht nachhaltig.`; };
+  $('#wf').oninput = upd; upd();
+  canvasLoop($('#cv-w'), 'wald', (ctx, w, h) => {
+    const r = sim(+$('#wf').value), {X, Y} = axes(ctx, w, h, {x: [0, 50], y: [0, 650], xt: [0, 10, 20, 30, 40, 50], yt: [0, 200, 400, 600], xl: 'Jahre', yl: 'Bäume', pad: {l: 50}});
+    polyline(ctx, r.map((v, i) => [X(i), Y(v)]), r[50] > 400 ? C.good : r[50] > 0 ? C.warn : C.bad, 3);
+    const n = Math.round(r[50] / 40); for (let i = 0; i < Math.min(15, n); i++) { const x = w * .62 + (i % 5) * 22, y = h * .2 + Math.floor(i / 5) * 26; ctx.fillStyle = col('c2'); ctx.beginPath(); ctx.moveTo(x, y - 12); ctx.lineTo(x - 8, y + 6); ctx.lineTo(x + 8, y + 6); ctx.closePath(); ctx.fill(); ctx.fillStyle = '#7a5a3a'; ctx.fillRect(x - 1.5, y + 6, 3, 5); }
+  });
+})();
+sorter($('#sort'), [{id: 'o', name: 'Ökologie'}, {id: 'w', name: 'Ökonomie'}, {id: 's', name: 'Soziales'}], [
+  {t: 'Regenwald schützen', c: 'o'}, {t: 'weniger Plastikmüll', c: 'o'}, {t: 'erneuerbare Energien', c: 'o'},
+  {t: 'Firma spart Energie und Rohstoffe', c: 'w'}, {t: 'langlebige Produkte herstellen', c: 'w'}, {t: 'langfristige Unternehmensstrategie', c: 'w'},
+  {t: 'faire Löhne', c: 's'}, {t: 'Zugang zu Bildung für alle', c: 's'}, {t: 'gleiche Rechte für alle Menschen', c: 's'}
+]);
+explore($('#ex-s'), [
+  ['Keine Armut', 'euro'], ['Kein Hunger', 'schuessel'], ['Gesundheit und Wohlergehen', 'herz'], ['Hochwertige Bildung', 'buch'], ['Geschlechtergleichheit', 'gruppe'], ['Sauberes Wasser', 'tropfen'], ['Bezahlbare, saubere Energie', 'sonne'], ['Menschenwürdige Arbeit', 'fabrik'], ['Industrie, Innovation, Infrastruktur', 'idee'], ['Weniger Ungleichheiten', 'waage'], ['Nachhaltige Städte', 'haus'], ['Nachhaltiger Konsum und Produktion', 'kreislauf'], ['Maßnahmen zum Klimaschutz', 'erde'], ['Leben unter Wasser', 'fisch'], ['Leben an Land', 'baum'], ['Frieden und Gerechtigkeit', 'schild'], ['Partnerschaften zur Erreichung der Ziele', 'hand']
+].map(([t, ico], i) => ({ico, t: `${i + 1}. ${t}`, d: i === 11 ? '<p><b>Ziel 12</b> ist für AES besonders wichtig: nachhaltige Konsum- und Produktionsmuster – weniger Abfall, weniger Lebensmittelverschwendung, bewusst einkaufen.</p>' : i === 1 ? '<p>Hunger beenden, Ernährungssicherheit und bessere Ernährung erreichen, nachhaltige Landwirtschaft fördern.</p>' : `<p>Eines der 17 Ziele, die bis 2030 weltweit erreicht werden sollen.</p>`})), {hint: 'Tippe auf ein Ziel.'});
+sorter($('#sort2'), [{id: 'j', name: 'enkeltauglich'}, {id: 'n', name: 'eher nicht'}], [
+  {t: 'Fahrrad statt Elterntaxi', c: 'j'}, {t: 'Kleidung secondhand kaufen', c: 'j'}, {t: 'Reste vom Vortag essen', c: 'j'}, {t: 'Handy reparieren lassen', c: 'j'},
+  {t: 'jede Saison neue Sneaker', c: 'n'}, {t: 'Wasser in Einwegflaschen kaufen', c: 'n'}, {t: 'Wochenendtrip mit dem Flugzeug', c: 'n'}, {t: 'Licht überall anlassen', c: 'n'}
+]);
+trueFalse($('#tf'), [
+  {t: 'Der Begriff Nachhaltigkeit stammt aus der Forstwirtschaft.', ok: true},
+  {t: 'Nachhaltigkeit betrifft nur die Umwelt.', ok: false, why: 'Auch Wirtschaft und Soziales.'},
+  {t: 'Die Agenda 2030 hat 17 Ziele.', ok: true},
+  {t: 'Faire Löhne gehören zur sozialen Säule.', ok: true},
+  {t: 'Nachhaltig ist, wenn wir heute so viel verbrauchen, wie wir wollen.', ok: false}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Was bedeutet Nachhaltigkeit?', a: ['so leben, dass auch künftige Generationen ihre Bedürfnisse befriedigen können', 'möglichst viel kaufen', 'nur Bio essen', 'nie reisen'], ok: 0},
+  {q: 'Welche Säulen hat das Modell?', a: ['Ökologie, Ökonomie, Soziales', 'Wald, Wasser, Luft', 'Essen, Trinken, Schlafen', 'Schule, Familie, Freizeit'], ok: 0},
+  {q: 'Wann wurde die Agenda 2030 beschlossen?', a: ['2015', '1990', '2030', '1700'], ok: 0},
+  {q: 'Was heißt „enkeltauglich“?', a: ['so handeln, dass auch die Enkel gut leben können', 'für Kinder geeignet', 'altmodisch', 'billig'], ok: 0}
+]);
+</script>

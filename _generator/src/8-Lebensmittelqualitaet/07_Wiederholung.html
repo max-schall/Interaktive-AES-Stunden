@@ -1,0 +1,86 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 106–107
+q: Kann ich ein Lebensmittel anhand der Verpackung beurteilen?
+facts: Fachbegriffe als Karteikarten und Paare | Fallbeispiel: Einkauf für ein Schulfest | Quiz mit 16 Fragen (10 zufällig pro Runde) | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Fallbeispiel · Großes Quiz · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Kennzeichnung, Nutri-Score, Zusatzstoffe, Qualitätssicherung, Qualitätsfächer und Convenience Food: Prüfe, was du weißt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Kann ich ein Lebensmittel anhand der Verpackung beurteilen?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="fall" data-label="Fallbeispiel" data-yr="Anwenden" data-title="Einkauf für das Schulfest" data-sub="Gut entscheiden">
+  <div class="section-head"><p class="eyebrow">Station 2 · Fallbeispiel</p><h2>Einkauf für das Schulfest</h2><p class="lead">Eure Klasse betreibt beim Schulfest einen Stand. Ihr kauft ein.</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['LMIV', 'EU-Verordnung zur Lebensmittelkennzeichnung'], ['Zutatenverzeichnis', 'alle Zutaten in absteigender Reihenfolge'], ['Allergen', 'kann eine Überempfindlichkeitsreaktion auslösen'], ['Grundpreis', 'Preis pro kg oder Liter'], ['MHD', 'Qualität garantiert bis …, oft länger genießbar'], ['Verbrauchsdatum', 'danach nicht mehr essen'], ['Nutri-Score', 'freiwillige Nährwertskala A bis E'], ['E-Nummer', 'Kennzeichnung eines Zusatzstoffs'], ['Emulgator', 'verbindet Öl und Wasser'], ['hypertonisch', 'mehr Zucker als im Blut, macht Durst'], ['HACCP', 'Risikoanalyse kritischer Kontrollpunkte'], ['Qualitätsfächer', 'acht Werte zur Beurteilung von Lebensmitteln'], ['regenerierfertig', 'muss nur erwärmt werden'], ['Entscheidungsmatrix', 'Produkte nach Kriterien bewerten']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+scenes($('#sc'), [
+  {s: 'Ein Mitschüler hat eine Erdnussallergie. Wo prüft ihr, ob die Kekse sicher sind?', a: ['im Zutatenverzeichnis (Allergene hervorgehoben)', 'am Nutri-Score', 'am Preis'], ok: 0},
+  {s: 'Saft: 1-l-Flasche für 1,79 € oder 0,2-l-Packung für 0,49 €?', a: ['Grundpreis vergleichen: 1,79 €/l gegen 2,45 €/l', 'Die kleine ist günstiger', 'Egal'], ok: 0},
+  {s: 'Zwei Müslisorten für den Frühstücksstand: A und D.', a: ['Nutri-Score innerhalb der Produktgruppe vergleichen – A wählen', 'D, weil es bunter ist', 'Nutri-Score sagt nichts'], ok: 0},
+  {s: 'Der Joghurt für den Obstsalat ist ab morgen über dem MHD.', a: ['Prüfen – meist noch gut, morgen verwenden', 'Wegwerfen', 'Einfrieren und nächstes Jahr nehmen'], ok: 0},
+  {s: 'Ihr entscheidet zwischen Saft, Saftgetränk und Schorle. Zwingendes Kriterium: wenig Zucker.', a: ['Entscheidungsmatrix: Saftgetränk scheidet aus, Schorle gewinnt', 'Das billigste nehmen', 'Nach der Farbe der Flasche'], ok: 0},
+  {s: 'Die Hackfleischbällchen müssen bis zum Fest gekühlt bleiben.', a: ['Kühlkette einhalten: Kühltasche, max. 8 °C', 'In der Sonne lagern', 'Im Klassenzimmer offen lassen'], ok: 0}
+], {label: 'Fall'});
+mcQuiz($('#quiz'), [
+  {q: 'Wie viele Pflichtangaben gibt es nach der LMIV?', a: ['neun', 'drei', 'zwanzig', 'keine'], ok: 0},
+  {q: 'Was steht im Zutatenverzeichnis zuerst?', a: ['die Zutat mit dem größten Anteil', 'die teuerste Zutat', 'das Allergen', 'der Zucker'], ok: 0},
+  {q: 'Welche Angabe ist freiwillig?', a: ['Nutri-Score', 'Nettofüllmenge', 'Allergene', 'MHD'], ok: 0},
+  {q: 'Was gehört zu den „Big 7“?', a: ['Salz', 'Vitamin C', 'Calcium', 'Ballaststoffe'], ok: 0},
+  {q: 'Was bringt beim Nutri-Score Pluspunkte?', a: ['Ballaststoffe', 'Zucker', 'Salz', 'gesättigte Fette'], ok: 0},
+  {q: 'Was darf man mit dem Nutri-Score vergleichen?', a: ['zwei Tiefkühlpizzen', 'Pizza und Apfel', 'Cola und Müsli', 'Käse und Saft'], ok: 0},
+  {q: 'Wofür steht das „E“ der E-Nummer?', a: ['Europa', 'Energie', 'Essen', 'Extra'], ok: 0},
+  {q: 'Wie viele Zusatzstoffe sind für Bio-Produkte etwa zugelassen?', a: ['ca. 50', 'ca. 300', 'keine', 'ca. 1000'], ok: 0},
+  {q: 'Welches Getränk ist hypotonisch?', a: ['Wasser', 'Cola', 'Energydrink', 'Nektar'], ok: 0},
+  {q: 'Wer entnimmt Proben im Rahmen der amtlichen Überwachung?', a: ['die Lebensmittelüberwachung', 'die Supermarktkasse', 'die Werbeagentur', 'die Verbraucher'], ok: 0},
+  {q: 'Was ist ein kritischer Kontrollpunkt bei Joghurt?', a: ['die Kühlkette', 'die Farbe des Bechers', 'der Name', 'die Werbung'], ok: 0},
+  {q: 'Zu welchem Qualitätswert gehört die Verpackung?', a: ['ökologischer Wert', 'Genusswert', 'emotionaler Wert', 'Eignungswert'], ok: 0},
+  {q: 'Zu welchem Wert gehört „Welche Erinnerungen verbinde ich damit?“', a: ['emotionaler Wert', 'ökonomischer Wert', 'Gesundheitswert', 'sozialer Wert'], ok: 0},
+  {q: 'Welche Stufe ist ein Fruchtjoghurt?', a: ['verzehrfertig', 'garfertig', 'küchenfertig', 'mischfertig'], ok: 0},
+  {q: 'Welches Produkt ist mischfertig?', a: ['Kartoffelpüree-Pulver', 'Tiefkühlpizza', 'Fischfilet', 'Smoothie'], ok: 0},
+  {q: 'Was passiert bei einem K.-o.-Kriterium in der Matrix?', a: ['Ein Produkt, das es nicht erfüllt, scheidet aus', 'Es zählt doppelt', 'Nichts', 'Es gewinnt'], ok: 0}
+], {pick: 10});
+selfCheck($('#sci'), [
+  {t: 'Ich kann die neun Pflichtangaben auf einer Verpackung finden und erklären.', href: '01_Kennzeichnung.html#etikett'},
+  {t: 'Ich kann Grundpreise vergleichen und MHD und Verbrauchsdatum unterscheiden.', href: '01_Kennzeichnung.html#preis'},
+  {t: 'Ich kann den Nutri-Score erklären und richtig anwenden.', href: '02_Nutri_Score.html#rechner'},
+  {t: 'Ich kann Zusatzstoffe und ihre Funktionsklassen erkennen.', href: '03_Zusatzstoffe.html#klassen'},
+  {t: 'Ich kann Getränke nach ihrer Konzentration einteilen.', href: '03_Zusatzstoffe.html#getraenke'},
+  {t: 'Ich kann die drei Ebenen der Qualitätssicherung beschreiben.', href: '04_Qualitaetssicherung.html#ebenen'},
+  {t: 'Ich kann ein Produkt mit dem Qualitätsfächer bewerten.', href: '05_Qualitaetsfaecher.html#netz'},
+  {t: 'Ich kann Convenience Food einordnen und mit einer Entscheidungsmatrix begründet entscheiden.', href: '06_Convenience_Matrix.html#matrix'}
+]);
+</script>

@@ -1,0 +1,190 @@
+<!--
+title: Erste Hilfe leisten
+short: Erste Hilfe
+time: 2 Unterrichtsstunden (mit Übungen)
+book: S. 118–119
+q: Was mache ich, wenn jemand vor mir zusammenbricht?
+facts: Grundsätze: Ruhe bewahren, Überblick, Unfallstelle absichern, Eigensicherung | Rettungskette und Notruf 112 mit den W-Fragen | Bewusstsein und Atmung prüfen, stabile Seitenlage oder Wiederbelebung (30 : 2) | Wunden versorgen, Verbrennungen kühlen, PECH-Regel
+inter: Ablaufschema Bewusstlosigkeit · Notruf-Training mit W-Fragen · Herzdruckmassage-Rhythmus-Trainer · Notfall-Situationen
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Erste Hilfe leisten</h1>
+      <p class="lead">Ob in der Schule, zu Hause, im Urlaub oder im Straßenverkehr: Unfälle können immer und überall passieren. Bis Rettungskräfte da sind, vergehen im Durchschnitt etwa 10 Minuten – im Ernstfall zählt jede Minute.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Was mache ich, wenn jemand vor mir zusammenbricht?</p></div>
+      <div class="controls"><button class="btn primary" data-go="grundsaetze">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="grundsaetze" data-label="Grundsätze" data-yr="Einstieg" data-title="Jede Person kann helfen" data-sub="Grundsätze und Rettungskette">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Jede Person kann helfen!</h2>
+      <p class="lead"><b>Erste Hilfe</b> sind lebensrettende und gesundheitserhaltende Sofortmaßnahmen, die so lange von Laien durchgeführt werden, bis Rettungskräfte eintreffen. Falsch ist es nur, nicht zu helfen.</p>
+      <ul class="facts">
+        <li><b>Ruhe bewahren</b> und einen Überblick verschaffen. Um Hilfe rufen.</li>
+        <li><b>Eigensicherung geht vor!</b> Bringe dich nie selbst in Gefahr.</li>
+        <li><b>Unfallstelle absichern</b>, im Straßenverkehr Warnweste und Warndreieck.</li>
+        <li>Verletzte nie allein lassen und beruhigen.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Die Rettungskette – bringe sie in Reihenfolge</h3></div>
+      <div id="seq-r"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="notruf" data-label="Notruf 112" data-yr="Praxis" data-title="Der Notruf 112" data-sub="Die W-Fragen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Praxis</p>
+      <h2>Der Notruf 112</h2>
+      <p class="lead">Wenn alle in Sicherheit sind, setzt du den Notruf ab. Die <b>112</b> funktioniert in ganz Europa – kostenlos, auch ohne Guthaben. Die Leitstelle stellt Fragen und sagt dir, was du tun musst.</p>
+      <div class="achtung"><p>Nicht auflegen! Rückfragen abwarten – die Leitstelle beendet das Gespräch.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Notruf-Training</h3></div>
+      <div id="ex-w"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="ablauf" data-label="Bewusstlos?" data-yr="Erarbeitung" data-title="Eine Person liegt am Boden" data-sub="Bewusstsein und Atmung prüfen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Erarbeitung</p>
+      <h2>Eine Person liegt am Boden</h2>
+      <ul class="facts">
+        <li><b>Bewusstsein prüfen:</b> ansprechen, am Arm berühren, an den Schultern rütteln. Reagiert die Person, beruhige sie und biete Hilfe an.</li>
+        <li><b>Atmung prüfen:</b> Kopf überstrecken, Hand auf den Brustkorb, Ohr über Nase und Mund: sehen, hören, fühlen.</li>
+        <li><b>Atmet die Person:</b> stabile Seitenlage.</li>
+        <li><b>Atmet sie nicht:</b> wiederbeleben – 30-mal Herzdruckmassage, 2-mal beatmen. Nur Drücken ist auch gut! Abwechseln, bis der Rettungsdienst da ist.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Was tust du?</h3></div>
+      <div id="sc-a"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="hdm" data-label="Herzdruckmassage" data-yr="Praxis" data-title="Der Rhythmus-Trainer" data-sub="100 bis 120 Mal pro Minute">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Praxis</p>
+      <h2>Herzdruckmassage im richtigen Takt</h2>
+      <p class="lead">Drücke in der Mitte des Brustkorbs 5–6 cm tief, <b>100- bis 120-mal pro Minute</b>. Ein guter Takt: „Stayin' Alive“ der Bee Gees.</p>
+      <p class="prompt">Tippe auf den Knopf (oder die Leertaste) im Takt. Ziel: im grünen Bereich bleiben.</p>
+      <p class="note">Wiederbeleben ist sehr anstrengend. Wenn andere Helfende da sind, wechselt euch alle paar Minuten ab.</p>
+    </div>
+    <div class="vis">
+      <canvas id="cv-hdm" class="wide" aria-label="Anzeige der Drückfrequenz"></canvas>
+      <div class="controls"><button class="btn primary" id="hdm-p" style="min-width:12rem;font-size:1.1rem">Drücken</button><button class="btn" id="hdm-m">Metronom an</button><button class="btn" id="hdm-r">Zurücksetzen</button></div>
+      <p class="status" id="hdm-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="wunden" data-label="Verletzungen" data-yr="Anwendung" data-title="Verletzungen versorgen" data-sub="Wunden, Verbrennungen, PECH">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 5 · Anwendung</p>
+      <h2>Verletzungen versorgen</h2>
+      <p class="lead">Bevor du Verletzungen versorgst, ziehst du zu deinem Schutz <b>Einweghandschuhe</b> an.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf eine Verletzung</h3></div>
+      <div id="ex-v"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Erste Hilfe</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Erste Hilfe</h3><span>AES · Klasse 8</span></div>
+      <ol>
+        <li data-step>Keine Angst vor Erster Hilfe – falsch ist es nur, nichts zu tun. <b>Eigensicherung geht vor.</b></li>
+        <li data-step>Ruhe bewahren, Überblick verschaffen, Unfallstelle absichern, <b>Notruf 112</b> (Wo? Was? Wie viele? Welche Verletzungen? Warten auf Rückfragen!).</li>
+        <li data-step>Bewusstsein prüfen → Atmung prüfen → atmet: <b>stabile Seitenlage</b>; atmet nicht: <b>wiederbeleben</b> (30 × drücken, 2 × beatmen, 100–120 pro Minute).</li>
+        <li data-step>Wunden: Pflaster bzw. sterile Kompresse fest aufdrücken. Kleine Verbrennungen: max. 10 Minuten mit lauwarmem Wasser kühlen; große nur steril abdecken.</li>
+        <li data-step>Gelenk-, Knochen-, Muskelverletzungen: <b>PECH</b> – Pause, Eis, Compression, Hochlagern.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Praxis</span><p>Übt die stabile Seitenlage zu zweit. Ein Erste-Hilfe-Kurs (z. B. Schulsanitätsdienst) vertieft das Wissen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Stabile Seitenlage</h2></div>
+  <div id="seq-s"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+sequence($('#seq-r'), ['Sofortmaßnahmen: Absichern, Eigenschutz, lebensrettende Maßnahmen', 'Notruf 112 absetzen', 'Weitere Erste Hilfe: betreuen, Wunden versorgen', 'Rettungsdienst trifft ein', 'Krankenhaus']);
+explore($('#ex-w'), [
+  {ico: 'haus', t: 'Wo?', d: 'Wo ist der Notfall? Ort, Straße, Hausnummer, Stockwerk – z. B. „Musterschule, Schulstraße 1, Schulküche im Erdgeschoss“.'},
+  {ico: 'warn', t: 'Was?', d: 'Was ist passiert? Z. B. „Ein Schüler ist bewusstlos zusammengebrochen.“'},
+  {ico: 'gruppe', t: 'Wie viele?', d: 'Wie viele Verletzte oder Erkrankte gibt es?'},
+  {ico: 'plus', t: 'Welche?', d: 'Welche Verletzungen oder Erkrankungen? Z. B. „Er atmet nicht, ich beginne mit der Herzdruckmassage.“'},
+  {ico: 'telefon' in ICONS ? 'telefon' : 'handy', t: 'Warten!', d: 'Warten auf Rückfragen! Nicht auflegen – die Leitstelle beendet das Gespräch und gibt Anweisungen.'}
+], {hint: 'Tippe auf eine W-Frage.'});
+scenes($('#sc-a'), [
+  {s: 'Auf dem Schulhof liegt ein Mitschüler regungslos am Boden. Was tust du zuerst?', a: ['Ansprechen, berühren, an den Schultern rütteln', 'Sofort beatmen', 'Weggehen und hoffen, dass jemand anderes hilft'], ok: 0},
+  {s: 'Er reagiert nicht. Was nun?', a: ['Laut um Hilfe rufen, dann Atmung prüfen', 'In die stabile Seitenlage bringen, ohne die Atmung zu prüfen', 'Wasser ins Gesicht spritzen'], ok: 0},
+  {s: 'Er atmet normal.', a: ['Stabile Seitenlage, Notruf 112, bei ihm bleiben', 'Herzdruckmassage', 'Aufsetzen und Wasser geben'], ok: 0},
+  {s: 'Eine Person atmet nicht. Ein Mitschüler ruft die 112.', a: ['Sofort mit der Herzdruckmassage beginnen (30 : 2 oder nur drücken)', 'Abwarten, bis der Rettungswagen da ist', 'In die Seitenlage bringen'], ok: 0},
+  {s: 'Nach 3 Minuten bist du erschöpft. Eine Lehrerin ist da.', a: ['Abwechseln und weitermachen, bis der Rettungsdienst übernimmt', 'Aufhören', 'Langsamer drücken'], ok: 0}
+], {label: 'Schritt'});
+
+/* Rhythmus-Trainer */
+(() => {
+  let taps = [], metro = false, mT = 0, flash = 0, hist = [];
+  const rate = () => { if (taps.length < 3) return 0; const d = []; for (let i = 1; i < taps.length; i++) d.push(taps[i] - taps[i - 1]); const avg = d.slice(-6).reduce((a, b) => a + b, 0) / Math.min(6, d.length); return 60000 / avg; };
+  const tap = () => { const now = performance.now(); if (taps.length && now - taps[taps.length - 1] > 2000) taps = []; taps.push(now); if (taps.length > 20) taps.shift(); flash = 1; const r = rate(); if (r) hist.push(r); if (hist.length > 60) hist.shift(); upd(); };
+  const upd = () => { const r = Math.round(rate()); $('#hdm-st').innerHTML = !r ? 'Tippe mindestens dreimal im Takt.' : r < 100 ? `<b class="bad">${r} pro Minute – schneller!</b>` : r > 120 ? `<b class="bad">${r} pro Minute – etwas langsamer.</b>` : `<b class="good">${r} pro Minute – perfekt!</b> Weiter so, bis der Rettungsdienst da ist.`; };
+  $('#hdm-p').onclick = tap;
+  document.addEventListener('keydown', e => { if (e.code === 'Space' && STATIONS[cur] === 'hdm') { e.preventDefault(); tap(); } });
+  $('#hdm-m').onclick = () => { metro = !metro; $('#hdm-m').textContent = metro ? 'Metronom aus' : 'Metronom an'; };
+  $('#hdm-r').onclick = () => { taps = []; hist = []; upd(); };
+  upd();
+  canvasLoop($('#cv-hdm'), 'hdm', (ctx, w, h, t, dt) => {
+    flash = Math.max(0, flash - dt * 4);
+    const {X, Y} = axes(ctx, w, h, {x: [0, 60], y: [60, 160], yt: [80, 100, 120, 140], xt: [], yl: 'Drücke pro Minute', pad: {l: 54, b: 20, t: 16, r: 120}});
+    ctx.fillStyle = alpha(C.good, .14); ctx.fillRect(X(0), Y(120), X(60) - X(0), Y(100) - Y(120));
+    if (hist.length > 1) polyline(ctx, hist.map((v, i) => [X(i), Y(clamp(v, 60, 160))]), C.accent, 2.5);
+    const bx = w - 60, by = h / 2, r = 34 + flash * 10;
+    ctx.fillStyle = alpha(C.bad, .25 + flash * .5); ctx.beginPath(); ctx.arc(bx, by, r, 0, 7); ctx.fill();
+    ctx.save(); ctx.translate(bx - 14, by - 14); ctx.scale(1.2, 1.2); ctx.strokeStyle = C.bad; ctx.lineWidth = 2; ctx.stroke(new Path2D(ICONS.herz)); ctx.restore();
+    if (metro) { mT += dt; if (mT >= .54) { mT = 0; flash = Math.max(flash, .6); } label(ctx, '♪ 110/min', bx, by + 52, {size: 12, color: C.ink2}); }
+  });
+})();
+explore($('#ex-v'), [
+  {ico: 'messer', t: 'Schnittwunde', d: 'Kleine Schnitte: Pflaster genügt. Blutet die Wunde stärker, eine sterile Kompresse fest auf die Wunde drücken, Verband anlegen.'},
+  {ico: 'flamme', t: 'Verbrennung', d: 'Kleinflächige Verbrennungen (nicht größer als eine Hand) sofort mit lauwarmem, fließendem Wasser kühlen – nicht länger als 10 Minuten, sonst droht Unterkühlung. Größere Brandwunden nicht kühlen, nur steril abdecken, Notruf.'},
+  {ico: 'laufen', t: 'Verstauchung, Prellung', d: '<p>Bei Verletzungen an Gelenken, Knochen oder Muskeln hilft die <b>PECH-Regel</b>:</p><ul><li><b>P</b>ause</li><li><b>E</b>is (kühlen, nicht direkt auf die Haut)</li><li><b>C</b>ompression (Verband)</li><li><b>H</b>ochlagern</li></ul>'},
+  {ico: 'tropfen', t: 'Nasenbluten', d: 'Kopf nach vorne beugen (nicht nach hinten!), Nasenflügel zusammendrücken, kalten Lappen in den Nacken.'}
+], {hint: 'Tippe auf eine Verletzung.'});
+sequence($('#seq-s'), ['Neben die Person knien, den nahen Arm angewinkelt nach oben legen', 'Den fernen Arm greifen und die Hand an die Wange legen', 'Das ferne Bein am Knie beugen und die Person zu sich herüberziehen', 'Das oben liegende Bein so ausrichten, dass die Hüfte im rechten Winkel liegt', 'Kopf überstrecken, Mund leicht öffnen', 'Atmung regelmäßig kontrollieren, zudecken, bei der Person bleiben'], {intro: 'Bringe die Schritte der stabilen Seitenlage in die richtige Reihenfolge.'});
+mcQuiz($('#quiz'), [
+  {q: 'Welche Nummer hat der europaweite Notruf?', a: ['112', '110', '911', '116 111'], ok: 0},
+  {q: 'Was geht bei der Ersten Hilfe immer vor?', a: ['die Eigensicherung', 'der Notruf', 'die Beatmung', 'das Foto'], ok: 0},
+  {q: 'Wie oft drückt man bei der Herzdruckmassage pro Minute?', a: ['100–120-mal', '20–30-mal', '200-mal', '60-mal'], ok: 0},
+  {q: 'Was tust du bei einer bewusstlosen Person, die normal atmet?', a: ['stabile Seitenlage', 'Herzdruckmassage', 'aufsetzen', 'nichts'], ok: 0},
+  {q: 'Wofür steht das „E“ in PECH?', a: ['Eis', 'Erste Hilfe', 'Eile', 'Einschlafen'], ok: 0},
+  {q: 'Wie lange kühlt man eine kleine Verbrennung höchstens?', a: ['10 Minuten', '1 Stunde', '1 Minute', 'gar nicht'], ok: 0}
+]);
+</script>

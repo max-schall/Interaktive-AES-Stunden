@@ -1,0 +1,148 @@
+<!--
+title: Du und deine Bedürfnisse – was wünschst du dir?
+short: Bedürfnisse
+time: 1 Unterrichtsstunde
+book: S. 152–153
+q: Was brauche ich wirklich – und was wünsche ich mir nur?
+facts: Bedürfnis = empfundener Mangel mit dem Wunsch, ihn zu beseitigen | Bedarf befriedigt Bedürfnisse, materiell oder nicht-materiell | Bedürfnispyramide nach Maslow: Grund-, Sicherheits-, soziale, Individual-Bedürfnisse, Selbstverwirklichung | Defizit- und Wachstumsbedürfnisse
+inter: Gestrandet auf der Insel · Interaktive Bedürfnispyramide · Materiell oder nicht-materiell · Bedürfnis und Bedarf zuordnen
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Du und deine Bedürfnisse</h1>
+      <p class="lead">Ein neues Smartphone, der Sieg beim nächsten Turnier, Zeit mit Freunden: Jeder hat Wünsche und Träume. Aber was brauchen wir wirklich zum Leben?</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Was brauche ich wirklich – und was wünsche ich mir nur?</p></div>
+      <div class="controls"><button class="btn primary" data-go="insel">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="insel" data-label="Insel" data-yr="Einstieg" data-title="Gestrandet!" data-sub="Was brauchst du zum Überleben?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Gestrandet!</h2>
+      <p class="lead">Stell dir vor, du bist auf einer einsamen Insel gestrandet. Du darfst <b>fünf Dinge</b> aus dem Rettungsboot mitnehmen. Was brauchst du dort, um zu überleben?</p>
+      <p class="note">Vermutlich sind Essen, Trinken und ein Schlafplatz für dich zu Hause selbstverständlich – auf der Insel werden sie plötzlich am wichtigsten.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wähle fünf Dinge</h3><span class="muted" id="in-n">0 / 5</span></div>
+      <div class="chip-row" id="in-pick"></div>
+      <div class="calc-out" id="in-out"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="pyramide" data-label="Maslow" data-yr="Erarbeitung" data-title="Die Bedürfnispyramide" data-sub="Nach Abraham Maslow">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Die Bedürfnispyramide</h2>
+      <p class="lead">Der Psychologe Abraham Maslow ordnete Bedürfnisse nach ihrer Wichtigkeit für das (Über-)Leben in einer Pyramide. Ganz unten stehen die Grundbedürfnisse.</p>
+      <ul class="facts">
+        <li>Ist eine Stufe weitgehend erfüllt, streben Menschen nach der nächsten.</li>
+        <li>Die unteren vier Stufen sind <b>Defizitbedürfnisse</b> (Mangelbedürfnisse), die Spitze ist ein <b>Wachstumsbedürfnis</b>.</li>
+      </ul>
+      <div class="achtung"><p>Eine Stufe muss nicht zu 100 % erfüllt sein, um Bedürfnisse einer höheren Ebene zu empfinden: Auch ohne festes Einkommen sehnt man sich nach Freunden.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf eine Stufe</h3></div>
+      <div id="pyr"></div>
+      <div class="ex-panel" id="pyr-info"><p class="muted">Was gehört dazu?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="bedarf" data-label="Bedarf" data-yr="Erarbeitung" data-title="Bedürfnis und Bedarf" data-sub="Vom Wunsch zum Kauf">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Erarbeitung</p>
+      <h2>Bedürfnis und Bedarf</h2>
+      <dl class="kv2">
+        <dt>Bedürfnis</dt><dd>ein empfundener Mangel, verbunden mit dem Wunsch, ihn zu beseitigen – z. B. „Ich will mit meinen Freunden in Kontakt sein.“</dd>
+        <dt>Bedarf</dt><dd>befriedigt das Bedürfnis. Er kann <b>materiell</b> sein (gegenständlich, z. B. ein Smartphone) oder <b>nicht-materiell</b> (z. B. Zeit mit Freunden).</dd>
+      </dl>
+      <p class="note">Wenn du genug Geld hast, kannst du einen materiellen Bedarf durch Kauf stillen. Viele Bedürfnisse lassen sich aber ganz ohne Kauf erfüllen.</p>
+      <ul class="words-box"><li>das Bedürfnis</li><li>der Bedarf</li><li>materiell</li><li>die Bedürfnispyramide</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Materiell oder nicht-materiell?</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="zuordnen" data-label="Zuordnen" data-yr="Übung" data-title="Welche Stufe?" data-sub="Bedarfe einordnen">
+  <div class="section-head"><p class="eyebrow">Station 4 · Übung</p><h2>Welches Bedürfnis wird hier befriedigt?</h2></div>
+  <div id="sort2"></div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Bedürfnisse</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Bedürfnisse und Bedarf</h3><span>AES · Klasse 9</span></div>
+      <ol>
+        <li data-step>Ein <b>Bedürfnis</b> ist ein empfundener Mangel, verbunden mit dem Wunsch, diesen Mangel zu beseitigen.</li>
+        <li data-step><b>Bedarfe</b> befriedigen Bedürfnisse und können materiell oder nicht-materiell sein.</li>
+        <li data-step>In der <b>Bedürfnispyramide</b> nach Maslow sind die Bedürfnisse nach Rangfolge geordnet: Grundbedürfnisse – Sicherheit – soziale Bedürfnisse – Individualbedürfnisse (Anerkennung) – Selbstverwirklichung.</li>
+        <li data-step>Die unteren Stufen sind Defizitbedürfnisse, die Spitze ein Wachstumsbedürfnis.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Nachdenken</span><p>Welche deiner Wünsche lassen sich ohne Geld erfüllen?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Bedürfnis-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+(() => {
+  const I = [['Wasserkanister', 'g'], ['Messer', 's'], ['Plane / Zelt', 's'], ['Angel', 'g'], ['Feuerzeug', 'g'], ['Erste-Hilfe-Set', 's'], ['Smartphone (ohne Netz)', 'i'], ['Schokolade', 'g'], ['Tagebuch', 'w'], ['Fußball', 'i'], ['Spiegel für Lichtsignale', 's'], ['Gitarre', 'w']];
+  const L = {g: 'Grundbedürfnis', s: 'Sicherheit', i: 'Anerkennung/Spaß', w: 'Selbstverwirklichung'};
+  const sel = new Set();
+  $('#in-pick').innerHTML = I.map(([n], i) => `<button class="btn" data-i="${i}" aria-pressed="false" style="padding:.3rem .7rem;font-size:.85rem">${n}</button>`).join('');
+  const upd = () => { $('#in-n').textContent = sel.size + ' / 5'; const c = {}; [...sel].forEach(i => c[I[i][1]] = (c[I[i][1]] || 0) + 1); $('#in-out').innerHTML = sel.size ? `<p style="margin:0">${Object.entries(c).map(([k, v]) => `${L[k]}: <b>${v}</b>`).join(' · ')}</p><p>${(c.g || 0) + (c.s || 0) >= 4 ? '<b class="good">Gut überlebt!</b> Du hast vor allem an Grundbedürfnisse und Sicherheit gedacht – genau die unterste Stufe der Pyramide.' : 'Überlege: Womit stillst du Durst und Hunger, wie schützt du dich?'}</p>` : '<span class="muted">Noch nichts gewählt.</span>'; };
+  $('#in-pick').addEventListener('click', e => { const b = e.target.closest('[data-i]'); if (!b) return; const i = +b.dataset.i; if (sel.has(i)) sel.delete(i); else if (sel.size < 5) sel.add(i); $$('#in-pick .btn').forEach(x => x.setAttribute('aria-pressed', sel.has(+x.dataset.i))); upd(); });
+  upd();
+})();
+(() => {
+  const S = [['Grundbedürfnisse', 'Atmung, Nahrung, Trinken, Schlaf, Wärme, Kleidung, Bewegung, Wohnraum', 'c2', 'Defizitbedürfnis'], ['Sicherheitsbedürfnisse', 'Recht und Ordnung, Schutz vor Gefahren, festes Einkommen, Absicherung, Unterkunft', 'c3', 'Defizitbedürfnis'], ['soziale Bedürfnisse', 'Freundschaft, Liebe, Zugehörigkeit, Anschluss an eine Gruppe. Menschen sind von Natur aus soziale Wesen – Ausgrenzung oder Mobbing schaden der Psyche.', 'c5', 'Defizitbedürfnis'], ['Individualbedürfnisse', 'Wertschätzung, Respekt, Anerkennung, Einfluss, private und berufliche Erfolge', 'c1', 'Defizitbedürfnis'], ['Selbstverwirklichung', 'Individualität, Talententfaltung, dem Leben einen Sinn geben – z. B. der Traum vom Auswandern oder einen Marathon zu laufen. So unterschiedlich wie die Menschen selbst.', 'c4', 'Wachstumsbedürfnis']];
+  const W = 360, H = 250; let s = `<svg viewBox="0 0 ${W} ${H}" class="svgfig" role="img" aria-label="Bedürfnispyramide nach Maslow">`;
+  S.forEach(([n, , c], i) => { const h = H / 5, y1 = H - i * h, y0 = y1 - h + 3, half = y => (W / 2) * (y / H); s += `<g class="hit" data-k="${i}"><path d="M${W / 2 - half(y1)} ${y1} L${W / 2 + half(y1)} ${y1} L${W / 2 + half(y0)} ${y0} L${W / 2 - half(y0)} ${y0} Z" fill="${col(c)}" fill-opacity=".85"/><text x="${W / 2}" y="${y1 - h / 2 + 4}" text-anchor="middle" class="lbl" style="fill:#fff;font-size:${i > 2 ? 10.5 : 12}px">${i > 3 ? 'Selbst-' : n}</text>${i > 3 ? `<text x="${W / 2}" y="${y1 - h / 2 + 16}" text-anchor="middle" class="lbl" style="fill:#fff;font-size:10px">verwirkl.</text>` : ''}</g>`; });
+  $('#pyr').innerHTML = s + '</svg>';
+  $('#pyr').addEventListener('click', e => { const h = e.target.closest('[data-k]'); if (!h) return; $$('#pyr .hit').forEach(x => x.classList.toggle('dim', x !== h)); const [n, d, , t] = S[+h.dataset.k]; $('#pyr-info').innerHTML = `<h4>${n}</h4><p>${d}</p><p class="muted">${t}</p>`; });
+})();
+sorter($('#sort'), [{id: 'm', name: 'materieller Bedarf'}, {id: 'n', name: 'nicht-materieller Bedarf'}], [
+  {t: 'neues Smartphone', c: 'm'}, {t: 'Fahrradhelm', c: 'm'}, {t: 'Wintermantel', c: 'm'}, {t: 'Vorhängeschloss an der Tür', c: 'm'},
+  {t: 'Zeit mit Freunden', c: 'n'}, {t: 'Lob der Trainerin', c: 'n'}, {t: 'eine Umarmung', c: 'n'}, {t: 'Ruhe zum Lesen', c: 'n'}
+]);
+sorter($('#sort2'), [{id: 'g', name: 'Grund'}, {id: 's', name: 'Sicherheit'}, {id: 'o', name: 'sozial'}, {id: 'i', name: 'Anerkennung'}, {id: 'w', name: 'Selbstverwirklichung'}], [
+  {t: 'Mittagessen', c: 'g'}, {t: 'acht Stunden Schlaf', c: 'g'}, {t: 'Fahrradhelm', c: 's'}, {t: 'Sparkonto', c: 's'}, {t: 'Mitglied im Verein', c: 'o'}, {t: 'Klassenfahrt mit Freunden', c: 'o'},
+  {t: 'Applaus nach dem Auftritt', c: 'i'}, {t: 'gute Note für das Referat', c: 'i'}, {t: 'eigene Band gründen', c: 'w'}, {t: 'Marathon laufen', c: 'w'}
+]);
+trueFalse($('#tf'), [
+  {t: 'Ein Bedürfnis ist ein empfundener Mangel.', ok: true},
+  {t: 'Bedarfe sind immer materiell.', ok: false, why: 'Auch Zeit mit Freunden ist ein Bedarf.'},
+  {t: 'In der Pyramide stehen Grundbedürfnisse ganz unten.', ok: true},
+  {t: 'Man empfindet soziale Bedürfnisse erst, wenn alle Grundbedürfnisse zu 100 % erfüllt sind.', ok: false, why: 'Stufen müssen nicht vollständig erfüllt sein.'},
+  {t: 'Selbstverwirklichung ist ein Wachstumsbedürfnis.', ok: true}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Wer entwickelte die Bedürfnispyramide?', a: ['Abraham Maslow', 'Karl von Koerber', 'Albert Einstein', 'die WHO'], ok: 0},
+  {q: 'Was steht an der Spitze der Pyramide?', a: ['Selbstverwirklichung', 'Nahrung', 'Sicherheit', 'Freundschaft'], ok: 0},
+  {q: 'Was ist ein nicht-materieller Bedarf?', a: ['Anerkennung', 'Smartphone', 'Schuhe', 'Fahrrad'], ok: 0},
+  {q: 'Zu welcher Stufe gehört ein festes Einkommen?', a: ['Sicherheitsbedürfnisse', 'Grundbedürfnisse', 'soziale Bedürfnisse', 'Selbstverwirklichung'], ok: 0}
+]);
+</script>

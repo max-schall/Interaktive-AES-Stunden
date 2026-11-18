@@ -1,0 +1,204 @@
+<!--
+title: Ballaststoffe, sekundäre Pflanzenstoffe und Versuche
+short: Ballaststoffe & Versuch
+time: 2 Unterrichtsstunden (mit Versuchen)
+book: S. 70–73
+q: Ist Vollkornbrot wirklich „gesünder“ – und wie weise ich Fett und Stärke nach?
+facts: Ballaststoffe: löslich und unlöslich, mindestens 30 g am Tag | Wirkung in Mund, Magen und Darm | Sekundäre Pflanzenstoffe: Farbe, Duft, Geschmack – neun Gruppen | Methode: Einen Versuch durchführen (Fettfleckprobe, Stärkenachweis)
+inter: Ballaststoffe auf ihrem Weg durch den Körper · Ballaststoff-Rechner · Bunte Pflanzenstoffe · Virtuelle Fettfleckprobe und Iodprobe · Versuchsprotokoll in sechs Schritten
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}} · Methode</p>
+      <h1>Ballaststoffe, Pflanzenstoffe und Versuche</h1>
+      <p class="lead">Morgens beim Bäcker: Vollkornbrötchen oder helles Brötchen? Ernährungswissenschaftler sagen, Vollkorn ist „gesünder“. Früher hielt man Ballaststoffe für unnötigen Ballast – heute weiß man: Sie sind unverzichtbar!</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Ist Vollkornbrot wirklich „gesünder“ – und wie weise ich Fett und Stärke nach?</p></div>
+      <div class="controls"><button class="btn primary" data-go="ballast">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="ballast" data-label="Ballaststoffe" data-yr="Erarbeitung" data-title="Ballaststoffe" data-sub="Der Weg durch den Körper">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Ballaststoffe – nur unnötiger Ballast?</h2>
+      <p class="lead">Ballaststoffe sind pflanzliche <b>Faser- und Quellstoffe</b>. Die meisten sind unverdaulich und werden wieder ausgeschieden.</p>
+      <dl class="kv2">
+        <dt>unlöslich</dt><dd>Zellulose, Hemizellulose (Zellwände), Lignin (verholzte Teile, Getreideschalen)</dd>
+        <dt>löslich</dt><dd>Pektine in Äpfeln und Weißkohl; werden im Dickdarm von Bakterien abgebaut</dd>
+        <dt>resistente Stärke</dt><dd>entsteht beim Abkühlen gekochter Kartoffeln, Reis und Nudeln (12–24 Stunden)</dd>
+      </dl>
+      <p class="note">Bedarf: mindestens <b>30 g pro Tag</b>. Trinke zu ballaststoffreichen Mahlzeiten immer ein großes Glas Wasser!</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wirkung im Körper</h3></div>
+      <div id="ex-b"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="rechner" data-label="30 g am Tag" data-yr="Anwendung" data-title="Schaffe ich 30 Gramm?" data-sub="Ballaststoff-Rechner">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Anwendung</p>
+      <h2>Schaffe ich 30 Gramm?</h2>
+      <p class="lead">Es ist nicht schwer, genügend Ballaststoffe zu essen: Vollkornbrot, -nudeln, -reis, Flocken, Hülsenfrüchte, Nüsse und Saaten, Gemüse und Obst mit Schale.</p>
+      <p class="prompt">Stelle einen Tagesplan zusammen: Tippe auf Lebensmittel, um sie hinzuzufügen.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Mein Tag</h3><button class="btn" id="br-reset">Leeren</button></div>
+      <div class="chip-row" id="br-pick"></div>
+      <div class="calc-out" id="br-out"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="sps" data-label="Pflanzenstoffe" data-yr="Erarbeitung" data-title="Sekundäre Pflanzenstoffe" data-sub="Jetzt wird's bunt">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Erarbeitung</p>
+      <h2>Sekundäre Pflanzenstoffe – jetzt wird's bunt!</h2>
+      <p class="lead">Die Farbenpracht, der Duft und das Aroma von Obst und Gemüse beruhen auf sekundären Pflanzenstoffen (SPS). Sie kommen nur in Pflanzen vor, in geringen Mengen, und wirken gesundheitsfördernd – z. B. antioxidativ, antibiotisch oder blutdrucksenkend.</p>
+      <p class="note">Neun Gruppen: Carotinoide, Flavonoide, Glucosinolate, Monoterpene, Phenolsäuren, Phytoöstrogene, Polyphenole, Saponine, Sulfide.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Fünf Beispiele</h3></div>
+      <div id="ex-s"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="versuch" data-label="Versuche" data-yr="Methode" data-title="Einen Versuch durchführen" data-sub="Fettfleck- und Iodprobe">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Methode</p>
+      <h2>Einen Versuch durchführen</h2>
+      <dl class="kv2">
+        <dt>Fettfleckprobe</dt><dd>Lebensmittel auf Papier reiben bzw. tropfen und trocknen lassen. Bleibt ein glasiger, durchscheinender Fleck, enthält es <b>Fett</b>. Wasser verdunstet spurlos.</dd>
+        <dt>Iodprobe</dt><dd>Einen Tropfen Iod-Kaliumiodid-Lösung auf das Lebensmittel geben. Färbt es sich <b>blauschwarz</b>, ist <b>Stärke</b> enthalten.</dd>
+      </dl>
+      <div class="achtung"><p>Schutzbrille tragen. Iodlösung färbt und reizt; Proben danach nicht essen.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Virtuelles Labor</h3><div id="vs-seg"></div></div>
+      <div class="chip-row" id="vs-pick"></div>
+      <canvas id="cv-vs" class="wide" aria-label="Versuchsergebnisse auf Papier bzw. Teller"></canvas>
+      <p class="status" id="vs-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="protokoll" data-label="Protokoll" data-yr="Methode" data-title="Das Versuchsprotokoll" data-sub="Sechs Schritte">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 5 · Methode</p>
+      <h2>Das Versuchsprotokoll</h2>
+      <p class="lead">Frage, Vermutung, Material, Skizze, Durchführung, Beobachtung und Ergebnis hältst du in einem <b>Versuchsprotokoll</b> fest. Beobachtungen genau notieren – auch Kleinigkeiten können später wichtig sein.</p>
+      <p class="note">Arbeitsteilung: Eine Person führt durch, eine dokumentiert.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Bringe die Schritte in die richtige Reihenfolge</h3></div>
+      <div id="seq"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Ballaststoffe und sekundäre Pflanzenstoffe</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Ballaststoffe und sekundäre Pflanzenstoffe</h3><span>AES · Klasse 7</span></div>
+      <ol>
+        <li data-step><b>Ballaststoffe</b> sind pflanzliche Faser- und Quellstoffe, meist unverdaulich: unlöslich (Zellulose, Lignin) und löslich (Pektine).</li>
+        <li data-step>Wirkung: intensives Kauen, Quellen im Magen und langes Sättigungsgefühl, Anregung der Darmtätigkeit, Schutz vor Verstopfung. Mindestens 30 g am Tag, dazu viel trinken.</li>
+        <li data-step><b>Sekundäre Pflanzenstoffe</b> sind Farb-, Duft- und Geschmacksstoffe aus Pflanzen und wirken gesundheitsfördernd (z. B. Carotinoide, Flavonoide, Sulfide).</li>
+        <li data-step>Versuche: <b>Fettfleckprobe</b> (glasiger Fleck = Fett), <b>Iodprobe</b> (blauschwarz = Stärke).</li>
+        <li data-step>Versuchsprotokoll: Frage – Vermutung – Planung – Durchführung – Auswertung – Entsorgung.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Praxis</span><p>Führt die Fettfleckprobe mit Wasser, Öl, Erdnüssen, Sahne, Käse, Gurke, Salami, Apfel und Kartoffel durch und erstellt ein Protokoll.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Ballaststoff-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+explore($('#ex-b'), [
+  {ico: 'mund', t: 'im Mund', d: 'Die feste Faserstruktur erfordert kräftiges Kauen. So wird mehr Speichel gebildet – gut für die Zähne.'},
+  {ico: 'schuessel', t: 'im Magen', d: 'Ballaststoffe quellen auf, der Magen wird gedehnt. Das führt zu einem schnellen und anhaltenden Sättigungsgefühl – du isst weniger.'},
+  {ico: 'kreislauf', t: 'im Darm', d: 'Der Speisebrei nimmt Wasser auf, der Druck auf die Darmwand steigt, die Darmtätigkeit wird angeregt – Verstopfung wird verhindert. Lösliche Ballaststoffe werden zu Gasen abgebaut (Blähungen möglich).'},
+  {ico: 'herz', t: 'im Stoffwechsel', d: 'Ballaststoffe haben einen positiven Einfluss auf Blutzucker und Cholesterin.'}
+], {hint: 'Wo wirken Ballaststoffe?'});
+
+(() => {
+  const L = [['Vollkornbrot (2 Scheiben)', 7], ['Weißbrot (2 Scheiben)', 2], ['Haferflocken (50 g)', 5], ['Apfel mit Schale', 3], ['Banane', 2.5], ['Linsen (Portion)', 8], ['Vollkornnudeln (Portion)', 7], ['Helle Nudeln (Portion)', 3], ['Karotte', 2], ['Brokkoli (Portion)', 4.5], ['Mandeln (Handvoll)', 3], ['Himbeeren (Schale)', 5]];
+  const sel = [];
+  $('#br-pick').innerHTML = L.map(([n], i) => `<button class="btn" data-i="${i}" style="padding:.3rem .7rem;font-size:.85rem">${n}</button>`).join('');
+  const upd = () => { const g = sel.reduce((s, i) => s + L[i][1], 0); $('#br-out').innerHTML = `<span class="big">${numDE(g, 1)} g Ballaststoffe</span><div class="bar-row" style="grid-template-columns:minmax(0,1fr) auto"><span class="bt"><i style="width:${Math.min(100, g / 30 * 100)}%;--c:${g >= 30 ? col('good') : col('accent')}"></i></span><span class="bv">${Math.round(g / 30 * 100)} %</span></div><p>${sel.length ? sel.map(i => L[i][0]).join(' · ') : 'Noch nichts gewählt.'}</p>${g >= 30 ? '<p><b class="good">Ziel erreicht!</b> Denk an genug Wasser.</p>' : ''}`; };
+  $('#br-pick').onclick = e => { const b = e.target.closest('[data-i]'); if (b) { sel.push(+b.dataset.i); upd(); } };
+  $('#br-reset').onclick = () => { sel.length = 0; upd(); };
+  upd();
+})();
+
+explore($('#ex-s'), [
+  {ico: 'karotte', t: 'Carotinoide', d: '<p>gelbe, orange oder rote Farbstoffe, z. B. Beta-Carotin in Karotten, Kürbis, Paprika, Tomaten.</p><p><b>Wirkung:</b> antioxidativ, stärken das Immunsystem.</p>'},
+  {ico: 'apfel', t: 'Flavonoide', d: '<p>hellgelbe, rote, blaue Farbstoffe, z. B. in Äpfeln, Beeren, Auberginen, grünem und schwarzem Tee, Kakao.</p><p><b>Wirkung:</b> antioxidativ, entzündungshemmend, blutdrucksenkend.</p>'},
+  {ico: 'blatt', t: 'Glucosinolate', d: '<p>Duft- und Aromastoffe, z. B. in allen Kohlarten, Rettich, Radieschen, Kresse, Senf.</p><p><b>Wirkung:</b> antibiotisch, krebsvorbeugend.</p>'},
+  {ico: 'schuessel', t: 'Saponine', d: '<p>Bitterstoffe, z. B. in Hülsenfrüchten, Soja, Spargel, Lakritz.</p><p><b>Wirkung:</b> Cholesterin senkend, entzündungshemmend.</p>'},
+  {ico: 'nase', t: 'Sulfide', d: '<p>Duft- und Aromastoffe, z. B. in Zwiebeln, Knoblauch, Lauch, Schnittlauch.</p><p><b>Wirkung:</b> antibiotisch, antioxidativ, blutdrucksenkend.</p>'}
+], {hint: 'Tippe auf eine Gruppe.'});
+
+/* virtuelles Labor */
+(() => {
+  const F = {Wasser: [0, 0], Öl: [1, 0], Erdnüsse: [1, 1], Sahne: [1, 0], Käse: [1, 0], Gurke: [0, 0], Salami: [1, 0], Apfel: [0, 0], Kartoffel: [0, 1], Brot: [0, 1], Nudeln: [0, 1], Zucker: [0, 0]};
+  let mode = 'fett'; const done = new Set();
+  const pickBtns = () => { $('#vs-pick').innerHTML = Object.keys(F).map(k => `<button class="btn" data-k="${k}" aria-pressed="${done.has(k)}" style="padding:.3rem .7rem;font-size:.85rem">${k}</button>`).join(''); };
+  seg($('#vs-seg'), [['fett', 'Fettfleckprobe'], ['iod', 'Iodprobe']], v => { mode = v; done.clear(); pickBtns(); $('#vs-st').innerHTML = v === 'fett' ? 'Wähle Lebensmittel – sie werden auf das Papier gerieben und getrocknet.' : 'Wähle Lebensmittel – ein Tropfen Iodlösung kommt darauf.'; });
+  $('#vs-pick').onclick = e => { const b = e.target.closest('[data-k]'); if (!b) return; done.add(b.dataset.k); b.setAttribute('aria-pressed', 'true'); const [f, s] = F[b.dataset.k]; $('#vs-st').innerHTML = mode === 'fett' ? `<b>${b.dataset.k}:</b> ${f ? 'glasiger, durchscheinender Fleck – <b>enthält Fett</b>.' : 'nach dem Trocknen nichts zu sehen – kein (nennenswertes) Fett.'}` : `<b>${b.dataset.k}:</b> ${s ? 'Färbung blauschwarz – <b>enthält Stärke</b>.' : 'bleibt gelbbraun – keine Stärke.'}`; };
+  canvasLoop($('#cv-vs'), 'versuch', (ctx, w, h) => {
+    const keys = Object.keys(F), cols = 4, cw = w / cols, ch = h / 3;
+    if (mode === 'fett') { ctx.fillStyle = '#fbfaf6'; roundRect(ctx, 6, 6, w - 12, h - 12, 6); ctx.fill(); ctx.strokeStyle = alpha(C.ink2, .3); ctx.stroke(); }
+    keys.forEach((k, i) => {
+      const x = (i % cols) * cw + cw / 2, y = Math.floor(i / cols) * ch + ch / 2;
+      if (mode === 'fett') { ctx.strokeStyle = alpha(C.ink2, .2); ctx.strokeRect((i % cols) * cw + 8, Math.floor(i / cols) * ch + 8, cw - 16, ch - 16); }
+      else { ctx.fillStyle = '#ffffff'; ctx.beginPath(); ctx.ellipse(x, y, cw * .38, ch * .38, 0, 0, 7); ctx.fill(); ctx.strokeStyle = alpha(C.ink2, .3); ctx.stroke(); }
+      if (done.has(k)) {
+        const [f, s] = F[k];
+        if (mode === 'fett' && f) { ctx.fillStyle = 'rgba(214,190,120,.45)'; ctx.beginPath(); ctx.ellipse(x, y + 4, cw * .28, ch * .22, .3, 0, 7); ctx.fill(); }
+        if (mode === 'iod') { ctx.fillStyle = k === 'Wasser' ? alpha(C.water, .3) : '#e8dcc4'; ctx.beginPath(); ctx.ellipse(x, y, cw * .25, ch * .2, 0, 0, 7); ctx.fill(); ctx.fillStyle = s ? '#1f1a3a' : '#b0702a'; ctx.beginPath(); ctx.arc(x, y, Math.min(cw, ch) * .1, 0, 7); ctx.fill(); }
+      }
+      label(ctx, k, x, Math.floor(i / cols) * ch + ch - 14, {size: 11, color: C.ink2, weight: 600});
+    });
+  });
+})();
+
+sequence($('#seq'), ['Ausgangsfrage formulieren (z. B. „Welche Lebensmittel enthalten viel Fett?“)', 'Vermutungen aufstellen', 'Versuch planen: Materialliste, Skizze, Durchführung notieren', 'Versuch durchführen und Beobachtungen genau dokumentieren', 'Versuch auswerten: Ergebnis mit Vermutungen vergleichen, Schlussfolgerung', 'Abfälle entsorgen und aufräumen']);
+
+trueFalse($('#tf'), [
+  {t: 'Ballaststoffe sind für die Gesundheit unverzichtbar.', ok: true},
+  {t: 'Ballaststoffe kommen vor allem in Fleisch vor.', ok: false, why: 'Sie kommen nur in Pflanzen vor.'},
+  {t: 'Man sollte mindestens 30 g Ballaststoffe am Tag essen.', ok: true},
+  {t: 'Sekundäre Pflanzenstoffe geben Obst und Gemüse ihre Farbe.', ok: true},
+  {t: 'Bei der Iodprobe färbt sich Fett blauschwarz.', ok: false, why: 'Blauschwarz zeigt Stärke an.'},
+  {t: 'Zu ballaststoffreichen Mahlzeiten sollte man viel trinken.', ok: true}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Welcher Ballaststoff ist löslich?', a: ['Pektin', 'Zellulose', 'Lignin', 'Hemizellulose'], ok: 0},
+  {q: 'Wie wirken Ballaststoffe im Magen?', a: ['Sie quellen und machen lange satt', 'Sie lösen sich sofort auf', 'Sie liefern viel Energie', 'gar nicht'], ok: 0},
+  {q: 'Welche SPS geben Karotten ihre Farbe?', a: ['Carotinoide', 'Sulfide', 'Saponine', 'Glucosinolate'], ok: 0},
+  {q: 'Was zeigt ein glasiger Fleck bei der Fettfleckprobe?', a: ['Das Lebensmittel enthält Fett', 'Es enthält Wasser', 'Es enthält Stärke', 'Es ist verdorben'], ok: 0},
+  {q: 'Welches Lebensmittel färbt sich bei der Iodprobe blauschwarz?', a: ['Kartoffel', 'Apfel', 'Öl', 'Zucker'], ok: 0}
+]);
+</script>

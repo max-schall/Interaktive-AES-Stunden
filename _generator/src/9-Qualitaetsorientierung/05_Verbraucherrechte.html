@@ -1,0 +1,142 @@
+<!--
+title: Verbraucherrechte – dein gutes Recht
+short: Verbraucherrechte
+time: 1–2 Unterrichtsstunden
+book: S. 194–195
+q: Muss der Laden mein kaputtes Smartphone zurücknehmen?
+facts: Gewährleistung: zwei Jahre gesetzlich vorgeschrieben – Nacherfüllung, Minderung, Rücktritt, Schadenersatz | Garantie und Umtausch sind freiwillig | Widerruf: 14 Tage bei Internet- und Haustürgeschäften | Offene und verdeckte Mängel; Belege aufbewahren; AGB lesen
+inter: Gewährleistung, Garantie, Umtausch · Stufen der Gewährleistung · Offener oder verdeckter Mangel? · Rechtsfälle lösen
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Verbraucherrechte – dein gutes Recht</h1>
+      <p class="lead">Dein neues Smartphone funktioniert nach zwei Wochen nicht mehr? Du willst ein Abo doch lieber wieder kündigen? Kennst du deine Rechte als Verbraucherin oder Verbraucher?</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Muss der Laden mein kaputtes Smartphone zurücknehmen?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Erarbeitung" data-title="Pflicht oder freiwillig?" data-sub="Gewährleistung, Garantie, Umtausch">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Pflicht oder freiwillig?</h2>
+      <p class="lead">Grundsätzlich gilt: <b>Verträge sind einzuhalten</b> („Pacta sunt servanda“). Beide Vertragsparteien sind daran gebunden. Dennoch gibt es gesetzliche Ausnahmen.</p>
+      <div class="achtung"><p>Kassenbelege, Rechnungen und Quittungen unbedingt aufbewahren! Ohne Belege kannst du keine Ansprüche geltend machen.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf einen Begriff</h3></div>
+      <div id="ex-b"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="stufen" data-label="Gewährleistung" data-yr="Erarbeitung" data-title="Rechte bei der Gewährleistung" data-sub="In dieser Reihenfolge">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Rechte bei der Gewährleistung</h2>
+      <p class="lead">Im Bürgerlichen Gesetzbuch (BGB) ist eine <b>zwei Jahre</b> lange gesetzliche Gewährleistung festgelegt. Der Verkaufende haftet dafür, dass die Ware beim Übergeben mangelfrei ist.</p>
+      <p class="note">Zeigt sich der Mangel im ersten Jahr, wird vermutet, dass er schon beim Kauf da war.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Zeitstrahl: Was gilt wann?</h3></div>
+      <canvas id="cv-z" class="wide" aria-label="Zeitstrahl Widerruf, Gewährleistung, Garantie"></canvas>
+      <div class="slider"><label for="zm">Zeit seit dem Kauf <output id="zm-o"></output></label><input type="range" id="zm" min="0" max="36" step="0.5" value="3"></div>
+      <div id="zm-st"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="maengel" data-label="Mängel" data-yr="Übung" data-title="Mängel gibt es viele" data-sub="Offen oder verdeckt?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Übung</p>
+      <h2>Mängel gibt es viele</h2>
+      <p class="lead">Ein <b>Mangel</b> liegt vor, wenn eine Ware nicht in dem vertraglich vereinbarten oder üblichen Zustand an den Kunden übergeben wird. Stellst du einen Mangel fest, kannst du ihn <b>reklamieren</b>.</p>
+      <dl class="kv2"><dt>offene Mängel</dt><dd>sofort erkennbar</dd><dt>verdeckte Mängel</dt><dd>zeigen sich erst später</dd></dl>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Sortiere</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="faelle" data-label="Rechtsfälle" data-yr="Anwendung" data-title="Rechtsfälle lösen" data-sub="Welches Recht gilt?">
+  <div class="section-head"><p class="eyebrow">Station 4 · Anwendung</p><h2>Rechtsfälle lösen</h2></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Verbraucherrechte</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Verbraucherrechte</h3><span>AES · Klasse 9</span></div>
+      <ol>
+        <li data-step>Bei mangelhaften Waren und Dienstleistungen gilt die gesetzlich vorgeschriebene <b>zweijährige Gewährleistung</b>: 1. Nacherfüllung (Reparatur oder Ersatz), 2. Minderung des Kaufpreises oder Rücktritt, ggf. Schadenersatz.</li>
+        <li data-step>Die <b>Garantie</b> ist eine freiwillige Leistung der Verkaufenden oder der Herstellerfirma. Auch der <b>Umtausch</b> ist freiwillig (Kulanz).</li>
+        <li data-step><b>Widerruf</b>: Bei Internet- und Haustürgeschäften kannst du dich innerhalb von 14 Tagen ohne Grund vom Vertrag lösen.</li>
+        <li data-step><b>Stornierung</b> meint einen Vertragsrücktritt wegen unvermeidbarer Umstände.</li>
+        <li data-step>Belege aufbewahren und die <b>AGB</b> (Allgemeine Geschäftsbedingungen) vor Vertragsabschluss lesen.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Rollenspiel</span><p>Spielt eine Reklamation im Laden: Eine Käuferin hat ein drei Monate altes Smartphone, das nicht funktioniert.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Begriffe zuordnen</h2></div>
+  <div id="match"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+explore($('#ex-b'), [
+  {ico: 'schild', t: 'Gewährleistung', sub: 'Pflicht · 2 Jahre', d: 'Gesetzlich vorgeschrieben (BGB). Der Verkaufende haftet zwei Jahre dafür, dass die Ware beim Kauf mangelfrei war. Ansprechpartner ist der Händler, nicht die Herstellerfirma.'},
+  {ico: 'stern', t: 'Garantie', sub: 'freiwillig', d: 'Freiwillige Leistung der Verkaufenden oder der Herstellerfirma. Die Garantiebedingungen regeln Zeitraum und Leistung, z. B. kostenfreie Reparatur oder ein neues Gerät.'},
+  {ico: 'kreislauf', t: 'Umtausch', sub: 'freiwillig · Kulanz', d: 'Es gibt kein generelles Umtauschrecht für einwandfreie Ware! Aus Kulanz bieten Geschäfte oft Tausch gegen einen anderen Artikel oder einen Gutschein bzw. Geld zurück an. Die Umtauschfrist steht in den AGB.'},
+  {ico: 'kalender', t: 'Widerruf', sub: 'Recht · 14 Tage', d: 'Bei Haustürgeschäften und Internetverträgen kannst du dich innerhalb von 14 Tagen ohne Grund vom Vertrag lösen. Bereits bezahltes Geld muss erstattet werden.'},
+  {ico: 'kreuz', t: 'Stornierung', sub: 'Rücktritt', d: 'Eine bezahlte Leistung kann wegen außergewöhnlicher, unvermeidbarer Umstände (z. B. Krankheit, Streik, Umweltkatastrophe) nicht in Anspruch genommen werden – z. B. eine Flugreise oder ein Konzert.'}
+], {hint: 'Tippe auf einen Begriff.'});
+(() => {
+  const upd = () => { const m = +$('#zm').value; $('#zm-o').textContent = m < 1 ? `${m ? 14 : 0} Tage` : `${numDE(m, 1)} Monate`;
+    const r = []; if (m <= .5) r.push('<b>Widerruf</b> (nur bei Online-/Haustürkauf): ohne Grund zurückgeben.'); if (m <= 24) r.push('<b>Gewährleistung</b> beim Händler: zuerst Reparatur oder Ersatz.' + (m <= 12 ? ' Der Händler muss beweisen, dass der Mangel nicht schon beim Kauf da war.' : ' Jetzt musst du beweisen, dass der Mangel schon beim Kauf bestand.')); if (m <= 36) r.push('<b>Garantie</b> (falls angeboten, hier z. B. 3 Jahre): Bedingungen lesen.');
+    $('#zm-st').innerHTML = r.length ? `<ul class="facts">${r.map(x => `<li>${x}</li>`).join('')}</ul>` : ''; };
+  $('#zm').oninput = upd; upd();
+  canvasLoop($('#cv-z'), 'stufen', (ctx, w, h) => {
+    const x0 = 30, x1 = w - 20, X = m => lerp(x0, x1, m / 36), m = +$('#zm').value;
+    [['Widerruf 14 Tage', 0, .5, 'c4', .2], ['Gewährleistung 2 Jahre', 0, 24, 'c3', .45], ['Garantie (freiwillig, z. B. 3 Jahre)', 0, 36, 'c2', .7]].forEach(([t, a, b, c, y]) => { ctx.fillStyle = alpha(col(c), m <= b ? .85 : .25); roundRect(ctx, X(a), h * y - 15, Math.max(10, X(b) - X(a)), 30, 9); ctx.fill(); label(ctx, t, X(a) + 8 + (b < 2 ? 16 : 0), h * y, {size: 13.5, align: 'left', color: b < 2 ? C.ink : '#fff'}); });
+    ctx.strokeStyle = C.ink2; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(X(12), h * .3); ctx.lineTo(X(12), h * .58); ctx.stroke(); ctx.setLineDash([]); label(ctx, 'Beweislast wechselt', X(12), h * .62, {size: 11.5, color: C.ink2, weight: 400});
+    [0, 6, 12, 18, 24, 30, 36].forEach(k => label(ctx, k + ' M.', X(k), h * .9, {size: 11.5, color: C.ink2, weight: 400}));
+    ctx.strokeStyle = C.accent; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(X(m), h * .08); ctx.lineTo(X(m), h * .82); ctx.stroke(); dotAt(ctx, X(m), h * .08, C.accent, 6);
+  });
+})();
+sorter($('#sort'), [{id: 'o', name: 'offener Mangel'}, {id: 'v', name: 'verdeckter Mangel'}], [
+  {t: 'Kratzer auf dem Display', c: 'o'}, {t: 'falsche Größe geliefert', c: 'o'}, {t: 'nur 5 statt 6 Gläser im Karton', c: 'o'}, {t: 'Akku hält viel kürzer als beschrieben', c: 'v'}, {t: 'minderwertiges Material reißt nach Wochen', c: 'v'}, {t: 'übermalter Schimmel in der Wohnung', c: 'v'}
+]);
+scenes($('#sc'), [
+  {s: 'Dein drei Monate altes Smartphone geht nicht mehr an. Der Verkäufer sagt: „Wenden Sie sich an den Hersteller.“', a: ['Falsch: Die Gewährleistung gilt gegenüber dem Händler – er muss reparieren oder ersetzen', 'Richtig, nur der Hersteller ist zuständig', 'Pech gehabt'], ok: 0},
+  {s: 'Ein T-Shirt aus dem Laden gefällt dir nicht mehr. Es ist einwandfrei.', a: ['Kein Recht auf Umtausch – nur aus Kulanz möglich', 'Der Laden muss es zurücknehmen', 'Du hast 14 Tage Widerrufsrecht'], ok: 0},
+  {s: 'Du hast online Kopfhörer bestellt und willst sie nach 10 Tagen zurückgeben.', a: ['Widerruf innerhalb von 14 Tagen ohne Grund möglich', 'Nicht möglich', 'Nur mit Mangel'], ok: 0},
+  {s: 'Du hast deinen neuen Wollpulli zu heiß gewaschen. Jetzt ist er verfilzt.', a: ['Kein Mangel – eigener Pflegefehler, keine Gewährleistung', 'Gewährleistung gilt', 'Widerruf möglich'], ok: 0},
+  {s: 'Deine Familie hat eine Flugreise gebucht, nun bist du krank geworden.', a: ['Stornierung – Bedingungen im Vertrag prüfen (ggf. Reiserücktrittsversicherung)', 'Widerruf ohne Kosten', 'Gewährleistung'], ok: 0}
+], {label: 'Fall'});
+matcher($('#match'), [['Gewährleistung', 'gesetzlich, 2 Jahre'], ['Garantie', 'freiwillig, Hersteller oder Händler'], ['Umtausch', 'freiwillig aus Kulanz'], ['Widerruf', '14 Tage bei Internetkauf'], ['Stornierung', 'Rücktritt wegen unvermeidbarer Umstände'], ['AGB', 'das „Kleingedruckte“']]);
+mcQuiz($('#quiz'), [
+  {q: 'Wie lange gilt die gesetzliche Gewährleistung?', a: ['2 Jahre', '6 Monate', '14 Tage', '5 Jahre'], ok: 0},
+  {q: 'Was kommt bei der Gewährleistung zuerst?', a: ['Nacherfüllung (Reparatur oder Ersatz)', 'Rücktritt', 'Schadenersatz', 'Gutschein'], ok: 0},
+  {q: 'Gibt es ein generelles Umtauschrecht?', a: ['nein', 'ja, immer 14 Tage', 'ja, 2 Jahre', 'nur bei Kleidung'], ok: 0},
+  {q: 'Was solltest du immer aufbewahren?', a: ['Kassenbelege', 'die Verpackungsfolie', 'den Werbeprospekt', 'nichts'], ok: 0},
+  {q: 'Was bedeutet „Pacta sunt servanda“?', a: ['Verträge sind einzuhalten', 'Kunde ist König', 'Geld zurück', 'Umtausch erlaubt'], ok: 0}
+]);
+</script>

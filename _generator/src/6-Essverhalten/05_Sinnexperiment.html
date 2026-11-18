@@ -1,0 +1,165 @@
+<!--
+title: Methode: Sinnexperiment
+short: Sinnexperiment
+time: 1–2 Unterrichtsstunden (Praxis)
+book: S. 20–21
+q: Wie genau kann ich beschreiben, was ich esse?
+facts: Lebensmittel mit allen fünf Sinnen prüfen | Drei Schritte: Auswahl, Vorbereitung, Durchführung | Reihenfolge: Sehen, Riechen, Tasten, Hören, Schmecken, Mundgefühl | Neutrale statt wertender Begriffe
+inter: Fünf Sinne mit Leitfragen · Schritte ordnen · Adjektive den Sinnen zuordnen · Digitaler Beobachtungsbogen
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}} · Methode</p>
+      <h1>Methode: Sinnexperiment</h1>
+      <p class="lead">Alles, was du isst, beurteilst du – bewusst oder unbewusst – mit deinen Sinnen. Genau zu beschreiben, wie eine Tomate aussieht, riecht oder schmeckt, ist gar nicht so einfach. Probiere es aus!</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie genau kann ich beschreiben, was ich esse?</p></div>
+      <div class="controls"><button class="btn primary" data-go="sinne">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="sinne" data-label="Fünf Sinne" data-yr="Einstieg" data-title="Mit allen Sinnen" data-sub="Leitfragen zur Tomate">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Mit allen Sinnen</h2>
+      <p class="lead">Bei einem Sinnexperiment werden Lebensmittel mit allen fünf Sinnen geprüft. So kannst du Bekanntes neu entdecken, Sorten vergleichen und neue Lebensmittel kennenlernen.</p>
+      <ul class="facts">
+        <li>Eine geschulte Wahrnehmung hilft dir, die <b>Qualität</b> von Lebensmitteln zu beurteilen.</li>
+        <li>Immer dieselbe Reihenfolge: <b>Sehen – Riechen – Tasten – Hören – Schmecken</b>, zum Schluss das Mundgefühl.</li>
+        <li>Beim Sehen und Riechen das Lebensmittel noch nicht berühren!</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Leitfragen der Spielleitung</h3></div>
+      <div id="ex-s"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="schritte" data-label="Ablauf" data-yr="Planung" data-title="Drei Schritte" data-sub="Auswahl, Vorbereitung, Durchführung">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Planung</p>
+      <h2>In drei Schritten zum Sinnexperiment</h2>
+      <dl class="kv2">
+        <dt>1. Auswahl</dt><dd>Für den Anfang ein bekanntes, möglichst unverarbeitetes Lebensmittel, z. B. eine Tomate.</dd>
+        <dt>2. Vorbereitung</dt><dd>Einkauf klären, jede Person braucht ein eigenes Lebensmittel. Hände waschen, Teller, Schalen und Löffel bereitlegen, Verhaltensregeln besprechen.</dd>
+        <dt>3. Durchführung</dt><dd>Eine Person leitet an und stellt nacheinander die Fragen. Alle beantworten sie und schildern ihre Eindrücke.</dd>
+      </dl>
+      <div class="tipp"><p>Starte mit bekannten Lebensmitteln und wage dich später an unbekannte: von bekannt zu unbekannt, von unverarbeitet zu verarbeitet, vom einzelnen Produkt zum Sortenvergleich.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Bringe die Schritte in die richtige Reihenfolge</h3></div>
+      <div id="seq"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="woerter" data-label="Wortspeicher" data-yr="Übung" data-title="Die richtigen Worte" data-sub="Beschreiben statt bewerten">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Übung</p>
+      <h2>Beschreiben statt bewerten</h2>
+      <p class="lead">Beschreibe möglichst genau. Nutze <b>neutrale Begriffe</b> statt „eklig“ oder „lecker“ – und kommentiere nicht die Aussagen der anderen.</p>
+      <div class="achtung"><p>Verhaltensregeln: Gehe sorgfältig mit dem Lebensmittel um. Jeder probiert nur sein eigenes Lebensmittel mit eigenem Löffel. Allergien vorher ansprechen!</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Zu welchem Sinn passt das Adjektiv?</h3></div>
+      <div id="sort-w"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="bogen" data-label="Beobachtungsbogen" data-yr="Praxis" data-title="Der Beobachtungsbogen" data-sub="Jetzt wird probiert">
+  <div class="section-head"><p class="eyebrow">Station 4 · Praxis</p><h2>Beobachtungsbogen</h2><p class="lead">Wähle für jeden Sinn passende Begriffe. Am Ende entsteht eine Beschreibung deines Lebensmittels.</p></div>
+  <div class="two">
+    <div class="vis">
+      <div class="slider"><label for="lm">Lebensmittel</label><input type="text" id="lm" value="Tomate" style="font-size:1rem;padding:.4rem .6rem"></div>
+      <div id="bogen-ui" style="display:flex;flex-direction:column;gap:.8rem"></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Meine Beschreibung</h3><button class="btn" id="bg-reset">Leeren</button></div>
+      <div class="calc-out" id="bg-out" style="min-height:10rem"></div>
+      <p class="note">Vergleicht eure Beschreibungen: Warum nehmen verschiedene Menschen dasselbe Lebensmittel unterschiedlich wahr?</p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Das Sinnexperiment</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Das Sinnexperiment</h3><span>AES · Klasse 6 · Methode</span></div>
+      <ol>
+        <li data-step>Bei einem <b>Sinnexperiment</b> wird ein Lebensmittel mit allen fünf Sinnen geprüft.</li>
+        <li data-step>Schritte: <b>1. Lebensmittelauswahl – 2. Vorbereitung</b> (Einkauf, Hygiene, Material, Regeln) <b>– 3. Durchführung</b>.</li>
+        <li data-step>Reihenfolge: <b>Sehen – Riechen – Tasten – Hören – Schmecken</b>, zum Schluss das Mundgefühl.</li>
+        <li data-step>Man beschreibt mit <b>neutralen Adjektiven</b> (z. B. glänzend, fruchtig, knackig) statt mit „lecker“ oder „eklig“.</li>
+        <li data-step>Hygiene ist wichtig: Hände waschen, eigener Löffel, eigenes Lebensmittel.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Weiterführend</span><p>Plant ein Sinnexperiment, bei dem ihr zwei Sorten vergleicht, z. B. zwei Apfelsorten oder Vollkorn- und Weißbrot.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Sinnexperiment geprüft</h2></div>
+  <div id="cz"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+const SENSES = [
+  {k: 'sehen', ico: 'auge', t: '1. Sehen', q: '„Beschreibe genau, wie die Tomate aussieht.“', w: ['rot', 'gelb', 'grün', 'rund', 'oval', 'klein', 'groß', 'glatt', 'uneben', 'glänzend', 'matt']},
+  {k: 'riechen', ico: 'nase', t: '2. Riechen', q: '„Wie riecht die Tomate? Erinnert dich der Geruch an etwas?“', w: ['süßlich', 'fruchtig', 'neutral', 'erdig', 'nach Gras', 'würzig', 'kaum Geruch']},
+  {k: 'tasten', ico: 'hand', t: '3. Tasten (Hände)', q: '„Nimm die Tomate in die Hand. Wie fühlt sie sich außen an?“', w: ['weich', 'hart', 'fest', 'glatt', 'rau', 'rund', 'kühl', 'prall']},
+  {k: 'hoeren', ico: 'ohr', t: '4. Hören', q: '„Klopfe auf die Tomate. Was hörst du beim Abbeißen und Kauen?“', w: ['laut', 'leise', 'hohl', 'dumpf', 'knackig', 'schmatzend']},
+  {k: 'schmecken', ico: 'mund', t: '5. Schmecken', q: '„Wie schmeckt die Tomate?“', w: ['süß', 'sauer', 'salzig', 'fruchtig', 'würzig', 'wässrig', 'aromatisch', 'mild']},
+  {k: 'mund', ico: 'schuessel', t: '6. Mundgefühl', q: '„Beschreibe, wie sich die Tomate im Mund und auf der Zunge anfühlt.“', w: ['saftig', 'trocken', 'körnig', 'matschig', 'weich', 'fest', 'mehlig']}
+];
+explore($('#ex-s'), SENSES.map(s => ({ico: s.ico, t: s.t, d: `<p><b>Leitfrage:</b> ${s.q}</p><p class="muted">Wortspeicher: ${s.w.join(', ')}</p>`})), {hint: 'Tippe auf einen Sinn.'});
+
+sequence($('#seq'), ['Lebensmittel auswählen', 'Lebensmittel einkaufen', 'Hände waschen und Materialien bereitlegen', 'Verhaltensregeln besprechen', 'Sehen und Riechen (noch nicht anfassen)', 'Tasten und Hören', 'Schmecken und Mundgefühl beschreiben', 'Eindrücke vergleichen und besprechen']);
+
+sorter($('#sort-w'), [{id: 's', name: 'Sehen'}, {id: 'r', name: 'Riechen'}, {id: 't', name: 'Tasten'}, {id: 'h', name: 'Hören'}, {id: 'g', name: 'Schmecken'}], [
+  {t: 'glänzend', c: 's'}, {t: 'oval', c: 's'}, {t: 'erdig', c: 'r'}, {t: 'nach Gras', c: 'r'}, {t: 'rau', c: 't'}, {t: 'haarig', c: 't'},
+  {t: 'knackig', c: 'h'}, {t: 'dumpf', c: 'h'}, {t: 'bitter', c: 'g'}, {t: 'sauer', c: 'g'}
+]);
+
+/* Beobachtungsbogen */
+(() => {
+  const sel = {};
+  $('#bogen-ui').innerHTML = SENSES.map(s => `<div><b style="font-size:.92rem">${s.t}</b><div class="chip-row" data-s="${s.k}" style="margin-top:.3rem">${s.w.map(w => `<button class="btn" aria-pressed="false" data-w="${w}" style="padding:.3rem .7rem;font-size:.85rem">${w}</button>`).join('')}</div></div>`).join('');
+  const upd = () => {
+    const lm = $('#lm').value.trim() || 'Das Lebensmittel';
+    const part = (k, pre) => sel[k] && sel[k].size ? pre + [...sel[k]].join(', ') + '. ' : '';
+    const txt = part('sehen', `<b>${lm}</b> – Aussehen: `) + part('riechen', 'Geruch: ') + part('tasten', 'Oberfläche: ') + part('hoeren', 'Geräusch: ') + part('schmecken', 'Geschmack: ') + part('mund', 'Mundgefühl: ');
+    $('#bg-out').innerHTML = txt || '<span class="muted">Wähle links Begriffe aus.</span>';
+  };
+  $('#bogen-ui').addEventListener('click', e => {
+    const b = e.target.closest('[data-w]'); if (!b) return;
+    const k = b.closest('[data-s]').dataset.s; sel[k] = sel[k] || new Set();
+    const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on);
+    on ? sel[k].add(b.dataset.w) : sel[k].delete(b.dataset.w); upd();
+  });
+  $('#lm').addEventListener('input', upd);
+  $('#bg-reset').onclick = () => { Object.keys(sel).forEach(k => delete sel[k]); $$('#bogen-ui [aria-pressed]').forEach(b => b.setAttribute('aria-pressed', 'false')); upd(); };
+  upd();
+})();
+
+cloze($('#cz'), 'Bei einem Sinnexperiment wird ein Lebensmittel mit allen {fünf|drei|zwei} Sinnen geprüft. Man beginnt immer mit dem {Sehen|Schmecken|Hören}. Beim Sehen und Riechen wird das Lebensmittel {noch nicht berührt|schon gegessen|zerschnitten}. Statt „lecker“ benutzt man {neutrale|wertende|lustige} Begriffe wie „fruchtig“. Aus Gründen der {Hygiene|Höflichkeit|Mode} wäscht man sich vorher die Hände.');
+mcQuiz($('#quiz'), [
+  {q: 'Welches Lebensmittel eignet sich für das erste Sinnexperiment?', a: ['eine Tomate', 'ein Fertiggericht', 'eine exotische Frucht, die niemand kennt', 'scharfe Chilis'], ok: 0, why: 'Bekannt und unverarbeitet.'},
+  {q: 'Welches Wort ist wertend und sollte vermieden werden?', a: ['eklig', 'glänzend', 'knackig', 'erdig'], ok: 0, why: 'Wertungen sagen wenig über das Lebensmittel aus.'},
+  {q: 'Wozu dient das Sinnexperiment?', a: ['Wahrnehmung schulen und Qualität beurteilen', 'möglichst viel essen', 'Kalorien zählen', 'Preise vergleichen'], ok: 0, why: 'Eine geschulte Wahrnehmung hilft bei der Qualitätsbeurteilung.'},
+  {q: 'Warum nehmen Menschen dasselbe Lebensmittel unterschiedlich wahr?', a: ['Geschmack ist individuell und von Erfahrungen geprägt', 'Weil manche lügen', 'Weil die Tomaten verschieden sind – immer', 'Das tun sie nicht'], ok: 0, why: 'Jeder hat seine eigene Essbiografie.'}
+]);
+</script>

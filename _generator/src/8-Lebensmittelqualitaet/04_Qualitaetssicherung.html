@@ -1,0 +1,154 @@
+<!--
+title: Blickpunkt Lebensmittelqualität
+short: Qualitätssicherung
+time: 1 Unterrichtsstunde
+book: S. 98–99
+q: Wer sorgt dafür, dass mein Essen sicher ist?
+facts: Lebensmittelqualität = alle charakteristischen Eigenschaften eines Produkts | Drei Ebenen der Qualitätssicherung: Gesetze (LFGB, LMHV), Eigenkontrolle (HACCP), amtliche Lebensmittelüberwachung | Unterschiedliche Anforderungen von Verbrauchern, Herstellern, Handel, Politik | Der Qualitätsfächer mit acht Werten
+inter: Wer will was? · Die drei Ebenen der Qualitätssicherung · HACCP am Beispiel Kühlkette · Wie wähle ich aus? (Meinungsbarometer)
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Blickpunkt Lebensmittelqualität</h1>
+      <p class="lead">Wie wählst du dein Essen aus – spontan oder nach bestimmten Kriterien? Warum kaufen deine Freunde andere Marken als du? Und wovon hängt eigentlich ab, ob ein Lebensmittel „gut“ ist?</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wer sorgt dafür, dass mein Essen sicher ist?</p></div>
+      <div class="controls"><button class="btn primary" data-go="qualitaet">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="qualitaet" data-label="Qualität" data-yr="Einstieg" data-title="Was ist Qualität?" data-sub="Jeder will etwas anderes">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Was ist Lebensmittelqualität?</h2>
+      <p class="lead">Die Qualität eines Lebensmittels wird durch <b>alle charakteristischen Eigenschaften</b> eines Produkts bestimmt. Verbraucher, Hersteller, Handel und Politik stellen ganz unterschiedliche Anforderungen.</p>
+      <ul class="words-box"><li>die Qualität</li><li>das Inverkehrbringen (Vertrieb, Verkauf)</li><li>irreführen</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wer erwartet was?</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="ebenen" data-label="Drei Ebenen" data-yr="Erarbeitung" data-title="Drei Ebenen der Sicherheit" data-sub="Gesetze, Eigenkontrolle, Behörden">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Drei Ebenen der Qualitätssicherung</h2>
+      <p class="lead">Gesetze und Kontrollen bei Produktion, Verarbeitung, Vermarktung und Verkauf gewährleisten in Deutschland eine hohe Lebensmittelqualität und -sicherheit. Verbraucher dürfen nicht gefährdet, getäuscht oder irregeführt werden.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf eine Ebene</h3></div>
+      <div id="ex-e"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="haccp" data-label="HACCP" data-yr="Vertiefung" data-title="HACCP und Kühlkette" data-sub="Kritische Kontrollpunkte">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Vertiefung</p>
+      <h2>HACCP und die Kühlkette</h2>
+      <p class="lead"><b>HACCP</b> (Hazard Analysis and Critical Control Points) heißt übersetzt: Risikoanalyse kritischer Kontrollpunkte. Mögliche Gesundheitsgefahren werden frühzeitig erkannt und beseitigt.</p>
+      <p>Dazu gehören z. B. die Kontrolle einer <b>ununterbrochenen Kühlkette</b>, die Dokumentation aller Lagertemperaturen und -zeiten sowie Schulungen der Mitarbeitenden.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Der Weg eines Joghurts</h3></div>
+      <canvas id="cv-h" class="wide" aria-label="Temperaturverlauf entlang der Kühlkette"></canvas>
+      <div class="controls"><button class="btn" id="h-break">Kühlkette unterbrechen</button><button class="btn" id="h-ok">Kühlkette einhalten</button></div>
+      <p class="status" id="h-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="auswahl" data-label="Meine Auswahl" data-yr="Reflexion" data-title="Wie wähle ich aus?" data-sub="Was ist mir wichtig?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Reflexion</p>
+      <h2>Wie wähle ich aus?</h2>
+      <p class="lead">Neben Gesundheitswert und Nährwert sind auch Herkunft und Preis Qualitätskriterien. Essen ist zudem Teil von Tradition und Kultur und wird sinnlich und emotional wahrgenommen.</p>
+      <p class="note">Das Bundeszentrum für Ernährung (BZfE) hat zur Beurteilung acht Kriterien in Form eines <b>Qualitätsfächers</b> aufgestellt – mehr dazu in der nächsten Stunde.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Was ist dir beim Einkauf wichtig?</h3></div>
+      <ol id="op"></ol>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Lebensmittelqualität</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Lebensmittelqualität und -sicherheit</h3><span>AES · Klasse 8</span></div>
+      <ol>
+        <li data-step>Die <b>Lebensmittelqualität</b> wird durch alle charakteristischen Eigenschaften eines Produkts bestimmt.</li>
+        <li data-step><b>1. Gesetze:</b> Das Lebensmittel-, Bedarfsgegenstände- und Futtermittelgesetzbuch (LFGB) und die Lebensmittelhygieneverordnung (LMHV) schützen vor Gefährdung und Täuschung.</li>
+        <li data-step><b>2. Eigenkontrolle</b> der Unternehmen nach dem <b>HACCP-Konzept</b>: kritische Kontrollpunkte wie die Kühlkette werden überwacht und dokumentiert.</li>
+        <li data-step><b>3. Amtliche Lebensmittelüberwachung:</b> Proben werden im Labor auf Verunreinigungen, Schadstoffe und Mikroorganismen untersucht. Nicht einwandfreie Produkte dürfen nicht verkauft werden.</li>
+        <li data-step>Die Qualität eines Lebensmittels hat viele Dimensionen (Qualitätsfächer).</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Recherche</span><p>Sucht auf lebensmittelwarnung.de nach aktuellen Rückrufen. Welche Gründe werden genannt?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Wer ist zuständig?</h2></div>
+  <div id="sc"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+sorter($('#sort'), [{id: 'v', name: 'Verbraucher'}, {id: 'h', name: 'Hersteller'}, {id: 'd', name: 'Handel'}, {id: 'p', name: 'Politik'}], [
+  {t: 'schmeckt gut und ist gesund', c: 'v'}, {t: 'fairer Preis', c: 'v'}, {t: 'günstige Rohstoffe, effiziente Produktion', c: 'h'}, {t: 'gutes Image der Marke', c: 'h'},
+  {t: 'lange haltbar im Regal', c: 'd'}, {t: 'gut zu transportieren und zu stapeln', c: 'd'}, {t: 'Schutz der Gesundheit der Bevölkerung', c: 'p'}, {t: 'Schutz vor Täuschung', c: 'p'}
+]);
+explore($('#ex-e'), [
+  {ico: 'buch', t: '1. Gesetze und Verordnungen', d: '<p>Das wichtigste Gesetz in Deutschland ist das <b>Lebensmittel-, Bedarfsgegenstände- und Futtermittelgesetzbuch (LFGB)</b>. Die hygienischen Anforderungen regelt u. a. die <b>Lebensmittelhygieneverordnung (LMHV)</b>.</p><p>Verbraucher dürfen in keiner Weise gesundheitlich gefährdet, getäuscht oder irregeführt werden.</p>'},
+  {ico: 'fabrik', t: '2. Eigenkontrolle der Hersteller', d: '<p>Unternehmen kontrollieren regelmäßig und eigenverantwortlich den gesamten Produktionsprozess: Rohwaren, Maschinen, Kennzeichnung, Verpackung, Inverkehrbringen.</p><p>Grundlage ist das <b>HACCP-Konzept</b>.</p>'},
+  {ico: 'lupe', t: '3. Amtliche Überwachung', d: '<p>Alle Betriebe, die Lebensmittel erzeugen, verarbeiten, transportieren oder verkaufen, werden regelmäßig kontrolliert. Vor Ort werden Proben entnommen und im Labor auf Verunreinigungen, Schadstoffe und Mikroorganismen untersucht.</p>'}
+], {hint: 'Tippe auf eine Ebene.', count: false});
+(() => {
+  let broken = false;
+  const ST = [['Molkerei', 4], ['Kühl-Lkw', 4], ['Lager', 5], ['Supermarkt', 6], ['Einkaufstasche', 10], ['Kühlschrank', 6]];
+  const msg = () => $('#h-st').innerHTML = broken ? '<b class="bad">Kühlkette unterbrochen:</b> Der Lkw stand ohne Kühlung in der Sonne. Bei über 8 °C vermehren sich Keime schnell – die Ware muss gesperrt werden. Darum werden Temperaturen dokumentiert (kritischer Kontrollpunkt).' : '<b class="good">Kühlkette eingehalten:</b> Unter 8 °C von der Molkerei bis zum Kühlschrank. Kurze Zeit in der Einkaufstasche ist der kritischste Punkt – Kühltasche nutzen und Kühlware zuletzt einkaufen!';
+  $('#h-break').onclick = () => { broken = true; msg(); }; $('#h-ok').onclick = () => { broken = false; msg(); }; msg();
+  canvasLoop($('#cv-h'), 'haccp', (ctx, w, h, t) => {
+    const {X, Y} = axes(ctx, w, h, {x: [0, 5], y: [0, 30], yt: [0, 8, 15, 30], xt: [], yl: 'Temperatur in °C', pad: {l: 50, b: 40, t: 20}});
+    ctx.fillStyle = alpha(C.bad, .08); ctx.fillRect(X(0), Y(30), X(5) - X(0), Y(8) - Y(30)); label(ctx, 'über 8 °C: Keime vermehren sich', X(5) - 6, Y(27), {align: 'right', size: 11, color: C.bad});
+    const pts = ST.map(([n, T], i) => [X(i), Y(broken && i === 1 ? 24 : T)]);
+    polyline(ctx, pts, C.accent, 3);
+    ST.forEach(([n], i) => { dotAt(ctx, pts[i][0], pts[i][1], broken && i === 1 ? C.bad : C.accent, 6); label(ctx, n, X(i), h - 14, {size: 11, color: C.ink2, weight: 600}); });
+    const p = (t * .25) % 1, k = Math.min(4, Math.floor(p * 5)), f = p * 5 - k; dotAt(ctx, lerp(pts[k][0], pts[k + 1][0], f), lerp(pts[k][1], pts[k + 1][1], f), C.ink, 4);
+  });
+})();
+opinion($('#op'), [
+  {t: 'Der Preis entscheidet bei mir.', why: 'Der ökonomische Wert ist wichtig – aber der günstigste Preis kann zulasten von Tierwohl, Umwelt oder Erzeugern gehen.'},
+  {t: 'Ich kaufe, was meine Freunde auch essen.', why: 'Der soziale Wert: Essen zeigt Zugehörigkeit.'},
+  {t: 'Mir ist wichtig, woher ein Lebensmittel kommt.', why: 'Herkunft ist ein Qualitätskriterium (ökologischer Wert).'},
+  {t: 'Hauptsache, es schmeckt.', why: 'Der Genusswert spielt für fast alle Menschen eine große Rolle.'}
+], {labels: ['trifft nicht zu', 'eher nicht', 'teils, teils', 'eher ja', 'trifft voll zu']});
+scenes($('#sc'), [
+  {s: 'In einer Wurst wurden im Labor Listerien gefunden. Wer hat das untersucht?', a: ['die amtliche Lebensmittelüberwachung', 'der Supermarkt', 'die Werbeagentur'], ok: 0},
+  {s: 'Eine Molkerei misst und notiert stündlich die Temperatur im Kühlraum.', a: ['Eigenkontrolle nach HACCP', 'amtliche Überwachung', 'Werbung'], ok: 0},
+  {s: 'Ein Gesetz verbietet, dass Hersteller Verbraucher täuschen.', a: ['LFGB', 'HACCP', 'Nutri-Score'], ok: 0},
+  {s: 'Eine Bäckerei schult ihre Mitarbeitenden in Hygiene.', a: ['Eigenkontrolle / LMHV', 'Verbraucherzentrale', 'Werbung'], ok: 0}
+], {label: 'Fall'});
+mcQuiz($('#quiz'), [
+  {q: 'Wofür steht HACCP?', a: ['Risikoanalyse kritischer Kontrollpunkte', 'Hygiene am Computer', 'Haltbarkeitsangabe', 'Handelskammer'], ok: 0},
+  {q: 'Was ist das wichtigste Lebensmittelgesetz in Deutschland?', a: ['LFGB', 'StVO', 'BGB', 'LMIV'], ok: 0},
+  {q: 'Ab welcher Temperatur vermehren sich viele Keime in Kühlware schnell?', a: ['über 8 °C', 'unter 0 °C', 'über 50 °C', 'bei 4 °C'], ok: 0},
+  {q: 'Was passiert mit nicht einwandfreien Produkten?', a: ['Sie dürfen nicht verkauft werden', 'Sie werden billiger verkauft', 'Sie werden neu verpackt', 'Nichts'], ok: 0}
+]);
+</script>

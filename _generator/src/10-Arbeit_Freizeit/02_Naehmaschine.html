@@ -1,0 +1,212 @@
+<!--
+title: Methode: Nähen mit der Nähmaschine
+short: Nähmaschine
+time: 2 Unterrichtsstunden (Praxis)
+book: S. 206–207
+q: Wie werde ich startklar an der Nähmaschine?
+facts: Sicherheit geht vor: Haare zusammenbinden, Schmuck ablegen, Not-Aus kennen | Teile der Nähmaschine benennen | Grundstiche: Steppstich (Geradstich) und Zick-Zack-Stich; Stichlänge und Stichbreite | Verriegeln: Nähte am Anfang und Ende sichern; Nähproben erst auf Papier, dann auf Stoff
+inter: Sicherheits-Check · Teile der Nähmaschine · Stich-Simulator · Nähübung auf Papier
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Methode: Nähen mit der Nähmaschine</h1>
+      <p class="lead">Du suchst eine Freizeitbeschäftigung, die Spaß macht und sinnvoll ist? Du möchtest gern etwas Handgemachtes herstellen, das deinen Vorstellungen entspricht? Werde zur Designerin oder zum Designer, entgehe der Wegwerfkultur und handle nachhaltiger.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie werde ich startklar an der Nähmaschine?</p></div>
+      <div class="controls"><button class="btn primary" data-go="sicher">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="sicher" data-label="Sicherheit" data-yr="Schritt 1" data-title="Sicherheit geht vor" data-sub="Den Arbeitsplatz einrichten">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Schritt 1</p>
+      <h2>Sicherheit geht vor</h2>
+      <p class="lead">Informiere dich zuerst, wo der <b>Not-Aus-Schalter</b> im Fachraum ist. Er darf nur bei akuten Gefahrensituationen betätigt werden. Kommt es zu einer Verletzung, informierst du umgehend die Lehrkraft.</p>
+      <p>Lege ein Abfallschälchen für Nähfäden, ein Stecknadelkissen und eine Fadenschere sicher in den <b>Greifraum</b>.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Mein Startklar-Check</h3></div>
+      <div id="chk"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="teile" data-label="Teile" data-yr="Schritt 2" data-title="Die Nähmaschine" data-sub="Teile und Fachbegriffe">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Schritt 2</p>
+      <h2>Die Teile der Nähmaschine</h2>
+      <p class="lead">Es gibt viele verschiedene Nähmaschinentypen. Schau dir immer die Betriebsanleitung deiner Maschine an, um dich mit den Funktionen vertraut zu machen.</p>
+      <div class="ex-panel" id="nm-info"><p class="muted">Tippe auf eine Nummer an der Maschine.</p></div>
+    </div>
+    <div class="vis">
+      <div id="nm" class="svgfig"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="stiche" data-label="Stiche" data-yr="Erarbeitung" data-title="Grundstiche" data-sub="Stichlänge und Stichbreite">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Erarbeitung</p>
+      <h2>Grundstiche</h2>
+      <dl class="kv2">
+        <dt>Steppstich (Geradstich)</dt><dd>der wichtigste Stich: Teile zusammennähen, Säume nähen. Die <b>Stichlänge</b> ist der Abstand der Einstiche; Grundeinstellung meist 2,5–3 mm.</dd>
+        <dt>Zick-Zack-Stich</dt><dd>zum Versäubern (Sichern) der Stoffkante, für elastische Nähte und als Ziernaht. Die <b>Stichbreite</b> gibt an, wie weit sich die Nadel zur Seite bewegt.</dd>
+        <dt>Verriegeln</dt><dd>Sichern der Naht am Anfang und Ende: zwei bis drei Stiche vorwärts, dann mit der Rückwärtstaste auf der gleichen Stelle zurück.</dd>
+      </dl>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Stich-Simulator</h3><div id="st-seg"></div></div>
+      <canvas id="cv-s" class="wide" aria-label="Simulierter Stich auf Stoff"></canvas>
+      <div class="slider"><label for="sl">Stichlänge <output id="sl-o"></output></label><input type="range" id="sl" min="1" max="5" step=".5" value="2.5"></div>
+      <div class="slider"><label for="sb">Stichbreite (Zick-Zack) <output id="sb-o"></output></label><input type="range" id="sb" min="1" max="7" step=".5" value="4"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="probe" data-label="Nähprobe" data-yr="Schritt 3" data-title="Nähübung auf Papier" data-sub="Bleib auf der Linie!">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Schritt 3</p>
+      <h2>Erste Nähproben</h2>
+      <p class="lead">Bevor du mit einem Werkstück startest, mache Übungen auf Papier – ohne Faden – entlang einer geraden, einer gezackten und einer Wellenlinie. Teste Einstellungen danach immer auf einem Stoffrest.</p>
+      <p><b>Simulation:</b> Halte die Taste „Gas geben“ gedrückt (wie das Fußpedal) und lenke den Stoff mit den Pfeilen ← → so, dass die Nadel auf der Linie bleibt.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wellenlinie</h3><div id="pr-seg"></div></div>
+      <canvas id="cv-p" class="wide" aria-label="Nähübung: Stoff unter der Nadel lenken"></canvas>
+      <div class="controls"><button class="btn" id="pl">←</button><button class="btn primary" id="pg">Gas geben</button><button class="btn" id="pr">→</button><button class="btn" id="p0">Neu</button></div>
+      <p class="status" id="p-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Nähmaschine</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Nähen mit der Nähmaschine</h3><span>AES · Klasse 10</span></div>
+      <ol>
+        <li data-step><b>Schritt 1 – Arbeitsplatz einrichten:</b> Maschine sicher auf den Tisch, Haube ab, Fußpedal auf den Boden, Netzteil anschließen; keine Kabel als Stolperfallen; Haare zusammenbinden, Ketten ablegen, Ärmel hochkrempeln.</li>
+        <li data-step><b>Schritt 2 – Grundstiche und Fachbegriffe kennen:</b> Steppstich (Geradstich) zum Zusammennähen, Zick-Zack-Stich zum Versäubern; Stichlänge und Stichbreite einstellen.</li>
+        <li data-step><b>Verriegeln</b>: Nähte am Anfang und Ende durch Vor- und Rückwärtsnähen sichern.</li>
+        <li data-step><b>Schritt 3 – Nähproben machen:</b> zuerst auf Papier, dann Einstellungen auf einem Stoffrest testen.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Glossar</span><p>Recherchiert: Oberfaden, Unterfaden, steppfußbreit steppen, knappkantig steppen, säumen, linke und rechte Stoffseite.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Fachbegriffe</h2></div>
+  <div id="match"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+checks($('#chk'), ['Ich weiß, wo der Not-Aus-Schalter ist.', 'Lange Haare sind zusammengebunden.', 'Lange Ketten sind abgelegt, weite Ärmel hochgekrempelt.', 'Die Maschine steht sicher auf dem Tisch, die Haube ist ab.', 'Das Fußpedal steht auf dem Boden, Kabel sind keine Stolperfallen.', 'Fadenschere, Nadelkissen und Abfallschälchen liegen im Greifraum.', 'Ich habe die Maschine am Kippschalter eingeschaltet.'], {eval: (n, t) => n === t ? 'Startklar! Viel Spaß beim Nähen.' : `${n} von ${t} – noch nicht startklar.`});
+(() => {
+  const ink = col('ink'), m = col('ink-2'), sf = col('surface'), ac = col('accent');
+  const N = [[1, 'Nähfuß', 'Drückt den Stoff beim Nähen auf die Stichplatte.', 128, 219, 84, 256], [2, 'Nadelhalter', 'Hält die Nähnadel. Nadel mit der flachen Seite nach hinten einsetzen.', 136, 190, 196, 176], [3, 'Nähfuß-Hebel', 'Hebt und senkt den Nähfuß. Vor dem Nähen immer senken!', 176, 152, 212, 136], [4, 'Einstellrad für die Fadenspannung', 'Regelt, wie stark der Oberfaden gespannt ist.', 112, 96, 40, 96], [5, 'Spulerfadenführung', 'Führt den Faden beim Aufspulen des Unterfadens.', 250, 54, 236, 22], [6, 'Garnrollenhalter', 'Hier steckt die Garnrolle für den Oberfaden.', 300, 46, 300, 14], [7, 'Spuler', 'Wickelt den Unterfaden auf die Spule.', 360, 50, 362, 18], [8, 'Spulstopp', 'Stoppt das Aufspulen, wenn die Spule voll ist.', 388, 54, 420, 26], [9, 'Handrad', 'Bewegt die Nadel von Hand. Immer zu dir hin drehen.', 440, 120, 466, 168], [10, 'Sticheinstellungsrad', 'Wählt die Stichart (Geradstich, Zick-Zack …).', 374, 146, 330, 152], [11, 'Rückwärtsnähtaste', 'Zum Rückwärtsnähen, z. B. beim Verriegeln.', 366, 190, 330, 200], [12, 'Stichplatte', 'Metallplatte unter dem Nähfuß; die Markierungen helfen, gerade zu nähen.', 170, 206, 236, 248]];
+  const OL = '#3a3f4a', BODY = '#f5f2ec', BODY2 = '#e4ded3', MET = '#b9c0c9';
+  $('#nm').innerHTML = `<svg viewBox="0 0 480 290" role="img" aria-label="Nähmaschine mit nummerierten Teilen">
+    <defs><linearGradient id="nm-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${BODY}"/><stop offset="1" stop-color="${BODY2}"/></linearGradient>
+    <linearGradient id="nm-m" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9edf1"/><stop offset="1" stop-color="${MET}"/></linearGradient></defs>
+    <ellipse cx="250" cy="262" rx="210" ry="9" fill="rgba(0,0,0,.12)"/>
+    <path d="M56 204 H426 Q436 204 436 214 V244 Q436 252 428 252 H62 Q52 252 52 244 V212 Q52 204 56 204 Z" fill="url(#nm-b)" stroke="${OL}" stroke-width="2.2"/>
+    <path d="M60 240 H428" stroke="rgba(0,0,0,.12)" stroke-width="2"/>
+    <path d="M330 204 V118 H164 Q150 118 150 132 V192 Q150 200 142 200 H76 Q64 200 64 188 V78 Q64 56 88 56 H404 Q426 56 426 80 V204 Z" fill="url(#nm-b)" stroke="${OL}" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M70 74 H420" stroke="${ac}" stroke-width="6" opacity=".85"/>
+    <path d="M168 118 H326" stroke="rgba(0,0,0,.08)" stroke-width="6"/>
+    <rect x="94" y="200" width="96" height="8" rx="2" fill="url(#nm-m)" stroke="${OL}" stroke-width="1.2"/>
+    <path d="M150 202 v4 M160 202 v4 M170 202 v4 M180 202 v4" stroke="${OL}" stroke-width="1"/>
+    <rect x="124" y="184" width="16" height="12" rx="2" fill="url(#nm-m)" stroke="${OL}" stroke-width="1.2"/>
+    <line x1="132" y1="160" x2="132" y2="186" stroke="${MET}" stroke-width="6"/><line x1="132" y1="160" x2="132" y2="186" stroke="${OL}" stroke-width="1" opacity=".5"/>
+    <line x1="132" y1="196" x2="132" y2="214" stroke="#7b8490" stroke-width="2"/>
+    <path d="M108 212 H150 Q154 212 152 218 L150 222 H112 Q106 222 108 216 Z" fill="url(#nm-m)" stroke="${OL}" stroke-width="1.4"/>
+    <path d="M150 146 h28 a6 6 0 0 1 0 12 h-28 z" fill="#6d7480" stroke="${OL}" stroke-width="1.2"/>
+    <circle cx="112" cy="96" r="13" fill="#d8dde3" stroke="${OL}" stroke-width="1.8"/><circle cx="112" cy="96" r="5" fill="#9aa3ad"/>
+    ${[0, 60, 120, 180, 240, 300].map(a => `<line x1="${112 + 9 * Math.cos(a * Math.PI / 180)}" y1="${96 + 9 * Math.sin(a * Math.PI / 180)}" x2="${112 + 12 * Math.cos(a * Math.PI / 180)}" y2="${96 + 12 * Math.sin(a * Math.PI / 180)}" stroke="${OL}" stroke-width="1"/>`).join('')}
+    <path d="M300 40 C230 40 140 44 120 84 M112 109 Q120 150 132 160" fill="none" stroke="${col('c1')}" stroke-width="1.6" stroke-dasharray="1 0"/>
+    <path d="M244 56 v-8 a6 6 0 0 1 12 0" fill="none" stroke="${OL}" stroke-width="2.2"/>
+    <line x1="300" y1="56" x2="300" y2="30" stroke="${OL}" stroke-width="3"/>
+    <rect x="288" y="26" width="24" height="24" rx="3" fill="${col('c1')}" stroke="${OL}" stroke-width="1.4"/>
+    <path d="M289 31 h22 M289 36 h22 M289 41 h22 M289 46 h22" stroke="rgba(255,255,255,.35)" stroke-width="1.2"/>
+    <rect x="286" y="22" width="28" height="5" rx="2" fill="#d9c9a5" stroke="${OL}" stroke-width="1"/><rect x="286" y="49" width="28" height="5" rx="2" fill="#d9c9a5" stroke="${OL}" stroke-width="1"/>
+    <line x1="360" y1="56" x2="360" y2="40" stroke="${OL}" stroke-width="3"/><ellipse cx="360" cy="40" rx="9" ry="4" fill="#d8dde3" stroke="${OL}" stroke-width="1.4"/>
+    <rect x="382" y="46" width="12" height="10" rx="2" fill="#6d7480" stroke="${OL}" stroke-width="1.2"/>
+    <ellipse cx="440" cy="120" rx="14" ry="38" fill="#5c636e" stroke="${OL}" stroke-width="2"/>
+    <ellipse cx="436" cy="120" rx="9" ry="32" fill="#7a828d"/>
+    ${[-24, -12, 0, 12, 24].map(d => `<line x1="430" y1="${120 + d}" x2="444" y2="${120 + d}" stroke="#4a5059" stroke-width="1.4"/>`).join('')}
+    <circle cx="374" cy="146" r="18" fill="#d8dde3" stroke="${OL}" stroke-width="2"/><circle cx="374" cy="146" r="11" fill="${BODY}" stroke="${OL}" stroke-width="1.2"/><line x1="374" y1="146" x2="374" y2="132" stroke="${ac}" stroke-width="3" stroke-linecap="round"/>
+    <rect x="354" y="182" width="28" height="15" rx="4" fill="#d8dde3" stroke="${OL}" stroke-width="1.6"/><path d="M374 189.5 h-12 m4 -4 l-4 4 l4 4" fill="none" stroke="${OL}" stroke-width="1.6" stroke-linecap="round"/>
+    ${N.map(([n, , , x, y, bx, by]) => `<g class="hs" data-k="${n}" style="cursor:pointer"><line x1="${x}" y1="${y}" x2="${bx}" y2="${by}" stroke="${ac}" stroke-width="1.6"/><circle cx="${x}" cy="${y}" r="3" fill="${ac}"/><circle cx="${bx}" cy="${by}" r="12" fill="${ac}" stroke="${sf}" stroke-width="2"/><text x="${bx}" y="${by + 4.5}" text-anchor="middle" font-size="13" font-weight="700" style="fill:#fff">${n}</text></g>`).join('')}
+  </svg>`;
+  hotspots($('#nm'), $('#nm-info'), Object.fromEntries(N.map(([n, t, d]) => [n, `<h4>${n} ${t}</h4><p>${d}</p>`])));
+})();
+(() => {
+  let mode = 'g';
+  seg($('#st-seg'), [['g', 'Steppstich'], ['z', 'Zick-Zack']], v => mode = v);
+  const o = () => { $('#sl-o').textContent = numDE($('#sl').value, 1) + ' mm'; $('#sb-o').textContent = numDE($('#sb').value, 1) + ' mm'; };
+  $('#sl').oninput = $('#sb').oninput = o; o();
+  canvasLoop($('#cv-s'), 'stiche', (ctx, w, h, t) => {
+    const fy = h * .22, fh = h * .56, y = fy + fh / 2;
+    ctx.fillStyle = '#cfe0e8'; roundRect(ctx, 12, fy, w - 24, fh, 8); ctx.fill();
+    ctx.strokeStyle = 'rgba(70,110,130,.16)'; ctx.lineWidth = 1;
+    for (let x = 16; x < w - 14; x += 5) { ctx.beginPath(); ctx.moveTo(x, fy + 2); ctx.lineTo(x, fy + fh - 2); ctx.stroke(); }
+    for (let yy = fy + 3; yy < fy + fh; yy += 5) { ctx.beginPath(); ctx.moveTo(14, yy); ctx.lineTo(w - 14, yy); ctx.stroke(); }
+    ctx.strokeStyle = 'rgba(70,110,130,.45)'; ctx.lineWidth = 1.5; roundRect(ctx, 12, fy, w - 24, fh, 8); ctx.stroke();
+    const L = +$('#sl').value * 9, B = +$('#sb').value * 5, end = w - 40, prog = 24 + (t * 55) % (end - 24 + 60);
+    ctx.strokeStyle = col('c1'); ctx.lineWidth = 3; ctx.lineCap = 'round';
+    let x = 24, k = 0, last = [24, y];
+    while (x + L < Math.min(prog, end)) { const a = mode === 'g' ? [x, y] : [x, y + (k % 2 ? B : -B)], b = mode === 'g' ? [x + L, y] : [x + L, y + (k % 2 ? -B : B)]; ctx.beginPath(); ctx.moveTo(a[0] + (mode === 'g' ? 2 : 0), a[1]); ctx.lineTo(b[0] - (mode === 'g' ? 2 : 0), b[1]); ctx.stroke(); ctx.fillStyle = 'rgba(40,60,70,.55)'; ctx.beginPath(); ctx.arc(b[0], b[1], 1.6, 0, 7); ctx.fill(); last = b; x += L; k++; }
+    const nx = last[0], ny = last[1], up = (Math.sin(t * 14) + 1) / 2;
+    ctx.fillStyle = '#c3cad3'; ctx.strokeStyle = '#59616c'; ctx.lineWidth = 1.5;
+    roundRect(ctx, nx - 26, ny - 9, 52, 18, 7); ctx.globalAlpha = .55; ctx.fill(); ctx.globalAlpha = 1; ctx.stroke();
+    ctx.fillStyle = '#9aa3ad'; ctx.fillRect(nx - 5, 4, 10, fy - 6); ctx.strokeRect(nx - 5, 4, 10, fy - 6);
+    ctx.strokeStyle = '#59616c'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(nx, fy - 2); ctx.lineTo(nx, ny - 4 - up * 16); ctx.stroke();
+    label(ctx, mode === 'g' ? 'Steppstich: kurze Stichlänge = feste Naht' : 'Zick-Zack: versäubert die Stoffkante', w / 2, h * .9, {size: 14, color: C.ink2, maxW: w - 30});
+  });
+})();
+(() => {
+  let off = 0, pos = 0, gas = false, dir = 0, ok = 0, all = 0, type = 'w', hist = [];
+  seg($('#pr-seg'), [['g', 'gerade'], ['z', 'gezackt'], ['w', 'Welle']], v => { type = v; reset(); });
+  const path = s => type === 'g' ? 0 : type === 'w' ? Math.sin(s / 60) * 40 : (Math.abs(((s / 50) % 2 + 2) % 2 - 1) * 2 - 1) * 35;
+  function reset() { off = 0; pos = 0; ok = 0; all = 0; hist = []; $('#p-st').textContent = 'Halte „Gas geben“ gedrückt.'; }
+  const hold = (b, f, g) => { b.addEventListener('pointerdown', e => { e.preventDefault(); f(); }); ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => b.addEventListener(ev, g)); };
+  hold($('#pg'), () => gas = true, () => gas = false); hold($('#pl'), () => dir = -1, () => dir = 0); hold($('#pr'), () => dir = 1, () => dir = 0);
+  $('#p0').onclick = reset;
+  document.addEventListener('keydown', e => { if (cur !== STATIONS.indexOf($('#probe'))) return; if (e.key === 'ArrowUp' || e.key === ' ') { gas = true; e.preventDefault(); } });
+  document.addEventListener('keyup', e => { if (e.key === 'ArrowUp' || e.key === ' ') gas = false; });
+  reset();
+  canvasLoop($('#cv-p'), 'probe', (ctx, w, h, t, dt) => {
+    const nx = w * .5, ny = h * .3;
+    if (gas && pos < 1400) { pos += dt * 90; off += dir * dt * 90; const d = Math.abs(off - path(pos)); all++; if (d < 10) ok++; hist.push([pos, off]); if (hist.length > 400) hist.shift(); $('#p-st').innerHTML = `Genauigkeit: <b>${Math.round(ok / all * 100)} %</b>${pos >= 1400 ? ' – fertig!' : ''}`; }
+    ctx.fillStyle = '#fbf9f3'; roundRect(ctx, 0, 0, w, h, 10); ctx.fill(); ctx.strokeStyle = 'rgba(80,110,160,.12)'; ctx.lineWidth = 1; for (let yy = ((ny - pos) % 24 + 24) % 24; yy < h; yy += 24) { ctx.beginPath(); ctx.moveTo(0, yy); ctx.lineTo(w, yy); ctx.stroke(); }
+    ctx.strokeStyle = alpha(C.ink2, .5); ctx.lineWidth = 2; ctx.setLineDash([6, 5]); ctx.beginPath();
+    for (let yy = 0; yy <= h; yy += 4) { const s = pos + (yy - ny); ctx.lineTo(nx + path(s) - off, yy); } ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = C.accent; hist.forEach(([s, o]) => { const yy = ny - (pos - s); if (yy > 0 && (Math.round(s) % 9) < 3) { ctx.beginPath(); ctx.arc(nx + o - off, yy, 1.6, 0, 7); ctx.fill(); } });
+    ctx.fillStyle = 'rgba(195,202,211,.6)'; ctx.strokeStyle = '#59616c'; ctx.lineWidth = 1.5; roundRect(ctx, nx - 28, ny - 14, 56, 28, 9); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#9aa3ad'; ctx.fillRect(nx - 6, 0, 12, ny - 16); ctx.strokeRect(nx - 6, -2, 12, ny - 14);
+    ctx.strokeStyle = '#59616c'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(nx, ny - 16); ctx.lineTo(nx, ny - (gas ? (Math.sin(t * 30) + 1) * 4 : 6)); ctx.stroke(); dotAt(ctx, nx, ny, gas ? '#c0392b' : '#59616c', 3.5);
+  });
+})();
+matcher($('#match'), [['Steppstich', 'Teile zusammennähen, Säume'], ['Zick-Zack-Stich', 'Stoffkanten versäubern'], ['Stichlänge', 'Abstand der Einstiche'], ['Stichbreite', 'seitliche Bewegung der Nadel'], ['Verriegeln', 'Naht am Anfang und Ende sichern'], ['Handrad', 'Nadel von Hand bewegen']]);
+mcQuiz($('#quiz'), [
+  {q: 'Was tust du zuerst im Fachraum?', a: ['Not-Aus-Schalter suchen', 'sofort nähen', 'Faden kaufen', 'Musik anmachen'], ok: 0},
+  {q: 'Welcher Stich versäubert Stoffkanten?', a: ['Zick-Zack-Stich', 'Steppstich', 'Kreuzstich', 'Heftstich'], ok: 0},
+  {q: 'Was ist die übliche Grundeinstellung der Stichlänge?', a: ['2,5–3 mm', '10 mm', '0,1 mm', '7 mm'], ok: 0},
+  {q: 'In welche Richtung drehst du das Handrad?', a: ['zu dir hin', 'von dir weg', 'egal', 'gar nicht'], ok: 0},
+  {q: 'Worauf übst du die ersten Nähte?', a: ['auf Papier', 'auf dem Lieblingsshirt', 'auf Leder', 'auf der Tischplatte'], ok: 0}
+]);
+</script>

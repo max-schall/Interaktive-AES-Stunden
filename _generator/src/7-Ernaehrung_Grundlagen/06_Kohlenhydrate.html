@@ -1,0 +1,211 @@
+<!--
+title: Wozu braucht dein Körper Kohlenhydrate?
+short: Kohlenhydrate
+time: 1–2 Unterrichtsstunden
+book: S. 62–63
+q: Ist „Low Carb“ eine gute Idee?
+facts: Einfach-, Zweifach- und Vielfachzucker | Brennstoff: 1 g = 17 kJ, ca. 5 g pro kg Körpergewicht | Verdauung von Mund bis Dünndarm | Getreidekorn und Vollkorn, Zucker-Check (WHO: höchstens 25–50 g zugesetzter Zucker)
+inter: Zuckerbausteine sortieren · Verdauung Schritt für Schritt · Getreidekorn zum Antippen · Zuckerwürfel-Rechner für Getränke
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wozu braucht dein Körper Kohlenhydrate?</h1>
+      <p class="lead">Du isst gerne Nudeln, Reis, Brot oder Gummibärchen? Du hast vom Trend „Low Carb“ gehört und fragst dich, ob Kohlenhydrate dick machen? Mengenmäßig sind sie der wichtigste Nährstoff für deinen Körper.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Ist „Low Carb“ eine gute Idee?</p></div>
+      <div class="controls"><button class="btn primary" data-go="aufbau">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="aufbau" data-label="Aufbau" data-yr="Erarbeitung" data-title="Aufbau und Einteilung" data-sub="Ein, zwei oder viele Bausteine">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Aufbau und Einteilung</h2>
+      <p class="lead">Kohlenhydrate bestehen aus Zuckermolekülen. Sie entstehen in Pflanzen bei der Fotosynthese.</p>
+      <dl class="kv2">
+        <dt>Einfachzucker</dt><dd>ein Baustein: Traubenzucker (Glukose), Fruchtzucker (Fruktose), Schleimzucker (Galaktose)</dd>
+        <dt>Zweifachzucker</dt><dd>zwei Bausteine: Haushaltszucker (Saccharose), Malzzucker (Maltose), Milchzucker (Laktose)</dd>
+        <dt>Vielfachzucker</dt><dd>viele Bausteine: Stärke (mehrere 1000 Glukosebausteine), Glykogen, Dextrine, Zellulose, Pektine – schmecken kaum süß</dd>
+      </dl>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Kettenlänge</h3><div id="kh-seg"></div></div>
+      <canvas id="cv-kh" class="wide" aria-label="Zuckerbausteine als Kette"></canvas>
+      <p class="status" id="kh-st"></p>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="verdauung" data-label="Verdauung" data-yr="Erarbeitung" data-title="Die Verdauung" data-sub="Vom Brot zum Traubenzucker">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Aufgaben und Verdauung</h2>
+      <p class="lead">Kohlenhydrate sind <b>Brennstoffe</b>: Sie liefern Energie (1 g = 17 kJ bzw. 4 kcal) für Atmung, Herzschlag, Körpertemperatur, Gehirn und alle körperlichen Aktivitäten.</p>
+      <div class="tipp"><p>Stärke ist ein besonders wertvoller Energielieferant: Sie wird langsam zu Traubenzucker abgebaut – so bleibst du lange satt.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Schritt für Schritt</h3></div>
+      <canvas id="cv-v" class="wide" aria-label="Verdauungsweg der Stärke"></canvas>
+      <div id="v-step"></div>
+      <p class="status" id="v-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="korn" data-label="Getreidekorn" data-yr="Vertiefung" data-title="Das Getreidekorn" data-sub="Warum Vollkorn?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Vertiefung</p>
+      <h2>Das Getreidekorn – warum Vollkorn?</h2>
+      <p class="lead">Getreide ist sehr nährstoffreich und gehört zu den Grundnahrungsmitteln. <b>Vollkornprodukte</b> enthalten alle Bestandteile des Korns – für helles Mehl werden Schale, Keimling und Aleuronschicht entfernt.</p>
+      <p>Vollkorn wird langsam abgebaut und macht lange satt – die beste Wahl!</p>
+      <p class="note">Bedarf: Jugendliche ca. 5 g Kohlenhydrate pro kg Körpergewicht täglich; höchstens ein Drittel davon als Einfach- und Zweifachzucker.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Längsschnitt – tippe auf eine Schicht</h3><div id="ko-seg"></div></div>
+      <div id="ko-svg"></div>
+      <p class="status" id="ko-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="zucker" data-label="Zucker-Check" data-yr="Anwendung" data-title="Zucker-Check" data-sub="Versteckter Zucker in Getränken">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Anwendung</p>
+      <h2>Zucker-Check</h2>
+      <p class="lead">Zugesetzter Zucker steckt vor allem in Süßigkeiten, Kuchen, Limonaden und Fertiggerichten wie Ketchup. Die WHO empfiehlt höchstens <b>25–50 g zugesetzten Zucker</b> pro Tag.</p>
+      <ul class="facts"><li>1 Zuckerwürfel ≈ 3 g Zucker</li><li>Natürlicher Zucker in Obst ist mit Ballaststoffen und Vitaminen „verpackt“.</li></ul>
+      <p class="note">Küchentechnik: Ab ca. 60 °C verkleistert Stärke und bindet Flüssigkeit (Pudding!). Ab 135 °C schmilzt Zucker und wird braun (Karamell), bei höheren Temperaturen verkohlt er.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wie viele Zuckerwürfel trinke ich?</h3></div>
+      <div id="calc-z"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Kohlenhydrate</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Kohlenhydrate</h3><span>AES · Klasse 7</span></div>
+      <ol>
+        <li data-step>Kohlenhydrate sind mengenmäßig der wichtigste <b>Makronährstoff</b>. Sie sind <b>Brennstoffe</b>: 1 g = 17 kJ (4 kcal).</li>
+        <li data-step>Einteilung: <b>Einfachzucker</b> (Glukose, Fruktose), <b>Zweifachzucker</b> (Saccharose, Laktose, Maltose), <b>Vielfachzucker</b> (Stärke, Glykogen, Zellulose).</li>
+        <li data-step>Verdauung: Mund (Amylase im Speichel) → Magen → Dünndarm: Stärke wird zu Traubenzucker abgebaut und gelangt ins Blut.</li>
+        <li data-step>Stärkehaltige Lebensmittel und Vollkorn sind wertvolle Energie- und Nährstofflieferanten und machen lange satt.</li>
+        <li data-step>Zugesetzter Zucker: laut WHO höchstens 25–50 g am Tag.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Zur Leitfrage</span><p>Kohlenhydrate machen nicht per se dick. Entscheidend sind Menge und Art: Vollkorn und Stärke statt zugesetztem Zucker.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Rechnen mit Kohlenhydraten</h2></div>
+  <div id="ts"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+(() => {
+  let n = 1;
+  const T = {1: 'Einfachzucker: ein einzelner Baustein, z. B. Traubenzucker. Geht sehr schnell ins Blut – schnelle, kurze Energie.', 2: 'Zweifachzucker: zwei Bausteine, z. B. Haushaltszucker (Glukose + Fruktose). Schmeckt süß.', 30: 'Vielfachzucker: viele Bausteine, z. B. Stärke. Wird langsam abgebaut – lange satt.'};
+  seg($('#kh-seg'), [['1', 'Einfach'], ['2', 'Zweifach'], ['30', 'Vielfach']], v => { n = +v; $('#kh-st').innerHTML = T[v]; });
+  canvasLoop($('#cv-kh'), 'aufbau', (ctx, w, h, t) => {
+    const hex = (x, y, r, c, name) => {
+      ctx.beginPath(); for (let a = 0; a < 6; a++) { const an = a / 6 * Math.PI * 2 + Math.PI / 6; ctx.lineTo(x + r * Math.cos(an), y + r * Math.sin(an)); } ctx.closePath();
+      ctx.fillStyle = col(c); ctx.fill(); ctx.strokeStyle = mix(col(c), '#000000', .35); ctx.lineWidth = Math.max(1.5, r * .09); ctx.stroke();
+      ctx.beginPath(); for (let a = 0; a < 6; a++) { const an = a / 6 * Math.PI * 2 + Math.PI / 6; ctx.lineTo(x + r * .62 * Math.cos(an), y + r * .62 * Math.sin(an)); } ctx.closePath(); ctx.fillStyle = 'rgba(255,255,255,.25)'; ctx.fill();
+      if (name) label(ctx, name, x, y + r + 16, {size: 14, color: C.ink});
+    };
+    const bond = (x1, y1, x2, y2, lw) => { ctx.strokeStyle = C.ink2; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); };
+    const bob = Math.sin(t * 2) * 3;
+    if (n === 1) { const r = Math.min(h * .24, w * .16); hex(w / 2, h * .44 + bob, r, 'c5', 'Glukose (Traubenzucker)'); return; }
+    if (n === 2) {
+      const r = Math.min(h * .2, w * .13), gap = r * 2.6, y = h * .44;
+      bond(w / 2 - gap / 2, y + bob, w / 2 + gap / 2, y - bob, 4);
+      hex(w / 2 - gap / 2, y + bob, r, 'c5', 'Glukose'); hex(w / 2 + gap / 2, y - bob, r, 'c1', 'Fruktose');
+      label(ctx, 'Saccharose (Haushaltszucker)', w / 2, h * .9, {size: 15, color: C.accent});
+      return;
+    }
+    /* Stärke: lange, verzweigte Kette als Welle */
+    const r = Math.max(9, Math.min(w / 46, h / 16)), step = r * 2.15, cnt = Math.floor((w - 4 * r) / step);
+    const P = []; for (let i = 0; i < cnt; i++) { const x = 2 * r + i * step; P.push([x, h * .38 + Math.sin(i * .55 + t * 1.4) * h * .1]); }
+    const B = []; for (let i = 6; i < cnt - 3; i += 9) { for (let k = 1; k <= 5; k++) { const base = P[i], x = base[0] + k * step * .9, y = base[1] + h * .1 + k * r * 1.7 + Math.sin(k * .6 + t * 1.4) * 4; B.push([[k === 1 ? base : B[B.length - 1][1]], [x, y]]); } }
+    for (let i = 1; i < P.length; i++) bond(P[i - 1][0], P[i - 1][1], P[i][0], P[i][1], 2.5);
+    B.forEach(([[a], b]) => bond(a[0], a[1], b[0], b[1], 2.5));
+    P.forEach(([x, y]) => hex(x, y, r, 'c5'));
+    B.forEach(([, [x, y]]) => hex(x, y, r, 'c5'));
+    label(ctx, 'Stärke: Tausende Glukosebausteine, verzweigt', w / 2, h * .92, {size: 15, color: C.accent, maxW: w - 20});
+  });
+})();
+sorter($('#sort'), [{id: '1', name: 'Einfachzucker'}, {id: '2', name: 'Zweifachzucker'}, {id: 'v', name: 'Vielfachzucker'}], [
+  {t: 'Traubenzucker (Glukose)', c: '1'}, {t: 'Fruchtzucker (Fruktose)', c: '1'}, {t: 'Haushaltszucker', c: '2'}, {t: 'Milchzucker (Laktose)', c: '2'}, {t: 'Malzzucker', c: '2'}, {t: 'Stärke', c: 'v'}, {t: 'Zellulose', c: 'v'}, {t: 'Glykogen', c: 'v'}
+]);
+
+(() => {
+  const S = ['<b>Mund:</b> Beim Kauen wird das Brot zerkleinert. Das Enzym Amylase im Speichel baut einen Teil der Stärke zu Malzzucker ab. (Kaue lange: Brot schmeckt dann leicht süß!)', '<b>Magen:</b> Der Speisebrei wird mit Wasser verdünnt und mit Magensäure durchmischt.', '<b>Dünndarm:</b> Erst hier wird die Stärke vollständig zu Traubenzucker (Glukose) abgebaut.', '<b>Blut:</b> Über die Dünndarmwand gelangt die Glukose ins Blut und steht den Zellen als Brennstoff zur Verfügung.'];
+  let k = 0;
+  stepper($('#v-step'), 4, i => { k = i; $('#v-st').innerHTML = S[i]; });
+  canvasLoop($('#cv-v'), 'verdauung', (ctx, w, h, t) => {
+    const P = [[w * .5, h * .12, 'Mund'], [w * .45, h * .45, 'Magen'], [w * .55, h * .78, 'Dünndarm'], [w * .85, h * .5, 'Blut']];
+    ctx.strokeStyle = alpha(C.ink2, .35); ctx.lineWidth = 16; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(P[0][0], P[0][1]); ctx.quadraticCurveTo(w * .35, h * .3, P[1][0], P[1][1]); ctx.quadraticCurveTo(w * .6, h * .6, P[2][0], P[2][1]); ctx.stroke();
+    ctx.strokeStyle = alpha(C.bad, .35); ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(P[2][0] + 20, P[2][1]); ctx.quadraticCurveTo(w * .8, h * .8, P[3][0], P[3][1]); ctx.lineTo(P[3][0], h * .1); ctx.stroke();
+    P.forEach(([x, y, n], i) => { ctx.fillStyle = i === k ? col('accent') : col('surface-2'); ctx.beginPath(); ctx.arc(x, y, 22, 0, 7); ctx.fill(); label(ctx, n, x + (i === 3 ? -34 : 34), y, {size: 13, align: i === 3 ? 'right' : 'left', color: i === k ? C.accent : C.ink2}); });
+    const [x, y] = P[k], len = [12, 9, 1, 1][k];
+    for (let i = 0; i < len; i++) { const a = t * 1.5 + i * .6; ctx.fillStyle = col('c5'); ctx.beginPath(); ctx.arc(x + Math.cos(a) * (8 + i * 1.2), y + Math.sin(a) * (8 + i * 1.2), 4, 0, 7); ctx.fill(); }
+    if (k >= 2) for (let i = 0; i < 8; i++) { const p = (t * .4 + i / 8) % 1; ctx.fillStyle = col('c5'); ctx.beginPath(); ctx.arc(lerp(P[2][0] + 20, P[3][0], p), lerp(P[2][1], P[3][1], p) + Math.sin(p * 6) * 6, 4, 0, 7); ctx.fill(); }
+  });
+})();
+
+(() => {
+  let typ = 'voll';
+  const INFO = {schale: '<b>Frucht- und Samenschale:</b> Ballaststoffe, Mineralstoffe, Vitamine.', aleuron: '<b>Aleuronschicht:</b> Eiweiße, Fette, Mineralstoffe, Vitamine, Enzyme.', mehl: '<b>Mehlkörper:</b> Kohlenhydrate (Stärke) und Klebereiweiß. Daraus besteht helles Mehl (Type 405).', keim: '<b>Keimling:</b> Fette, Eiweiße, Mineralstoffe, Vitamine.', bart: '<b>Samenhaare (Bärtchen)</b>'};
+  const draw = () => {
+    const full = typ === 'voll', i = col('ink-2'), dim = full ? 1 : .18;
+    const s = `<g class="hit" data-k="schale" opacity="${dim}"><ellipse cx="200" cy="110" rx="170" ry="82" fill="#b8874a" stroke="${i}" stroke-width="2"/></g>
+      <g class="hit" data-k="aleuron" opacity="${dim}"><ellipse cx="200" cy="110" rx="158" ry="71" fill="#d9a94e"/></g>
+      <g class="hit" data-k="mehl"><ellipse cx="195" cy="110" rx="146" ry="61" fill="#f6ecd2" stroke="${i}" stroke-opacity=".3"/></g>
+      <g class="hit" data-k="keim" opacity="${dim}"><path d="M352 92 q22 18 0 40 q-24 -20 0 -40z" fill="#9fb257" stroke="${i}"/></g>
+      <g class="hit" data-k="bart" opacity="${dim}"><path d="M30 105 l-22 -10 M30 110 l-24 0 M30 115 l-22 10" stroke="${i}" stroke-width="2"/></g>
+      <text x="200" y="114" text-anchor="middle" class="lbl">Mehlkörper</text>`;
+    $('#ko-svg').innerHTML = `<svg viewBox="0 0 400 220" class="svgfig" role="img" aria-label="Längsschnitt durch ein Getreidekorn">${s}</svg>`;
+    $('#ko-st').innerHTML = full ? '<b>Vollkornmehl</b> enthält das ganze Korn: mehr Ballaststoffe, Vitamine und Mineralstoffe.' : '<b>Helles Mehl</b> besteht fast nur aus dem Mehlkörper – vor allem Stärke.';
+  };
+  seg($('#ko-seg'), [['voll', 'Vollkornmehl'], ['hell', 'helles Mehl']], v => { typ = v; draw(); });
+  $('#ko-svg').addEventListener('click', e => { const h = e.target.closest('[data-k]'); if (h) $('#ko-st').innerHTML = INFO[h.dataset.k]; });
+})();
+
+(() => {
+  const D = {Cola: 10.6, Limonade: 9, Eistee: 7.5, Energydrink: 11, Apfelsaft: 10, Apfelschorle: 2.5, 'Kakao-Drink': 10, Wasser: 0};
+  calc($('#calc-z'), [
+    {id: 'g', l: 'Getränk', opts: Object.keys(D).map(k => [k, k]), v: 'Cola'},
+    {id: 'ml', l: 'Menge', min: 200, max: 1500, step: 50, v: 500, unit: 'ml'}
+  ], v => { const z = D[v.g] * v.ml / 100, w = z / 3; return `<span class="big">${numDE(z, 0)} g Zucker</span><p>≈ <b>${numDE(w, 0)} Zuckerwürfel</b> · ${z > 50 ? '<b class="bad">mehr als die WHO-Obergrenze für einen ganzen Tag!</b>' : z > 25 ? '<b class="bad">über der strengen WHO-Empfehlung von 25 g.</b>' : z > 0 ? 'innerhalb der WHO-Empfehlung – aber der Tag ist noch lang.' : '<b class="good">zuckerfrei!</b>'}</p><p style="letter-spacing:.1em;font-size:1.1rem">${'▣'.repeat(Math.min(60, Math.round(w)))}</p>`; });
+})();
+
+taskSet($('#ts'), i => {
+  if (i % 2 === 0) { const kg = randInt(35, 70); return {key: 'kg' + kg, tag: 'Bedarf', q: `Eine Jugendliche wiegt ${kg} kg. Wie viel Kohlenhydrate braucht sie ungefähr am Tag (5 g pro kg)?`, fields: [{l: 'Kohlenhydrate', a: kg * 5, tol: 1, unit: 'g'}], hint: `${kg} · 5 g`}; }
+  const g = pick([30, 45, 60, 75, 90]); return {key: 'e' + g, tag: 'Energie', q: `Eine Portion Nudeln enthält ${g} g Kohlenhydrate. Wie viel Energie ist das?`, fields: [{l: 'Energie', a: g * 17, tol: 1, unit: 'kJ'}, {l: 'Energie', a: g * 4, tol: 1, unit: 'kcal'}], hint: '1 g = 17 kJ = 4 kcal'};
+}, {n: 4});
+mcQuiz($('#quiz'), [
+  {q: 'Wo beginnt die Verdauung der Kohlenhydrate?', a: ['im Mund', 'im Magen', 'im Dickdarm', 'in der Leber'], ok: 0},
+  {q: 'Was ist Stärke?', a: ['ein Vielfachzucker', 'ein Einfachzucker', 'ein Fett', 'ein Vitamin'], ok: 0},
+  {q: 'Welcher Teil des Korns enthält vor allem Stärke?', a: ['Mehlkörper', 'Keimling', 'Schale', 'Bärtchen'], ok: 0},
+  {q: 'Wie viel zugesetzten Zucker empfiehlt die WHO höchstens?', a: ['25–50 g pro Tag', '200 g pro Tag', '5 g pro Woche', 'unbegrenzt'], ok: 0},
+  {q: 'Warum macht Vollkorn lange satt?', a: ['Es wird langsam abgebaut und enthält Ballaststoffe', 'Es enthält mehr Zucker', 'Es ist schwerer', 'Es enthält Fett'], ok: 0}
+]);
+</script>

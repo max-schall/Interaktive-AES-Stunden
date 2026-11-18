@@ -1,0 +1,156 @@
+<!--
+title: Lebensmittelkennzeichnung – das Etikett unter der Lupe
+short: Etikett
+time: 1–2 Unterrichtsstunden
+book: S. 92–93
+q: Was muss auf einer Verpackung stehen – und was steht da nur, um mich zu locken?
+facts: Neun Pflichtangaben nach der Lebensmittel-Informationsverordnung (LMIV) | Zutatenverzeichnis in absteigender Reihenfolge, 14 Hauptallergene hervorgehoben | Nährwerttabelle mit den „Big 7“ | Grundpreis, MHD und Verbrauchsdatum, freiwillige Angaben
+inter: Etikett erkunden (Hotspots) · Pflicht oder freiwillig? · Allergene finden · Grundpreis-Rechner · MHD oder Verbrauchsdatum?
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Das Etikett unter der Lupe</h1>
+      <p class="lead">Kreative Namen, bunte Bilder, Texte und Tabellen: Auf Lebensmittelverpackungen steht viel. Manches ist Pflicht und schützt dich – anderes soll dich vor allem zum Kauf verlocken.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Was muss auf einer Verpackung stehen – und was steht da nur, um mich zu locken?</p></div>
+      <div class="controls"><button class="btn primary" data-go="etikett">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="etikett" data-label="Pflichtangaben" data-yr="Erarbeitung" data-title="Neun Pflichtangaben" data-sub="Ein Etikett erkunden">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Neun Pflichtangaben</h2>
+      <p class="lead">Seit 2014 regelt die europäische <b>Lebensmittel-Informationsverordnung (LMIV)</b> die Kennzeichnung. Die Angaben müssen auf Deutsch, gut sichtbar, dauerhaft und leicht verständlich sein.</p>
+      <p class="prompt">Tippe auf die markierten Stellen des Etiketts und finde alle neun Pflichtangaben.</p>
+      <div class="ex-panel" id="et-info"><p class="muted">Was bedeutet die Angabe?</p></div>
+    </div>
+    <div class="vis">
+      <div class="etikett" id="et">
+        <span class="hs" data-k="name"><span class="et-name">Fruchtjoghurt Erdbeere</span>Joghurt mit 10 % Erdbeerzubereitung, 3,5 % Fett im Milchanteil</span>
+        <p style="margin:.6rem 0 .3rem"><span class="hs" data-k="zutaten"><b>Zutaten:</b> Joghurt (<b>Milch</b>), Erdbeerzubereitung (Zucker, <span class="hs" data-k="menge">Erdbeeren 7 %</span>, Wasser, modifizierte Stärke, Rote-Bete-Saftkonzentrat, Säuerungsmittel Citronensäure, natürliches Aroma), Zucker.</span></p>
+        <p style="margin:.3rem 0"><span class="hs" data-k="allergen">Enthält <b>Milch</b>. Kann Spuren von <b>Schalenfrüchten</b> enthalten.</span></p>
+        <table class="hs" data-k="naehr"><tbody><tr><td><b>Nährwerte pro 100 g</b></td><td></td></tr><tr><td>Energie</td><td>414 kJ / 99 kcal</td></tr><tr><td>Fett</td><td>3,0 g</td></tr><tr><td>davon gesättigte Fettsäuren</td><td>2,0 g</td></tr><tr><td>Kohlenhydrate</td><td>13,6 g</td></tr><tr><td>davon Zucker</td><td>12,9 g</td></tr><tr><td>Eiweiß</td><td>3,6 g</td></tr><tr><td>Salz</td><td>0,13 g</td></tr></tbody></table>
+        <p style="margin:.5rem 0 .2rem;display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap"><span class="hs" data-k="fuell"><b>500 g ℮</b></span><span class="hs" data-k="mhd">mindestens haltbar bis: 28.03. · Gekühlt bei max. +8 °C lagern</span></p>
+        <p style="margin:.2rem 0"><span class="hs" data-k="hersteller">Molkerei Musterhof GmbH, Wiesenweg 3, 12345 Musterdorf</span></p>
+        <p style="margin:.4rem 0 0;display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap"><span class="hs" data-k="preis"><b>1,49 €</b> · 1 kg = 2,98 €</span><span class="hs" data-k="frei">★ Neu! Cremig-fruchtig · Nutri-Score</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="pflicht" data-label="Pflicht oder freiwillig" data-yr="Übung" data-title="Pflicht oder freiwillig?" data-sub="Sortieren">
+  <div class="section-head"><p class="eyebrow">Station 2 · Übung</p><h2>Pflicht oder freiwillig?</h2><p class="lead">Logos wie das EU-Bio-Siegel, regionale Qualitätszeichen oder der Nutri-Score sind freiwillig. Bei loser Ware (Wochenmarkt, Bäckerei) müssen nur Bezeichnung und Preis auf einem Schild direkt neben der Ware stehen.</p></div>
+  <div id="sort"></div>
+</section>
+
+<section class="station" id="allergene" data-label="Allergene" data-yr="Erarbeitung" data-title="Die 14 Hauptallergene" data-sub="Hervorgehoben im Zutatenverzeichnis">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Erarbeitung</p>
+      <h2>Die 14 Hauptallergene</h2>
+      <p class="lead">Ein <b>Allergen</b> ist eine Substanz, die eine Überempfindlichkeitsreaktion auslösen kann. Die 14 häufigsten Allergene werden im Zutatenverzeichnis hervorgehoben, z. B. durch Fettdruck.</p>
+      <ul class="words-box"><li>Gluten</li><li>Krebstiere</li><li>Eier</li><li>Fisch</li><li>Erdnüsse</li><li>Soja</li><li>Milch/Laktose</li><li>Schalenfrüchte</li><li>Sellerie</li><li>Senf</li><li>Sesam</li><li>Schwefeldioxid/Sulfite</li><li>Lupinen</li><li>Weichtiere</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Welche Allergene stecken in diesen Zutaten?</h3></div>
+      <div id="match"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="preis" data-label="Grundpreis & MHD" data-yr="Anwendung" data-title="Grundpreis und Haltbarkeit" data-sub="Vergleichen und richtig lagern">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Anwendung</p>
+      <h2>Grundpreis und Haltbarkeit</h2>
+      <ul class="facts">
+        <li>Der <b>Grundpreis</b> pro 100 g oder pro kg macht unterschiedlich große Packungen vergleichbar.</li>
+        <li><b>Mindesthaltbarkeitsdatum (MHD):</b> bis dahin garantiert der Hersteller Geschmack, Farbe und Konsistenz. Danach oft noch gut – riechen, schauen, probieren!</li>
+        <li><b>Verbrauchsdatum („zu verbrauchen bis“):</b> bei leicht verderblichen Lebensmitteln wie Hackfleisch oder Geflügel. Danach nicht mehr essen!</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Grundpreis-Rechner</h3></div>
+      <div id="calc-p"></div>
+      <div class="vis-head" style="margin-top:.4rem"><h3>Essen oder nicht?</h3></div>
+      <div id="sc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Lebensmittelkennzeichnung</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Lebensmittelkennzeichnung</h3><span>AES · Klasse 8</span></div>
+      <ol>
+        <li data-step>Die Kennzeichnung ist europaweit durch die <b>Lebensmittel-Informationsverordnung (LMIV)</b> geregelt. Sie schützt vor Täuschung und gesundheitlichen Schäden.</li>
+        <li data-step>Neun Pflichtangaben: Bezeichnung, Zutatenverzeichnis, Allergene, Menge bestimmter Zutaten, Nettofüllmenge, MHD oder Verbrauchsdatum, Name und Anschrift des Unternehmens, Nährwertangabe, Preis mit Grundpreis.</li>
+        <li data-step>Im <b>Zutatenverzeichnis</b> stehen alle Zutaten in absteigender Reihenfolge ihres Gewichtsanteils; die 14 Hauptallergene sind hervorgehoben.</li>
+        <li data-step>Die <b>Nährwerttabelle</b> nennt pro 100 g die „Big 7“: Energie, Fett, gesättigte Fettsäuren, Kohlenhydrate, Zucker, Eiweiß, Salz.</li>
+        <li data-step>MHD: oft länger genießbar. Verbrauchsdatum: danach nicht mehr verzehren.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Praxis</span><p>Bringt leere Verpackungen mit und sucht alle neun Pflichtangaben. Welche freiwilligen Angaben findet ihr?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Etikett-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+hotspots($('#et'), $('#et-info'), {
+  name: '<h4>1. Bezeichnung des Lebensmittels</h4><p>Sagt, um welches Lebensmittel es sich konkret handelt. Fantasienamen allein reichen nicht – „Fruchtjoghurt Erdbeere“ muss erklärt werden.</p>',
+  zutaten: '<h4>2. Zutatenverzeichnis</h4><p>Alle Zutaten in <b>absteigender Reihenfolge</b> ihres Gewichtsanteils. Hier: Joghurt an erster Stelle, Zucker kommt gleich zweimal vor!</p>',
+  allergen: '<h4>3. Allergenkennzeichnung</h4><p>Die 14 Hauptallergene (hier: Milch) werden hervorgehoben, z. B. durch Fettdruck. „Kann Spuren enthalten“ ist eine freiwillige Warnung.</p>',
+  menge: '<h4>4. Menge bestimmter Zutaten</h4><p>Wird eine Zutat im Namen oder Bild hervorgehoben (Erdbeere!), muss ihr Anteil in Prozent stehen: nur 7 % Erdbeeren.</p>',
+  fuell: '<h4>5. Nettofüllmenge</h4><p>Gewicht oder Volumen ohne Verpackung. Das ℮ bedeutet: Die Menge wurde nach EU-Regeln abgefüllt.</p>',
+  mhd: '<h4>6. Mindesthaltbarkeitsdatum</h4><p>Bis zu diesem Datum garantiert der Hersteller die Qualität bei richtiger Lagerung. Bei leicht Verderblichem steht stattdessen das Verbrauchsdatum. Dazu: Aufbewahrungshinweis.</p>',
+  hersteller: '<h4>7. Name und Anschrift</h4><p>Des Lebensmittelunternehmens, das verantwortlich ist – für Fragen und Beschwerden.</p>',
+  naehr: '<h4>8. Nährwertangabe</h4><p>Pro 100 g oder 100 ml: Energie und die Nährstoffe Fett, gesättigte Fettsäuren, Kohlenhydrate, Zucker, Eiweiß, Salz – die „Big 7“. Angaben pro Portion sind freiwillig.</p>',
+  preis: '<h4>9. Preisangabe</h4><p>Kaufpreis <b>und</b> Grundpreis pro Mengeneinheit (z. B. pro kg), damit man Preise vergleichen kann. Darf auch am Regal stehen.</p>',
+  frei: '<h4>Freiwillige Angaben</h4><p>„Neu!“, „cremig-fruchtig“, der Nutri-Score, Siegel und Bilder sind freiwillig – und oft Werbung.</p>'
+});
+sorter($('#sort'), [{id: 'p', name: 'Pflichtangabe'}, {id: 'f', name: 'freiwillige Angabe'}], [
+  {t: 'Zutatenverzeichnis', c: 'p'}, {t: 'Nettofüllmenge', c: 'p'}, {t: 'Mindesthaltbarkeitsdatum', c: 'p'}, {t: 'Allergene', c: 'p'}, {t: 'Name und Anschrift des Herstellers', c: 'p'}, {t: 'Nährwerte pro 100 g', c: 'p'},
+  {t: 'Nutri-Score', c: 'f'}, {t: 'EU-Bio-Siegel', c: 'f'}, {t: '„Neue Rezeptur!“', c: 'f'}, {t: 'Nährwerte pro Portion', c: 'f'}, {t: 'Rezeptvorschlag', c: 'f'}
+]);
+matcher($('#match'), [['Weizenmehl, Dinkel', 'Gluten'], ['Butter, Sahne', 'Milch/Laktose'], ['Haselnüsse, Mandeln', 'Schalenfrüchte'], ['Mayonnaise', 'Eier'], ['Sojasoße', 'Soja'], ['Tahini (Sesampaste)', 'Sesam'], ['Garnelen', 'Krebstiere'], ['Trockenobst geschwefelt', 'Schwefeldioxid/Sulfite']]);
+calc($('#calc-p'), [{id: 'a', l: 'Packung A: Preis', min: .5, max: 6, step: .05, v: 1.49, unit: '€'}, {id: 'ag', l: 'Packung A: Inhalt', min: 100, max: 1000, step: 50, v: 500, unit: 'g'}, {id: 'b', l: 'Packung B: Preis', min: .5, max: 6, step: .05, v: .55, unit: '€'}, {id: 'bg', l: 'Packung B: Inhalt', min: 100, max: 1000, step: 50, v: 150, unit: 'g'}], v => {
+  const ga = v.a / v.ag * 1000, gb = v.b / v.bg * 1000;
+  return `<p style="margin:0">Grundpreis A: <b>${numDE(ga, 2)} €/kg</b> · Grundpreis B: <b>${numDE(gb, 2)} €/kg</b></p><p>${Math.abs(ga - gb) < .01 ? 'Gleich teuer.' : `<b class="good">Packung ${ga < gb ? 'A' : 'B'}</b> ist pro Kilogramm günstiger – obwohl ${ga < gb ? 'A' : 'B'} ${(ga < gb ? v.a > v.b : v.b > v.a) ? 'mehr kostet' : 'auch weniger kostet'}.`}</p>`;
+});
+scenes($('#sc'), [
+  {s: 'Der Naturjoghurt ist seit zwei Tagen über dem MHD. Er riecht und schmeckt normal.', a: ['Essen – das MHD ist kein Wegwerfdatum', 'Sofort wegwerfen', 'Nur noch zum Backen nehmen'], ok: 0},
+  {s: 'Auf dem Hackfleisch steht „zu verbrauchen bis“ gestern.', a: ['Nicht mehr essen und entsorgen', 'Gut durchbraten, dann geht es', 'Einfrieren'], ok: 0, why: 'Nach dem Verbrauchsdatum besteht Gesundheitsgefahr.'},
+  {s: 'Die Nudeln sind drei Monate über dem MHD, die Packung ist verschlossen.', a: ['Prüfen und verwenden – trockene Nudeln halten lange', 'Wegwerfen', 'An Tiere verfüttern'], ok: 0}
+], {label: 'Fall'});
+trueFalse($('#tf'), [
+  {t: 'Im Zutatenverzeichnis steht die Zutat mit dem größten Anteil zuerst.', ok: true},
+  {t: 'Der Nutri-Score ist eine Pflichtangabe.', ok: false, why: 'Er ist freiwillig.'},
+  {t: 'Die Nährwerte müssen pro 100 g angegeben werden.', ok: true},
+  {t: 'Nach dem MHD ist ein Lebensmittel automatisch verdorben.', ok: false, why: 'Oft ist es noch lange genießbar.'},
+  {t: 'Wird Erdbeere im Namen hervorgehoben, muss der Erdbeeranteil angegeben werden.', ok: true},
+  {t: 'Auf dem Wochenmarkt muss jede Ware eine Nährwerttabelle haben.', ok: false, why: 'Bei loser Ware reichen meist Bezeichnung und Preis.'}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Wie heißt die Verordnung zur Lebensmittelkennzeichnung?', a: ['Lebensmittel-Informationsverordnung (LMIV)', 'Straßenverkehrsordnung', 'Trinkwasserverordnung', 'Datenschutzverordnung'], ok: 0},
+  {q: 'Wie viele Hauptallergene müssen hervorgehoben werden?', a: ['14', '3', '7', '25'], ok: 0},
+  {q: 'Was gehört zu den „Big 7“?', a: ['Energie, Fett, ges. Fettsäuren, Kohlenhydrate, Zucker, Eiweiß, Salz', 'Vitamine A bis G', 'die 7 Hauptzutaten', 'sieben Allergene'], ok: 0},
+  {q: 'Wofür braucht man den Grundpreis?', a: ['um Preise verschiedener Packungsgrößen zu vergleichen', 'für die Steuer', 'für die Haltbarkeit', 'für die Allergene'], ok: 0},
+  {q: 'Wann darf man ein Lebensmittel nicht mehr essen?', a: ['nach dem Verbrauchsdatum', 'einen Tag nach dem MHD', 'wenn die Packung beschädigt ist – immer', 'wenn kein Nutri-Score drauf ist'], ok: 0}
+]);
+</script>

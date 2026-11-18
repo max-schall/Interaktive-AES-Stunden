@@ -1,0 +1,183 @@
+<!--
+title: Wie entsteht dein Geschmack?
+short: Geschmack
+time: 1 Unterrichtsstunde
+book: S. 12–13
+q: Warum mögen fast alle Kinder Süßes – und Rosenkohl erst viel später?
+facts: Fünf Geschmacksrichtungen: süß, salzig, sauer, bitter, umami | Angeborene Vorlieben und Abneigungen sicherten das Überleben | Geschmack ist veränderbar: 8- bis 10-mal probieren | Die eigene Essbiografie
+inter: Geschmacksrichtungen entdecken · Vorliebe oder Abneigung sortieren · Gewöhnungskurve · Essbiografie-Zeitstrahl
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wie entsteht dein Geschmack?</h1>
+      <p class="lead">Jeder Mensch hat ein Lieblingsessen – und Speisen, die er gar nicht mag. Manches davon ist angeboren, vieles haben wir gelernt. Und: Geschmack verändert sich ein Leben lang.</p>
+      <div class="teaser"><span class="tag info">Was denkst du?</span><p>Was war dein Lieblingsessen als Kind? Was ist es heute?</p></div>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Warum mögen fast alle Kinder Süßes – und Rosenkohl erst viel später?</p></div>
+      <div class="controls"><button class="btn primary" data-go="richtungen">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="richtungen" data-label="Geschmacksrichtungen" data-yr="Einstieg" data-title="Fünf Geschmacksrichtungen" data-sub="Was die Zunge unterscheidet">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Fünf Geschmacksrichtungen</h2>
+      <p class="lead">Auf der Zunge sitzen tausende Geschmacksknospen. Sie unterscheiden fünf Grundgeschmacksrichtungen.</p>
+      <ul class="facts">
+        <li><b>süß, salzig, sauer, bitter</b> kennst du sicher.</li>
+        <li><b>umami</b> ist japanisch und bedeutet „herzhaft, würzig“ – z. B. bei Parmesan, Tomaten, Brühe.</li>
+        <li>Was wir „Geschmack“ nennen, entsteht erst zusammen mit Nase, Augen, Ohren und dem Mundgefühl.</li>
+      </ul>
+      <ul class="words-box"><li>die Geschmacksbildung</li><li>umami</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf eine Geschmacksrichtung</h3></div>
+      <div id="ex-g"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="evolution" data-label="Angeboren" data-yr="Erarbeitung" data-title="Angeborene Vorlieben" data-sub="Ein Erbe aus der Steinzeit">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Ein Erbe aus der Steinzeit</h2>
+      <p class="lead">In der Steinzeit waren Menschen Jäger und Sammler. Gegessen wurde, was gerade verfügbar war – und der Geschmack half beim Überleben.</p>
+      <ul class="facts">
+        <li>Alle Menschen haben von Geburt an eine <b>Vorliebe für Süßes, Fettes, Salziges und Umami</b>.</li>
+        <li>Süß heißt: reif und energiereich (Kohlenhydrate). Fett liefert viel Energie. Salz war in der Natur selten und ist wichtig für den Wasserhaushalt.</li>
+        <li>Alle Menschen haben eine <b>Abneigung gegen Saures und Bitteres</b>: Unreifes, Verdorbenes oder Giftiges schmeckt oft so.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Vorliebe oder Abneigung?</h3><span class="muted" style="font-size:.85rem">Karte antippen, dann Spalte antippen</span></div>
+      <div id="sort-evo"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="gewoehnung" data-label="Gewöhnung" data-yr="Erarbeitung" data-title="Geschmack lässt sich lernen" data-sub="Probieren, probieren, probieren">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Erarbeitung</p>
+      <h2>Geschmack lässt sich lernen</h2>
+      <p class="lead">Unbekannte Lebensmittel werden erst als „sicher“ eingestuft, bevor wir sie mögen. An bittere und saure Speisen müssen wir uns oft erst gewöhnen.</p>
+      <ul class="facts">
+        <li>Einmal probieren reicht nicht: Oft muss man ein Lebensmittel <b>8- bis 10-mal</b> essen, bis man es gern isst.</li>
+        <li>Schon im Mutterleib schmeckt ein Baby das Fruchtwasser – und lernt mit, was die Mutter isst.</li>
+        <li>Je vielfältiger du isst, desto ausgewogener ist deine Ernährung.</li>
+      </ul>
+      <div class="tipp"><p>Offen für Neues sein: Probiere ein neues Gemüse mehrmals – in verschiedenen Zubereitungen.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wie oft schon probiert?</h3></div>
+      <div class="calc" id="calc-g"></div>
+      <canvas id="cv-g" class="low" aria-label="Gewöhnungskurve: Beliebtheit steigt mit der Zahl der Kostproben"></canvas>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="biografie" data-label="Essbiografie" data-yr="Anwendung" data-title="Deine Essbiografie" data-sub="Was dich geprägt hat">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Anwendung</p>
+      <h2>Deine Essbiografie</h2>
+      <p class="lead">Jeder Mensch hat seine ganz persönliche Essbiografie: alle Erfahrungen, die er bisher mit Essen und Trinken gemacht hat.</p>
+      <ul class="facts">
+        <li>In der Kindheit prägen vor allem <b>Familie, Herkunft und Kultur</b>.</li>
+        <li>Je älter du wirst, desto mehr Einfluss haben <b>Freunde, soziale Medien und Werbung</b>.</li>
+      </ul>
+      <ul class="words-box"><li>die Essbiografie</li><li>die Geschmacksvorliebe</li><li>die Geschmacksabneigung</li><li>die Geschmacksgewöhnung</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Lebensabschnitte – was prägt?</h3></div>
+      <div id="ex-bio"></div>
+      <p class="prompt"><b>Deine Aufgabe:</b> Stelle auf einem Zeitstrahl dar, welche Lieblingsessen du hattest. Die Fragen auf dem Arbeitsblatt helfen dir.</p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Wie entsteht Geschmack?</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Wie entsteht Geschmack?</h3><span>AES · Klasse 6</span></div>
+      <ol>
+        <li data-step>Wir unterscheiden fünf Geschmacksrichtungen: <b>süß, salzig, sauer, bitter und umami</b> (herzhaft).</li>
+        <li data-step>Alle Menschen haben eine <b>angeborene Vorliebe</b> für Süßes, Fettes und Salziges und eine <b>angeborene Abneigung</b> gegen Saures und Bitteres.</li>
+        <li data-step>Diese Vorlieben sicherten früher das Überleben: Süßes ist reif und energiereich, Bitteres kann giftig sein.</li>
+        <li data-step>Geschmack ist <b>veränderbar</b>: Durch Gewöhnung (8- bis 10-mal probieren) lernen wir neue Lebensmittel zu mögen.</li>
+        <li data-step>Die <b>Essbiografie</b> umfasst alle Erfahrungen mit Essen und Trinken. Sie wird von Familie, Herkunft, Kultur, Freunden und Medien geprägt.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Merke</span><p>Dein Geschmack entwickelt sich dein Leben lang weiter.</p></div>
+      <div class="box"><span class="tag info">Nachdenken</span><p>Welches Lebensmittel magst du heute, das du früher nicht mochtest?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Geschmack verstehen</h2></div>
+  <div id="cz"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+explore($('#ex-g'), [
+  {ico: 'zucker', t: 'süß', d: '<p>z. B. reifes Obst, Honig, Muttermilch.</p><p><b>Angeborene Vorliebe:</b> Süßes zeigt an, dass ein Lebensmittel reif ist und viel Energie (Kohlenhydrate) liefert.</p>'},
+  {ico: 'salz', t: 'salzig', d: '<p>z. B. Brezel, Chips, Käse.</p><p><b>Angeborene Vorliebe:</b> Salz ist wichtig für den Wasserhaushalt des Körpers und war in der Natur früher schwer zu finden.</p>'},
+  {ico: 'apfel', t: 'sauer', d: '<p>z. B. Zitrone, unreifes Obst, Joghurt.</p><p><b>Angeborene Abneigung:</b> Unreife oder verdorbene Lebensmittel schmecken oft sauer.</p>'},
+  {ico: 'blatt', t: 'bitter', d: '<p>z. B. Rosenkohl, Chicorée, Kaffee, dunkle Schokolade.</p><p><b>Angeborene Abneigung:</b> Viele giftige Pflanzen schmecken bitter – Vorsicht war überlebenswichtig.</p>'},
+  {ico: 'schuessel', t: 'umami', d: '<p>z. B. Parmesan, reife Tomaten, Brühe, Sojasoße.</p><p>„Umami“ ist japanisch und bedeutet <b>herzhaft, würzig</b>. Es zeigt eiweißreiche Nahrung an.</p>'},
+  {ico: 'oel', t: 'fettig', sub: 'kein Grundgeschmack', d: '<p>z. B. Pommes, Butter, Nüsse.</p><p>Fett ist streng genommen keine eigene Grundgeschmacksrichtung, wir mögen es aber von Geburt an: Es liefert besonders viel Energie.</p>'}
+], {hint: 'Was schmeckst du? Wähle eine Karte.'});
+
+sorter($('#sort-evo'), [{id: 'v', name: 'angeborene Vorliebe'}, {id: 'a', name: 'angeborene Abneigung'}], [
+  {t: 'süß wie reifes Obst', c: 'v'}, {t: 'salzig wie eine Brezel', c: 'v'}, {t: 'fettig wie Nüsse', c: 'v'}, {t: 'umami wie Brühe', c: 'v'},
+  {t: 'bitter wie Rosenkohl', c: 'a'}, {t: 'sauer wie unreife Beeren', c: 'a'}, {t: 'bitter wie giftige Pflanzen', c: 'a'}, {t: 'sauer wie verdorbene Milch', c: 'a'}
+]);
+
+/* Gewöhnungskurve */
+(() => {
+  let n = 1;
+  const like = k => 100 / (1 + Math.exp(-(k - 5.5) * .75));
+  calc($('#calc-g'), [{id: 'n', l: 'Anzahl Kostproben', min: 1, max: 12, v: 1, unit: '×'}], v => {
+    n = v.n; const p = like(n);
+    const txt = p < 20 ? 'Noch fremd – „das schmeckt komisch“.' : p < 50 ? 'Schon bekannter – „geht so“.' : p < 80 ? 'Man gewöhnt sich – „eigentlich ganz gut“.' : 'Vertraut – „mag ich!“';
+    return `<span class="big">${Math.round(p)} %</span><p>Wahrscheinlichkeit, das Lebensmittel zu mögen (Modell). ${txt}</p>`;
+  });
+  canvasLoop($('#cv-g'), 'gewoehnung', (ctx, w, h) => {
+    const {X, Y} = axes(ctx, w, h, {x: [1, 12], y: [0, 100], xt: [1, 2, 4, 6, 8, 10, 12], yt: [0, 50, 100], xl: 'Zahl der Kostproben', yl: 'Mögen in %', yf: v => v});
+    const pts = []; for (let k = 1; k <= 12.001; k += .1) pts.push([X(k), Y(like(k))]);
+    polyline(ctx, pts, C.accent, 3);
+    ctx.fillStyle = alpha(C.good, .1); ctx.fillRect(X(8), Y(100), X(10) - X(8), Y(0) - Y(100));
+    label(ctx, '8–10×', (X(8) + X(10)) / 2, Y(96), {size: 12, color: C.good});
+    dotAt(ctx, X(n), Y(like(n)), C.accent, 7);
+  });
+})();
+
+explore($('#ex-bio'), [
+  {ico: 'baby', t: 'vor der Geburt', d: 'Das Baby schmeckt im Mutterleib das Fruchtwasser. Isst die Mutter abwechslungsreich, lernt das Kind schon verschiedene Geschmacksrichtungen kennen.'},
+  {ico: 'milch', t: 'Säugling', d: 'Süße Muttermilch – die angeborene Vorliebe für Süßes passt genau dazu. Babys trinken, bis sie satt sind.'},
+  {ico: 'haus', t: 'Kindheit', d: 'Die Familie bestimmt, was, wann und wie gegessen wird. Herkunft, Kultur und Religion prägen die Lieblingsgerichte, z. B. Omas Pfannkuchen.'},
+  {ico: 'gruppe', t: 'Jugend', d: 'Freundinnen und Freunde, Schule, Werbung und soziale Medien werden wichtiger. Man probiert Neues aus, z. B. Streetfood oder vegetarische Gerichte.'},
+  {ico: 'erde', t: 'Erwachsene', d: 'Reisen, Beruf, eigener Haushalt, Werte (z. B. Tierwohl, Klima) und Geld beeinflussen die Auswahl. Der Geschmack verändert sich weiter.'}
+], {hint: 'Tippe auf einen Lebensabschnitt.'});
+
+cloze($('#cz'), 'Alle Menschen haben eine angeborene {Vorliebe|Abneigung} für Süßes. Bittere Lebensmittel können {giftig|besonders gesund|reif} sein, deshalb mögen wir sie zunächst nicht. Die fünfte Geschmacksrichtung heißt {umami|scharf|fettig} und bedeutet herzhaft. Bis man ein neues Lebensmittel mag, muss man es oft {8- bis 10-mal|ein einziges Mal|100-mal} probieren. Alle Erfahrungen mit Essen und Trinken bilden die {Essbiografie|Esskultur|Ernährungspyramide}.');
+mcQuiz($('#quiz'), [
+  {q: 'Warum mögen Babys Süßes?', a: ['Die Vorliebe ist angeboren und zeigt energiereiche, sichere Nahrung an', 'Sie haben es von der Werbung gelernt', 'Süßes ist gesünder als alles andere', 'Babys schmecken nur süß'], ok: 0, why: 'Die Vorliebe sicherte früher das Überleben.'},
+  {q: 'Welche Geschmacksrichtung bedeutet „herzhaft, würzig“?', a: ['umami', 'bitter', 'sauer', 'süß'], ok: 0, why: 'Umami kommt aus dem Japanischen.'},
+  {q: 'Warum war die Abneigung gegen Bitteres in der Steinzeit sinnvoll?', a: ['Viele giftige Pflanzen schmecken bitter', 'Bitteres macht nicht satt', 'Bitteres war zu teuer', 'Bitteres verdirbt schnell'], ok: 0, why: 'Vorsicht schützte vor Vergiftungen.'},
+  {q: 'Was gehört NICHT zur Essbiografie?', a: ['die Schuhgröße', 'das Lieblingsessen als Kind', 'Gerichte an Festtagen', 'Lebensmittel, die man nicht mag'], ok: 0, why: 'Die Essbiografie umfasst Erfahrungen mit Essen und Trinken.'},
+  {q: 'Wer prägt das Essverhalten im Jugendalter zunehmend?', a: ['Freunde und soziale Medien', 'nur die Eltern', 'nur das Fruchtwasser', 'niemand'], ok: 0, why: 'Mit dem Alter werden äußere Einflüsse wichtiger.'}
+]);
+</script>

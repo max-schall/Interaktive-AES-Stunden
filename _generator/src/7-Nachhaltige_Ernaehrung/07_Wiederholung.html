@@ -1,0 +1,86 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 86–89
+q: Kann ich nachhaltig und bedarfsgerecht essen – und es begründen?
+facts: Fachbegriffe als Karteikarten und Paare | Fallbeispiel: Wochenplan für die Familie | Quiz mit 16 Fragen (10 zufällig pro Runde) | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Fallbeispiel in Entscheidungen · Großes Quiz · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Energiebedarf, Klima, Landwirtschaft, Saison, vegetarische Ernährung und die Planetary Health Diet: Prüfe, was du weißt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Kann ich nachhaltig und bedarfsgerecht essen – und es begründen?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="fall" data-label="Fallbeispiel" data-yr="Anwenden" data-title="Einkauf für die Woche" data-sub="Nachhaltig entscheiden">
+  <div class="section-head"><p class="eyebrow">Station 2 · Fallbeispiel</p><h2>Familie Yilmaz plant die Woche</h2><p class="lead">Es ist Oktober. Familie Yilmaz möchte sich gesünder und klimafreundlicher ernähren. Hilf bei den Entscheidungen.</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['Grundumsatz', 'Energie für Körperfunktionen in Ruhe'], ['Leistungsumsatz', 'zusätzliche Energie für Aktivitäten'], ['PAL-Wert', 'Maß für die körperliche Aktivität'], ['Energiebilanz', 'Vergleich von Energiezufuhr und -verbrauch'], ['CO₂-Äquivalent', 'Treibhausgase in CO₂ umgerechnet'], ['Methan', 'Treibhausgas aus der Rinderverdauung'], ['Monokultur', 'nur eine Pflanzenart auf einer Fläche'], ['Fruchtfolge', 'Wechsel der Nutzpflanzen auf einem Feld'], ['saisonal', 'zur natürlichen Erntezeit'], ['EU-Bio-Siegel', 'Blatt aus Sternen, mind. 95 % Bio'], ['Pescetarier', 'isst Fisch, aber kein Fleisch'], ['vegan', 'keine tierischen Produkte'], ['Planetary Health Diet', 'Speiseplan für Mensch und Planet']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+scenes($('#sc'), [
+  {s: 'Montag: Es soll ein Gericht mit Kürbis geben. Welcher passt im Oktober?', a: ['Hokkaido aus der Region – jetzt ist Saison', 'Kürbis aus Neuseeland', 'Kürbis aus der Dose aus Übersee'], ok: 0},
+  {s: 'Dienstag: Statt Rinderhack für die Bolognese …', a: ['rote Linsen oder halb Linsen, halb Hack', 'doppelt so viel Hack', 'Hack aus Südamerika'], ok: 0, why: 'Rindfleisch hat den größten CO₂-Fußabdruck.'},
+  {s: 'Mittwoch: Getränke für die Woche', a: ['Leitungswasser und ungesüßter Tee', 'Limonade in Einwegflaschen', 'Energydrinks'], ok: 0},
+  {s: 'Donnerstag: Äpfel – regional konventionell oder Bio aus Neuseeland?', a: ['regional – im Oktober ist Apfelernte', 'Bio aus Neuseeland', 'getrocknete Äpfel aus China'], ok: 0},
+  {s: 'Freitag: Der Sohn (PAL 1,6, 50 kg) fragt, wie viel Energie er braucht.', a: ['ca. 1900 kcal (50 × 24 × 1,6)', 'ca. 500 kcal', 'ca. 5000 kcal'], ok: 0},
+  {s: 'Samstag: Was tun mit übrig gebliebenem Reis?', a: ['kühl lagern und am Sonntag zu Gemüsepfanne verarbeiten', 'wegwerfen', 'eine Woche auf dem Herd lassen'], ok: 0}
+], {label: 'Tag'});
+mcQuiz($('#quiz'), [
+  {q: 'Wie berechnet man den Grundumsatz grob?', a: ['1 kcal × kg × 24 h', 'kg × 1000', 'Größe × 2', 'PAL × 100'], ok: 0},
+  {q: 'Was ist der PAL-Wert eines Schülers?', a: ['ca. 1,6–1,7', 'ca. 1,0', 'ca. 3,0', 'ca. 0,5'], ok: 0},
+  {q: 'Wann bleibt das Gewicht stabil?', a: ['bei ausgeglichener Energiebilanz', 'bei viel Sport ohne Essen', 'bei hoher Zufuhr', 'nie'], ok: 0},
+  {q: 'Wie viel Prozent der Treibhausgase verursacht die Ernährung in Deutschland?', a: ['ca. 15 %', 'ca. 2 %', 'ca. 50 %', 'ca. 80 %'], ok: 0},
+  {q: 'Welches Lebensmittel hat den größten CO₂-Fußabdruck?', a: ['Rindfleisch', 'Kartoffeln', 'Äpfel', 'Brot'], ok: 0},
+  {q: 'Was ist in der ökologischen Landwirtschaft erlaubt?', a: ['organischer Dünger', 'Gentechnik', 'chemische Pestizide', 'Hormone'], ok: 0},
+  {q: 'Welche Dimensionen hat nachhaltige Ernährung (von Koerber)?', a: ['Umwelt, Wirtschaft, Gesellschaft, Gesundheit, Kultur', 'nur Umwelt', 'Preis und Geschmack', 'Sport und Spiel'], ok: 0},
+  {q: 'Welche Tomate ist am klimafreundlichsten?', a: ['Freiland, regional, saisonal', 'beheiztes Gewächshaus', 'Flugware', 'Bio aus dem beheizten Gewächshaus'], ok: 0},
+  {q: 'Wann gibt es Spargel aus der Region?', a: ['April bis Juni', 'Oktober bis Dezember', 'ganzjährig', 'nur im August'], ok: 0},
+  {q: 'Ist „regional“ gesetzlich geschützt?', a: ['nein', 'ja', 'nur in Bayern', 'nur bei Fleisch'], ok: 0},
+  {q: 'Was essen Lakto-Vegetarier?', a: ['Milchprodukte, aber keine Eier', 'Eier, aber keine Milch', 'Fisch', 'nur Obst'], ok: 0},
+  {q: 'Welcher Nährstoff ist bei veganer Ernährung besonders kritisch?', a: ['Vitamin B₁₂', 'Vitamin C', 'Kohlenhydrate', 'Ballaststoffe'], ok: 0},
+  {q: 'Welcher Beweggrund für Vegetarismus ist ökologisch?', a: ['Fleischkonsum belastet das Klima', 'Tiere sollen nicht leiden', 'Religion', 'Geschmack'], ok: 0},
+  {q: 'Wie viele kcal sieht die PHD täglich vor?', a: ['ca. 2500', 'ca. 1000', 'ca. 5000', 'ca. 200'], ok: 0},
+  {q: 'Wie viel Gemüse sieht die PHD täglich vor?', a: ['300 g', '30 g', '3 kg', 'gar keins'], ok: 0},
+  {q: 'Was bedeutet Zero Waste?', a: ['Müll dort vermeiden, wo er entsteht', 'null Kalorien', 'keine Bio-Produkte', 'kein Wasser verwenden'], ok: 0}
+], {pick: 10});
+selfCheck($('#sci'), [
+  {t: 'Ich kann meinen Grundumsatz und Gesamtenergiebedarf berechnen.', href: '01_Energiebedarf.html#pal'},
+  {t: 'Ich kann erklären, wie Ernährung das Klima beeinflusst.', href: '02_Klima.html#treibhaus'},
+  {t: 'Ich kann den CO₂-Fußabdruck von Gerichten vergleichen.', href: '02_Klima.html#teller'},
+  {t: 'Ich kann konventionelle und ökologische Landwirtschaft vergleichen.', href: '03_Landwirtschaft.html#vergleich'},
+  {t: 'Ich kann mit dem Saisonkalender regional und saisonal einkaufen.', href: '04_Regional_Saisonal.html#saison'},
+  {t: 'Ich kann Bio-Siegel erkennen und erklären.', href: '04_Regional_Saisonal.html#bio'},
+  {t: 'Ich kann Formen des Vegetarismus und ihre Beweggründe erklären.', href: '05_Vegetarismus.html#formen'},
+  {t: 'Ich kann die Planetary Health Diet beschreiben und bewerten.', href: '06_Planetary_Health_Diet.html#teller'}
+]);
+</script>

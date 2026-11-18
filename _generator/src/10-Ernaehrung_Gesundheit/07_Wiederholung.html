@@ -1,0 +1,82 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 248–249
+q: Kann ich Ernährungstrends und Werbeversprechen kritisch beurteilen?
+facts: Fachbegriffe als Karteikarten und Paare | Fallbeispiel: Emilia und Leon | Quiz mit 15 Fragen (10 zufällig pro Runde) | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Fallbeispiel · Großes Quiz · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Gentechnik, Dilemma-Diskussion, Functional Food, Nahrungsergänzungsmittel, Consumer Citizenship und Warenkennzeichnung: Prüfe, was du weißt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Kann ich Ernährungstrends und Werbeversprechen kritisch beurteilen?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="fall" data-label="Fallbeispiel" data-yr="Anwenden" data-title="Emilia und Leon" data-sub="Fit, gesund – und aktiv">
+  <div class="section-head"><p class="eyebrow">Station 2 · Fallbeispiel</p><h2>Emilia und Leon</h2><p class="lead">Emilia und Leon ist es wichtig, gesund, leistungsfähig und fit zu sein. Deshalb ernähren sie sich seit einem halben Jahr ovo-lakto-vegetarisch, machen dreimal pro Woche Sport und nehmen regelmäßig Magnesium-, Zink- und Vitamin-B12-Tabletten ein. Zudem trinken sie täglich ACE-Saft und frische Biomilch vom Bauern nebenan. Jetzt haben sie in der Zeitung gelesen, dass ein großes Agrarunternehmen ganz in der Nähe des Biobauernhofs ein Versuchsfeld mit gentechnisch veränderten Maispflanzen plant.</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['Gentechnik', 'gezielte Veränderung des Erbguts'], ['GVO', 'gentechnisch veränderter Organismus'], ['Gen-Schere', 'CRISPR/Cas9'], ['Dilemma', 'Wahl zwischen zwei unangenehmen Handlungen'], ['Functional Food', 'angereichertes Lebensmittel mit Zusatznutzen'], ['Health Claims', 'nährwert- und gesundheitsbezogene Angaben'], ['NEM', 'Nährstoffkonzentrat in dosierter Form'], ['Consumer Citizenship', 'aktive Vertretung eigener Verbraucherinteressen'], ['Consumer-Citizen-Gap', 'Lücke zwischen Einstellung und Verhalten'], ['Boykott', 'Produkte bewusst nicht kaufen'], ['Nanopartikel', 'winziges Teilchen, 1–100 Nanometer'], ['LMIV', 'Lebensmittel-Informationsverordnung'], ['Greenwashing', 'grünes Image vortäuschen']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+scenes($('#sc'), [
+  {s: 'Brauchen Emilia und Leon die Magnesium- und Zinktabletten?', a: ['Bei vollwertiger ovo-lakto-vegetarischer Ernährung meist nicht – unnötige Kosten, Gefahr der Überdosierung.', 'Ja, ohne Tabletten wird man krank.', 'Sie sollten die Dosis verdoppeln.'], ok: 0, why: 'Laut BfR sind NEM für gesunde, vollwertig ernährte Menschen überflüssig.'},
+  {s: 'Und das Vitamin B12?', a: ['Bei ovo-lakto-vegetarischer Ernährung liefern Milch und Eier B12 – bei veganer Ernährung wäre es sinnvoll.', 'B12 gibt es nur in Tabletten.', 'B12 ist schädlich.'], ok: 0},
+  {s: 'Wie bewertest du den täglichen ACE-Saft?', a: ['Functional Food: oft zuckerhaltig, Nutzen nicht belegt – Obst und Gemüse sind besser.', 'Unverzichtbar für die Gesundheit.', 'Er ersetzt eine Mahlzeit.'], ok: 0},
+  {s: 'Wie können sie Einfluss auf das geplante Versuchsfeld nehmen?', a: ['Mit anderen Bürgern eine Initiative gründen, Gespräche mit Gemeinderat und Unternehmen führen, Unterschriften sammeln, demonstrieren.', 'Gar nicht.', 'Das Feld heimlich zerstören.'], ok: 0, why: 'Kooperative und konfrontative Aktionen im Rahmen der freiheitlich-demokratischen Grundordnung.'},
+  {s: 'Wird der Biojoghurt vom Hof immer ohne Gentechnik hergestellt?', a: ['Ja, das EU-Bio-Siegel garantiert Gentechnikfreiheit.', 'Nein, Bio darf gv Zutaten enthalten.', 'Das ist nicht geregelt.'], ok: 0}
+], {label: 'Frage'});
+mcQuiz($('#quiz'), [
+  {q: 'Ab welchem GVO-Anteil muss gekennzeichnet werden?', a: ['über 0,9 %', 'über 5 %', 'über 50 %', 'nie'], ok: 0},
+  {q: 'Müssen Eier von Hühnern mit gv Futter gekennzeichnet werden?', a: ['nein', 'ja', 'nur in Bayern', 'nur bei Bio'], ok: 0},
+  {q: 'Was ist CRISPR/Cas9?', a: ['eine Gen-Schere', 'ein Siegel', 'ein Vitamin', 'eine Verordnung'], ok: 0},
+  {q: 'Was geschieht bei der Ping-Pong-Diskussion?', a: ['Pro und Kontra antworten abwechselnd', 'alle reden gleichzeitig', 'es wird abgestimmt', 'Tischtennis'], ok: 0},
+  {q: 'Ist der Begriff Functional Food gesetzlich definiert?', a: ['nein', 'ja, im Grundgesetz', 'ja, in der LMIV', 'ja, im BGB'], ok: 0},
+  {q: 'Was regelt die Health-Claims-Verordnung?', a: ['nährwert- und gesundheitsbezogene Angaben', 'Gentechnik', 'Mieten', 'Preise'], ok: 0},
+  {q: 'Darf eine Zuckerlimo mit „hoher Gehalt an Vitamin C“ werben?', a: ['ja, wenn genug Vitamin C zugesetzt ist', 'nein, nie', 'nur ohne Zucker', 'nur in Apotheken'], ok: 0},
+  {q: 'Sind NEM Arzneimittel?', a: ['nein, Lebensmittel', 'ja', 'nur Tabletten', 'nur Pulver'], ok: 0},
+  {q: 'Wer prüft NEM vor dem Verkauf auf Wirksamkeit?', a: ['niemand – sie kommen ohne behördliche Prüfung auf den Markt', 'die EFSA', 'der Arzt', 'die Polizei'], ok: 0},
+  {q: 'Für wen kann ein NEM sinnvoll sein?', a: ['z. B. für Schwangere oder vegan lebende Menschen', 'für alle Jugendlichen', 'für Sportler immer', 'für niemanden'], ok: 0},
+  {q: 'Was ist ein Buykott?', a: ['gezielt bestimmte Produkte kaufen', 'nichts kaufen', 'Produkte zurückgeben', 'ein Siegel'], ok: 0},
+  {q: 'Was zeigt der Consumer-Citizen-Gap?', a: ['Einstellung und Verhalten weichen ab', 'Preisunterschiede', 'Ladenöffnungszeiten', 'Lieferlücken'], ok: 0},
+  {q: 'Wie groß ist ein Nanometer?', a: ['ein Millionstel Millimeter', 'ein Zehntel Millimeter', 'ein Meter', 'ein Kilometer'], ok: 0},
+  {q: 'Welche Angabe ist Pflicht laut LMIV?', a: ['Zutatenverzeichnis', '„Neu!“', 'Serviervorschlag', 'Nutri-Score'], ok: 0},
+  {q: 'Was ist Greenwashing?', a: ['ein grünes Image vortäuschen', 'Salat waschen', 'Recycling', 'ein Bio-Siegel'], ok: 0}
+], {pick: 10});
+selfCheck($('#sci'), [
+  {t: 'Ich kann erklären, wie Gentechnik funktioniert, und die Kennzeichnung nennen.', href: '01_Gentechnik.html#kennzeichnung'},
+  {t: 'Ich kann eine Dilemma-Diskussion durchführen.', href: '02_Dilemma_Diskussion.html#schritte'},
+  {t: 'Ich kann Functional Food und Health Claims kritisch beurteilen.', href: '03_Functional_Food.html#claims'},
+  {t: 'Ich kann beurteilen, wann Nahrungsergänzungsmittel sinnvoll sind.', href: '04_Nahrungsergaenzung.html#wer'},
+  {t: 'Ich kenne Möglichkeiten, als Verbraucher aktiv Einfluss zu nehmen.', href: '05_Consumer_Citizenship.html#aktionen'},
+  {t: 'Ich kann Pflicht- und freiwillige Angaben unterscheiden und Greenwashing erkennen.', href: '06_Verpackung.html#pflicht'}
+]);
+</script>

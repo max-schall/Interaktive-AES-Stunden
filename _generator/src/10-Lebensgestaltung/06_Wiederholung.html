@@ -1,0 +1,82 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 262–263
+q: Bin ich bereit, auf eigenen Beinen zu stehen?
+facts: Fachbegriffe als Karteikarten und Paare | Fallbeispiel: Nila und Kai ziehen zusammen | Quiz mit 15 Fragen (10 zufällig pro Runde) | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Fallbeispiel · Großes Quiz · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Wohnformen, Finanzen, Versicherungen, Flächen-Nutzungs-Konkurrenz und gemeinschaftlicher Konsum: Prüfe, was du weißt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Bin ich bereit, auf eigenen Beinen zu stehen?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="fall" data-label="Fallbeispiel" data-yr="Anwenden" data-title="Nila und Kai" data-sub="Die erste gemeinsame Wohnung">
+  <div class="section-head"><p class="eyebrow">Station 2 · Fallbeispiel</p><h2>Nila und Kai ziehen zusammen</h2><p class="lead">Nila und Kai haben ihre Ausbildungen abgeschlossen und wollen zusammenziehen. Beide verdienen jeweils 1.800 € netto. Sie möchten ihr gemeinsames Leben nachhaltig gestalten – bei Wohnungseinrichtung, Mobilität und Wohnfläche.</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['Wohngemeinschaft', 'eigenes Zimmer, Küche und Bad geteilt'], ['Untermiete', 'vom Mieter mieten, oft auf Zeit'], ['Finanzmanagement', 'Planung, Verwaltung, Kontrolle der Finanzen'], ['Haushaltsbuch', 'Einnahmen und Ausgaben gegenüberstellen'], ['Fixkosten', 'regelmäßig anfallende Kosten'], ['Kredit', 'geliehenes Geld plus Zinsen in Raten'], ['Überschuldung', 'Schulden nicht fristgerecht zurückzahlen können'], ['Solidaritätsprinzip', 'Beitrag nach Einkommen, gleiche Leistungen'], ['Privathaftpflicht', 'zahlt Schäden, die man anderen zufügt'], ['Flächen-Nutzungs-Konkurrenz', 'Nutzungen konkurrieren um begrenzte Fläche'], ['Landgrabbing', 'Landraub in Entwicklungsländern'], ['Repaircafé', 'gemeinsam reparieren statt wegwerfen'], ['Carsharing', 'Autos gemeinsam nutzen']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+scenes($('#sc'), [
+  {s: 'Welche Wohnform empfiehlst du den beiden?', a: ['eine gemeinsame Wohnung als Paar – die Kosten halbieren sich', 'zwei getrennte Wohnheimplätze', 'jeder bleibt bei den Eltern'], ok: 0},
+  {s: 'Welche Kosten kommen beim Einzug auf sie zu?', a: ['Kaution, Umzug, Einrichtung, dann monatlich Miete, Nebenkosten, Strom, Internet', 'nur die Kaltmiete', 'keine'], ok: 0},
+  {s: 'Wie sollten sie ihre Finanzen organisieren?', a: ['gemeinsames Haushaltsbuch, Rücklagen nach 50:30:20, keine Konsumkredite', 'alles sofort ausgeben', 'einen Kredit für den Urlaub aufnehmen'], ok: 0},
+  {s: 'Welche Versicherung brauchen beide unbedingt?', a: ['Privathaftpflicht (und eine Hausratversicherung für die Wohnung)', 'Handyversicherung', 'Reiserücktrittsversicherung'], ok: 0},
+  {s: 'Wie richten sie sich nachhaltig ein und bleiben mobil?', a: ['Secondhand-Möbel, Werkzeug leihen, Carsharing und ÖPNV statt zwei Autos', 'alles neu kaufen und zwei Autos anschaffen', 'eine möglichst große Wohnung'], ok: 0}
+], {label: 'Frage'});
+mcQuiz($('#quiz'), [
+  {q: 'Welche Wohnform ist oft am günstigsten?', a: ['Wohnheim', 'eigene Wohnung', 'Eigentum', 'Hotel'], ok: 0},
+  {q: 'Was kommt beim Immobilienkauf zum Kaufpreis hinzu?', a: ['Notar und Grunderwerbsteuer', 'Kaution', 'Rundfunkbeitrag', 'nichts'], ok: 0},
+  {q: 'Wie viel Prozent sind bei 50:30:20 für Wünsche?', a: ['30 %', '50 %', '20 %', '10 %'], ok: 0},
+  {q: 'Was ist ein Haushaltsbuch?', a: ['Gegenüberstellung von Einnahmen und Ausgaben', 'ein Kochbuch', 'ein Sparbuch', 'ein Vertrag'], ok: 0},
+  {q: 'Was zahlt man bei einem Kredit zusätzlich?', a: ['Zinsen', 'Kaution', 'Pfand', 'nichts'], ok: 0},
+  {q: 'Wann ist man überschuldet?', a: ['wenn man nicht mehr fristgerecht zurückzahlen kann', 'ab 100 € Schulden', 'bei jedem Kredit', 'nie'], ok: 0},
+  {q: 'Was ist eine „gute“ Schuld?', a: ['ein Roller für den Weg zur Ausbildung', 'Urlaub auf Kredit', 'ein neues Handy auf Raten', 'Markenkleidung'], ok: 0},
+  {q: 'Wie viele gesetzliche Sozialversicherungen gibt es?', a: ['fünf', 'drei', 'sieben', 'zwei'], ok: 0},
+  {q: 'Wer zahlt die gesetzliche Unfallversicherung?', a: ['der Arbeitgebende allein', 'der Arbeitnehmende allein', 'je zur Hälfte', 'der Staat'], ok: 0},
+  {q: 'Welche Versicherung zahlt, wenn du den Fernseher eines Freundes beschädigst?', a: ['Privathaftpflicht', 'Hausrat', 'Krankenversicherung', 'Rentenversicherung'], ok: 0},
+  {q: 'Welche Individualversicherung ist Pflicht?', a: ['Kfz-Haftpflicht', 'Privathaftpflicht', 'Hausrat', 'Handyversicherung'], ok: 0},
+  {q: 'Was ist Landgrabbing?', a: ['Kauf großer Flächen in Entwicklungsländern durch Investoren', 'Gartenarbeit', 'Kartenspiel', 'Bodenschutz'], ok: 0},
+  {q: 'Welches Lebensmittel braucht am meisten Fläche pro kg?', a: ['Rindfleisch', 'Tofu', 'Kartoffeln', 'Brot'], ok: 0},
+  {q: 'Was bietet eine Bibliothek der Dinge?', a: ['Gegenstände zum Ausleihen', 'nur Bücher', 'Reparaturen', 'Autos'], ok: 0},
+  {q: 'Was bedeutet free-floating beim Carsharing?', a: ['abstellen, wo man möchte', 'an fester Station abgeben', 'kostenlos fahren', 'nur nachts fahren'], ok: 0}
+], {pick: 10});
+selfCheck($('#sci'), [
+  {t: 'Ich kann Wohnformen mit ihren Vor- und Nachteilen beschreiben.', href: '01_Wohnformen.html#formen'},
+  {t: 'Ich kann ein Haushaltsbuch führen und Sparmethoden erklären.', href: '02_Finanzen.html#buch'},
+  {t: 'Ich kann Chancen und Risiken eines Kredits erläutern.', href: '02_Finanzen.html#kredit'},
+  {t: 'Ich kann gesetzliche und private Versicherungen unterscheiden.', href: '03_Versicherungen.html#arten'},
+  {t: 'Ich kann Flächen-Nutzungs-Konkurrenz und Landgrabbing erklären.', href: '04_Flaechenkonkurrenz.html#konflikte'},
+  {t: 'Ich kenne Angebote des gemeinschaftlichen Konsums.', href: '05_Gemeinsam_konsumieren.html#angebote'}
+]);
+</script>

@@ -1,0 +1,168 @@
+<!--
+title: Diäten unter der Lupe
+short: Diäten
+time: 1 Unterrichtsstunde
+book: S. 142–143
+q: Funktioniert „Abnehmen im Schlaf“?
+facts: Diät (griech. diaita): gesunde Lebensweise; medizinische Diäten und Reduktionsdiäten | Formen: energiereduzierte Mischkost, nährstoffrelationsveränderte Diäten, Monodiäten, Blitz- und Crashdiäten | Der Jo-Jo-Effekt | Diät-Check: alltagstauglich, nährstoffdeckend, nachhaltig; BMI und seine Grenzen
+inter: Diätformen erkunden · Jo-Jo-Effekt im Modell · Diät-Check für Werbeversprechen · Werbeversprechen entlarven
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Diäten unter der Lupe</h1>
+      <p class="lead">Low Carb, Paleo, Glyx? Zeitschriften und soziale Medien versprechen „In 4 Wochen fit in den Sommer“ oder „Abnehmen im Schlaf“. Das klingt verlockend – aber funktioniert das wirklich? Schon viele normalgewichtige Jugendliche machen eine Diät, um einem Ideal zu entsprechen.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Funktioniert „Abnehmen im Schlaf“?</p></div>
+      <div class="controls"><button class="btn primary" data-go="formen">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="formen" data-label="Diätformen" data-yr="Erarbeitung" data-title="Was ist eine Diät?" data-sub="Medizinisch und zur Gewichtsreduktion">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Was ist eine Diät?</h2>
+      <p class="lead">Der Begriff kommt vom altgriechischen <i>diaita</i> = gesunde, vernünftige Lebensweise. Heute denken wir meist ans Abnehmen.</p>
+      <ul class="facts">
+        <li>Medizinisch ist Diät ein Oberbegriff für zielgerichtete Ernährungsformen, die Krankheiten vorbeugen oder behandeln, z. B. bei Allergien oder Diabetes.</li>
+        <li><b>Reduktionsdiäten</b> sollen das Körpergewicht verringern.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Vier Formen der Reduktionsdiät</h3></div>
+      <div id="ex-d"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="jojo" data-label="Jo-Jo-Effekt" data-yr="Experiment" data-title="Der Jo-Jo-Effekt" data-sub="Schnell runter, schnell rauf">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Experiment (Modell)</p>
+      <h2>Der Jo-Jo-Effekt</h2>
+      <p class="lead">Als <b>Jo-Jo-Effekt</b> bezeichnet man die unerwünschte, schnelle Gewichtszunahme nach einer Reduktionsdiät.</p>
+      <ul class="facts">
+        <li>Durch die stark reduzierte Kalorienzufuhr senkt der Körper seinen Grundumsatz („Hungermodus“) und verbraucht weniger Energie.</li>
+        <li>Wird nach der Diät wieder normal gegessen, speichert der Körper die Energie – das Gewicht steigt oft über den Ausgangswert.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Gewichtsverlauf über ein Jahr (Modell)</h3><div id="jj-seg"></div></div>
+      <canvas id="cv-j" class="wide" aria-label="Gewichtsverlauf mit und ohne Jo-Jo-Effekt"></canvas>
+      <p class="status" id="jj-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="check" data-label="Diät-Check" data-yr="Anwendung" data-title="Der Diät-Check" data-sub="Werbeversprechen prüfen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Der Diät-Check</h2>
+      <p class="lead">Eine sinnvolle Reduktionsdiät ist:</p>
+      <ul class="facts">
+        <li><b>alltagstauglich</b> – man kann sie langfristig durchhalten,</li>
+        <li><b>nährstoffdeckend</b> – eine vollwertige Ernährung ist möglich,</li>
+        <li><b>nachhaltig</b> – sie führt zu einer dauerhaften, gesundheitsförderlichen Ernährungsumstellung.</li>
+      </ul>
+      <p class="note">Diäten mit vielen Verboten sind schwer durchzuhalten. Unterstützung durch andere hilft.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Hält das Versprechen?</h3></div>
+      <div id="sc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="bmi" data-label="BMI" data-yr="Vertiefung" data-title="Der BMI und seine Grenzen" data-sub="Ein grobes Maß">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Vertiefung</p>
+      <h2>Der BMI und seine Grenzen</h2>
+      <p class="lead">Der <b>Body-Mass-Index</b> (Körpergewicht in kg : Körpergröße in m²) ist für Erwachsene eine gängige Methode, das Gewicht einzuordnen.</p>
+      <ul class="facts">
+        <li>Er berücksichtigt nicht die Körperzusammensetzung – muskulöse Sportler haben oft einen „zu hohen“ BMI.</li>
+        <li>Für Kinder und Jugendliche gelten eigene Kurven (Perzentilen), weil der Körper noch wächst.</li>
+      </ul>
+      <div class="achtung"><p>Bitte hier nicht das eigene Gewicht eingeben. Ob eine Gewichtsveränderung nötig ist, klärt man mit einer Ärztin oder einem Arzt.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Beispiel: zwei Erwachsene, 1,80 m, 90 kg</h3></div>
+      <div id="ex-b"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Diäten</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Diäten</h3><span>AES · Klasse 9</span></div>
+      <ol>
+        <li data-step>Eine <b>Diät</b> ist eine auf gesundheitliche Bedürfnisse abgestimmte Ernährungsweise; medizinische Diäten beugen Krankheiten vor oder behandeln sie.</li>
+        <li data-step>Formen der Reduktionsdiät: energiereduzierte Mischkost, nährstoffrelationsveränderte Diäten (Low Carb, Low Fat), Monodiäten, Blitz- und Crashdiäten.</li>
+        <li data-step>Der <b>Jo-Jo-Effekt</b>: Nach einer radikalen Diät senkt der Körper den Grundumsatz; danach nimmt man schnell wieder zu.</li>
+        <li data-step>Eine sinnvolle Reduktionsdiät ist <b>alltagstauglich, nährstoffdeckend und nachhaltig</b> – am besten eine energiereduzierte Mischkost mit Bewegung.</li>
+        <li data-step>Der BMI ist nur ein grobes Maß für Erwachsene.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Zur Leitfrage</span><p>Nein: Abnehmen gelingt nur über eine dauerhaft ausgeglichene oder leicht negative Energiebilanz – mit ausgewogener Ernährung und Bewegung.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Diät-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+explore($('#ex-d'), [
+  {ico: 'schuessel', t: 'energiereduzierte Mischkost', d: 'Die Kalorienzahl pro Tag wird nur mäßig reduziert, alle Lebensmittelgruppen bleiben erlaubt. Führt langfristig zu einem Abnehmerfolg und einer gesunden Ernährungsweise. <b>Empfehlenswert.</b>'},
+  {ico: 'kreislauf', t: 'nährstoff­relations­veränderte Diäten', d: 'Bestimmte Nährstoffe werden gemieden oder vermehrt gegessen: Atkins, Low Carb, Low Fat, Glyx. Oft einseitig und schwer durchzuhalten.'},
+  {ico: 'apfel', t: 'Monodiäten', d: 'Nur bestimmte Lebensmittel: Eier-, Ananas-, Kohlsuppendiät. Einseitig, Nährstoffmangel, starker Jo-Jo-Effekt.'},
+  {ico: 'blitz', t: 'Blitz- und Crashdiäten', d: 'Stark reduzierte Energiezufuhr, z. B. „5 kg in einer Woche“. Vor allem Wasser- und Muskelverlust, Müdigkeit, Jo-Jo-Effekt.'}
+], {hint: 'Tippe auf eine Diätform.'});
+(() => {
+  let m = 'crash';
+  seg($('#jj-seg'), [['crash', 'Crashdiät'], ['misch', 'energiereduzierte Mischkost']], v => { m = v; $('#jj-st').innerHTML = v === 'crash' ? '<b class="bad">Crashdiät:</b> In 4 Wochen viel verloren – vor allem Wasser und Muskeln. Danach steigt das Gewicht über den Startwert. Mehrere Runden: das Gewicht pendelt wie ein Jo-Jo nach oben.' : '<b class="good">Mischkost und Bewegung:</b> langsam, aber dauerhaft. Keine Rückschläge, weil die Gewohnheiten sich verändern.'; });
+  canvasLoop($('#cv-j'), 'jojo', (ctx, w, h) => {
+    const {X, Y} = axes(ctx, w, h, {x: [0, 52], y: [-8, 6], xt: [0, 13, 26, 39, 52], yt: [-6, -3, 0, 3], xl: 'Wochen', yl: 'Gewicht (kg) im Vergleich zum Start', xf: v => v, yf: v => (v > 0 ? '+' : '') + v, pad: {l: 50, b: 40}});
+    ctx.strokeStyle = alpha(C.ink2, .5); ctx.setLineDash([5, 5]); ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(52), Y(0)); ctx.stroke(); ctx.setLineDash([]);
+    const f = m === 'crash' ? (wk => { const c = wk % 17, r = Math.floor(wk / 17); return r * 1.5 + (c < 4 ? -6 * c / 4 : -6 + 7.5 * (1 - Math.exp(-(c - 4) / 3))); }) : (wk => -6 * (1 - Math.exp(-wk / 22)));
+    const pts = []; for (let wk = 0; wk <= 52; wk += .25) pts.push([X(wk), Y(f(wk))]);
+    polyline(ctx, pts, m === 'crash' ? C.bad : C.good, 3);
+  });
+})();
+scenes($('#sc'), [
+  {s: '„Abnehmen im Schlaf – mit unserem Wunder-Tee!“', a: ['Unseriös: kein Produkt verbrennt Fett im Schlaf', 'Klingt gut, sofort kaufen', 'Funktioniert, wenn man den Tee abends trinkt'], ok: 0},
+  {s: '„5 kg in 7 Tagen mit der Ananas-Diät!“', a: ['Monodiät: einseitig, vor allem Wasserverlust, Jo-Jo-Effekt', 'Ananas verbrennt Fett', 'Seriös, weil Obst gesund ist'], ok: 0},
+  {s: '„Etwas weniger Süßes, mehr Gemüse, täglich 30 Minuten Rad fahren.“', a: ['Alltagstauglich, nährstoffdeckend, nachhaltig', 'Viel zu langsam, bringt nichts', 'Gefährlich'], ok: 0},
+  {s: '„Low Carb: nie wieder Brot, Nudeln, Kartoffeln!“', a: ['Viele Verbote, schwer durchzuhalten, wenig Ballaststoffe', 'Perfekt für Jugendliche', 'Die einzige Diät, die funktioniert'], ok: 0}
+], {label: 'Werbeversprechen'});
+explore($('#ex-b'), [
+  {ico: 'laufen', t: 'Person A: Sportler', d: 'BMI = 90 : (1,8 · 1,8) ≈ 27,8 → laut Tabelle „Übergewicht“. Tatsächlich: sehr viel Muskelmasse, wenig Körperfett, topfit. Der BMI täuscht.'},
+  {ico: 'person', t: 'Person B: wenig Bewegung', d: 'Gleicher BMI ≈ 27,8. Hier mehr Körperfett. Erst Bauchumfang, Körperfettanteil und Gesundheit zeigen das wahre Bild.'}
+], {cols2: true, hint: 'Gleicher BMI – gleiche Gesundheit?', count: false});
+trueFalse($('#tf'), [
+  {t: 'Der Begriff Diät bedeutet ursprünglich „gesunde Lebensweise“.', ok: true},
+  {t: 'Crashdiäten führen zu dauerhaftem Abnehmen.', ok: false, why: 'Meist folgt der Jo-Jo-Effekt.'},
+  {t: 'Beim Jo-Jo-Effekt senkt der Körper seinen Grundumsatz.', ok: true},
+  {t: 'Der BMI berücksichtigt die Muskelmasse.', ok: false},
+  {t: 'Eine energiereduzierte Mischkost ist empfehlenswert.', ok: true}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Was ist eine Monodiät?', a: ['nur bestimmte Lebensmittel, z. B. Kohlsuppe', 'eine Diät für eine Person', 'Fasten für einen Tag', 'Mischkost'], ok: 0},
+  {q: 'Was kennzeichnet eine sinnvolle Diät?', a: ['alltagstauglich, nährstoffdeckend, nachhaltig', 'schnell, einseitig, teuer', 'viele Verbote', 'nur Shakes'], ok: 0},
+  {q: 'Was ist der Jo-Jo-Effekt?', a: ['schnelle Gewichtszunahme nach einer Diät', 'ein Spielzeug', 'Muskelaufbau', 'Abnehmen im Schlaf'], ok: 0},
+  {q: 'Warum ist der BMI für Sportler oft ungeeignet?', a: ['Er berücksichtigt die Muskelmasse nicht', 'Er ist zu genau', 'Sportler sind zu groß', 'Er gilt nur für Kinder'], ok: 0}
+]);
+</script>

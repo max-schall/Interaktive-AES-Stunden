@@ -1,0 +1,199 @@
+<!--
+title: Dein Körper beeinflusst dein Essverhalten
+short: Hunger & Sattsein
+time: 1 Unterrichtsstunde
+book: S. 14–15
+q: Habe ich gerade Hunger – oder nur Appetit?
+facts: Essen und Trinken sind Grundbedürfnisse | Hunger entsteht, wenn der Blutzuckerspiegel sinkt | Hunger, Appetit, Sättigung unterscheiden | Physiologische, psychologische und soziokulturelle Einflussfaktoren
+inter: Hunger oder Appetit sortieren · Blutzucker im Tagesverlauf · Einflussfaktoren ordnen · Meinungsbarometer zu Erziehungssprüchen
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Dein Körper beeinflusst dein Essverhalten</h1>
+      <p class="lead">Warum isst du überhaupt regelmäßig zur Mittagszeit? Ist es der Magen, die Uhr – oder der Freundeskreis, der gerade in die Mensa geht?</p>
+      <div class="teaser"><span class="tag info">Was denkst du?</span><p>Wann hast du zuletzt etwas gegessen – und warum gerade dann?</p></div>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Habe ich gerade Hunger – oder nur Appetit?</p></div>
+      <div class="controls"><button class="btn primary" data-go="hunger">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="hunger" data-label="Hunger & Appetit" data-yr="Einstieg" data-title="Hunger, Appetit, Sättigung" data-sub="Drei Signale unterscheiden">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Hunger, Appetit, Sättigung</h2>
+      <p class="lead">Essen und Trinken sind <b>Grundbedürfnisse</b>. Hunger-, Durst- und Sättigungsgefühl steuern, wann und wie viel wir essen.</p>
+      <ul class="facts">
+        <li><b>Hunger</b> ist ein körperliches Signal: Der Körper braucht Nachschub. Er knurrt, man wird unkonzentriert oder schlapp.</li>
+        <li><b>Appetit</b> ist Lust auf etwas Bestimmtes – auch ohne Hunger, z. B. beim Duft von frischen Waffeln.</li>
+        <li><b>Sättigung</b> meldet: genug gegessen. Das Signal kommt erst etwa 15–20 Minuten nach Beginn des Essens.</li>
+      </ul>
+      <ul class="words-box"><li>der Appetit</li><li>die Sättigung</li><li>das Grundbedürfnis</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Hunger oder Appetit?</h3></div>
+      <div id="sort-h"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="blutzucker" data-label="Blutzucker" data-yr="Erarbeitung" data-title="Warum der Magen knurrt" data-sub="Blutzucker im Tagesverlauf">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Warum der Magen knurrt</h2>
+      <p class="lead">Hunger spürst du, wenn dein <b>Blutzuckerspiegel sinkt</b>. Dann sendet der Körper Signale an das <b>Hungerzentrum im Gehirn</b>.</p>
+      <ul class="facts">
+        <li>Der Körper braucht ständig Energie, um Atmung, Herzschlag und Gehirn am Laufen zu halten.</li>
+        <li>Nach einer Mahlzeit steigt der Blutzucker, danach sinkt er langsam wieder.</li>
+        <li>Wer oft aus Gewohnheit isst, verlernt, auf das Hungergefühl zu achten.</li>
+      </ul>
+      <div class="achtung"><p>Wer seine Hunger- und Sättigungssignale dauerhaft übergeht, isst oft zu viel. Das kann zu Übergewicht und Krankheiten wie Diabetes Typ 2 führen.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Ein Schultag</h3><div id="bz-seg"></div></div>
+      <canvas id="cv-bz" class="wide" aria-label="Blutzuckerkurve über einen Tag mit Mahlzeiten"></canvas>
+      <div class="slider"><label for="bz-t">Uhrzeit <output id="bz-to"></output></label><input type="range" id="bz-t" min="6" max="22" step=".25" value="10"></div>
+      <p class="status" id="bz-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="faktoren" data-label="Einflussfaktoren" data-yr="Erarbeitung" data-title="Viele Einflüsse" data-sub="Körper, Seele, Gesellschaft">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Erarbeitung</p>
+      <h2>Viele Einflüsse auf dein Essverhalten</h2>
+      <p class="lead">Bei jedem Essen treffen wir unbewusst Entscheidungen. Die Einflüsse lassen sich in drei Gruppen ordnen:</p>
+      <dl class="kv2">
+        <dt>physiologisch</dt><dd>Vorgänge im Körper: Hunger, Durst, Sättigung, Allergien</dd>
+        <dt>psychologisch</dt><dd>seelisch: Stimmung, Erinnerungen, Gewohnheiten, Beobachtung anderer</dd>
+        <dt>soziokulturell</dt><dd>Gesellschaft und Kultur: Familie, Religion, Herkunft, Einkommen, Trends</dd>
+      </dl>
+      <p class="note">Je älter du wirst, desto wichtiger werden Lebensstil, Erfahrungen und äußere Reize – die inneren Reize treten oft in den Hintergrund.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Ordne die Beispiele zu</h3></div>
+      <div id="sort-f"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="sprueche" data-label="Erziehungssprüche" data-yr="Diskussion" data-title="„Iss deinen Teller leer!“" data-sub="Sprüche auf dem Prüfstand">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Diskussion</p>
+      <h2>„Iss deinen Teller leer!“</h2>
+      <p class="lead">Viele Erziehungsregeln rund ums Essen sind gut gemeint. Manche führen aber dazu, dass Kinder ihr Sättigungsgefühl unterdrücken.</p>
+      <ul class="facts">
+        <li>Säuglinge trinken nur so lange, bis sie satt sind – sie hören auf ihren Körper.</li>
+        <li>Später bestimmen feste Mahlzeiten, Gewohnheiten und Regeln mit.</li>
+      </ul>
+      <p class="prompt"><b>Austausch:</b> Welche Sprüche kennt ihr von zu Hause? Welche findet ihr heute noch sinnvoll?</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Meinungsbarometer</h3></div>
+      <ol id="op"></ol>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Hunger, Appetit und Sättigung</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Hunger, Appetit und Sättigung</h3><span>AES · Klasse 6</span></div>
+      <ol>
+        <li data-step>Essen und Trinken sind <b>Grundbedürfnisse</b> des Menschen.</li>
+        <li data-step><b>Hunger</b> ist ein körperliches Signal: Sinkt der Blutzuckerspiegel, meldet sich das Hungerzentrum im Gehirn.</li>
+        <li data-step><b>Appetit</b> ist die Lust auf etwas Bestimmtes – auch ohne Hunger. <b>Sättigung</b> zeigt an, dass wir genug gegessen haben.</li>
+        <li data-step>Das Essverhalten wird <b>physiologisch</b> (Körper), <b>psychologisch</b> (Seele) und <b>soziokulturell</b> (Gesellschaft, Kultur) beeinflusst.</li>
+        <li data-step>Hunger- und Sättigungsgefühl sind wichtige Signale, die man nicht ignorieren sollte.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Tagebuch</span><p>Beobachte dein Essverhalten an drei Tagen: Wann hast du was gegessen – und warum?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Signale des Körpers</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+sorter($('#sort-h'), [{id: 'h', name: 'Hunger'}, {id: 'a', name: 'Appetit'}, {id: 's', name: 'Sättigung'}], [
+  {t: 'Der Magen knurrt laut.', c: 'h'}, {t: 'Mir ist schwindelig, ich kann mich nicht konzentrieren.', c: 'h'}, {t: 'Seit dem Frühstück habe ich nichts gegessen.', c: 'h'},
+  {t: 'Es riecht nach Popcorn – darauf hätte ich jetzt Lust.', c: 'a'}, {t: 'Nach dem Essen noch Lust auf Nachtisch.', c: 'a'}, {t: 'Die Werbung zeigt einen Burger.', c: 'a'},
+  {t: 'Ich fühle mich angenehm voll.', c: 's'}, {t: 'Ich mag keinen Bissen mehr.', c: 's'}
+]);
+
+/* Blutzucker im Tagesverlauf */
+(() => {
+  const DAYS = {
+    gut: {name: 'regelmäßig', meals: [[7, 1, 'Frühstück'], [9.75, .45, 'Pausenbrot'], [13, 1, 'Mittagessen'], [16, .4, 'Obst'], [19, .9, 'Abendessen']]},
+    ohne: {name: 'ohne Frühstück', meals: [[11.5, 1.3, 'Süßigkeiten'], [14, 1.1, 'Mittagessen'], [19.5, 1, 'Abendessen']]}
+  };
+  let day = 'gut';
+  const bz = (t, ms) => {
+    let v = 74;
+    for (const [tm, a] of ms) { const d = t - tm; if (d > 0) v += a * 42 * d * Math.exp(1 - d); }
+    return v;
+  };
+  const upd = () => {
+    const t = +$('#bz-t').value, v = bz(t, DAYS[day].meals), hh = Math.floor(t), mm = Math.round((t - hh) * 60);
+    $('#bz-to').textContent = `${hh}:${String(mm).padStart(2, '0')} Uhr`;
+    $('#bz-st').innerHTML = v < 82 ? `<b class="bad">Blutzucker niedrig</b> – das Hungerzentrum meldet sich: Magenknurren, Müdigkeit, schlechte Konzentration.` : v > 115 ? `<b>Blutzucker hoch</b> – gerade gegessen. Jetzt meldet sich die Sättigung.` : `<b class="good">Blutzucker im Normalbereich</b> – genug Energie für Kopf und Körper.`;
+  };
+  $('#bz-t').oninput = upd;
+  seg($('#bz-seg'), [['gut', 'regelmäßig essen'], ['ohne', 'ohne Frühstück']], v => { day = v; upd(); });
+
+  canvasLoop($('#cv-bz'), 'blutzucker', (ctx, w, h) => {
+    const ms = DAYS[day].meals, {X, Y} = axes(ctx, w, h, {x: [6, 22], y: [50, 160], xt: [6, 8, 10, 12, 14, 16, 18, 20, 22], yt: [], xl: 'Uhrzeit', yl: 'Blutzucker', pad: {l: 34, b: 44, t: 30}});
+    ctx.fillStyle = alpha(C.bad, .08); ctx.fillRect(X(6), Y(82), X(22) - X(6), Y(50) - Y(82));
+    label(ctx, 'Hunger', X(21.8), Y(66), {align: 'right', size: 12, color: C.bad});
+    const pts = []; for (let t = 6; t <= 22; t += .05) pts.push([X(t), Y(bz(t, ms))]);
+    polyline(ctx, pts, C.accent, 3);
+    ms.forEach(([tm, a, n], i) => { ctx.fillStyle = col('c' + (i % 7 + 2)); ctx.beginPath(); ctx.arc(X(tm), Y(52) - 6, 5, 0, 7); ctx.fill(); label(ctx, n, X(tm), 14 + (i % 2) * 13, {size: 11, color: C.ink2}); });
+    const t = +$('#bz-t').value; ctx.strokeStyle = alpha(C.ink, .35); ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(X(t), Y(160)); ctx.lineTo(X(t), Y(50)); ctx.stroke(); ctx.setLineDash([]);
+    dotAt(ctx, X(t), Y(bz(t, ms)), C.accent, 7);
+  });
+})();
+
+sorter($('#sort-f'), [{id: 'p', name: 'physiologisch'}, {id: 'y', name: 'psychologisch'}, {id: 's', name: 'soziokulturell'}], [
+  {t: 'Hunger und Durst', c: 'p'}, {t: 'eine Laktoseunverträglichkeit', c: 'p'}, {t: 'Sättigungsgefühl', c: 'p'},
+  {t: 'schlechte Laune, Langeweile', c: 'y'}, {t: 'Erinnerung an Omas Kuchen', c: 'y'}, {t: 'Freunde essen es auch', c: 'y'},
+  {t: 'Religion und Feiertage', c: 's'}, {t: 'Einkommen der Familie', c: 's'}, {t: 'traditionelle Familienrezepte', c: 's'}
+]);
+
+opinion($('#op'), [
+  {t: '„Iss deinen Teller leer, dann gibt es morgen schönes Wetter.“', why: 'Wer immer aufisst, obwohl er satt ist, übergeht sein Sättigungsgefühl. Besser: kleinere Portionen nehmen und nachschöpfen.'},
+  {t: '„Wenn du brav bist, bekommst du ein Eis.“', why: 'Essen als Belohnung verknüpft Süßes mit guten Gefühlen – später greift man dann oft zum Trost zu Süßigkeiten.'},
+  {t: '„Probier wenigstens einen Löffel.“', why: 'Probieren hilft, neue Geschmäcker kennenzulernen. Zwang verdirbt aber oft die Lust – Freiwilligkeit wirkt besser.'},
+  {t: '„Erst die Hausaufgaben, dann wird gegessen.“', why: 'Mit Hunger lernt es sich schlecht: Ein niedriger Blutzucker senkt die Konzentration.'}
+]);
+
+trueFalse($('#tf'), [
+  {t: 'Hunger entsteht, wenn der Blutzuckerspiegel sinkt.', ok: true, why: 'Dann meldet sich das Hungerzentrum im Gehirn.'},
+  {t: 'Appetit ist immer ein Zeichen dafür, dass der Körper Energie braucht.', ok: false, why: 'Appetit ist Lust auf etwas Bestimmtes – auch ohne Hunger.'},
+  {t: 'Das Sättigungsgefühl setzt sofort beim ersten Bissen ein.', ok: false, why: 'Es dauert etwa 15 bis 20 Minuten.'},
+  {t: 'Religion ist ein soziokultureller Einflussfaktor.', ok: true, why: 'Sie gehört zu Gesellschaft und Kultur.'},
+  {t: 'Säuglinge trinken nur so lange, bis sie satt sind.', ok: true, why: 'Sie folgen ihren inneren Signalen.'},
+  {t: 'Wer Hungersignale ignoriert, isst langfristig eher zu wenig.', ok: false, why: 'Meist isst man dann eher zu viel, weil man die natürlichen Reize nicht mehr wahrnimmt.'}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Wo sitzt das Hungerzentrum?', a: ['im Gehirn', 'im Magen', 'in der Leber', 'in der Zunge'], ok: 0, why: 'Der Körper sendet Signale an das Gehirn.'},
+  {q: 'Welcher Faktor ist psychologisch?', a: ['Stress vor einer Klassenarbeit', 'Durst', 'das Einkommen', 'die Religion'], ok: 0, why: 'Psychologisch = seelisch.'},
+  {q: 'Was kann passieren, wenn man oft ohne Hunger isst?', a: ['Übergewicht und Krankheiten wie Diabetes Typ 2', 'Man wächst schneller', 'Man wird nie wieder hungrig', 'Nichts'], ok: 0, why: 'Man isst dann mehr, als man braucht.'},
+  {q: 'Warum knurrt der Magen in der 4. Stunde häufig?', a: ['Der Blutzucker ist seit dem Frühstück gesunken', 'Die Schule ist zu laut', 'Der Magen ist zu voll', 'Wegen der Werbung'], ok: 0, why: 'Zeit für ein Pausenbrot.'}
+]);
+</script>

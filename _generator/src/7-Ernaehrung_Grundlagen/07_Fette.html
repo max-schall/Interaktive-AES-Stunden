@@ -1,0 +1,171 @@
+<!--
+title: Wozu braucht dein Körper Fette?
+short: Fette
+time: 1 Unterrichtsstunde
+book: S. 64–65
+q: Welches Fett ist gut – und wo versteckt sich Fett?
+facts: Pflanzliche und tierische Fette, fest, halbfest, flüssig | Glycerin und drei Fettsäuren; gesättigt, ungesättigt, essenziell (Omega-3, Omega-6) | Brennstoff (37 kJ/g), Schutz, Wärme, Geschmacksträger, fettlösliche Vitamine | Höchstens 1 g Fett pro kg Körpergewicht, versteckte Fette
+inter: Aufbau eines Fettes · Fettsäuren und Öle · Versteckte Fette entdecken · Welches Fett wofür?
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wozu braucht dein Körper Fette?</h1>
+      <p class="lead">Halbfettmargarine und fettreduzierte Lebensmittel machen schlank? Fettreiche Lebensmittel kennst du sicher. Tatsache ist: Dein Körper braucht Fett. Aber auf die richtige Auswahl und Menge kommt es an!</p>
+      <div class="teaser"><span class="tag info">Was denkst du?</span><p>Welche Fette und Öle verwendet ihr zu Hause?</p></div>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Welches Fett ist gut – und wo versteckt sich Fett?</p></div>
+      <div class="controls"><button class="btn primary" data-go="aufbau">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="aufbau" data-label="Aufbau" data-yr="Erarbeitung" data-title="Aufbau der Fette" data-sub="Glycerin und Fettsäuren">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Aufbau der Fette</h2>
+      <p class="lead">Einfache Fette sind aus <b>Glycerin und drei Fettsäuren</b> aufgebaut. Die Fettsäuren bestimmen Eigenschaften und Gesundheitswert eines Fettes.</p>
+      <ul class="facts">
+        <li><b>gesättigte Fettsäuren</b> – vor allem in festen Fetten wie Butter, Schmalz, Kokosfett</li>
+        <li><b>(mehrfach) ungesättigte Fettsäuren</b> – vor allem in flüssigen Ölen</li>
+        <li><b>essenzielle Fettsäuren</b> (Omega-3, Omega-6) muss der Körper mit der Nahrung aufnehmen: in Pflanzenölen und Kaltwasserfischen wie Lachs, Makrele, Hering.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Ein Fettmolekül</h3><div id="fs-seg"></div></div>
+      <canvas id="cv-f" class="wide" aria-label="Glycerin mit drei Fettsäuren"></canvas>
+      <p class="status" id="fs-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="aufgaben" data-label="Aufgaben" data-yr="Erarbeitung" data-title="Aufgaben im Körper" data-sub="Mehr als Energie">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Aufgaben im Körper</h2>
+      <p class="lead">Fette sind <b>Brennstoffe</b>: 1 g Fett liefert <b>37 kJ bzw. 9 kcal</b> – mehr als doppelt so viel wie Kohlenhydrate oder Eiweiße.</p>
+      <p>Jugendliche und Erwachsene sollten täglich <b>höchstens 1 g Fett pro kg Körpergewicht</b> aufnehmen. Zu viel Fett speichert der Körper als Fettpolster an Hüfte, Bauch und Po.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf eine Aufgabe</h3></div>
+      <div id="ex-a"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="versteckt" data-label="Versteckte Fette" data-yr="Anwendung" data-title="Versteckte Fette" data-sub="Sichtbar oder nicht?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Sichtbare und versteckte Fette</h2>
+      <ul class="facts">
+        <li><b>Sichtbare Fette</b> wie Butter auf dem Brot oder Öl im Dressing kannst du dosieren – sparsam verwenden.</li>
+        <li><b>Versteckte Fette</b> stecken in Wurst, Käse, Chips, Schokolade, Nuss-Nougat-Creme, Keksen und Kuchen – teils auch gesundheitlich bedenkliche Transfettsäuren.</li>
+      </ul>
+      <p class="prompt"><b>Schätze zuerst:</b> Wie viele Teelöffel Fett (à 5 g) stecken in 100 g? Dann tippe auf „Auflösen“.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Fett pro 100 g</h3><button class="btn" id="vf-show">Auflösen</button></div>
+      <div id="vf"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="kueche" data-label="Fette in der Küche" data-yr="Praxis" data-title="Welches Fett wofür?" data-sub="Küchentechnische Eigenschaften">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Praxis</p>
+      <h2>Welches Fett wofür?</h2>
+      <ul class="facts">
+        <li><b>Hocherhitzbare</b> Speiseöle, Schmalz und Kokosfett (bis ca. 180 °C): Braten, Frittieren, Schmoren.</li>
+        <li><b>Butter und Margarine</b> (ca. 20 % Wasser) spritzen und verbrennen beim starken Erhitzen: Dünsten, Backen, Brotaufstrich.</li>
+        <li><b>Hochwertige kaltgepresste Öle</b> (z. B. Leinöl): für Salate und kalte Speisen, nicht zum Braten.</li>
+        <li>Fette sind nicht wasserlöslich. Mit einem <b>Emulgator</b> entsteht ein gleichmäßiges Gemisch (Emulsion), z. B. Mayonnaise.</li>
+        <li>Fette dunkel und kühl lagern, sonst werden sie ranzig.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Ordne zu</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Fette</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Fette</h3><span>AES · Klasse 7</span></div>
+      <ol>
+        <li data-step>Fette sind energieliefernde Makronährstoffe (<b>Brennstoffe</b>): 1 g = 37 kJ (9 kcal). Höchstens 1 g pro kg Körpergewicht am Tag.</li>
+        <li data-step>Aufbau: <b>Glycerin + drei Fettsäuren</b>. Fettsäuren sind gesättigt oder (mehrfach) ungesättigt. <b>Essenzielle Fettsäuren</b> (Omega-3, Omega-6) kommen in Pflanzenölen und Kaltwasserfischen vor.</li>
+        <li data-step>Aufgaben: Energie und Energiespeicher, Schutz der Organe, Wärmeisolierung, Träger für Geschmacksstoffe und die fettlöslichen Vitamine A, D, E, K.</li>
+        <li data-step>Achte besonders auf <b>versteckte Fette</b> in Wurst, Käse, Chips, Gebäck und Süßigkeiten.</li>
+        <li data-step>Richtige Fettauswahl: hocherhitzbare Öle zum Braten, Butter zum Dünsten und Backen, kaltgepresste Öle für Salate.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Warum?</span><p>Vollmilch schmeckt besser als Magermilch, weil Fett Geschmacks- und Aromastoffe trägt.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Fett-Rechnungen</h2></div>
+  <div id="ts"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+(() => {
+  let typ = 'ges';
+  const T = {ges: '<b>Gesättigte Fettsäuren:</b> gerade Ketten, die sich dicht aneinanderlegen – das Fett ist fest (Butter, Kokosfett).', unges: '<b>Ungesättigte Fettsäuren:</b> Doppelbindungen machen Knicke – die Ketten liegen locker, das Fett ist flüssig (Öl).'};
+  seg($('#fs-seg'), [['ges', 'gesättigt'], ['unges', 'ungesättigt']], v => { typ = v; $('#fs-st').innerHTML = T[v]; });
+  canvasLoop($('#cv-f'), 'aufbau', (ctx, w, h, t) => {
+    const gx = w * .14, gy = h * .2, gh = h * .6;
+    ctx.fillStyle = col('c4'); roundRect(ctx, gx - 22, gy, 44, gh, 12); ctx.fill(); ctx.save(); ctx.translate(gx, gy + gh / 2); ctx.rotate(-Math.PI / 2); label(ctx, 'Glycerin', 0, 0, {size: 13, color: '#fff'}); ctx.restore();
+    for (let f = 0; f < 3; f++) {
+      const y0 = gy + gh * (.17 + f * .33); ctx.strokeStyle = col('c5'); ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(gx + 22, y0);
+      let x = gx + 22, y = y0; const seg = (w * .78) / 16;
+      for (let i = 0; i < 16; i++) { const kink = typ === 'unges' && (i === 6 || (f === 1 && i === 10)); x += seg; y += (i % 2 ? -1 : 1) * 7 + (kink ? 16 : 0) + Math.sin(t * 2 + f + i) * .6; ctx.lineTo(x, y); }
+      ctx.stroke(); label(ctx, `Fettsäure ${f + 1}`, gx + 40, y0 - 14, {size: 11, align: 'left', color: C.ink2});
+    }
+  });
+  $('#fs-st').innerHTML = T.ges;
+})();
+explore($('#ex-a'), [
+  {ico: 'flamme', t: 'Energie', d: 'Fette liefern sehr viel Energie (37 kJ/g) für Stoffwechsel und körperliche Arbeit.'},
+  {ico: 'paket', t: 'Energiespeicher', d: 'Überschüssiges Fett wird als langfristige Reserve gespeichert – als Fettpolster an Hüfte, Bauch und Po.'},
+  {ico: 'schild', t: 'Schutz', d: 'Fett umhüllt innere Organe wie Nieren und Augäpfel und schützt sie vor Stößen.'},
+  {ico: 'thermo', t: 'Wärme', d: 'Fett unter der Haut schützt vor Kälte und hält die Körpertemperatur aufrecht.'},
+  {ico: 'nase', t: 'Geschmacksträger', d: 'Fett trägt Geschmacks- und Aromastoffe – deshalb schmeckt Vollmilch besser als Magermilch.'},
+  {ico: 'sonne', t: 'Vitamintransport', d: 'Die fettlöslichen Vitamine A, D, E und K kann der Körper nur zusammen mit Fett aufnehmen.'}
+], {hint: 'Tippe auf eine Aufgabe.'});
+(() => {
+  const D = [['Salami', 33], ['Gouda (45 % F. i. Tr.)', 29], ['Kartoffelchips', 35], ['Nuss-Nougat-Creme', 31], ['Vollmilchschokolade', 31], ['Croissant', 21], ['Pommes frites', 15], ['Leberwurst', 29], ['Fischstäbchen', 9], ['Naturjoghurt 3,5 %', 3.5]];
+  let shown = false;
+  const draw = () => { if (!shown) { $('#vf').innerHTML = `<ul class="facts">${D.map(([n]) => `<li>${n}: … Teelöffel?</li>`).join('')}</ul>`; return; } bars($('#vf'), D.map(([l, v]) => ({l, v, c: v > 25 ? 'c1' : v > 10 ? 'c5' : 'c2'})), {unit: 'g', dec: 1, sort: true, note: '5 g Fett ≈ 1 Teelöffel. Salami: ca. 6–7 Teelöffel Fett in 100 g!'}); };
+  $('#vf-show').onclick = () => { shown = !shown; $('#vf-show').textContent = shown ? 'Verdecken' : 'Auflösen'; draw(); };
+  draw();
+})();
+sorter($('#sort'), [{id: 'b', name: 'Braten, Frittieren'}, {id: 'd', name: 'Dünsten, Backen, Aufstrich'}, {id: 'k', name: 'kalte Küche, Salat'}], [
+  {t: 'Rapsöl (raffiniert)', c: 'b'}, {t: 'Butterschmalz', c: 'b'}, {t: 'Kokosfett', c: 'b'}, {t: 'Butter', c: 'd'}, {t: 'Margarine', c: 'd'}, {t: 'kaltgepresstes Leinöl', c: 'k'}, {t: 'natives Olivenöl extra', c: 'k'}, {t: 'Walnussöl', c: 'k'}
+]);
+taskSet($('#ts'), i => {
+  if (i % 2 === 0) { const kg = randInt(35, 75); return {key: 'k' + kg, tag: 'Bedarf', q: `Ein Jugendlicher wiegt ${kg} kg. Wie viel Fett sollte er höchstens am Tag essen?`, fields: [{l: 'Fett', a: kg, tol: .5, unit: 'g'}], hint: 'Höchstens 1 g pro kg Körpergewicht.'}; }
+  const g = pick([10, 15, 20, 25, 30]); return {key: 'f' + g, tag: 'Energie', q: `Eine Portion Chips enthält ${g} g Fett. Wie viel Energie liefert allein das Fett?`, fields: [{l: 'Energie', a: g * 37, tol: 1, unit: 'kJ'}, {l: 'Energie', a: g * 9, tol: 1, unit: 'kcal'}], hint: '1 g Fett = 37 kJ = 9 kcal'};
+}, {n: 4});
+mcQuiz($('#quiz'), [
+  {q: 'Woraus sind einfache Fette aufgebaut?', a: ['Glycerin und drei Fettsäuren', 'Aminosäuren', 'Zuckerbausteine', 'Vitaminen'], ok: 0},
+  {q: 'Wo kommen Omega-3-Fettsäuren vor?', a: ['in Lachs, Makrele, Leinöl', 'in Zucker', 'in Weißbrot', 'in Cola'], ok: 0},
+  {q: 'Welches Fett eignet sich NICHT zum scharfen Anbraten?', a: ['Butter', 'Butterschmalz', 'raffiniertes Rapsöl', 'Kokosfett'], ok: 0, why: 'Butter enthält Wasser und Eiweiß und verbrennt schnell.'},
+  {q: 'Welche Vitamine sind fettlöslich?', a: ['A, D, E, K', 'B und C', 'nur C', 'alle'], ok: 0},
+  {q: 'Was ist eine Emulsion?', a: ['ein gleichmäßiges Gemisch aus Fett und Wasser, z. B. Mayonnaise', 'ein Vitamin', 'reines Öl', 'ein Zuckerersatz'], ok: 0}
+]);
+</script>

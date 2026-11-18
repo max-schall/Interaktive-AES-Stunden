@@ -1,0 +1,143 @@
+<!--
+title: Ein Beruf für dich?
+short: Berufe rund um AES
+time: 1 Unterrichtsstunde
+book: S. 230–231
+q: Welcher Beruf rund um AES passt zu meinen Interessen und Stärken?
+facts: Berufsfelder: Gesundheit und Pflege, Ernährung und Hauswirtschaft, Fitness und Bewegung, Sozialwesen | Fünf Berufsbilder mit Tätigkeiten, Voraussetzungen und Perspektiven | Eigene Interessen und Fähigkeiten mit den Anforderungen vergleichen | Berufsorientierung: Praktikum, BIZ, Berufe-Portale
+inter: Berufsfelder sortieren · Berufsbilder erkunden · Interessen-Check · Wer sagt was?
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Ein Beruf für dich?</h1>
+      <p class="lead">Das Berufsfeld rund um AES ist vielfältig. Bei den meisten Berufen in diesem Bereich engagiert man sich sozial und tut etwas für seine Mitmenschen. Vielleicht ist ein passender Beruf für dich dabei?</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Welcher Beruf rund um AES passt zu meinen Interessen und Stärken?</p></div>
+      <div class="controls"><button class="btn primary" data-go="felder">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="felder" data-label="Berufsfelder" data-yr="Einstieg" data-title="Vier Berufsfelder" data-sub="Berufe zuordnen">
+  <div class="section-head"><p class="eyebrow">Station 1 · Einstieg</p><h2>Vier Berufsfelder rund um AES</h2>
+    <p class="lead">Das Berufsfeld umfasst Berufe aus den Bereichen Gesundheit und Pflege, Ernährung und Hauswirtschaft, Fitness und Bewegung sowie Sozialwesen. Ordne die Berufe zu.</p></div>
+  <div id="sort"></div>
+</section>
+
+<section class="station" id="bilder" data-label="Berufsbilder" data-yr="Erarbeitung" data-title="Fünf Berufsbilder" data-sub="Tätigkeiten, Voraussetzungen, Perspektiven">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Fünf Berufsbilder</h2>
+      <p class="lead">Um den richtigen Beruf für dich zu finden, solltest du deine persönlichen <b>Interessen und Fähigkeiten</b> in den Blick nehmen. Vergleiche sie mit den <b>Anforderungen und Möglichkeiten</b> deines Wunschberufs.</p>
+      <p class="note">Tippe auf einen Beruf: Tätigkeiten, persönliche Voraussetzungen und berufliche Perspektive.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Berufsbilder</h3></div>
+      <div id="ex"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="check" data-label="Interessen-Check" data-yr="Anwendung" data-title="Was passt zu mir?" data-sub="Interessen-Check">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Was passt zu mir?</h2>
+      <p class="lead">Kreuze an, was auf dich zutrifft. Das Diagramm zeigt, welche Berufsbilder zu deinen Angaben passen.</p>
+      <ul class="checks" id="ic"></ul>
+      <p class="note">Nur ein grober Hinweis – kein Test! Mehr erfährst du im Praktikum, im BIZ der Agentur für Arbeit oder bei planet-beruf.de.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Passung</h3></div>
+      <div id="fit"></div>
+      <p class="status" id="fit-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="zitate" data-label="Wer sagt was?" data-yr="Vertiefung" data-title="Wer sagt was?" data-sub="Aussagen zuordnen">
+  <div class="section-head"><p class="eyebrow">Station 4 · Vertiefung</p><h2>Wer sagt was?</h2>
+    <p class="lead">Ordne die Aussagen den Berufen zu.</p></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Berufe rund um AES</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Ein Beruf für dich?</h3><span>AES · Klasse 10</span></div>
+      <ol>
+        <li data-step>Berufsfelder rund um AES: <b>Gesundheit und Pflege</b>, <b>Ernährung und Hauswirtschaft</b>, <b>Fitness und Bewegung</b>, <b>Sozialwesen</b>.</li>
+        <li data-step>Bei den meisten Berufen engagiert man sich sozial und tut etwas für seine Mitmenschen.</li>
+        <li data-step>Für die Berufswahl eigene <b>Interessen und Fähigkeiten</b> mit den <b>Anforderungen</b> des Wunschberufs vergleichen.</li>
+        <li data-step>Viele Berufe bieten gute Perspektiven: Weiterbildung, Meister/-in, Studium (z. B. Soziale Arbeit, Gesundheitswissenschaften).</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Recherche</span><p>Recherchiere einen weiteren Beruf im Bereich AES: Tätigkeiten, Voraussetzungen, Ausbildungsdauer, Perspektiven.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Stimmt das?</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+sorter($('#sort'), [{id: 'g', name: 'Gesundheit und Pflege'}, {id: 'e', name: 'Ernährung und Hauswirtschaft'}, {id: 'f', name: 'Fitness und Bewegung'}, {id: 's', name: 'Sozialwesen'}], [
+  {t: 'Pflegefachfrau/-mann', c: 'g'}, {t: 'Hörakustiker/-in', c: 'g'}, {t: 'Medizinische/-r Fachangestellte/-r', c: 'g'},
+  {t: 'Koch/Köchin', c: 'e'}, {t: 'Fachkraft Fruchtsafttechnik', c: 'e'}, {t: 'Hauswirtschafter/-in', c: 'e'},
+  {t: 'Sport- und Fitnesskaufmann/-frau', c: 'f'}, {t: 'Physiotherapeut/-in', c: 'f'},
+  {t: 'Erzieher/-in', c: 's'}, {t: 'Heilerziehungspfleger/-in', c: 's'}, {t: 'Sozialassistent/-in', c: 's'}
+]);
+const B = [
+  {ico: 'gruppe', t: 'Assistenz im Gesundheits- und Sozialwesen', sub: 'Pflege und Verwaltung', d: '<p>Arbeit in Pflegebereichen, z. B. ambulante Alten- und Krankenpflege, Tagesstätten für Obdachlose, Krankenkassen, Gesundheitsämter. Hilfs- und pflegebedürftige Menschen stehen im Mittelpunkt; auch kaufmännische und verwaltende Arbeiten gehören dazu.</p><p><b>Voraussetzungen:</b> Kontaktbereitschaft, Kommunikationsfähigkeit, Interesse an Finanzen und Datenanalysen.</p><p><b>Perspektive:</b> Bewerbung in vielen Institutionen; weiterführende Studiengänge, z. B. Soziale Arbeit oder Gesundheitswissenschaften.</p>'},
+  {ico: 'apfel', t: 'Fachkraft für Fruchtsafttechnik', sub: 'Ernährung', d: '<p>Aus überwiegend regionalem Obst und Gemüse werden Säfte und Fruchtweine produziert: Rohstoffauswahl, Reinigen, Pressen oder Passieren, Mischen, Überwachen der Gärung, Abfüllen in Flaschen, Dosen oder Kartons.</p><p><b>Voraussetzungen:</b> Interesse an Obst/Gemüse und der Verarbeitung, handwerkliches Geschick, technisches Verständnis, Sorgfalt.</p><p><b>Perspektive:</b> Aufstiegs- und Fortbildungsmöglichkeiten in Getränkeherstellung, Lebensmittelrecht und -hygiene.</p>'},
+  {ico: 'baby', t: 'Pflegefachfrau/-mann (Kinderkrankenpflege)', sub: 'Gesundheit und Pflege', d: '<p>Pflegen und Betreuen von Säuglingen, kranken Kindern und Jugendlichen in Kliniken, Facharztpraxen und ambulanten Diensten: pflegerische und medizinische Maßnahmen nach ärztlicher Anweisung, Assistenz bei Untersuchungen. Trösten und Mutmachen bei Kindern und Eltern gehört dazu.</p><p><b>Voraussetzungen:</b> Einfühlungsvermögen, Kontaktfähigkeit, Verantwortungsbewusstsein, psychische Stabilität.</p><p><b>Perspektive:</b> Digitalisierung der Pflege ist ein großes Weiterbildungsthema; Fachweiterbildungen und Studium möglich.</p>'},
+  {ico: 'ohr', t: 'Hörakustiker/-in', sub: 'Gesundheit und Handwerk', d: '<p>Beraten der Kundschaft, Erklären von Hörsystemen und Gehörschutz, Anfertigen von Otoplastiken (Ohrpassstücke), Service und Instandhaltung; auch kaufmännische Arbeiten.</p><p><b>Voraussetzungen:</b> handwerkliches Geschick, Kontaktfähigkeit und Kundenorientierung, Sorgfalt, kaufmännisches Verständnis.</p><p><b>Perspektive:</b> gute Weiterbildungsmöglichkeiten in Informationstechnik und Digitalisierung, Meister/-in.</p>'},
+  {ico: 'blatt', t: 'Pflanzentechnologe/-technologin', sub: 'Agrar und Umwelt', d: '<p>Züchtung und Vermehrung von (Kultur-)Pflanzen: Versuche im Gewächshaus, im Freiland oder im Labor, Pflegemaßnahmen wie Bewässerung oder Bodenlockerung. Die Berufskleidung reicht von Gummistiefeln bis zum weißen Kittel.</p><p><b>Voraussetzungen:</b> Interesse an Pflanzen, Sorgfalt (u. a. bei der Datenverarbeitung), handwerkliches Geschick.</p><p><b>Perspektive:</b> Anpassung an den Klimawandel und der Trend zur Nachhaltigkeit machen den Beruf modern; Meister/-in oder Studium im Bereich Agrar oder Umwelt.</p>'}
+];
+explore($('#ex'), B, {hint: 'Tippe auf einen Beruf.'});
+(() => {
+  const I = [['Ich arbeite gern mit Menschen und helfe anderen.', [3, 0, 3, 2, 0]], ['Ich bin gern draußen oder in der Natur.', [0, 1, 0, 0, 3]], ['Ich arbeite gern mit den Händen.', [0, 3, 1, 3, 2]], ['Technik und Maschinen interessieren mich.', [0, 3, 0, 2, 1]], ['Lebensmittel und ihre Verarbeitung finde ich spannend.', [0, 3, 0, 0, 1]], ['Ich bleibe auch in schwierigen Situationen ruhig.', [1, 0, 3, 1, 0]], ['Zahlen, Daten und Organisation liegen mir.', [3, 0, 0, 1, 2]], ['Ich berate gern andere.', [2, 0, 1, 3, 0]]];
+  $('#ic').innerHTML = I.map((x, k) => `<li><label><input type="checkbox" data-k="${k}"><span>${x[0]}</span></label></li>`).join('');
+  const short = ['Assistenz Ges./Soz.', 'Fruchtsafttechnik', 'Kinderkrankenpflege', 'Hörakustik', 'Pflanzentechnologie'];
+  const upd = () => {
+    const s = [0, 0, 0, 0, 0];
+    $$('#ic input:checked').forEach(c => I[+c.dataset.k][1].forEach((v, j) => s[j] += v));
+    bars($('#fit'), short.map((l, j) => ({l, v: s[j], c: PAL[j]})), {max: 12, dec: 0, unit: 'P.'});
+    const m = Math.max(...s);
+    $('#fit-st').innerHTML = m ? `Am besten passt: <b>${short.filter((l, j) => s[j] === m).join(', ')}</b>. Schau dir das Berufsbild in Station 2 an.` : 'Kreuze links an, was auf dich zutrifft.';
+  };
+  $('#ic').addEventListener('change', upd); upd();
+})();
+matcher($('#match'), [
+  ['Assistenz im Gesundheits- und Sozialwesen', '„Hilfs- und pflegebedürftige Menschen stehen bei uns im Mittelpunkt.“'],
+  ['Fachkraft Fruchtsafttechnik', '„Ich bin im elterlichen Betrieb mit Obst und Gemüse groß geworden.“'],
+  ['Kinderkrankenpflege', '„Das Trösten und Mutmachen bei Kindern und Eltern gehört auch dazu.“'],
+  ['Hörakustiker/-in', '„Es macht einen großen Unterschied, ob eine Altershörschwäche oder eine erhöhte Geräuschbelastung vorliegt.“'],
+  ['Pflanzentechnologe/-technologin', '„Die Berufskleidung reicht von Gummistiefeln bis hin zum weißen Kittel.“']
+]);
+trueFalse($('#tf'), [
+  {t: 'In vielen AES-Berufen tut man etwas für seine Mitmenschen.', ok: true},
+  {t: 'Für die Berufswahl zählen nur die Noten.', ok: false, why: 'Wichtig sind auch Interessen, Fähigkeiten und persönliche Voraussetzungen.'},
+  {t: 'In der Kinderkrankenpflege ist psychische Stabilität wichtig.', ok: true},
+  {t: 'Pflanzentechnologen arbeiten nur im Büro.', ok: false, why: 'Sie arbeiten draußen, im Gewächshaus und im Labor.'},
+  {t: 'Nach einer Ausbildung kann man sich weiterbilden oder studieren.', ok: true}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Zu welchem Berufsfeld gehört der Beruf Erzieher/-in?', a: ['Sozialwesen', 'Fitness und Bewegung', 'Ernährung', 'Technik'], ok: 0},
+  {q: 'Was stellen Hörakustiker/-innen her?', a: ['Otoplastiken (Ohrpassstücke)', 'Fruchtsäfte', 'Saatgut', 'Brillen'], ok: 0},
+  {q: 'Welche Voraussetzung ist für die Fachkraft Fruchtsafttechnik wichtig?', a: ['technisches Verständnis', 'Fremdsprachen', 'Musikalität', 'Führerschein Klasse C'], ok: 0},
+  {q: 'Wo kann man sich über Berufe informieren?', a: ['im BIZ der Agentur für Arbeit', 'nur im Fernsehen', 'gar nicht', 'nur bei Freunden'], ok: 0},
+  {q: 'Womit sollte man die eigenen Interessen vergleichen?', a: ['mit den Anforderungen des Wunschberufs', 'mit dem Gehalt der Eltern', 'mit dem Wetter', 'mit dem Stundenplan'], ok: 0}
+]);
+</script>

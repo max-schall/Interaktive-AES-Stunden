@@ -1,0 +1,160 @@
+<!--
+title: Der Nutri-Score – von A bis E gut informiert?
+short: Nutri-Score
+time: 1–2 Unterrichtsstunden
+book: S. 94–95
+q: Ist ein Müsli mit „A“ gesünder als eins mit „D“ – und eine Pizza mit „A“ gesünder als ein Apfel?
+facts: Freiwillige, erweiterte Kennzeichnung seit November 2020 | Fünfstufige Farb- und Buchstabenskala A bis E | Ungünstige Inhaltsstoffe (Energie, Zucker, gesättigte Fette, Salz) gegen günstige (Ballaststoffe, Eiweiß, Obst/Gemüse/Nüsse) | Nur Produkte derselben Gruppe vergleichen
+inter: Nutri-Score-Rechner (vereinfacht) · Zwei Müslis vergleichen · Darf man das vergleichen? · Günstig oder ungünstig sortieren
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Der Nutri-Score</h1>
+      <p class="lead">„Ein Blick auf den Nutri-Score, und ich weiß sofort, ob ein Lebensmittel gut für meine Gesundheit ist?“ Das klingt verlockend – ganz so einfach ist es leider nicht.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Ist ein Müsli mit „A“ gesünder als eins mit „D“ – und eine Pizza mit „A“ gesünder als ein Apfel?</p></div>
+      <div class="controls"><button class="btn primary" data-go="skala">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="skala" data-label="Die Skala" data-yr="Erarbeitung" data-title="Fünf Stufen" data-sub="Günstig und ungünstig">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Von A bis E</h2>
+      <p class="lead">Seit November 2020 gibt es den Nutri-Score in Deutschland. Er informiert über den <b>Nährwert verarbeiteter und verpackter Lebensmittel</b> und ist <b>freiwillig</b>.</p>
+      <ul class="facts">
+        <li>Fünfstufige Farb- und Buchstabenskala: <b>A</b> (dunkelgrün) bis <b>E</b> (rot).</li>
+        <li>Berechnet pro 100 g bzw. 100 ml aus den Pflichtangaben der Nährwerttabelle und dem Zutatenverzeichnis.</li>
+        <li>Wer den Nutri-Score nutzt, muss ihn auf <b>alle Produkte einer Marke</b> drucken.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Günstig oder ungünstig?</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="rechner" data-label="Rechner" data-yr="Experiment" data-title="Der Nutri-Score-Rechner" data-sub="Punkte und Buchstabe">
+  <div class="section-head"><p class="eyebrow">Station 2 · Experiment</p><h2>Der Nutri-Score-Rechner</h2><p class="lead">Ungünstige Inhaltsstoffe bringen Minuspunkte, günstige bringen Pluspunkte. Aus der Differenz ergibt sich der Buchstabe. (Vereinfachtes Rechenmodell.)</p></div>
+  <div class="two">
+    <div class="vis"><div class="pillrow" id="ns-pick"></div><div id="ns-in"></div></div>
+    <div class="vis"><div class="scale5" id="ns-scale"></div><div class="calc-out" id="ns-out"></div></div>
+  </div>
+</section>
+
+<section class="station" id="vergleich" data-label="Vergleichen" data-yr="Anwendung" data-title="Richtig vergleichen" data-sub="Nur in derselben Gruppe">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Richtig vergleichen</h2>
+      <p class="lead">Mit dem Nutri-Score kannst du einfach und schnell <b>gleiche oder sehr ähnliche Produkte</b> einer Gruppe vergleichen, z. B. verschiedene Müslis, Tiefkühlpizzen oder Fruchtjoghurts.</p>
+      <div class="achtung"><p>Den Nutri-Score eines Müslis kannst du nicht mit dem einer Tiefkühlpizza vergleichen. Er macht keine Aussage über den Gesundheitswert – er zeigt nur, ob ein Produkt im Vergleich zu Produkten derselben Gruppe besser oder schlechter abschneidet. Grundlage für eine ausgewogene Auswahl bleibt die Ernährungspyramide.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Darf man das vergleichen?</h3></div>
+      <div id="sc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="muesli" data-label="Müsli-Duell" data-yr="Übung" data-title="Das Müsli-Duell" data-sub="A gegen D">
+  <div class="section-head"><p class="eyebrow">Station 4 · Übung</p><h2>Das Müsli-Duell</h2><p class="lead">Zwei Müslimischungen, pro 100 g. Welche Werte machen den Unterschied? Tippe auf die grauen Felder.</p></div>
+  <div class="table-wrap"><table class="cmp quiz" id="cmp">
+    <thead><tr><th>pro 100 g</th><th>Müsli „Knusper-Choco“</th><th>Müsli „Vollkorn-Frucht“</th></tr></thead>
+    <tbody>
+      <tr><th>Energie</th><td>1729 kJ / 410 kcal</td><td>1584 kJ / 369 kcal</td></tr>
+      <tr><th>Fett / davon gesättigt</th><td>13 g / <b>6,9 g</b></td><td>7,6 g / 1,7 g</td></tr>
+      <tr><th>Zucker</th><td><b>25 g</b></td><td>13 g</td></tr>
+      <tr><th>Ballaststoffe</th><td>5,8 g</td><td><b>8,7 g</b></td></tr>
+      <tr><th>Eiweiß</th><td>8,4 g</td><td><b>8,2 g</b></td></tr>
+      <tr><th>Salz</th><td>0,44 g</td><td>0,49 g</td></tr>
+      <tr><th>Nutri-Score</th><td class="q"><span><b>D</b> – viel Zucker und gesättigte Fette</span></td><td class="q"><span><b>A</b> – mehr Ballaststoffe, weniger Zucker</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="controls" style="margin-top:.8rem"><button class="btn" id="cmp-q">Wieder verdecken</button><button class="btn primary" id="cmp-a">Auflösen</button></div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Der Nutri-Score</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Der Nutri-Score</h3><span>AES · Klasse 8</span></div>
+      <ol>
+        <li data-step>Der Nutri-Score ist eine <b>freiwillige</b> Nährwertkennzeichnung mit fünf Stufen von <b>A (grün) bis E (rot)</b>.</li>
+        <li data-step>Ungünstig (Minuspunkte): Energie, Zucker, gesättigte Fettsäuren, Salz. Günstig (Pluspunkte): Ballaststoffe, Eiweiß, Obst/Gemüse/Nüsse, bestimmte Öle.</li>
+        <li data-step>Die Werte beziehen sich auf 100 g bzw. 100 ml. Die Berechnung führen die Hersteller durch.</li>
+        <li data-step>Er bietet Orientierung beim Vergleich von Produkten <b>derselben Gruppe</b>, macht aber keine Aussage über den Gesundheitswert eines Lebensmittels.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Zur Leitfrage</span><p>Ein A-Müsli ist im Vergleich zu anderen Müslis die bessere Wahl. Eine A-Pizza ist aber nicht gesünder als ein Apfel – der hat gar keinen Nutri-Score, weil er unverarbeitet ist.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Nutri-Score-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+sorter($('#sort'), [{id: 'g', name: 'günstig (Pluspunkte)'}, {id: 'u', name: 'ungünstig (Minuspunkte)'}], [
+  {t: 'Ballaststoffe', c: 'g'}, {t: 'Eiweiß', c: 'g'}, {t: 'Obst, Gemüse, Nüsse', c: 'g'}, {t: 'Raps-, Walnuss-, Olivenöl', c: 'g'},
+  {t: 'hoher Energiegehalt', c: 'u'}, {t: 'Zucker', c: 'u'}, {t: 'gesättigte Fettsäuren', c: 'u'}, {t: 'Salz', c: 'u'}
+]);
+
+/* vereinfachter Nutri-Score (allgemeine Lebensmittel) */
+(() => {
+  const COL = ['#1f7a3d', '#7cb342', '#f2c230', '#ef8a2e', '#d84a2f'], L = ['A', 'B', 'C', 'D', 'E'];
+  $('#ns-scale').innerHTML = L.map((l, i) => `<span style="background:${COL[i]}">${l}</span>`).join('');
+  const F = [['kj', 'Energie', 0, 3400, 10, 'kJ'], ['zu', 'Zucker', 0, 50, .5, 'g'], ['gf', 'gesättigte Fettsäuren', 0, 15, .1, 'g'], ['sa', 'Salz', 0, 3, .05, 'g'], ['ba', 'Ballaststoffe', 0, 15, .1, 'g'], ['ei', 'Eiweiß', 0, 30, .1, 'g'], ['og', 'Obst/Gemüse/Nüsse', 0, 100, 5, '%']];
+  const P = {'Knusper-Müsli': [1729, 25, 6.9, .44, 5.8, 8.4, 10], 'Vollkorn-Müsli': [1584, 13, 1.7, .49, 8.7, 8.2, 20], 'Tiefkühlpizza': [1000, 3.5, 4.5, 1.3, 2, 10, 25], 'Fruchtjoghurt': [414, 12.9, 2, .13, .3, 3.6, 10], 'Cola': [180, 10.6, 0, 0, 0, 0, 0], 'Gemüsesuppe': [150, 2, .2, .8, 1.5, 1, 60]};
+  $('#ns-pick').innerHTML = Object.keys(P).map(k => `<button class="btn" data-k="${k}">${k}</button>`).join('');
+  $('#ns-in').innerHTML = F.map(([id, l, mi, ma, st, u]) => `<div class="slider"><label for="ns-${id}">${l} <output id="ns-${id}o"></output></label><input type="range" id="ns-${id}" min="${mi}" max="${ma}" step="${st}"></div>`).join('');
+  const set = vals => { F.forEach(([id], i) => $('#ns-' + id).value = vals[i]); upd(); };
+  const steps = (v, th) => th.filter(t => v > t).length;
+  const upd = () => {
+    const v = Object.fromEntries(F.map(([id, , , , , u]) => { const x = +$('#ns-' + id).value; $('#ns-' + id + 'o').textContent = numDE(x, 2) + ' ' + u; return [id, x]; }));
+    const nE = Math.min(10, Math.floor(v.kj / 335)), nZ = steps(v.zu, [4.5, 9, 13.5, 18, 22.5, 27, 31, 36, 40, 45]), nG = steps(v.gf, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), nS = steps(v.sa * 400, [90, 180, 270, 360, 450, 540, 630, 720, 810, 900]);
+    const pO = v.og > 80 ? 5 : v.og > 60 ? 2 : v.og > 40 ? 1 : 0, pB = steps(v.ba, [.9, 1.9, 2.8, 3.7, 4.7]), pE = steps(v.ei, [1.6, 3.2, 4.8, 6.4, 8.0]);
+    const N = nE + nZ + nG + nS, Pp = pO + pB + (N >= 11 && pO < 5 ? 0 : pE), S = N - Pp;
+    const k = S <= -1 ? 0 : S <= 2 ? 1 : S <= 10 ? 2 : S <= 18 ? 3 : 4;
+    $$('#ns-scale span').forEach((s, i) => s.classList.toggle('on', i === k));
+    $('#ns-out').innerHTML = `<span class="big" style="color:${COL[k]}">Nutri-Score ${L[k]}</span><p>Minuspunkte: Energie ${nE} + Zucker ${nZ} + ges. Fett ${nG} + Salz ${nS} = <b>${N}</b><br>Pluspunkte: Obst/Gemüse ${pO} + Ballaststoffe ${pB} + Eiweiß ${N >= 11 && pO < 5 ? '0 (zählt nicht, da N ≥ 11)' : pE} = <b>${Pp}</b><br>Gesamt: ${N} − ${Pp} = <b>${S}</b></p>`;
+  };
+  F.forEach(([id]) => $('#ns-' + id).addEventListener('input', upd));
+  $('#ns-pick').onclick = e => { const b = e.target.closest('[data-k]'); if (b) set(P[b.dataset.k]); };
+  set(P['Knusper-Müsli']);
+})();
+scenes($('#sc'), [
+  {s: 'Müsli A (Nutri-Score A) und Müsli B (Nutri-Score D).', a: ['Ja – gleiche Produktgruppe', 'Nein – nie vergleichbar', 'Nur wenn beide bio sind'], ok: 0},
+  {s: 'Tiefkühlpizza (A) und Vollkornbrot (C).', a: ['Nein – verschiedene Produktgruppen', 'Ja – die Pizza ist gesünder', 'Ja – das Brot ist gesünder'], ok: 0, why: 'Der Nutri-Score vergleicht nur innerhalb einer Gruppe.'},
+  {s: 'Zwei Fruchtjoghurts verschiedener Marken (B und C).', a: ['Ja – sehr ähnliche Produkte', 'Nein', 'Nur am Wochenende'], ok: 0},
+  {s: 'Ein Apfel hat keinen Nutri-Score. Ist er deshalb ungesund?', a: ['Nein – unverarbeitete Lebensmittel brauchen meist keinen Nutri-Score', 'Ja', 'Ja, weil er nicht verpackt ist'], ok: 0}
+], {label: 'Vergleich'});
+quizTable($('#cmp'), $('#cmp-q'), $('#cmp-a'));
+trueFalse($('#tf'), [
+  {t: 'Der Nutri-Score ist eine Pflichtangabe.', ok: false, why: 'Er ist freiwillig.'},
+  {t: 'Eine Marke darf den Nutri-Score nur auf ihre guten Produkte drucken.', ok: false, why: 'Wenn, dann auf alle Produkte der Marke.'},
+  {t: 'Zucker bringt Minuspunkte.', ok: true},
+  {t: 'Ballaststoffe verbessern den Nutri-Score.', ok: true},
+  {t: 'Der Nutri-Score sagt genau, wie gesund ein Lebensmittel ist.', ok: false, why: 'Er gibt nur Orientierung innerhalb einer Produktgruppe.'},
+  {t: 'Die Berechnung bezieht sich auf 100 g bzw. 100 ml.', ok: true}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Seit wann gibt es den Nutri-Score in Deutschland?', a: ['seit November 2020', 'seit 1990', 'seit 2024', 'seit 1950'], ok: 0},
+  {q: 'Welche Farbe hat ein „E“?', a: ['rot', 'dunkelgrün', 'gelb', 'blau'], ok: 0},
+  {q: 'Welcher Inhaltsstoff bringt Pluspunkte?', a: ['Eiweiß', 'Salz', 'Zucker', 'gesättigte Fettsäuren'], ok: 0},
+  {q: 'Was darf man mit dem Nutri-Score vergleichen?', a: ['zwei Müslis', 'Müsli und Pizza', 'Cola und Apfel', 'Käse und Brot'], ok: 0},
+  {q: 'Was bleibt die Grundlage für eine ausgewogene Lebensmittelauswahl?', a: ['die Ernährungspyramide', 'der Nutri-Score', 'der Preis', 'die Werbung'], ok: 0}
+]);
+</script>

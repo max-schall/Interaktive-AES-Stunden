@@ -1,0 +1,137 @@
+<!--
+title: Der Qualitätsfächer für Lebensmittel
+short: Qualitätsfächer
+time: 1–2 Unterrichtsstunden
+book: S. 100–101
+q: Woran erkenne ich ein „gutes“ Lebensmittel – und ist es für alle gleich gut?
+facts: Acht Qualitätswerte: Gesundheits-, Eignungs-, ökonomischer, sozialer, ökologischer, soziokultureller, emotionaler Wert und Genusswert | Prüfpunkte und Fragen zu jedem Wert | Persönliche Gewichtung hängt von Lebensumständen ab | Siegel und Recherche helfen bei der Beurteilung
+inter: Der Fächer zum Aufklappen · Fragen den Werten zuordnen · Mein Produkt im Netzdiagramm · Zwei Personen, zwei Urteile
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Der Qualitätsfächer</h1>
+      <p class="lead">Ist eine Tafel Bio-Fairtrade-Schokolade „besser“ als eine billige Tafel vom Discounter? Das kommt darauf an, was man beurteilt. Der Qualitätsfächer des Bundeszentrums für Ernährung zeigt acht Blickwinkel.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Woran erkenne ich ein „gutes“ Lebensmittel – und ist es für alle gleich gut?</p></div>
+      <div class="controls"><button class="btn primary" data-go="faecher">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="faecher" data-label="Acht Werte" data-yr="Erarbeitung" data-title="Acht Qualitätswerte" data-sub="Prüfpunkte und Fragen">
+  <div class="section-head"><p class="eyebrow">Station 1 · Erarbeitung</p><h2>Acht Qualitätswerte</h2><p class="lead">Tippe auf einen Wert und lies die Prüfpunkte und Fragen zur Bewertung.</p></div>
+  <div id="ex-f"></div>
+</section>
+
+<section class="station" id="fragen" data-label="Zuordnen" data-yr="Übung" data-title="Welcher Wert ist gemeint?" data-sub="Fragen zuordnen">
+  <div class="section-head"><p class="eyebrow">Station 2 · Übung</p><h2>Welcher Wert ist gemeint?</h2></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="netz" data-label="Netzdiagramm" data-yr="Anwendung" data-title="Mein Produkt bewerten" data-sub="Ein Netzdiagramm">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Mein Produkt bewerten</h2>
+      <p class="lead">Wähle ein Produkt und bewerte es auf einer Skala von 1 (schwach) bis 5 (sehr gut). Nicht immer lassen sich alle Werte aus der Verpackung ablesen – Siegel wie Bio oder Fairtrade und Recherche helfen.</p>
+      <div class="pillrow" id="nz-pick"></div>
+      <div id="nz-in" style="display:flex;flex-direction:column;gap:.3rem"></div>
+    </div>
+    <div class="vis">
+      <canvas id="cv-n" class="square" aria-label="Netzdiagramm mit acht Qualitätswerten"></canvas>
+      <p class="status" id="nz-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="personen" data-label="Persönlich" data-yr="Reflexion" data-title="Zwei Personen, zwei Urteile" data-sub="Persönliche Gewichtung">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Reflexion</p>
+      <h2>Zwei Personen, zwei Urteile</h2>
+      <p class="lead">Die Beurteilung hängt von den persönlichen Lebensumständen ab: Haushaltssituation, Alter, Einkommen, Gesundheit, Kochkenntnisse, Trends, Freunde und Lifestyle. Für fast alle Menschen spielt der <b>Genusswert</b> eine große Rolle.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Was ist wem wichtig?</h3></div>
+      <div id="sc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Der Qualitätsfächer</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Der Qualitätsfächer</h3><span>AES · Klasse 8</span></div>
+      <ol>
+        <li data-step>Der <b>Qualitätsfächer</b> des BZfE beschreibt die Lebensmittelqualität mit acht Werten.</li>
+        <li data-step><b>Gesundheitswert</b> (Nährwert, Zutaten, Zusatzstoffe) · <b>Eignungswert</b> (Lagerung, Zubereitung) · <b>ökonomischer Wert</b> (Preis, Herkunft) · <b>sozialer Wert</b> (Fairness, Wertschätzung).</li>
+        <li data-step><b>Ökologischer Wert</b> (Region, Saison, Verpackung, Fußabdruck) · <b>soziokultureller Wert</b> (Lifestyle, Tradition, Kultur) · <b>emotionaler Wert</b> (Erinnerungen, Design, Werbung) · <b>Genusswert</b> (Geschmack, Aussehen, Geruch).</li>
+        <li data-step>Jeder gewichtet die Werte je nach Lebensumständen anders. Siegel und Recherche helfen bei der Bewertung.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Praxis</span><p>Bewertet in Gruppen zwei Produkte derselben Art (z. B. zwei Schokoladen) mit dem Qualitätsfächer und stellt das Ergebnis als Netzdiagramm dar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Qualitätswerte zuordnen</h2></div>
+  <div id="sort"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+const W = [
+  {k: 'ges', ico: 'herz', t: 'Gesundheitswert', d: '<p><b>Prüfpunkte:</b> Nährwert, Zutaten, Zusatzstoffe, Allergene, Werbeaussagen.</p><p><b>Fragen:</b> Wie bewertest du Nährstoff- und Energiegehalt? An welcher Stelle steht Zucker im Zutatenverzeichnis – und hinter welchen Namen versteckt sich weiterer Zucker?</p>'},
+  {k: 'eig', ico: 'topf', t: 'Eignungswert', d: '<p><b>Prüfpunkte:</b> Haltbarkeit, Lagerung, Zubereitung, Packungsgröße.</p><p><b>Fragen:</b> Wie lange ist das Produkt haltbar? Für wen ist die Packungsgröße geeignet? Wie viel Zeit und welche Geräte braucht die Zubereitung?</p>'},
+  {k: 'oek', ico: 'euro', t: 'ökonomischer Wert', d: '<p><b>Prüfpunkte:</b> Herkunft, Handel, Preis.</p><p><b>Fragen:</b> Woher stammen die Zutaten? Wo hast du es gekauft? Wie bewertest du den Preis?</p>'},
+  {k: 'soz', ico: 'gruppe', t: 'sozialer Wert', d: '<p><b>Prüfpunkte:</b> Fairness, Wertschätzung, regionale Produktion.</p><p><b>Fragen:</b> Wurde es unter fairen Bedingungen produziert? Was verdienen die Erzeuger? Was passiert mit unverkauften Lebensmitteln?</p>'},
+  {k: 'oko', ico: 'blatt', t: 'ökologischer Wert', d: '<p><b>Prüfpunkte:</b> Saisonalität, Umweltbelastung, Bio-Siegel, Verpackung.</p><p><b>Fragen:</b> Ist es regional und saisonal? Wie nachhaltig ist die Verpackung? Wie sieht der ökologische Fußabdruck aus?</p>'},
+  {k: 'kul', ico: 'erde', t: 'soziokultureller Wert', d: '<p><b>Prüfpunkte:</b> Lifestyle, Image, Geschichte, Kultur, Essatmosphäre.</p><p><b>Fragen:</b> Zeigt das Lebensmittel, wer du bist? Wie beliebt ist es in deinem Umfeld? Wo und mit wem isst du es am liebsten?</p>'},
+  {k: 'emo', ico: 'smile', t: 'emotionaler Wert', d: '<p><b>Prüfpunkte:</b> Erinnerungen, Gefühle, Verpackungsdesign, Werbung.</p><p><b>Fragen:</b> Welche Erinnerungen verbindest du damit? Was gefällt dir am Design? Wie wird es beworben?</p>'},
+  {k: 'gen', ico: 'mund', t: 'Genusswert', d: '<p><b>Prüfpunkte:</b> Aussehen, Geruch, Geschmack, Konsistenz (Sinnenprüfung).</p><p><b>Fragen:</b> Wie sieht, riecht und schmeckt es? Wie fühlt es sich im Mund an?</p>'}
+];
+explore($('#ex-f'), W, {hint: 'Tippe auf einen Qualitätswert.'});
+matcher($('#match'), [['Gesundheitswert', 'An welcher Stelle steht Zucker in der Zutatenliste?'], ['Eignungswert', 'Wie lange kann ich die angebrochene Packung lagern?'], ['ökonomischer Wert', 'Wie bewerte ich den bezahlten Preis?'], ['sozialer Wert', 'Was verdienen die Erzeuger?'], ['ökologischer Wert', 'Wie nachhaltig ist die Verpackung?'], ['soziokultureller Wert', 'Wird das Lebensmittel auf der ganzen Welt gegessen?'], ['emotionaler Wert', 'Welche Erinnerungen verbinde ich damit?'], ['Genusswert', 'Wie riecht und schmeckt es?']]);
+(() => {
+  const PR = {'Bio-Fairtrade-Schokolade': [2, 4, 2, 5, 4, 3, 3, 4], 'Billig-Schokolade': [2, 4, 5, 1, 2, 3, 2, 3], 'Tiefkühlpizza': [2, 5, 4, 2, 2, 4, 3, 3], 'Äpfel aus der Region': [5, 4, 4, 4, 5, 3, 3, 4]};
+  let v = PR['Bio-Fairtrade-Schokolade'].slice();
+  $('#nz-pick').innerHTML = Object.keys(PR).map(k => `<button class="btn" data-k="${k}">${k}</button>`).join('');
+  const ui = () => { $('#nz-in').innerHTML = W.map((w, i) => `<div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.5rem;align-items:center"><span style="font-weight:700;font-size:.88rem">${w.t}</span><span class="seg" data-i="${i}">${[1, 2, 3, 4, 5].map(n => `<button data-n="${n}" aria-pressed="${v[i] === n}" style="padding:.2rem .55rem">${n}</button>`).join('')}</span></div>`).join(''); upd(); };
+  const upd = () => { const s = v.reduce((a, b) => a + b, 0); $('#nz-st').innerHTML = `Summe: <b>${s} von 40</b> Punkten. Stärken: ${W.filter((w, i) => v[i] >= 4).map(w => w.t).join(', ') || '–'}.`; };
+  $('#nz-in').addEventListener('click', e => { const b = e.target.closest('[data-n]'); if (!b) return; v[+b.closest('[data-i]').dataset.i] = +b.dataset.n; ui(); });
+  $('#nz-pick').onclick = e => { const b = e.target.closest('[data-k]'); if (b) { v = PR[b.dataset.k].slice(); ui(); } };
+  ui();
+  canvasLoop($('#cv-n'), 'netz', (ctx, w, h) => {
+    const cx = w / 2, cy = h / 2, R = Math.min(w, h) * .3, n = 8, P = (i, r) => [cx + r * Math.cos(-Math.PI / 2 + i / n * Math.PI * 2), cy + r * Math.sin(-Math.PI / 2 + i / n * Math.PI * 2)];
+    for (let s = 1; s <= 5; s++) { ctx.strokeStyle = alpha(C.ink2, s === 5 ? .4 : .15); ctx.lineWidth = 1; ctx.beginPath(); for (let i = 0; i <= n; i++) { const [x, y] = P(i % n, R * s / 5); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.stroke(); }
+    for (let i = 0; i < n; i++) { const [x, y] = P(i, R); ctx.strokeStyle = alpha(C.ink2, .2); ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(x, y); ctx.stroke(); const [lx, ly] = P(i, R + 22); label(ctx, W[i].t.replace(' Wert', ''), lx, ly, {size: 11, color: C.ink2, align: Math.abs(lx - cx) < 10 ? 'center' : lx > cx ? 'left' : 'right'}); }
+    ctx.fillStyle = alpha(C.accent, .25); ctx.strokeStyle = C.accent; ctx.lineWidth = 2.5; ctx.beginPath(); v.forEach((s, i) => { const [x, y] = P(i, R * s / 5); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.closePath(); ctx.fill(); ctx.stroke();
+    v.forEach((s, i) => { const [x, y] = P(i, R * s / 5); dotAt(ctx, x, y, C.accent, 4); });
+  });
+})();
+scenes($('#sc'), [
+  {s: 'Frau Berger ist alleinerziehend mit drei Kindern und hat wenig Geld. Welcher Wert ist für sie beim Einkauf vermutlich am wichtigsten?', a: ['der ökonomische Wert (Preis)', 'der soziokulturelle Wert (Image)', 'der emotionale Wert (Design)'], ok: 0},
+  {s: 'Jonas (16) hat eine Nussallergie.', a: ['der Gesundheitswert (Allergene)', 'der ökologische Wert', 'der Genusswert'], ok: 0},
+  {s: 'Opa Kurt kauft immer die Marmelade, die schon seine Mutter gekauft hat.', a: ['der emotionale Wert (Erinnerungen)', 'der ökonomische Wert', 'der Eignungswert'], ok: 0},
+  {s: 'Lena engagiert sich bei Fridays for Future.', a: ['der ökologische Wert', 'der Eignungswert', 'der Genusswert'], ok: 0},
+  {s: 'Herr Ali arbeitet im Schichtdienst und hat abends kaum Zeit zum Kochen.', a: ['der Eignungswert (Zubereitungszeit)', 'der soziale Wert', 'der soziokulturelle Wert'], ok: 0}
+], {label: 'Person'});
+sorter($('#sort'), [{id: 'ges', name: 'Gesundheit'}, {id: 'eig', name: 'Eignung'}, {id: 'oko', name: 'Ökologie'}, {id: 'emo', name: 'Emotion/Genuss'}], [
+  {t: 'Zuckergehalt', c: 'ges'}, {t: 'Allergene', c: 'ges'}, {t: 'Haltbarkeit', c: 'eig'}, {t: 'Zubereitungszeit', c: 'eig'}, {t: 'Verpackungsmüll', c: 'oko'}, {t: 'Bio-Siegel', c: 'oko'}, {t: 'Kindheitserinnerung', c: 'emo'}, {t: 'Geschmack', c: 'emo'}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Wer hat den Qualitätsfächer entwickelt?', a: ['das Bundeszentrum für Ernährung (BZfE)', 'die WHO', 'ein Supermarkt', 'die EU-Kommission'], ok: 0},
+  {q: 'Wie viele Qualitätswerte hat der Fächer?', a: ['acht', 'drei', 'fünf', 'zwölf'], ok: 0},
+  {q: 'Zu welchem Wert gehört die Frage nach fairen Löhnen?', a: ['sozialer Wert', 'Genusswert', 'Eignungswert', 'Gesundheitswert'], ok: 0},
+  {q: 'Welcher Wert spielt für fast alle Menschen eine große Rolle?', a: ['der Genusswert', 'der soziokulturelle Wert', 'der ökonomische Wert', 'der Eignungswert'], ok: 0},
+  {q: 'Warum bewerten Menschen dasselbe Produkt unterschiedlich?', a: ['Sie gewichten die Werte je nach Lebensumständen anders', 'Weil der Fächer falsch ist', 'Weil das Produkt sich ändert', 'Gar nicht'], ok: 0}
+]);
+</script>

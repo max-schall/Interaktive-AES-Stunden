@@ -1,0 +1,90 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 48–49
+q: Bin ich fit für die Schulküche?
+facts: Fachbegriffe als Karteikarten und Paare | Fallbeispiel: Gemüselasagne in der Ferienwohnung | Quiz mit 18 Fragen (10 zufällig pro Runde) | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Fallbeispiel in Entscheidungen · Großes Quiz · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Hygiene, Unfallschutz, Arbeitsgeräte, Vorbereitung, Arbeitstechniken, Messer, Garverfahren und Planung: Bist du fit für die Schulküche?</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Bin ich fit für die Schulküche?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="fall" data-label="Fallbeispiel" data-yr="Anwenden" data-title="Lasagne in der Ferienwohnung" data-sub="Alles richtig machen">
+  <div class="section-head"><p class="eyebrow">Station 2 · Fallbeispiel</p><h2>Gemüselasagne in der Ferienwohnung</h2><p class="lead">Du bist mit deiner Familie im Urlaub. Deine Schwester hat Geburtstag, und du möchtest in der kleinen Küche der Ferienwohnung ihr Lieblingsessen kochen: Gemüselasagne.</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['persönliche Hygiene', 'Hände waschen, Haare zusammenbinden, Schmuck ab, saubere Schürze'], ['Lebensmittelhygiene', 'Lebensmittel waschen, kühl und abgedeckt lagern'], ['Arbeitsplatzhygiene', 'saubere Flächen, Geräte und Tücher'], ['Chefkochprobe', 'abschmecken mit zwei Löffeln'], ['Fettbrand', 'mit Deckel oder Löschdecke ersticken, nie Wasser'], ['Not-Aus-Schalter', 'schaltet den Strom der ganzen Küche ab'], ['TARA', 'stellt die Waage auf null'], ['Rohware', 'gewaschenes, noch unverarbeitetes Lebensmittel'], ['Putzen', 'ungenießbare Teile entfernen'], ['Unterheben', 'luftige Masse vorsichtig untermischen'], ['Krallengriff', 'Fingerspitzen nach innen, Messer an den Knöcheln'], ['Tunnelgriff', 'Hand bildet einen Tunnel zum Halbieren'], ['Garen', 'Zubereiten unter Wärmeeinwirkung'], ['Dünsten', 'garen in wenig Flüssigkeit bei 95–100 °C'], ['Schmoren', 'anbraten, dann in Flüssigkeit weitergaren'], ['Umluft', 'nicht vorheizen, 20–30 °C weniger'], ['Arbeitsplan', 'legt Reihenfolge und Zuständigkeiten fest']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+scenes($('#sc'), [
+  {s: 'Bevor du anfängst, siehst du dich in der fremden Küche um.', a: ['Herd, Backofen, Löschdecke oder großen Deckel, Arbeitsgeräte und Schneidebretter suchen', 'Sofort mit dem Schneiden beginnen', 'Erst einmal die Spülmaschine ausräumen'], ok: 0, why: 'In einer fremden Küche muss man Geräte und Schutzmöglichkeiten erst kennenlernen.'},
+  {s: 'Du willst die Zucchini und Paprika vorbereiten.', a: ['Hände waschen, Arbeitsplatz einrichten, Gemüse waschen, dann putzen und schneiden', 'Gemüse schneiden und danach waschen', 'Gemüse ungewaschen verwenden, es wird ja gebacken'], ok: 0},
+  {s: 'Die Zucchini ist rund und rollt weg.', a: ['Halbieren und mit dem Auflageschnitt auf die Schnittfläche legen', 'Festhalten und frei in der Hand schneiden', 'Mit dem Brotmesser schneiden'], ok: 0},
+  {s: 'Die Tomatensoße für die Lasagne soll mit Gemüse leicht gegart werden.', a: ['Gemüse andünsten, dann in der Soße köcheln lassen', 'Gemüse frittieren', 'Gemüse roh in die Form'], ok: 0},
+  {s: 'Der Ofen hat nur Umluft. Im Rezept steht „200 °C Ober-/Unterhitze“.', a: ['Etwa 170–180 °C Umluft einstellen, nicht vorheizen', '230 °C Umluft', 'Grillfunktion nehmen'], ok: 0, why: 'Bei Umluft 20–30 °C weniger.'},
+  {s: 'Die Lasagne ist 40 Minuten im Ofen.', a: ['Spülen, aufräumen und den Tisch festlich decken', 'Vor dem Ofen warten', 'Den Ofen öfter öffnen, um nachzusehen'], ok: 0, why: 'Wartezeiten sinnvoll nutzen – so ist alles gleichzeitig fertig.'},
+  {s: 'Zum Schluss: Abschmecken der Soße.', a: ['Chefkochprobe mit zwei Löffeln', 'Mit dem Kochlöffel probieren und weiterrühren', 'Mit dem Finger probieren'], ok: 0}
+], {label: 'Schritt'});
+mcQuiz($('#quiz'), [
+  {q: 'Welche drei Hygienebereiche gibt es?', a: ['persönliche, Lebensmittel- und Arbeitsplatzhygiene', 'Hand-, Fuß- und Haarhygiene', 'Küchen-, Bad- und Zimmerhygiene', 'Schul-, Haus- und Gartenhygiene'], ok: 0},
+  {q: 'Warum schneidet man rohes Fleisch und Gemüse nicht auf demselben Brett?', a: ['Krankheitserreger könnten übertragen werden', 'Das Brett wird stumpf', 'Gemüse schmeckt dann nach Fleisch', 'Das ist erlaubt'], ok: 0},
+  {q: 'Was tust du bei einem Fettbrand?', a: ['Herd aus, Deckel drauf', 'mit Wasser löschen', 'pusten', 'Pfanne schütteln'], ok: 0},
+  {q: 'Welche Unfälle sind in der Küche am häufigsten?', a: ['Schnitte, Verbrennungen, Stürze', 'Stromschläge', 'Vergiftungen', 'Knochenbrüche durch Töpfe'], ok: 0},
+  {q: 'Wozu dient ein Teigschaber?', a: ['Schüsseln restlos ausschaben', 'Teig kneten', 'Brot schneiden', 'Sahne schlagen'], ok: 0},
+  {q: 'Wo steht bei Rechtshändern die Abfallschale?', a: ['rechts', 'links', 'in der Mitte', 'auf dem Boden'], ok: 0},
+  {q: 'Was entsteht beim Raspeln?', a: ['grobe, unregelmäßige Streifen', 'Scheiben', 'Mus', 'Würfel'], ok: 0},
+  {q: 'Welches Messer hat einen feinen Wellenschliff?', a: ['Tomatenmesser', 'Kochmesser', 'Wiegemesser', 'Gemüsemesser'], ok: 0},
+  {q: 'Warum ist ein scharfes Messer sicherer?', a: ['Man braucht weniger Druck, es rutscht nicht ab', 'Es ist leichter', 'Es glänzt mehr', 'Es ist billiger'], ok: 0},
+  {q: 'Bei welcher Temperatur wird Reis gequollen?', a: ['75–95 °C', '100 °C', '120 °C', '200 °C'], ok: 0},
+  {q: 'Welches Garverfahren nutzt Wasserdampf?', a: ['Dämpfen', 'Braten', 'Grillen', 'Quellen'], ok: 0},
+  {q: 'Was ist Garziehen?', a: ['Garen in viel Flüssigkeit bei 75–95 °C', 'Garen in heißem Fett', 'Garen über 100 °C', 'Garen in der Mikrowelle'], ok: 0},
+  {q: 'Was wird beim Braten verwendet?', a: ['heißes wasserfreies Fett', 'kochendes Wasser', 'Wasserdampf', 'kalte Luft'], ok: 0},
+  {q: 'Welches Programm erlaubt mehrere Bleche gleichzeitig?', a: ['Umluft', 'Ober-/Unterhitze', 'Unterhitze', 'Grill'], ok: 0},
+  {q: 'Was gehört zu den Vorbereitungsarbeiten?', a: ['Spül- und Geschirrtücher bereitlegen', 'Speisen anrichten', 'Herd reinigen', 'abtrocknen'], ok: 0},
+  {q: 'Was bedeutet „gestr.“ im Rezept?', a: ['gestrichen', 'gestreut', 'gestreckt', 'gestern'], ok: 0},
+  {q: 'Was spült man zuletzt?', a: ['Töpfe und Pfannen', 'Gläser', 'Besteck', 'Tassen'], ok: 0},
+  {q: 'Wie führt man die Chefkochprobe durch?', a: ['mit zwei Löffeln', 'mit dem Kochlöffel', 'mit den Fingern', 'mit einer Gabel direkt aus dem Topf'], ok: 0}
+], {pick: 10});
+selfCheck($('#sci'), [
+  {t: 'Ich kann die drei Bereiche der Hygiene erklären und einhalten.', href: '01_Hygiene.html#bereiche'},
+  {t: 'Ich kann Küchenunfälle vermeiden und einen Fettbrand richtig löschen.', href: '02_Kuechenunfaelle.html#fettbrand'},
+  {t: 'Ich kann wichtige Arbeitsgeräte benennen und richtig einsetzen.', href: '03_Arbeitsgeraete.html#geraete'},
+  {t: 'Ich kann meinen Arbeitsplatz richtig einrichten.', href: '04_Vorbereitung.html#platz'},
+  {t: 'Ich kann Arbeitstechniken zum Zerkleinern und Mischen unterscheiden.', href: '05_Zubereitung.html#zerkleinern'},
+  {t: 'Ich kann das passende Messer wählen und sicher schneiden.', href: '06_Messer.html#griffe'},
+  {t: 'Ich kann Garverfahren in feuchter Hitze unterscheiden.', href: '07_Garverfahren_feucht.html#verfahren'},
+  {t: 'Ich kann Garverfahren in trockener Hitze und Backofenprogramme unterscheiden.', href: '08_Garverfahren_trocken.html#ofen'},
+  {t: 'Ich kann einen Arbeitsplan erstellen und nach Rezept arbeiten.', href: '09_Planung_Rezept.html#zeitplan'}
+]);
+</script>

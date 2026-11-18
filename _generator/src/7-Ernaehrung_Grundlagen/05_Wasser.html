@@ -1,0 +1,162 @@
+<!--
+title: Wozu braucht dein Körper Wasser?
+short: Wasser
+time: 1 Unterrichtsstunde
+book: S. 60–61
+q: Wie viel muss ich trinken – und was ist der beste Durstlöscher?
+facts: Der Körper besteht zu ca. 65 % aus Wasser | Täglicher Verlust ca. 2,5 l – ca. 1,5 l trinken, ca. 1 l über Lebensmittel | Aufgaben: Baustoff, Lösungs- und Transportmittel, Temperaturregler | Leitungs- oder Mineralwasser, geeignete und ungeeignete Getränke
+inter: Wasserbilanz des Körpers · Mein Trinkbedarf (Rechner) · Durstlöscher sortieren · Wassergehalt von Lebensmitteln
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wozu braucht dein Körper Wasser?</h1>
+      <p class="lead">Du kennst das Verlangen nach einem kühlen Glas Wasser an einem heißen Sommertag oder nach dem Sport. Durst zu stillen ist ein Grundbedürfnis. Durst signalisiert: Dein Körper leidet unter Wassermangel!</p>
+      <div class="teaser"><span class="tag info">Was denkst du?</span><p>Was trinkst du am liebsten – und warum?</p></div>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie viel muss ich trinken – und was ist der beste Durstlöscher?</p></div>
+      <div class="controls"><button class="btn primary" data-go="bilanz">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="bilanz" data-label="Wasserbilanz" data-yr="Erarbeitung" data-title="Die Wasserbilanz" data-sub="Was rausgeht, muss rein">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Die Wasserbilanz</h2>
+      <p class="lead">Bei Erwachsenen beträgt der Wasseranteil des Körpers ca. <b>65 %</b>, bei Kindern sogar bis zu 75 %.</p>
+      <ul class="facts">
+        <li>Selbst ohne Anstrengung verlierst du täglich ca. <b>2,5 Liter</b> durch Schwitzen, Atmen und Ausscheidung.</li>
+        <li>Davon solltest du ca. <b>1,5 Liter trinken</b> (ca. 6 Gläser). Rund <b>1 Liter</b> nimmst du über wasserreiche Lebensmittel und Speisen auf.</li>
+        <li>Bei Hitze, Fieber oder Sport steigt der Bedarf um <b>0,5–1 Liter</b>.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Ein- und Ausfuhr pro Tag</h3></div>
+      <canvas id="cv-b" class="wide" aria-label="Wasserbilanz: Aufnahme und Abgabe"></canvas>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="aufgaben" data-label="Aufgaben" data-yr="Erarbeitung" data-title="Aufgaben im Körper" data-sub="Und was bei Mangel passiert">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Aufgaben im Körper</h2>
+      <ul class="facts">
+        <li>Bestandteil von Zellen und Körperflüssigkeiten (Blut, Schweiß) – <b>Baustoff</b></li>
+        <li>reguliert die <b>Körpertemperatur</b></li>
+        <li><b>transportiert Nährstoffe</b> im Körper</li>
+        <li>Abbauprodukte werden mithilfe von Wasser über die Niere <b>ausgeschieden</b></li>
+      </ul>
+      <div class="achtung"><p>Trinkst du zu wenig, wirst du müde, kannst dich schlecht konzentrieren und bekommst Kopfschmerzen. Dem Blut und dem Gewebe wird Wasser entzogen – das Blut „dickt ein“.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wie viel muss ich heute trinken?</h3></div>
+      <div id="calc-t"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="getraenke" data-label="Durstlöscher" data-yr="Anwendung" data-title="Der ideale Durstlöscher" data-sub="Geeignet oder nicht?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Der ideale Durstlöscher</h2>
+      <p class="lead">Am besten eignen sich energiefreie oder energiearme Getränke – über den Tag verteilt.</p>
+      <dl class="kv2">
+        <dt>Leitungswasser</dt><dd>das am strengsten kontrollierte Lebensmittel in Deutschland (Trinkwasserverordnung). Enthält weniger Mineralstoffe als Mineralwasser – das gleicht eine vollwertige Ernährung aus.</dd>
+        <dt>Mineralwasser</dt><dd>hervorragende Quelle für Mineralstoffe, die der Körper sehr gut verwerten kann.</dd>
+        <dt>Infused Water</dt><dd>mit Früchten oder Kräutern aromatisiertes Wasser.</dd>
+      </dl>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Geeignet oder ungeeignet?</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="lebensmittel" data-label="Wasser im Essen" data-yr="Vertiefung" data-title="Wasser im Essen" data-sub="Und in der Küche">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Vertiefung</p>
+      <h2>Wasser im Essen – und in der Küche</h2>
+      <p class="lead">Den restlichen Flüssigkeitsbedarf deckst du am besten mit wasserreichem Gemüse und Obst oder Speisen wie Suppen oder Eintöpfen.</p>
+      <p><b>Küchentechnische Eigenschaften:</b> Wasser dient als energiefreies <b>Lösungs- und Quellmittel</b>, z. B. beim Teekochen, beim Quellen von Getreideflocken oder beim Garen von Nudeln und Kartoffeln.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wassergehalt (in %)</h3></div>
+      <div id="bars"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Wasser</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Wasser – lebensnotwendig</h3><span>AES · Klasse 7</span></div>
+      <ol>
+        <li data-step>Der Körper besteht zu ca. <b>65 % aus Wasser</b>. Täglich verlieren wir ca. 2,5 l.</li>
+        <li data-step>Jugendliche sollten ca. <b>1,5 l trinken</b>; ca. 1 l kommt über Lebensmittel. Bei Hitze, Fieber, Sport 0,5–1 l mehr.</li>
+        <li data-step>Aufgaben: Baustoff, Lösungs- und Transportmittel, Regulation der Körpertemperatur, Ausscheidung.</li>
+        <li data-step>Beste Durstlöscher: Leitungs- und Mineralwasser, ungesüßte Tees, Saftschorlen (1 : 3). Ungeeignet: Limonaden, Energydrinks, Fruchtnektare.</li>
+        <li data-step>In der Küche dient Wasser als Lösungs- und Quellmittel und zum Garen.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Praxis</span><p>Recherchiert ein Infused-Water-Rezept und stellt es her. Wie schmeckt es im Vergleich zu Limonade?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Trink-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+canvasLoop($('#cv-b'), 'bilanz', (ctx, w, h, t) => {
+  const col2 = (x, items, title) => {
+    label(ctx, title, x, 18, {size: 14, font: DISPLAY, weight: 600});
+    let y = h - 20; const sc = (h - 60) / 2.6;
+    items.forEach(([n, v, c]) => { const hh = v * sc; ctx.fillStyle = col(c); roundRect(ctx, x - w * .14, y - hh, w * .28, hh - 3, 8); ctx.fill(); label(ctx, `${n} ${numDE(v, 1)} l`, x, y - hh / 2, {size: 12, color: '#fff'}); y -= hh; });
+  };
+  col2(w * .27, [['Trinken', 1.5, 'water'], ['Lebensmittel', .75, 'c2'], ['Oxidationswasser', .25, 'c5']], 'Aufnahme ≈ 2,5 l');
+  col2(w * .73, [['Urin', 1.4, 'c5'], ['Haut (Schweiß)', .55, 'c1'], ['Atmung', .4, 'c3'], ['Stuhl', .15, 'c4']], 'Abgabe ≈ 2,5 l');
+  const s = 1 + .04 * Math.sin(t * 2); label(ctx, '=', w / 2, h / 2, {size: 30 * s, color: C.ink2});
+});
+calc($('#calc-t'), [
+  {id: 'grund', l: 'Grundbedarf (Trinken)', opts: [['1.5', '1,5 l']], v: '1.5'},
+  {id: 'wetter', l: 'Wetter', opts: [['0', 'normal'], ['0.5', 'heiß']], v: '0'},
+  {id: 'sport', l: 'Sport heute', opts: [['0', 'kein'], ['0.5', 'ca. 1 Stunde'], ['1', 'mehr als 1 Stunde']], v: '0'},
+  {id: 'fieber', l: 'Fieber', opts: [['0', 'nein'], ['0.5', 'ja']], v: '0'}
+], v => { const l = Math.min(3, v.grund + v.wetter + v.sport + v.fieber); return `<span class="big">${numDE(l, 1)} Liter</span><p>Das sind etwa <b>${Math.round(l / .25)} Gläser</b> à 250 ml – am besten über den Tag verteilt, zu den Mahlzeiten und zwischendurch.</p>`; });
+sorter($('#sort'), [{id: 'g', name: 'gute Durstlöscher'}, {id: 'u', name: 'ungeeignet'}], [
+  {t: 'Leitungswasser', c: 'g'}, {t: 'Mineralwasser', c: 'g'}, {t: 'Pfefferminztee ohne Zucker', c: 'g'}, {t: 'Apfelschorle 1 : 3', c: 'g'}, {t: 'Infused Water', c: 'g'},
+  {t: 'Cola', c: 'u'}, {t: 'Energydrink', c: 'u'}, {t: 'Fruchtnektar', c: 'u'}, {t: 'Eistee mit Zucker', c: 'u'}, {t: 'Limonade', c: 'u'}
+]);
+bars($('#bars'), [{l: 'Gurke', v: 97, c: 'c2'}, {l: 'Kopfsalat', v: 95, c: 'c2'}, {l: 'Tomate', v: 95, c: 'c1'}, {l: 'Spargel', v: 93, c: 'c5'}, {l: 'Erdbeere', v: 90, c: 'c7'}, {l: 'Melone', v: 87, c: 'c3'}, {l: 'Pfirsich', v: 87, c: 'c5'}, {l: 'Apfel', v: 85, c: 'c2'}, {l: 'Vollkornbrot', v: 40, c: 'c4'}, {l: 'Nüsse', v: 5, c: 'c6'}], {unit: '%', dec: 0, max: 100});
+trueFalse($('#tf'), [
+  {t: 'Leitungswasser ist in Deutschland streng kontrolliert.', ok: true},
+  {t: 'Wir verlieren nur beim Sport Wasser.', ok: false, why: 'Auch durch Atmen, Schwitzen und Ausscheidung – ca. 2,5 l am Tag.'},
+  {t: 'Wassermangel kann Kopfschmerzen verursachen.', ok: true},
+  {t: 'Energydrinks sind gute Durstlöscher.', ok: false, why: 'Sie enthalten viel Zucker, Koffein und Zusatzstoffe.'},
+  {t: 'Eine Saftschorle besteht aus 1 Teil Saft und 3 Teilen Wasser.', ok: true},
+  {t: 'Gurken bestehen zu fast 100 % aus Wasser.', ok: true, why: 'Etwa 97 %.'}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Wie viel sollten Jugendliche ungefähr trinken?', a: ['1,5 Liter', '0,5 Liter', '5 Liter', '3 Gläser'], ok: 0},
+  {q: 'Wie hoch ist der Wasseranteil des Körpers bei Erwachsenen?', a: ['ca. 65 %', 'ca. 20 %', 'ca. 95 %', 'ca. 40 %'], ok: 0},
+  {q: 'Welche Aufgabe hat Wasser NICHT?', a: ['Energie liefern', 'Nährstoffe transportieren', 'Körpertemperatur regeln', 'Abbauprodukte ausscheiden'], ok: 0},
+  {q: 'Was ist der einzige „Nachteil“ von Leitungswasser?', a: ['weniger Mineralstoffe als Mineralwasser', 'es ist ungesund', 'es ist teuer', 'es enthält Zucker'], ok: 0},
+  {q: 'Wie viel mehr sollte man bei starkem Sport trinken?', a: ['0,5–1 Liter', 'nichts', '5 Liter', 'ein Schluck'], ok: 0}
+]);
+</script>

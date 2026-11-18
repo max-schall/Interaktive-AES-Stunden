@@ -1,0 +1,157 @@
+<!--
+title: Dein ökologischer Fußabdruck
+short: Fußabdruck
+time: 1–2 Unterrichtsstunden
+book: S. 156–157
+q: Wie viele Erden bräuchten wir, wenn alle so leben würden wie wir?
+facts: Der ökologische Fußabdruck vergleicht verfügbare Ressourcen mit dem Verbrauch | Seit 1971 verbraucht die Menschheit mehr, als die Natur nachliefert; Erdüberlastungstag | CO₂-Fußabdruck pro Kopf in Deutschland ca. 10,5 t: Ernährung, Wohnen, Mobilität, Konsum, Infrastruktur | Tipps für einen kleineren Fußabdruck
+inter: Erden-Vergleich der Länder · Erdüberlastungstag auf dem Zeitstrahl · Mein Fußabdruck (Rechner) · Tipps sortieren
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Dein ökologischer Fußabdruck</h1>
+      <p class="lead">Ob du isst, Bus fährst oder dein Smartphone benutzt: All das verbraucht Ressourcen wie Wasser, Holz, Erdöl, Erdgas oder fruchtbare Böden. Die Natur stellt sie nur in begrenztem Umfang zur Verfügung.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie viele Erden bräuchten wir, wenn alle so leben würden wie wir?</p></div>
+      <div class="controls"><button class="btn primary" data-go="erden">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="erden" data-label="Erden" data-yr="Einstieg" data-title="Eine Welt ist nicht genug" data-sub="Länder im Vergleich">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Eine Welt ist nicht genug</h2>
+      <p class="lead">Der <b>ökologische Fußabdruck</b> zeigt, wie nachhaltig wir leben: Er vergleicht die verfügbaren Ressourcen mit unserem tatsächlichen Verbrauch.</p>
+      <ul class="facts">
+        <li>Bis 1970 nutzte die Menschheit weniger, als die Erde bereitstellt. Seit 1971 leben wir „auf Pump“.</li>
+        <li>Heute bräuchten wir weltweit bereits etwa <b>1,8 Erden</b>.</li>
+        <li>Würden alle so leben wie wir in Deutschland, bräuchten wir etwa <b>drei Erden</b>.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Erden, wenn alle so leben würden wie in …</h3></div>
+      <div id="bars"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="tag" data-label="Überlastungstag" data-yr="Erarbeitung" data-title="Der Erdüberlastungstag" data-sub="Ab wann leben wir auf Pump?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Der Erdüberlastungstag</h2>
+      <p class="lead">Der <b>Erdüberlastungstag</b> markiert den Tag, an dem die Menschheit alle Ressourcen verbraucht hat, die die Erde in diesem Jahr erneuern kann. Ab dann leben wir auf Kosten der Zukunft.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Zeitstrahl</h3></div>
+      <div class="slider"><label for="yr">Jahr <output id="yr-o"></output></label><input type="range" id="yr" min="0" max="6" value="6"></div>
+      <canvas id="cv-t" class="low" aria-label="Kalenderjahr mit Erdüberlastungstag"></canvas>
+      <p class="status" id="yr-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="rechner" data-label="Mein Fußabdruck" data-yr="Anwendung" data-title="Mein CO₂-Fußabdruck" data-sub="Ein einfacher Rechner">
+  <div class="section-head"><p class="eyebrow">Station 3 · Anwendung</p><h2>Mein CO₂-Fußabdruck</h2><p class="lead">Der durchschnittliche CO₂-Fußabdruck in Deutschland liegt bei ca. <b>10,5 t CO₂e pro Kopf und Jahr</b>. Klimaverträglich wären etwa 2 t. (Grobe Schätzung.)</p></div>
+  <div class="two">
+    <div class="vis"><div id="calc-f"></div></div>
+    <div class="vis"><div class="vis-head"><h3>Ergebnis</h3></div><div id="f-out"></div><canvas id="cv-f" class="low" aria-label="Fußabdruck im Vergleich"></canvas></div>
+  </div>
+</section>
+
+<section class="station" id="tipps" data-label="Tipps" data-yr="Übung" data-title="Kleiner treten" data-sub="Was hilft wo?">
+  <div class="section-head"><p class="eyebrow">Station 4 · Übung</p><h2>Kleiner treten</h2><p class="lead">Ordne die Tipps dem Bereich zu, in dem sie den Fußabdruck verkleinern.</p></div>
+  <div id="sort"></div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Ökologischer Fußabdruck</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Der ökologische Fußabdruck</h3><span>AES · Klasse 9</span></div>
+      <ol>
+        <li data-step>Der <b>ökologische Fußabdruck</b> vergleicht die zur Verfügung stehenden Ressourcen mit dem tatsächlichen Verbrauch.</li>
+        <li data-step>Seit 1971 verbraucht die Menschheit mehr Ressourcen, als die Erde nachliefert; heute bräuchten wir ca. 1,8 Erden, bei deutschem Lebensstil ca. 3 Erden.</li>
+        <li data-step>Der <b>Erdüberlastungstag</b> zeigt, ab wann im Jahr die Ressourcen aufgebraucht sind (2023: 2. August).</li>
+        <li data-step>CO₂-Fußabdruck in Deutschland: ca. 10,5 t pro Kopf und Jahr (Wohnen, Mobilität, Ernährung, Konsum, Infrastruktur); klimaverträglich wären ca. 2 t.</li>
+        <li data-step>Tipps: pflanzlich, regional, saisonal essen; Fahrrad, Bus und Bahn; Strom sparen; weniger und gebraucht kaufen; Müll vermeiden.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Recherche</span><p>Berechnet euren Fußabdruck mit dem CO₂-Rechner des Umweltbundesamts und vergleicht.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Fußabdruck-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+bars($('#bars'), [['USA', 5.1], ['Australien', 4.5], ['Russland', 3.4], ['Deutschland', 3.0], ['Schweiz', 2.8], ['Frankreich', 2.8], ['Japan', 2.9], ['Italien', 2.7], ['Spanien', 2.5], ['Portugal', 2.4], ['China', 2.4], ['Brasilien', 1.6], ['Indien', .8]].map(([l, v]) => ({l, v, c: l === 'Deutschland' ? 'c1' : v > 1 ? 'c6' : 'c2', hl: l === 'Deutschland'})), {unit: 'Erden', dec: 1, sort: true, note: 'Gerundete Werte (Global Footprint Network). Mehr als 1 Erde = nicht nachhaltig.'});
+(() => {
+  const D = [['1970', 365], ['1980', 308], ['1990', 287], ['2000', 268], ['2010', 220], ['2020', 236], ['2023', 214]];
+  const M = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+  const date = d => { const dt = new Date(2023, 0, d); return dt.toLocaleDateString('de-DE', {day: 'numeric', month: 'long'}); };
+  const upd = () => { const [y, d] = D[+$('#yr').value]; $('#yr-o').textContent = y; $('#yr-st').innerHTML = d >= 365 ? `${y}: Die Ressourcen reichten noch das ganze Jahr.` : `${y}: Erdüberlastungstag am <b>${date(d)}</b> – danach ${365 - d} Tage „auf Pump“ (2020 kurzzeitig später wegen der Corona-Pandemie).`; };
+  $('#yr').oninput = upd; upd();
+  canvasLoop($('#cv-t'), 'tag', (ctx, w, h) => {
+    const d = D[+$('#yr').value][1], x0 = 20, x1 = w - 20, y = h * .5, X = t => lerp(x0, x1, t / 365);
+    ctx.fillStyle = col('good'); ctx.globalAlpha = .7; roundRect(ctx, x0, y - 14, X(Math.min(d, 365)) - x0, 28, 8); ctx.fill();
+    if (d < 365) { ctx.fillStyle = col('bad'); roundRect(ctx, X(d), y - 14, x1 - X(d), 28, 8); ctx.fill(); }
+    ctx.globalAlpha = 1;
+    M.forEach((m, i) => label(ctx, m, X(i * 30.4 + 15), y + 30, {size: 11, color: C.ink2, weight: 400}));
+    if (d < 365) { ctx.strokeStyle = C.ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(d), y - 26); ctx.lineTo(X(d), y + 18); ctx.stroke(); label(ctx, '⚑ Überlastungstag', X(d), y - 36, {size: 12}); }
+    label(ctx, 'Ressourcen des Jahres', (x0 + X(Math.min(d, 365))) / 2, y, {size: 12, color: '#fff'});
+  });
+})();
+(() => {
+  let tot = 10.5, parts = [];
+  calc($('#calc-f'), [
+    {id: 'e', l: 'Ernährung', opts: [['2.3', 'viel Fleisch'], ['1.7', 'Durchschnitt'], ['1.2', 'wenig Fleisch'], ['.9', 'vegetarisch']], v: '1.7'},
+    {id: 'm', l: 'Mobilität (Familie, pro Kopf)', opts: [['3.2', 'viel Auto, Flugreisen'], ['2.2', 'Durchschnitt'], ['1.2', 'Bus, Bahn, Rad']], v: '2.2'},
+    {id: 'w', l: 'Wohnen und Strom', opts: [['3', 'großes Haus, Ölheizung'], ['2.4', 'Durchschnitt'], ['1.4', 'Ökostrom, gut gedämmt']], v: '2.4'},
+    {id: 'k', l: 'Konsum (Kleidung, Elektronik …)', opts: [['4.2', 'viel Neues'], ['3.2', 'Durchschnitt'], ['2', 'wenig, gebraucht']], v: '3.2'}
+  ], v => {
+    parts = [['Ernährung', v.e, 'c2'], ['Mobilität', v.m, 'c6'], ['Wohnen', v.w, 'c5'], ['Konsum', v.k, 'c1'], ['öffentliche Infrastruktur', 1, 'c4']];
+    tot = parts.reduce((s, p) => s + p[1], 0);
+    $('#f-out').innerHTML = `<span class="big" style="font-family:var(--f-display);font-weight:600;font-size:2rem;color:var(--accent)">${numDE(tot, 1)} t CO₂e</span><p>${tot <= 7 ? '<b class="good">Deutlich unter dem Durchschnitt!</b>' : tot >= 11 ? '<b class="bad">Über dem Durchschnitt.</b>' : 'Etwa im deutschen Durchschnitt.'} Ziel: ca. 2 t. Die öffentliche Infrastruktur (ca. 1 t) kann man allein kaum beeinflussen.</p>`;
+    return '<span class="muted">Wähle für jeden Bereich, was am ehesten auf deine Familie zutrifft.</span>';
+  });
+  canvasLoop($('#cv-f'), 'rechner', (ctx, w, h) => {
+    let x = 20; const sc = (w - 40) / 13;
+    parts.forEach(([n, v, c]) => { ctx.fillStyle = col(c); ctx.fillRect(x, h * .3, v * sc - 2, h * .28); if (v * sc > 50) label(ctx, n, x + v * sc / 2, h * .44, {size: 10, color: '#fff'}); x += v * sc; });
+    const gx = 20 + 2 * sc, dx = 20 + 10.5 * sc;
+    ctx.strokeStyle = C.good; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, h * .2); ctx.lineTo(gx, h * .68); ctx.stroke(); label(ctx, 'Ziel 2 t', gx, h * .12, {size: 11, color: C.good});
+    ctx.strokeStyle = C.ink2; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(dx, h * .2); ctx.lineTo(dx, h * .68); ctx.stroke(); ctx.setLineDash([]); label(ctx, 'Ø Deutschland', dx, h * .8, {size: 11, color: C.ink2});
+  });
+})();
+sorter($('#sort'), [{id: 'e', name: 'Ernährung'}, {id: 'm', name: 'Mobilität'}, {id: 'w', name: 'Wohnen, Strom'}, {id: 'k', name: 'Konsum'}], [
+  {t: 'mehr pflanzlich essen', c: 'e'}, {t: 'keine Lebensmittel wegwerfen', c: 'e'}, {t: 'regional und saisonal', c: 'e'},
+  {t: 'mit dem Rad zur Schule', c: 'm'}, {t: 'Bahn statt Flugzeug', c: 'm'},
+  {t: 'Licht ausschalten', c: 'w'}, {t: 'Stoßlüften statt Kipplüften', c: 'w'}, {t: 'Ökostrom', c: 'w'},
+  {t: 'gebraucht kaufen oder leihen', c: 'k'}, {t: 'Dinge lange nutzen', c: 'k'}, {t: 'verschenken statt wegwerfen', c: 'k'}
+]);
+trueFalse($('#tf'), [
+  {t: 'Seit 1971 verbraucht die Menschheit mehr, als die Erde nachliefert.', ok: true},
+  {t: 'Würden alle wie in Deutschland leben, reichte eine Erde.', ok: false, why: 'Wir bräuchten etwa drei Erden.'},
+  {t: 'Der Erdüberlastungstag liegt jedes Jahr am 31. Dezember.', ok: false, why: '2023 war es der 2. August.'},
+  {t: 'Der CO₂-Fußabdruck in Deutschland liegt bei ca. 10,5 t pro Kopf.', ok: true},
+  {t: 'Eine pflanzenbetonte Ernährung verkleinert den Fußabdruck.', ok: true}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Was zeigt der ökologische Fußabdruck?', a: ['Verbrauch im Vergleich zu den verfügbaren Ressourcen', 'die Schuhgröße', 'den Wasserstand', 'das Einkommen'], ok: 0},
+  {q: 'Wie viele Erden bräuchte die Menschheit heute etwa?', a: ['1,8', '0,5', '10', '1'], ok: 0},
+  {q: 'Welches Land hat den größten Fußabdruck?', a: ['USA', 'Indien', 'Brasilien', 'Portugal'], ok: 0},
+  {q: 'Welcher Bereich lässt sich allein kaum beeinflussen?', a: ['öffentliche Infrastruktur', 'Ernährung', 'Konsum', 'Mobilität'], ok: 0}
+]);
+</script>

@@ -1,0 +1,163 @@
+<!--
+title: Was kannst du für deine Gesundheit tun?
+short: Gesundheit fördern
+time: 1 Unterrichtsstunde
+book: S. 114–115
+q: Was hilft mir am meisten, gesund und fit zu bleiben?
+facts: Gesundheitsressourcen: vollwertige Ernährung, ausreichend Bewegung, soziale Kontakte | Bewegungsmangel durch Medienkonsum und seine Folgen | Hobbys, Ehrenamt und Freizeitangebote | Verantwortung für die eigene Gesundheit übernehmen
+inter: Gesundheitsressourcen · Mediennutzung Jugendlicher · Mein Bewegungstag · Bewegte-Pause-Generator
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Was kannst du für deine Gesundheit tun?</h1>
+      <p class="lead">Es gibt viele Möglichkeiten, Körper und Geist gesund zu halten: Sport treiben, sich mit Freunden treffen, ausgewogen essen. Was hilft dir am meisten – und wo kannst du deine Gesundheitsressourcen konkret aktivieren?</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Was hilft mir am meisten, gesund und fit zu bleiben?</p></div>
+      <div class="controls"><button class="btn primary" data-go="ressourcen">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="ressourcen" data-label="Ressourcen" data-yr="Erarbeitung" data-title="Gesundheitsressourcen" data-sub="Was dich stärkt">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Gesundheitsressourcen</h2>
+      <p class="lead">Um dein körperliches, seelisches und soziales Wohlbefinden zu fördern, kannst du viel tun: <b>vollwertige Ernährung, ausreichend Bewegung und gute soziale Kontakte</b> sind wertvolle Gesundheitsressourcen.</p>
+      <ul class="words-box"><li>die Gesundheitsressource</li><li>gesundheitsförderlich</li><li>das Ehrenamt</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf eine Ressource</h3></div>
+      <div id="ex-r"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="medien" data-label="Mediennutzung" data-yr="Erarbeitung" data-title="Mediennutzung" data-sub="Und Bewegungsmangel">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Mediennutzung und Bewegungsmangel</h2>
+      <p class="lead">Übermäßiger Medienkonsum ist bei Kindern und Jugendlichen immer häufiger die Ursache für Bewegungsmangel.</p>
+      <ul class="facts">
+        <li><b>Kurzfristig:</b> Konzentrationsstörungen, Einschlafprobleme</li>
+        <li><b>Langfristig:</b> Übergewicht, Gelenkerkrankungen, Rückenleiden, Diabetes mellitus, Depressionen</li>
+      </ul>
+      <p class="prompt"><b>Schätze zuerst:</b> Wie viele Jugendliche nutzen täglich das Smartphone? Und wie viele lesen täglich ein gedrucktes Buch?</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tägliche Nutzung durch Jugendliche (12–19 Jahre, ca.)</h3><button class="btn" id="md-show">Auflösen</button></div>
+      <div id="bars"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="bewegung" data-label="Mein Tag" data-yr="Anwendung" data-title="Mein Bewegungstag" data-sub="60 Minuten am Tag">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Mein Bewegungstag</h2>
+      <p class="lead">Kinder haben einen natürlichen Bewegungsdrang. Auch später ist regelmäßige Bewegung – Radfahren, Schwimmen, Laufen – wichtig. Sie stärkt den Körper und hilft, Stress auszugleichen. Auch Treppensteigen und Hausarbeit zählen!</p>
+      <p class="note">Empfehlung der WHO für Kinder und Jugendliche: mindestens <b>60 Minuten</b> mäßige bis anstrengende Bewegung täglich.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wie viel hast du dich gestern bewegt?</h3></div>
+      <div id="calc-b"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="pause" data-label="Bewegte Pause" data-yr="Praxis" data-title="Bewegte Pause" data-sub="Gleich ausprobieren">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Praxis</p>
+      <h2>Bewegte Pause</h2>
+      <p class="lead">Erstellt für eine Woche ein Programm mit bewegungsfördernden Übungen für den Unterricht oder die Pausen. Hier ein Generator für den Anfang – probiert es gleich aus!</p>
+      <p class="note">Informiere dich auch über Freizeitangebote in deiner Umgebung: Vereine, Volkshochschule, Krankenkassen, Jugendhaus.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Übung des Tages</h3></div>
+      <div class="calc-out" id="bp-out" style="min-height:8rem"></div>
+      <canvas id="cv-bp" class="low" style="aspect-ratio:4/1" aria-label="Fortschrittsbalken der Übung"></canvas>
+      <div class="controls"><button class="btn primary" id="bp-new">Neue Übung</button><button class="btn" id="bp-go">30 Sekunden starten</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Gesundheit fördern</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Gesundheit fördern</h3><span>AES · Klasse 8</span></div>
+      <ol>
+        <li data-step>Körperliches, seelisches und soziales Wohlbefinden ist gleichermaßen wichtig.</li>
+        <li data-step>Wertvolle <b>Gesundheitsressourcen</b>: vollwertige Ernährung, ausreichend Bewegung (mind. 60 Minuten am Tag) und gute soziale Kontakte.</li>
+        <li data-step>Übermäßiger Medienkonsum führt oft zu Bewegungsmangel: kurzfristig Konzentrations- und Schlafprobleme, langfristig Übergewicht, Rückenleiden, Diabetes, Depressionen.</li>
+        <li data-step>Mit einer bewussten und aktiven Freizeitgestaltung (Hobbys, Verein, Ehrenamt) übernimmst du Verantwortung für deine Gesundheit.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Liste</span><p>Erstelle eine Liste mit Aktivitäten, die dir guttun – und plane, wann du sie diese Woche machst.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Gesundheitsförderlich oder nicht?</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+explore($('#ex-r'), [
+  {ico: 'laufen', t: 'Bewegung', d: 'Stärkt Muskeln, Knochen, Herz und Kreislauf, baut Stress ab und hebt die Stimmung. Auch Alltagsbewegung zählt: Treppen, Radfahren, Hausarbeit.'},
+  {ico: 'apfel', t: 'Ernährung', d: 'Eine ausgewogene, vollwertige Ernährung ist unerlässlich. Tipps geben die Ernährungspyramide und die DGE-Empfehlungen. Zu einseitiges Essen kann Unwohlsein, Übergewicht oder Krankheiten auslösen – und beeinflusst die Psyche.'},
+  {ico: 'gruppe', t: 'Soziale Kontakte', d: 'Einsamkeit und ein Mangel an sozialen Beziehungen schaden der Gesundheit – das belegen viele Studien. Pflege Familie und Freundschaften.'},
+  {ico: 'herz', t: 'Engagement', d: 'Hobbys, Vereine und ein Ehrenamt stärken das Selbstwertgefühl, die Identität und damit das Wohlbefinden.'},
+  {ico: 'bett', t: 'Schlaf und Erholung', d: 'Jugendliche brauchen etwa 8–10 Stunden Schlaf. Bildschirme vor dem Schlafen stören das Einschlafen.'}
+], {hint: 'Tippe auf eine Ressource.'});
+(() => {
+  const D = [['Smartphone', 96], ['Internet', 89], ['Musik hören', 85], ['Online-Videos', 67], ['Digitale Spiele', 49], ['Video-Streaming', 45], ['Fernsehen', 35], ['Radio', 35], ['Podcasts', 9], ['Bücher (gedruckt)', 15]];
+  let shown = false;
+  const draw = () => shown ? bars($('#bars'), D.map(([l, v]) => ({l, v, c: l.startsWith('Bücher') ? 'c2' : 'c6'})), {unit: '%', dec: 0, max: 100, sort: true, note: 'Gerundete Werte nach der JIM-Studie 2022 (täglich oder mehrmals pro Woche).'}) : ($('#bars').innerHTML = '<p class="muted">Schätzt zuerst in der Klasse – dann auflösen.</p>');
+  $('#md-show').onclick = () => { shown = !shown; $('#md-show').textContent = shown ? 'Verdecken' : 'Auflösen'; draw(); };
+  draw();
+})();
+calc($('#calc-b'), [{id: 'w', l: 'Schulweg zu Fuß oder mit dem Rad', min: 0, max: 60, step: 5, v: 15, unit: 'min'}, {id: 's', l: 'Sport (Verein, Schule)', min: 0, max: 120, step: 5, v: 0, unit: 'min'}, {id: 'f', l: 'Freizeit draußen (Spielen, Spazieren)', min: 0, max: 120, step: 5, v: 20, unit: 'min'}, {id: 'm', l: 'Bildschirmzeit in der Freizeit', min: 0, max: 360, step: 15, v: 180, unit: 'min'}], v => {
+  const b = v.w + v.s + v.f;
+  return `<span class="big">${b} Minuten Bewegung</span><div class="bar-row" style="grid-template-columns:minmax(0,1fr) auto"><span class="bt"><i style="width:${Math.min(100, b / 60 * 100)}%;--c:${b >= 60 ? col('good') : col('warn')}"></i></span><span class="bv">${Math.round(b / 60 * 100)} % von 60 min</span></div><p>${b >= 60 ? '<b class="good">Ziel erreicht!</b>' : `Noch ${60 - b} Minuten bis zur Empfehlung.`} Bildschirmzeit: ${Math.floor(v.m / 60)} h ${v.m % 60} min${v.m > 120 ? ' – vielleicht lässt sich davon etwas in Bewegung tauschen?' : '.'}</p>`;
+});
+(() => {
+  const U = [['Hampelmann', 'Arme und Beine gleichzeitig öffnen und schließen.'], ['Stuhl-Kniebeuge', 'Vor den Stuhl stellen, langsam hinsetzen, kurz vor dem Sitz wieder aufstehen.'], ['Schulterkreisen', '10 Mal vorwärts, 10 Mal rückwärts, dabei ruhig atmen.'], ['Wandsitz', 'Mit dem Rücken an die Wand lehnen, Knie im rechten Winkel – halten!'], ['Spiegelbild', 'Zu zweit: Eine Person bewegt sich langsam, die andere spiegelt.'], ['Liegende Acht', 'Mit dem Daumen eine große liegende Acht in die Luft malen, mit den Augen folgen.'], ['Fersen-Zehen-Wippe', 'Abwechselnd auf die Zehenspitzen und auf die Fersen.'], ['Seitwärts dehnen', 'Arm über den Kopf, Oberkörper zur Seite neigen – beide Seiten.']];
+  let k = 0, tt = -1;
+  const show = () => { $('#bp-out').innerHTML = `<span class="big">${U[k][0]}</span><p>${U[k][1]}</p>`; };
+  $('#bp-new').onclick = () => { k = (k + 1 + randInt(0, U.length - 2)) % U.length; tt = -1; show(); };
+  $('#bp-go').onclick = () => { tt = 0; };
+  show();
+  canvasLoop($('#cv-bp'), 'pause', (ctx, w, h, t, dt) => {
+    if (tt >= 0 && tt < 30) tt += dt;
+    const p = tt < 0 ? 0 : tt / 30;
+    ctx.fillStyle = col('surface-2'); roundRect(ctx, 20, h / 2 - 12, w - 40, 24, 12); ctx.fill();
+    ctx.fillStyle = col('accent'); roundRect(ctx, 20, h / 2 - 12, (w - 40) * p, 24, 12); ctx.fill();
+    label(ctx, tt < 0 ? 'bereit' : tt >= 30 ? 'geschafft!' : `${Math.ceil(30 - tt)} s`, w / 2, h / 2 + 34, {size: 15, color: C.ink2});
+  });
+})();
+trueFalse($('#tf'), [
+  {t: 'Einsamkeit kann der Gesundheit schaden.', ok: true},
+  {t: 'Treppensteigen zählt nicht als Bewegung.', ok: false, why: 'Alltagsbewegung zählt mit.'},
+  {t: 'Zu viel Bildschirmzeit kann zu Einschlafproblemen führen.', ok: true},
+  {t: 'Ein Ehrenamt kann das Selbstwertgefühl stärken.', ok: true},
+  {t: 'Die Ernährung hat keinen Einfluss auf die Psyche.', ok: false, why: 'Einseitiges Essen beeinflusst auch die seelische Verfassung.'}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Wie viel Bewegung empfiehlt die WHO Jugendlichen täglich?', a: ['mindestens 60 Minuten', '5 Minuten', '3 Stunden', 'gar keine'], ok: 0},
+  {q: 'Was ist eine langfristige Folge von Bewegungsmangel?', a: ['Rückenleiden', 'bessere Noten', 'mehr Muskeln', 'mehr Schlaf'], ok: 0},
+  {q: 'Welche ist KEINE Gesundheitsressource?', a: ['übermäßiger Medienkonsum', 'Bewegung', 'soziale Kontakte', 'vollwertige Ernährung'], ok: 0},
+  {q: 'Wo findet man Freizeitangebote?', a: ['Vereine, Volkshochschule, Krankenkassen', 'nur im Internet', 'nirgends', 'nur in Großstädten'], ok: 0}
+]);
+</script>

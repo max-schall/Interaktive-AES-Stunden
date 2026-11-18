@@ -1,0 +1,160 @@
+<!--
+title: Wie beeinflusst dein Essen unser Klima?
+short: Essen & Klima
+time: 1–2 Unterrichtsstunden
+book: S. 76–77
+q: Wie klimafreundlich ist mein Lieblingsessen?
+facts: Treibhauseffekt und Treibhausgase CO₂, Methan, Lachgas; CO₂-Äquivalente | Ernährung verursacht ca. 15 % der Treibhausgase in Deutschland, tierische Lebensmittel den größten Teil | Treibhausgase entlang der Lebensmittelkette | Fünf Dimensionen nachhaltiger Ernährung, Verpackung und Zero Waste
+inter: Lebensmittelkette erkunden · CO₂-Fußabdruck von Lebensmitteln · Klimateller-Rechner · Fünf Dimensionen nach von Koerber
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wie beeinflusst dein Essen unser Klima?</h1>
+      <p class="lead">Was isst du am liebsten, und wo kaufst du ein – im Supermarkt, beim Discounter, im Hofladen? Bestellst du öfter beim Lieferservice, als selbst zu kochen? Wer die Wahl hat, hat die Qual – und Verantwortung fürs Klima.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie klimafreundlich ist mein Lieblingsessen?</p></div>
+      <div class="controls"><button class="btn primary" data-go="treibhaus">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="treibhaus" data-label="Treibhausgase" data-yr="Erarbeitung" data-title="Treibhausgase aus der Küche" data-sub="Entlang der Lebensmittelkette">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Treibhausgase entlang der Lebensmittelkette</h2>
+      <p class="lead">Der <b>Treibhauseffekt</b> ist die Wirkung von Treibhausgasen in der Atmosphäre, die höhere Temperaturen auf der Erde bewirkt. Neben <b>Kohlenstoffdioxid (CO₂)</b> tragen <b>Methan (CH₄)</b> und <b>Lachgas (N₂O)</b> bei. Um sie vergleichbar zu machen, rechnet man in <b>CO₂-Äquivalenten (CO₂e)</b>.</p>
+      <ul class="facts">
+        <li>In Deutschland verursacht die Ernährung ca. <b>15 %</b> aller Treibhausgase – vom Anbau bis zum Verzehr.</li>
+        <li>Davon entfallen ca. <b>44 % auf tierische</b>, nur ca. <b>8 % auf pflanzliche</b> Lebensmittel.</li>
+      </ul>
+      <ul class="words-box"><li>der Treibhauseffekt</li><li>CO₂-Äquivalent</li><li>die Ressource</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wo entstehen Treibhausgase?</h3></div>
+      <div id="ex-k"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="fussabdruck" data-label="CO₂ je kg" data-yr="Erarbeitung" data-title="Der CO₂-Fußabdruck" data-sub="Tierisch und pflanzlich im Vergleich">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Der CO₂-Fußabdruck von Lebensmitteln</h2>
+      <p class="lead">Tierische Lebensmittel verursachen deutlich mehr klimaschädliche Gase als pflanzliche: Tiere brauchen Futter, Fläche, Wasser – und Wiederkäuer wie Rinder stoßen bei der Verdauung Methan aus.</p>
+      <p class="prompt"><b>Schätze zuerst:</b> Welches Lebensmittel verursacht am meisten CO₂e pro Kilogramm?</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>kg CO₂e pro kg Lebensmittel</h3><div id="fa-seg"></div></div>
+      <div id="bars"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="teller" data-label="Klimateller" data-yr="Anwendung" data-title="Der Klimateller" data-sub="Stelle ein Gericht zusammen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Der Klimateller</h2>
+      <p class="lead">Stelle dein Mittagessen zusammen und vergleiche den CO₂-Fußabdruck. Was hat den größten Einfluss?</p>
+      <div class="tipp"><p>Drei Handlungsmöglichkeiten: mehr pflanzlich essen · regional und saisonal einkaufen · Verpackung und Lebensmittelabfälle vermeiden.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Mein Gericht</h3></div>
+      <div id="calc-t"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="dimensionen" data-label="Nachhaltigkeit" data-yr="Vertiefung" data-title="Fünf Dimensionen" data-sub="Nachhaltige Ernährung nach von Koerber">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Vertiefung</p>
+      <h2>Fünf Dimensionen einer nachhaltigen Ernährung</h2>
+      <p class="lead"><b>Nachhaltig handeln</b> heißt, beim Verbrauch von Ressourcen Rücksicht auf den Bedarf nachfolgender Generationen zu nehmen. Wir dürfen nicht mehr verbrauchen, als nachwachsen kann.</p>
+      <p><b>Verpackungen:</b> Kunststoffe werden aus Erdöl hergestellt und verrotten in der Natur nicht. Unverpackt ist am besten, Mehrweg ist besser als Einweg. <b>Zero Waste</b> („null Abfall“) ist eine Bewegung, die Müll dort bekämpft, wo er entsteht.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf eine Dimension</h3></div>
+      <div id="ex-d"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Ernährung und Klima</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Ernährung und Klima</h3><span>AES · Klasse 7</span></div>
+      <ol>
+        <li data-step>Treibhausgase (CO₂, Methan, Lachgas) verstärken den Treibhauseffekt. Man vergleicht sie in <b>CO₂-Äquivalenten</b>.</li>
+        <li data-step>Treibhausgase entstehen entlang der ganzen <b>Lebensmittelkette</b>: Anbau und Tierhaltung, Verarbeitung, Verpackung, Transport, Handel, Lagerung und Zubereitung.</li>
+        <li data-step><b>Tierische Lebensmittel</b> verursachen deutlich mehr Treibhausgase als pflanzliche (z. B. Rindfleisch ≈ 14 kg CO₂e/kg, Kartoffeln ≈ 0,2 kg).</li>
+        <li data-step>Nachhaltige Ernährung hat fünf Dimensionen: Umwelt, Wirtschaft, Gesellschaft, Gesundheit, Kultur.</li>
+        <li data-step>Klimafreundlich essen: mehr pflanzlich, regional und saisonal, wenig Verpackung, keine Lebensmittel verschwenden.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Recherche</span><p>Sucht Firmen, die Verpackungen aus Mais, Bambus oder Holz herstellen. Ist das wirklich besser?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Klima-Check</h2></div>
+  <div id="sort"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+explore($('#ex-k'), [
+  {ico: 'fleisch', t: 'Tierhaltung', d: 'Methan entsteht bei der Verdauung von Kühen, Rindern, Schafen und Ziegen. Lachgas wird durch tierische Ausscheidungen freigesetzt.'},
+  {ico: 'baum', t: 'Flächen', d: 'Rodung von (Regen-)Wäldern und Umwandlung von Mooren in landwirtschaftliche Flächen setzen viel CO₂ frei.'},
+  {ico: 'blatt', t: 'Anbau', d: 'Produktion und Einsatz von Düngemitteln, Landmaschinen und Bewässerungsanlagen.'},
+  {ico: 'fabrik', t: 'Verarbeitung', d: 'Fabriken, Mühlen, Schlacht- und Molkereibetriebe verbrauchen Energie.'},
+  {ico: 'paket', t: 'Verpackung', d: 'Plastik, Glas, Papier und Holz – Herstellung und Recycling verbrauchen Energie und Wasser. 2018 wurden in der EU über 1 Billion Plastikverpackungen für Essen und Getränke verwendet.'},
+  {ico: 'lkw', t: 'Transport', d: 'Flugzeuge, Schiffe, Lkws und Autos. Flugware belastet das Klima besonders.'},
+  {ico: 'kuehl', t: 'Handel & Lagerung', d: 'Kühlhäuser, Supermärkte und der Kühlschrank zu Hause brauchen Strom.'},
+  {ico: 'topf', t: 'Zubereitung', d: 'Kochen, Backen und Spülen verbrauchen Energie und Wasser.'}
+], {hint: 'Tippe auf eine Station der Lebensmittelkette.'});
+
+(() => {
+  const D = [['Rindfleisch', 13.6, 't'], ['Butter', 9, 't'], ['Käse', 5.7, 't'], ['Geflügel', 5.5, 't'], ['Schweinefleisch', 4.6, 't'], ['Reis', 3.1, 'p'], ['Eier', 3, 't'], ['Milch', 1.4, 't'], ['Tofu', 1, 'p'], ['Linsen (getrocknet)', 1, 'p'], ['Nudeln', .7, 'p'], ['Brot', .8, 'p'], ['Äpfel (regional)', .3, 'p'], ['Kartoffeln', .2, 'p']];
+  seg($('#fa-seg'), [['alle', 'alle'], ['t', 'tierisch'], ['p', 'pflanzlich']], v => bars($('#bars'), D.filter(d => v === 'alle' || d[2] === v).map(([l, x, k]) => ({l, v: x, c: k === 't' ? 'c1' : 'c2'})), {unit: 'kg', dec: 1, max: 14, sort: true, note: 'Gerundete Durchschnittswerte (CO₂-Äquivalente) für Deutschland; je nach Herkunft und Anbau schwanken sie stark.'}));
+})();
+
+calc($('#calc-t'), [
+  {id: 'h', l: 'Hauptkomponente (125 g)', opts: [['13.6', 'Rind'], ['4.6', 'Schwein'], ['5.5', 'Hähnchen'], ['5.7', 'Käse'], ['1', 'Tofu'], ['1.0', 'Linsen']], v: '13.6'},
+  {id: 'b', l: 'Beilage (200 g)', opts: [['3.1', 'Reis'], ['.7', 'Nudeln'], ['.2', 'Kartoffeln']], v: '3.1'},
+  {id: 'g', l: 'Gemüse (150 g)', opts: [['.2', 'regional, saisonal'], ['.6', 'Gewächshaus'], ['11', 'Flugware (z. B. Bohnen aus Kenia)']], v: '.2'}
+], v => {
+  const t = v.h * .125 + v.b * .2 + v.g * .15, km = t / .15;
+  return `<span class="big">${numDE(t, 2)} kg CO₂e</span><div class="bars" style="margin-top:.4rem">${[['Hauptkomponente', v.h * .125, 'c1'], ['Beilage', v.b * .2, 'c5'], ['Gemüse', v.g * .15, 'c2']].map(([n, x, c]) => `<div class="bar-row"><span class="bl">${n}</span><span class="bt"><i style="width:${x / 2.2 * 100}%;--c:${col(c)}"></i></span><span class="bv">${numDE(x, 2)} kg</span></div>`).join('')}</div><p>Das entspricht etwa <b>${numDE(km, 0)} km</b> Autofahrt (ca. 150 g CO₂ pro km).</p>`;
+});
+
+explore($('#ex-d'), [
+  {ico: 'erde', t: 'Umwelt', d: 'Klima, Böden, Wasser und Artenvielfalt schützen: z. B. pflanzlich, ökologisch, regional und saisonal essen.'},
+  {ico: 'euro', t: 'Wirtschaft', d: 'Faire Preise für Erzeugerinnen und Erzeuger, regionale Arbeitsplätze erhalten.'},
+  {ico: 'gruppe', t: 'Gesellschaft', d: 'Gerechte Verteilung der Nahrung weltweit, faire Arbeitsbedingungen, Tierwohl.'},
+  {ico: 'herz', t: 'Gesundheit', d: 'Vollwertige, gering verarbeitete Lebensmittel fördern die Gesundheit.'},
+  {ico: 'schuessel', t: 'Kultur', d: 'Esskultur, Genuss und Gemeinschaft beim Essen bewahren und wertschätzen.'}
+], {hint: 'Fünf Dimensionen nach Karl von Koerber'});
+
+sorter($('#sort'), [{id: 'g', name: 'klimafreundlicher'}, {id: 's', name: 'klimaschädlicher'}], [
+  {t: 'Linseneintopf', c: 'g'}, {t: 'Leitungswasser', c: 'g'}, {t: 'Äpfel aus der Region im Herbst', c: 'g'}, {t: 'Ofenkartoffeln mit Quark', c: 'g'}, {t: 'Mehrwegflasche', c: 'g'},
+  {t: 'Rindersteak', c: 's'}, {t: 'Erdbeeren im Januar per Flugzeug', c: 's'}, {t: 'Wasser in Einwegplastik', c: 's'}, {t: 'Butter', c: 's'}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Welches Gas entsteht bei der Verdauung von Rindern?', a: ['Methan', 'Sauerstoff', 'Stickstoff', 'Helium'], ok: 0},
+  {q: 'Wie viel der Treibhausgase in Deutschland verursacht die Ernährung?', a: ['ca. 15 %', 'ca. 1 %', 'ca. 60 %', 'ca. 90 %'], ok: 0},
+  {q: 'Was bedeutet „CO₂-Äquivalent“?', a: ['Verschiedene Treibhausgase werden in CO₂ umgerechnet, um sie zu vergleichen', 'reines CO₂', 'Sauerstoff', 'ein Lebensmittel'], ok: 0},
+  {q: 'Welches Lebensmittel hat den kleinsten CO₂-Fußabdruck?', a: ['Kartoffeln', 'Rindfleisch', 'Butter', 'Käse'], ok: 0},
+  {q: 'Was ist die beste Verpackungsvariante?', a: ['unverpackt', 'Einweg-Plastik', 'Alufolie', 'Einweg-Glas'], ok: 0}
+]);
+</script>

@@ -1,0 +1,154 @@
+<!--
+title: Slow Fashion – Nachhaltigkeit zum Anziehen
+short: Slow Fashion
+time: 1–2 Unterrichtsstunden (mit Upcycling)
+book: S. 174–175
+q: Wie kann ich Mode lieben, ohne der Umwelt zu schaden?
+facts: Am nachhaltigsten: weniger kaufen | Gebrauchswert erhalten: Pflegesymbole beachten, seltener waschen, lufttrocknen, reparieren | Secondhand, Tauschen, Upcycling statt Downcycling | Bio-Baumwolle und Siegel; Kleidercontainer prüfen
+inter: Die Slow-Fashion-Leiter · Pflegesymbole lesen · Up- oder Downcycling? · Upcycling-Ideen
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Slow Fashion – Nachhaltigkeit zum Anziehen</h1>
+      <p class="lead">Wie viele Kleidungsstücke aus deinem Kleiderschrank brauchst du wirklich? Alle unnötig gekauften Kleidungsstücke belasten die Umwelt und die Menschen, die sie herstellen. Slow Fashion heißt: bewusst, langsam, langlebig.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie kann ich Mode lieben, ohne der Umwelt zu schaden?</p></div>
+      <div class="controls"><button class="btn primary" data-go="leiter">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="leiter" data-label="Die Leiter" data-yr="Einstieg" data-title="Erst überlegen, dann kaufen" data-sub="Die Slow-Fashion-Leiter">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Erst überlegen, dann kaufen</h2>
+      <p class="lead">Bevor du etwas Neues kaufst, solltest du immer Alternativen suchen. Am nachhaltigsten ist es, <b>weniger Kleidung zu kaufen</b>.</p>
+      <p class="note">Ordne die Möglichkeiten: Was sollte man zuerst versuchen?</p>
+    </div>
+    <div class="vis">
+      <div id="seq"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="pflege" data-label="Pflegesymbole" data-yr="Praxis" data-title="Pflegesymbole lesen" data-sub="Gebrauchswert erhalten">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Praxis</p>
+      <h2>Pflege: Gebrauchswert erhalten</h2>
+      <ul class="facts">
+        <li>Beachte die <b>Pflegehinweise</b> auf dem Etikett.</li>
+        <li>Wasche ein Kleidungsstück nur so oft wie nötig – oft reicht Auslüften.</li>
+        <li><b>Lufttrocknen</b> spart Energie und schont die Fasern.</li>
+        <li><b>Repair it yourself:</b> Kleine Löcher oder offene Nähte kannst du leicht reparieren – Anleitungen gibt es im Internet.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf ein Symbol</h3></div>
+      <div id="ps" class="ex-tiles" style="grid-template-columns:repeat(4,minmax(0,1fr))"></div>
+      <div class="ex-panel" id="ps-info"><p class="muted">Was bedeutet das Symbol?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="cycling" data-label="Up & Down" data-yr="Erarbeitung" data-title="Aus Alt mach Neu" data-sub="Up-, Downcycling, Secondhand">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Erarbeitung</p>
+      <h2>Aus Alt mach Neu</h2>
+      <dl class="kv2">
+        <dt>Wiederverwendung</dt><dd>Das Produkt wird in seiner Form weiter genutzt: Secondhand, Tauschen, Verschenken, Flohmarkt.</dd>
+        <dt>Upcycling</dt><dd>die „Königsklasse“: Aus Altem entsteht etwas Hochwertigeres – z. B. aus einer zerrissenen Jeans eine Tasche.</dd>
+        <dt>Downcycling</dt><dd>Ein Produkt wird in ein qualitativ schlechteres umgewandelt – z. B. Putzlappen, Dämmstoff.</dd>
+      </dl>
+      <div class="achtung"><p>Viele Altkleidercontainer gehören gemeinnützigen Organisationen (z. B. Rotes Kreuz, Caritas). Es gibt aber auch Container von Firmen, die nur auf Profit aus sind. Prüfe den Container, bevor du etwas hineinwirfst.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wiederverwendung, Up- oder Downcycling?</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="ideen" data-label="Upcycling" data-yr="Praxis" data-title="Upcycling-Werkstatt" data-sub="Ideen für alte Kleidung">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Praxis</p>
+      <h2>Upcycling-Werkstatt</h2>
+      <p class="lead">Wähle ein altes Kleidungsstück – der Generator schlägt dir Ideen vor. Viele davon lassen sich mit der Nähmaschine umsetzen.</p>
+      <p class="note"><b>Ressourcenschonend produzieren:</b> Beim Anbau von Bio-Baumwolle werden durch Fruchtfolgen, das Verbot von Pestiziden und chemischen Düngern Böden geschont und weniger Wasser verbraucht. Siegel helfen, solche Kleidung zu erkennen.</p>
+    </div>
+    <div class="vis">
+      <div class="chip-row" style="margin-bottom:.6rem" id="up-pick"></div>
+      <div class="calc-out" id="up-out" style="min-height:8rem"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Slow Fashion</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Slow Fashion</h3><span>AES · Klasse 9</span></div>
+      <ol>
+        <li data-step>Am nachhaltigsten ist es, <b>weniger Kleidung zu kaufen</b>. Vor dem Kauf Alternativen suchen: tragen, reparieren, tauschen, leihen, secondhand.</li>
+        <li data-step>Durch richtigen Gebrauch und Pflege (Pflegesymbole, seltener waschen, lufttrocknen, reparieren) bleibt Kleidung lange erhalten.</li>
+        <li data-step><b>Upcycling</b> macht aus Altem etwas Hochwertigeres, <b>Downcycling</b> etwas Minderwertigeres. Secondhand schont Ressourcen.</li>
+        <li data-step>Bio-Baumwolle und Siegel stehen für ressourcenschonende Produktion. Altkleidercontainer vorher prüfen.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Projekt</span><p>Organisiert eine Kleidertauschparty in der Schule!</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Pflegesymbole zuordnen</h2></div>
+  <div id="match"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+sequence($('#seq'), ['Anziehen, was ich schon habe', 'Reparieren, was kaputt ist', 'Tauschen oder leihen', 'Secondhand kaufen', 'Selber machen (Upcycling)', 'Neu kaufen – langlebig und fair'], {intro: 'Die Slow-Fashion-Leiter: von „zuerst versuchen“ bis „zuletzt“.'});
+(() => {
+  const i = col('ink');
+  const tub = (inner) => `<svg viewBox="0 0 48 40" style="width:3rem;height:2.6rem"><path d="M4 8 L10 34 H38 L44 8" fill="none" stroke="${i}" stroke-width="2.5"/><path d="M4 8 q5 4 10 0 q5 -4 10 0 q5 4 10 0 q5 -4 10 0" fill="none" stroke="${i}" stroke-width="2.5"/>${inner}</svg>`;
+  const S = [
+    ['wasch30', 'Waschen 30 °C', tub(`<text x="24" y="28" text-anchor="middle" font-size="12" font-weight="700" fill="${i}">30</text>`), 'Maschinenwäsche bei höchstens 30 °C. Spart Energie und schont die Farben.'],
+    ['schon', 'Schonwaschgang', tub(`<text x="24" y="28" text-anchor="middle" font-size="12" font-weight="700" fill="${i}">40</text>`) .replace('</svg>', `<path d="M10 38 H38" stroke="${i}" stroke-width="2.5"/></svg>`), 'Ein Strich unter dem Bottich: Schonwaschgang (z. B. 40 °C), weniger Schleudern.'],
+    ['hand', 'Handwäsche', tub(`<path d="M18 30 q2 -12 6 -10 q4 2 6 10" fill="none" stroke="${i}" stroke-width="2.5"/>`), 'Nur von Hand waschen, lauwarm, nicht wringen.'],
+    ['nwasch', 'Nicht waschen', tub(`<path d="M8 6 L40 36 M40 6 L8 36" stroke="${i}" stroke-width="2.5"/>`), 'Nicht waschen – z. B. chemische Reinigung.'],
+    ['bleich', 'Nicht bleichen', `<svg viewBox="0 0 48 40" style="width:3rem;height:2.6rem"><path d="M24 4 L44 36 H4 Z" fill="none" stroke="${i}" stroke-width="2.5"/><path d="M8 6 L40 36 M40 6 L8 36" stroke="${i}" stroke-width="2.5"/></svg>`, 'Dreieck durchgestrichen: keine Bleichmittel verwenden.'],
+    ['trockner', 'Nicht in den Trockner', `<svg viewBox="0 0 48 40" style="width:3rem;height:2.6rem"><rect x="6" y="4" width="36" height="32" fill="none" stroke="${i}" stroke-width="2.5"/><circle cx="24" cy="20" r="11" fill="none" stroke="${i}" stroke-width="2.5"/><path d="M6 4 L42 36 M42 4 L6 36" stroke="${i}" stroke-width="2.5"/></svg>`, 'Quadrat mit Kreis = Trockner. Durchgestrichen: nicht in den Trockner – lufttrocknen!'],
+    ['buegel', 'Bügeln, mittlere Hitze', `<svg viewBox="0 0 48 40" style="width:3rem;height:2.6rem"><path d="M6 32 H42 L38 14 Q30 8 18 10 L10 22 Z" fill="none" stroke="${i}" stroke-width="2.5"/><circle cx="20" cy="24" r="2" fill="${i}"/><circle cx="28" cy="24" r="2" fill="${i}"/></svg>`, 'Bügeleisen mit zwei Punkten: mittlere Temperatur (ca. 150 °C), z. B. Wolle, Polyester. Ein Punkt = niedrig, drei = hoch.'],
+    ['reinigung', 'Chemische Reinigung', `<svg viewBox="0 0 48 40" style="width:3rem;height:2.6rem"><circle cx="24" cy="20" r="15" fill="none" stroke="${i}" stroke-width="2.5"/><text x="24" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="${i}">P</text></svg>`, 'Kreis: professionelle (chemische) Reinigung. Der Buchstabe zeigt das Lösungsmittel.']
+  ];
+  $('#ps').innerHTML = S.map(([k, t, svg], n) => `<button class="ex-tile" data-k="${n}" aria-pressed="false" style="align-items:center;text-align:center">${svg}<b style="font-size:.8rem">${t}</b></button>`).join('');
+  $('#ps').addEventListener('click', e => { const b = e.target.closest('[data-k]'); if (!b) return; $$('#ps .ex-tile').forEach(x => x.setAttribute('aria-pressed', x === b)); const s = S[+b.dataset.k]; $('#ps-info').innerHTML = `<h4>${s[1]}</h4><p>${s[3]}</p>`; });
+})();
+sorter($('#sort'), [{id: 'w', name: 'Wiederverwendung'}, {id: 'u', name: 'Upcycling'}, {id: 'd', name: 'Downcycling'}], [
+  {t: 'Pulli an die kleine Schwester weitergeben', c: 'w'}, {t: 'Kleid auf dem Flohmarkt verkaufen', c: 'w'}, {t: 'Kleidertauschparty', c: 'w'},
+  {t: 'aus alter Jeans eine Tasche nähen', c: 'u'}, {t: 'aus T-Shirts einen Teppich flechten', c: 'u'}, {t: 'Hemd zum Kissenbezug umnähen', c: 'u'},
+  {t: 'alte Textilien zu Putzlappen', c: 'd'}, {t: 'Fasern zu Dämmstoff verarbeiten', c: 'd'}
+]);
+(() => {
+  const I = {Jeans: ['Tasche oder Rucksack', 'Federmäppchen', 'kurze Hose (Shorts)', 'Topflappen aus Jeansflicken'], 'T-Shirt': ['Einkaufsbeutel ohne Nähen (unten verknoten)', 'geflochtenes Armband', 'Kissenbezug', 'Putzlappen'], Hemd: ['Schürze', 'Kissenbezug', 'Kinderkleid', 'Brotbeutel'], Pulli: ['Mütze aus dem Ärmel', 'Beinstulpen', 'Hundebett', 'Wärmflaschenbezug'], Socken: ['Handpuppe', 'Wärmekissen mit Kirschkernen', 'Staubwedel'], Bettwäsche: ['Turnbeutel', 'Gemüsenetz', 'Patchwork-Decke']};
+  $('#up-pick').innerHTML = Object.keys(I).map(k => `<button class="btn" data-k="${k}">${k}</button>`).join('');
+  $('#up-pick').onclick = e => { const b = e.target.closest('[data-k]'); if (!b) return; $$('#up-pick .btn').forEach(x => x.setAttribute('aria-pressed', x === b)); $('#up-out').innerHTML = `<p style="margin:0"><b>Ideen für ${b.dataset.k}:</b></p><ul class="facts" style="margin-top:.4rem">${I[b.dataset.k].map(x => `<li>${x}</li>`).join('')}</ul>`; };
+  $('#up-out').innerHTML = '<span class="muted">Wähle ein Kleidungsstück.</span>';
+})();
+matcher($('#match'), [['Bottich mit 30', 'waschen bei höchstens 30 °C'], ['Bottich mit Hand', 'nur Handwäsche'], ['Dreieck durchgestrichen', 'nicht bleichen'], ['Quadrat mit Kreis durchgestrichen', 'nicht im Trockner trocknen'], ['Bügeleisen mit zwei Punkten', 'mittlere Bügeltemperatur'], ['Kreis', 'chemische Reinigung']]);
+mcQuiz($('#quiz'), [
+  {q: 'Was ist am nachhaltigsten?', a: ['weniger Kleidung kaufen', 'viel Bio-Kleidung kaufen', 'häufig waschen', 'alles in den Container'], ok: 0},
+  {q: 'Was ist Upcycling?', a: ['aus Altem etwas Hochwertigeres machen', 'Kleidung wegwerfen', 'Putzlappen herstellen', 'neu kaufen'], ok: 0},
+  {q: 'Was spart beim Trocknen Energie?', a: ['Lufttrocknen', 'Trockner', 'Bügeln', 'Föhn'], ok: 0},
+  {q: 'Was solltest du vor dem Einwurf in den Altkleidercontainer tun?', a: ['prüfen, wem der Container gehört', 'nichts', 'Kleidung zerschneiden', 'nass einwerfen'], ok: 0}
+]);
+</script>

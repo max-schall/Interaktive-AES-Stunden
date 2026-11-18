@@ -1,0 +1,165 @@
+<!--
+title: Gentechnisch veränderte Lebensmittel
+short: Gentechnik
+time: 1 Unterrichtsstunde
+book: S. 236–237
+q: Wie funktioniert Gentechnik – und wie erkenne ich gentechnisch veränderte Lebensmittel?
+facts: Gentechnik: gezielte Veränderung des Erbguts, auch über Artgrenzen hinweg | Grüne Gentechnik: Ziele wie Resistenz, Klimaanpassung, Nährstoffqualität | CRISPR/Cas9: die Gen-Schere | EU-Kennzeichnung ab 0,9 % GVO-Anteil, „Ohne Gentechnik“-Siegel, Bio ist gentechnikfrei
+inter: So funktioniert Gentechnik · Ziele und Bedenken · Kennzeichnung prüfen · Muss das gekennzeichnet werden?
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Gentechnisch veränderte Lebensmittel</h1>
+      <p class="lead">Ein geklontes Schaf oder ein Baby nach Maß? Gentechnische Verfahren werden in der Biotechnologie und Medizin z. B. zur Erforschung von Krankheiten genutzt. Auch in der Landwirtschaft wird für die Produktion von Lebensmitteln die „grüne“ Gentechnik eingesetzt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie funktioniert Gentechnik – und wie erkenne ich gentechnisch veränderte Lebensmittel?</p></div>
+      <div class="controls"><button class="btn primary" data-go="verfahren">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="verfahren" data-label="Verfahren" data-yr="Einstieg" data-title="Wie funktioniert Gentechnik?" data-sub="Vom Spender zur gv Pflanze">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Wie funktioniert Gentechnik?</h2>
+      <p class="lead"><b>Gentechnik</b> beschäftigt sich mit der gezielten Veränderung des Erbguts von Lebewesen. Bestimmte Gene, die Bestandteile der <b>DNA</b> sind, werden von einem Lebewesen auf ein anderes übertragen, um dort erwünschte Eigenschaften zu erzielen.</p>
+      <p>Gentechnik kommt – anders als die klassische Züchtung – genauer an ein bestimmtes Ziel und ist auch <b>über Artgrenzen hinweg</b> möglich: So können Erbinformationen aus einem Bakterium z. B. in die Zellen von Pflanzen eingekreuzt werden.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Schritt für Schritt</h3></div>
+      <svg id="sv" class="svgfig" viewBox="0 0 520 250" role="img" aria-label="Schema: Gen aus Spender wird mit einem Taxi in eine Pflanzenzelle übertragen"></svg>
+      <p class="status" id="st-txt"></p>
+      <div id="stp"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="ziele" data-label="Ziele und Bedenken" data-yr="Erarbeitung" data-title="Ziele und Bedenken" data-sub="Grüne Gentechnik abwägen">
+  <div class="section-head"><p class="eyebrow">Station 2 · Erarbeitung</p><h2>Ziele und Bedenken der grünen Gentechnik</h2>
+    <p class="lead">Angebaut werden vor allem gv <b>Sojabohnen und Mais</b> (meist als Futtermittel), <b>Baumwolle</b> und <b>Raps</b>. Weltweit sind derzeit vier gentechnisch veränderte Tiere als Lebensmittel zugelassen, z. B. „Turbo-Lachse“ in den USA und Kanada – nicht aber in der EU. Sortiere: Ziel oder Bedenken?</p></div>
+  <div id="sort"></div>
+</section>
+
+<section class="station" id="schere" data-label="Gen-Schere" data-yr="Vertiefung" data-title="CRISPR/Cas9" data-sub="Die Gen-Schere">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Vertiefung</p>
+      <h2>CRISPR/Cas9 – die Gen-Schere</h2>
+      <p class="lead">Mit dieser neueren Methode (<b>Gen-Editing</b>) können mithilfe einer sogenannten <b>Gen-Schere</b> einzelne DNA-Abschnitte verändert, ausgeschaltet oder durch andere Genabschnitte ersetzt werden – ohne dass (art-)fremdes Erbgut eingeschleust wird.</p>
+      <p><b>Cas9</b> ist ein Enzym, das aus einem Bakterium gewonnen wird. Es erkennt einen bestimmten Abschnitt auf der DNA und schneidet dort.</p>
+      <p><b>Vorteile:</b> einfache, wirkungsvolle Anwendung, kostengünstig, vielfältige Anwendungsmöglichkeiten.</p>
+      <p class="note">In der EU gelten mit Gen-Editing veränderte Pflanzen bislang rechtlich als gentechnisch verändert; über eine Lockerung wird politisch gestritten.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Schneide die markierte Stelle heraus</h3></div>
+      <div id="dna" class="dna" style="display:flex;flex-wrap:wrap;gap:.25rem;font-family:var(--f-mono);font-size:1.1rem"></div>
+      <p class="status" id="dna-st">Tippe auf das Basenpaar mit dem Fehler (rot umrandet ist der Suchbereich).</p>
+      <div class="controls"><button class="btn" id="dna-r">Neu</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="kennzeichnung" data-label="Kennzeichnung" data-yr="Anwendung" data-title="Steht Gentechnik drauf?" data-sub="Kennzeichnung prüfen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Anwendung</p>
+      <h2>Steht Gentechnik drauf?</h2>
+      <p class="lead">Lebensmittel mit einem Anteil an gentechnisch veränderten Organismen (<b>GVO</b>) über <b>0,9 %</b> müssen gekennzeichnet sein, z. B. „Stärke aus gentechnisch verändertem Mais“. Darunter muss nicht gekennzeichnet werden, wenn die Verunreinigung zufällig oder technisch unvermeidbar ist.</p>
+      <p>Tierische Produkte von Tieren, die mit gv Futter gefüttert wurden, müssen <b>nicht</b> gekennzeichnet werden. Seit 2008 gibt es das <b>„Ohne Gentechnik“-Siegel</b>. Das EU-Bio-Siegel und Siegel der Anbauverbände (Demeter, Bioland, Naturland) garantieren Gentechnikfreiheit.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Muss gekennzeichnet werden?</h3></div>
+      <div id="tf-k"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Gentechnik</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Gentechnisch veränderte Lebensmittel</h3><span>AES · Klasse 10</span></div>
+      <ol>
+        <li data-step>Mit <b>Gentechnik</b> werden gezielt Veränderungen im Erbgut (DNA) vorgenommen – auch über Artgrenzen hinweg. Die <b>Gen-Schere CRISPR/Cas9</b> verändert einzelne DNA-Abschnitte.</li>
+        <li data-step><b>Ziele</b> der grünen Gentechnik: Resistenz gegen Schädlinge und Krankheiten, Anpassung an den Klimawandel, bessere Nährstoffqualität. <b>Bedenken</b>: ökologische und gesundheitliche Risiken, ethische Gründe.</li>
+        <li data-step>Die <b>Kennzeichnung</b> ist gesetzlich geregelt: über 0,9 % GVO-Anteil kennzeichnungspflichtig; Produkte von Tieren mit gv Futter nicht.</li>
+        <li data-step>In Deutschland werden gv Lebensmittel kritisch gesehen. Wer sie meiden will, achtet auf das „Ohne Gentechnik“- oder ein Bio-Siegel.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Ausblick</span><p>In der nächsten Stunde diskutiert ihr in einer Dilemma-Diskussion: Kann Gentechnik den Welthunger bekämpfen?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Fachbegriffe</h2></div>
+  <div id="match"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+(() => {
+  const sv = $('#sv');
+  const S = [
+    'Ein Spender-Lebewesen (z. B. ein Bakterium) hat eine erwünschte Eigenschaft, etwa Resistenz gegen einen Schädling.',
+    'Das Gen für diese Eigenschaft wird aus der DNA des Spenders entnommen.',
+    'Ein „Taxi“ – meist ein Virus oder ein Bakterium – schleust das Gen in die DNA einer Pflanzenzelle (Empfänger) ein.',
+    'Aus dieser Zellkultur wird eine neue, gentechnisch veränderte (gv) Pflanze gezüchtet – mit der neuen Eigenschaft.'
+  ];
+  const draw = k => {
+    sv.innerHTML = '';
+    const box = (x, l, c, on) => { svgEl('rect', {x, y: 60, width: 110, height: 110, rx: 14, fill: on ? alpha(col(c), .18) : C.surface2, stroke: on ? col(c) : C.line, 'stroke-width': 2}, sv); const t = svgEl('text', {x: x + 55, y: 195, 'text-anchor': 'middle', class: 'lbl', style: 'font-size:13px'}, sv); t.textContent = l; };
+    box(10, 'Spender', 'c3', k >= 0); box(205, 'Taxi', 'c5', k >= 2); box(400, 'gv Pflanze', 'c2', k >= 3);
+    for (let i = 0; i < 6; i++) svgEl('rect', {x: 25 + i * 14, y: 105, width: 10, height: 20, rx: 2, fill: i === 3 ? col('c1') : col('c3'), opacity: k >= 1 && i === 3 ? .25 : 1}, sv);
+    if (k >= 1) svgEl('rect', {x: k >= 2 ? 255 : 150, y: k >= 2 ? 105 : 80, width: 10, height: 20, rx: 2, fill: col('c1')}, sv);
+    if (k >= 2) { svgEl('circle', {cx: 260, cy: 115, r: 34, fill: 'none', stroke: col('c5'), 'stroke-width': 2, 'stroke-dasharray': '4 4'}, sv); }
+    if (k >= 3) { svgEl('path', {d: 'M455 160V95M455 120c-15-10-30-5-30 8 15 5 25 0 30-8zM455 105c15-12 32-6 32 6-15 6-27 2-32-6z', fill: 'none', stroke: col('c2'), 'stroke-width': 3}, sv); svgEl('rect', {x: 470, y: 140, width: 10, height: 20, rx: 2, fill: col('c1')}, sv); }
+    [[125, 115, 200, 115, 1], [320, 115, 395, 115, 2]].forEach(([x1, y1, x2, y2, m]) => { if (k >= m) { svgEl('line', {x1, y1, x2: x2 - 8, y2, stroke: C.ink2, 'stroke-width': 2.5}, sv); svgEl('path', {d: `M${x2} ${y2} l-10 -6 v12z`, fill: C.ink2}, sv); } });
+    $('#st-txt').innerHTML = `<b>Schritt ${k + 1}:</b> ${S[k]}`;
+  };
+  stepper($('#stp'), S.length, draw);
+})();
+sorter($('#sort'), [{id: 'z', name: 'Ziel'}, {id: 'b', name: 'Bedenken'}], [
+  {t: 'Resistenz gegen Insektenschädlinge, z. B. Mais gegen den Maiswurzelbohrer', c: 'z'}, {t: 'Resistenz gegen (Pilz-)Krankheiten, z. B. Apfelbäume gegen Feuerbrand', c: 'z'}, {t: 'dürreresistenter Mais als Anpassung an den Klimawandel', c: 'z'}, {t: '„Goldener Reis“ mit Carotinoiden gegen Vitamin-A-Mangel', c: 'z'}, {t: 'Toleranz gegenüber Unkrautvernichtungsmitteln', c: 'z'},
+  {t: 'ungehinderte Ausbreitung von gv Saatgut', c: 'b'}, {t: 'unbeabsichtigte Kreuzungen mit Wildpflanzen', c: 'b'}, {t: 'fehlende Langzeitforschung zu Gesundheitsrisiken', c: 'b'}, {t: 'ethisch-moralische Gründe', c: 'b'}
+]);
+(() => {
+  const B = 'ATGCGTACCTGA', root = $('#dna');
+  let bad;
+  const build = () => {
+    bad = 3 + Math.floor(Math.random() * 6);
+    root.innerHTML = B.split('').map((b, i) => `<button class="btn" data-i="${i}" style="min-width:2.4rem;padding:.4rem;${i >= 2 && i <= 9 ? 'outline:2px solid ' + col('c1') + ';outline-offset:-2px' : ''}">${i === bad ? ({A: 'C', T: 'G', G: 'A', C: 'T'})[b] : b}</button>`).join('');
+    $('#dna-st').textContent = 'Cas9 sucht im markierten Bereich. Tippe auf die Base, die nicht zum Bauplan ATGCGTACCTGA passt.';
+  };
+  root.addEventListener('click', e => {
+    const b = e.target.closest('[data-i]'); if (!b) return;
+    const i = +b.dataset.i;
+    if (i === bad) { b.textContent = B[i]; b.classList.add('ok'); $('#dna-st').innerHTML = '<b class="good">Geschnitten und ersetzt!</b> So arbeitet die Gen-Schere: gezielt an einer Stelle, ohne fremdes Erbgut.'; }
+    else { b.classList.add('err'); setTimeout(() => b.classList.remove('err'), 600); $('#dna-st').textContent = 'Diese Base passt zum Bauplan. Vergleiche noch einmal: ATGCGTACCTGA'; }
+  });
+  $('#dna-r').onclick = build; build();
+})();
+trueFalse($('#tf-k'), [
+  {t: 'Tortilla-Chips mit 5 % Stärke aus gv Mais', ok: true},
+  {t: 'Milch von Kühen, die gv Soja gefressen haben', ok: false, why: 'Tierische Produkte von Tieren mit gv Futter müssen nicht gekennzeichnet werden.'},
+  {t: 'Sojasoße mit 0,3 % zufälliger gv Verunreinigung', ok: false, why: 'Unter 0,9 % und zufällig bzw. technisch unvermeidbar.'},
+  {t: 'Rapsöl aus gv Raps', ok: true},
+  {t: 'Vitamine, die mithilfe von gv Bakterien hergestellt wurden', ok: false, why: 'Zusatzstoffe, Vitamine und Aromen, die mithilfe von gv Mikroorganismen hergestellt wurden, müssen nicht gekennzeichnet werden.'}
+], {labels: ['Kennzeichnung', 'keine Kennzeichnung']});
+matcher($('#match'), [['Gentechnik', 'gezielte Veränderung des Erbguts'], ['DNA', 'Träger der Erbinformation'], ['GVO', 'gentechnisch veränderter Organismus'], ['CRISPR/Cas9', 'Gen-Schere'], ['grüne Gentechnik', 'Gentechnik in der Landwirtschaft'], ['„Ohne Gentechnik“-Siegel', 'freiwillige Kennzeichnung gentechnikfreier Produkte']]);
+mcQuiz($('#quiz'), [
+  {q: 'Ab welchem GVO-Anteil muss ein Lebensmittel gekennzeichnet werden?', a: ['über 0,9 %', 'über 10 %', 'über 50 %', 'nie'], ok: 0},
+  {q: 'Was unterscheidet Gentechnik von klassischer Züchtung?', a: ['Sie ist zielgenauer und auch über Artgrenzen möglich.', 'Sie ist langsamer.', 'Sie funktioniert nur bei Tieren.', 'Es gibt keinen Unterschied.'], ok: 0},
+  {q: 'Welche Pflanzen werden vor allem gentechnisch verändert angebaut?', a: ['Soja und Mais', 'Kartoffeln und Karotten', 'Äpfel und Birnen', 'Weizen und Roggen'], ok: 0},
+  {q: 'Welches Siegel garantiert Gentechnikfreiheit?', a: ['EU-Bio-Siegel', 'Nutri-Score', 'CE-Zeichen', 'Pfandlogo'], ok: 0},
+  {q: 'Was ist ein „Taxi“ in der Gentechnik?', a: ['ein Virus oder Bakterium, das das Gen einschleust', 'ein Lieferwagen', 'ein Enzym zum Schneiden', 'eine Pflanze'], ok: 0},
+  {q: 'Wie viele Verbrauchende in Deutschland lehnen gv Lebensmittel ab (laut Buch)?', a: ['etwa drei Viertel', 'etwa 10 %', 'niemand', 'alle'], ok: 0}
+]);
+</script>

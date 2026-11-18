@@ -1,0 +1,154 @@
+<!--
+title: Wozu brauchen wir Freizeit?
+short: Freizeit
+time: 1 Unterrichtsstunde
+book: S. 204–205
+q: Wie viel Freizeit habe ich – und wie nutze ich sie gut?
+facts: Freizeit: Zeit ohne Arbeit und besondere Verpflichtungen | Funktionen: Gesundheit, Ruhe und Entspannung, soziale Kontakte, Entfaltung | Zeitfresser erkennen, gemeinsam Aufgaben teilen: mehr Freizeit | Ein übervoller Freizeitkalender ist genauso ungesund wie ein stressiger Alltag
+inter: Mein Zeitbudget · Was bringt mir das? · Freizeittyp · Zeitfresser-Check
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wozu brauchen wir Freizeit?</h1>
+      <p class="lead">Ob Verein, Gaming oder Shopping mit anderen: Nach der Schule geht es los – sofern es die Zeit zulässt. Wie viel Freizeit bleibt dir im Alltag? Bist du eher musisch-kreativ oder eine Sportskanone? Liebst du Action oder suchst du Ruhe?</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie viel Freizeit habe ich – und wie nutze ich sie gut?</p></div>
+      <div class="controls"><button class="btn primary" data-go="budget">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="budget" data-label="Zeitbudget" data-yr="Einstieg" data-title="Wie viel Freizeit habe ich?" data-sub="Mein Schultag in Stunden">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Wie viel Freizeit habe ich?</h2>
+      <p class="lead"><b>Freizeit</b> ist die Zeit, in der eine Person nicht arbeiten muss und keine besonderen Verpflichtungen hat. Bei dir ist das die Zeit, in der du nicht zur Schule gehen musst. Du kannst frei darüber verfügen und machen, was dir guttut.</p>
+      <p class="note">Stelle deinen typischen Schultag ein.</p>
+    </div>
+    <div class="vis">
+      <div id="calc"></div>
+      <canvas id="cv-b" class="wide" style="aspect-ratio:3/1" aria-label="Tagesbalken mit Zeitanteilen"></canvas>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="funktionen" data-label="Funktionen" data-yr="Erarbeitung" data-title="Welche Funktion hat Freizeit?" data-sub="Gesundheit, Ruhe, Kontakte">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Welche Funktion hat Freizeit?</h2>
+      <p class="lead">Einem Hobby nachzugehen, macht nicht nur Spaß, sondern hilft auch, soziale Kontakte zu knüpfen. Hobbys fördern <b>emotionale</b> (von Gefühlen bestimmte) und <b>kognitive</b> Fähigkeiten (Wahrnehmen, Lernen, Denken). Sie sind ein guter Ausgleich für Stress und halten geistig, körperlich und sozial gesund.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Was bringt welche Aktivität?</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="typ" data-label="Freizeittyp" data-yr="Reflexion" data-title="Welcher Freizeittyp bin ich?" data-sub="Aktiv oder passiv, allein oder gemeinsam">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Reflexion</p>
+      <h2>Welcher Freizeittyp bin ich?</h2>
+      <p class="lead">Wie eine gelungene Freizeitgestaltung aussieht, ist individuell sehr unterschiedlich. Häufige Aktivitäten von Jugendlichen sind Musik hören, sich mit Leuten treffen, im Internet surfen, Serien schauen, Sport treiben und Zeit mit der Familie verbringen.</p>
+      <p>Wähle deine Lieblingsaktivitäten (beliebig viele).</p>
+    </div>
+    <div class="vis">
+      <div class="chip-row" id="akt" style="margin-bottom:.8rem"></div>
+      <div class="calc-out" id="typ-out"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="zeitfresser" data-label="Zeitfresser" data-yr="Anwendung" data-title="Mehr Freizeit gewinnen" data-sub="Zeitfresser erkennen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Anwendung</p>
+      <h2>Mehr Freizeit gewinnen</h2>
+      <p class="lead">Viele Menschen haben das Gefühl, wenig freie Zeit zu haben. Mit einer strukturierten Tagesplanung ist es möglich, mehr Freizeit zu generieren. Dazu musst du deinen Tagesablauf kennen und nach <b>Zeitfressern</b> suchen.</p>
+      <div class="achtung"><p>Ein übervoller Freizeitkalender wirkt sich genauso negativ auf deine Gesundheit aus wie ein stressiger (Schul-)Alltag.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Was trifft auf dich zu?</h3></div>
+      <div id="chk"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Freizeit</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Wozu brauchen wir Freizeit?</h3><span>AES · Klasse 10</span></div>
+      <ol>
+        <li data-step><b>Freizeit</b> ist die Zeit, in der eine Person nicht arbeiten muss und keine besonderen Verpflichtungen hat.</li>
+        <li data-step>Freizeit dient der Gesundheit, der Ruhe und Entspannung, sozialen Kontakten und der Entfaltung von Fähigkeiten. Sie ist wichtig für den <b>Stressausgleich</b>.</li>
+        <li data-step>Du gestaltest und planst deine Freizeit nach deinen Vorlieben – aktiv oder passiv, allein oder mit anderen.</li>
+        <li data-step>Eine gute Tagesplanung (Zeitfresser streichen, Aufgaben teilen) kann zu mehr Freizeit führen. Keine Seite sollte extrem überwiegen.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Recherche</span><p>Welche Freizeitmöglichkeiten gibt es in eurem Wohnort? Erstellt eine Karte.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Gut für mich?</h2><p class="lead">Welche Freizeitaktivitäten können im Übermaß schädlich sein?</p></div>
+  <ol id="op"></ol>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+(() => {
+  let V = {};
+  const P = [['s', 'Schlaf', 'c3'], ['u', 'Schule', 'c6'], ['h', 'Hausaufgaben, Lernen', 'c5'], ['w', 'Wege', 'c4'], ['e', 'Essen, Körperpflege', 'c2'], ['p', 'Pflichten (Haushalt, Termine)', 'c1']];
+  calc($('#calc'), [{id: 's', l: 'Schlaf', min: 5, max: 11, step: .5, v: 8.5, unit: 'h'}, {id: 'u', l: 'Schule', min: 4, max: 10, step: .5, v: 7, unit: 'h'}, {id: 'h', l: 'Hausaufgaben, Lernen', min: 0, max: 4, step: .5, v: 1.5, unit: 'h'}, {id: 'w', l: 'Wege', min: 0, max: 3, step: .25, v: 1, unit: 'h'}, {id: 'e', l: 'Essen, Körperpflege', min: .5, max: 3, step: .25, v: 2, unit: 'h'}, {id: 'p', l: 'Pflichten (Haushalt, Termine)', min: 0, max: 4, step: .5, v: 1, unit: 'h'}], v => {
+    V = v; const f = 24 - P.reduce((s, [k]) => s + v[k], 0);
+    return `<span class="big">${numDE(Math.max(0, f), 2)} h Freizeit</span><p>${f < 2 ? 'Sehr wenig – wo lässt sich Zeit sparen?' : f > 6 ? 'Viel freie Zeit – wie nutzt du sie?' : 'Ein guter Ausgleich ist möglich.'} Das sind etwa ${numDE(Math.max(0, f) * 5, 0)} Stunden an fünf Schultagen.</p>`;
+  });
+  canvasLoop($('#cv-b'), 'budget', (ctx, w, h) => {
+    let x = 10; const W = w - 20, y = h * .3, H = h * .36;
+    const segs = P.map(([k, l, c]) => [V[k] || 0, l, c]); const f = Math.max(0, 24 - segs.reduce((s, a) => s + a[0], 0)); segs.push([f, 'Freizeit', 'accent']);
+    segs.forEach(([v, l, c]) => { const ww = W * v / 24; if (ww <= 0) return; ctx.fillStyle = col(c); roundRect(ctx, x, y, ww - 2, H, 6); ctx.fill(); if (ww > 46) label(ctx, numDE(v, 1) + ' h', x + ww / 2, y + H / 2, {size: 11, color: '#fff'}); if (l === 'Freizeit') label(ctx, 'Freizeit', x + ww / 2, y - 12, {size: 12, color: C.accent}); x += ww; });
+    [0, 6, 12, 18, 24].forEach(t => label(ctx, t + ' h', 10 + W * t / 24, h * .86, {size: 10, color: C.ink2, weight: 400}));
+  });
+})();
+sorter($('#sort'), [{id: 'g', name: 'Gesundheit'}, {id: 'r', name: 'Ruhe, Entspannung'}, {id: 's', name: 'soziale Kontakte'}], [
+  {t: 'Fußball im Verein', c: 'g'}, {t: 'Radfahren', c: 'g'}, {t: 'Schwimmen', c: 'g'}, {t: 'Yoga', c: 'r'}, {t: 'Musik hören', c: 'r'}, {t: 'ein Buch lesen', c: 'r'}, {t: 'Freunde treffen', c: 's'}, {t: 'Spieleabend mit der Familie', c: 's'}, {t: 'in der Theater-AG spielen', c: 's'}
+]);
+(() => {
+  const A = [['Sport treiben', 'aktiv', 'gemeinsam'], ['Musik machen', 'kreativ', 'allein'], ['Musik hören', 'passiv', 'allein'], ['Serien schauen', 'passiv', 'allein'], ['Gaming', 'passiv', 'gemeinsam'], ['Freunde treffen', 'aktiv', 'gemeinsam'], ['Zeichnen, Nähen, Basteln', 'kreativ', 'allein'], ['Lesen', 'passiv', 'allein'], ['Wandern, draußen sein', 'aktiv', 'gemeinsam'], ['Kochen und Backen', 'kreativ', 'gemeinsam'], ['Ehrenamt, Jugendgruppe', 'aktiv', 'gemeinsam'], ['ausruhen, schlafen', 'passiv', 'allein']];
+  const sel = new Set();
+  $('#akt').innerHTML = A.map(([t], k) => `<button class="btn" data-k="${k}" aria-pressed="false">${t}</button>`).join('');
+  const upd = () => {
+    if (!sel.size) { $('#typ-out').innerHTML = '<span class="muted">Wähle Aktivitäten aus.</span>'; return; }
+    const c = {aktiv: 0, passiv: 0, kreativ: 0, allein: 0, gemeinsam: 0}; sel.forEach(k => { c[A[k][1]]++; c[A[k][2]]++; });
+    const top = ['aktiv', 'kreativ', 'passiv'].reduce((a, b) => c[b] > c[a] ? b : a);
+    const T = {aktiv: ['Die Sportskanone', 'Du bist gern in Bewegung – gut für Körper und Stressabbau. Plane auch Ruhephasen ein.'], kreativ: ['Der Kreativkopf', 'Du gestaltest gern selbst – dabei entdeckst du Talente, die auch für die Berufswahl wichtig sein können.'], passiv: ['Der Ruhepol', 'Du entspannst gern. Achte darauf, dass auch Bewegung und Treffen mit anderen Platz haben.']};
+    $('#typ-out').innerHTML = `<span class="big">${T[top][0]}</span><p>${T[top][1]} ${c.gemeinsam >= c.allein ? 'Du bist gern mit anderen zusammen.' : 'Du bist auch gern für dich allein.'}</p>`;
+  };
+  $('#akt').onclick = e => { const b = e.target.closest('[data-k]'); if (!b) return; const k = +b.dataset.k; sel.has(k) ? sel.delete(k) : sel.add(k); b.setAttribute('aria-pressed', sel.has(k)); upd(); };
+  upd();
+})();
+checks($('#chk'), ['Ich trödle oft bei den Hausaufgaben.', 'Ich schiebe Aufgaben vor mir her, bis sie sich stapeln.', 'Ich scrolle länger am Handy, als ich wollte.', 'Ich habe keine Wochenplanung mit To-dos und Terminen.', 'Ich lerne immer allein, nie in einer Lerngruppe.', 'Im Haushalt bleibt viel an einer Person hängen.'], {eval: (n, t) => n === 0 ? 'Super organisiert!' : `${n} Zeitfresser gefunden. Tipp: Aufgaben zügig erledigen, eine Wochenplanung führen, gemeinsam lernen und Haushaltsaufgaben fair verteilen.`});
+opinion($('#op'), [
+  {t: 'Täglich mehrere Stunden Computerspiele', why: 'In Maßen kann Gaming entspannen und verbinden. Im Übermaß drohen Bewegungsmangel, Schlafmangel und im schlimmsten Fall Sucht.'},
+  {t: 'Jeden Tag ein anderer Termin: Verein, Musikschule, Nachhilfe', why: 'Freizeitstress: Ein übervoller Kalender lässt keine Zeit zum Abschalten.'},
+  {t: 'Social Media bis spät in die Nacht', why: 'Schlaf ist wichtig für Gesundheit und Lernen; ständige Vergleiche können belasten.'},
+  {t: 'Einmal pro Woche einfach nichts tun', why: 'Ruhepausen sind wichtig für die Erholung.'}
+], {labels: ['unbedenklich', 'schädlich']});
+mcQuiz($('#quiz'), [
+  {q: 'Was ist Freizeit?', a: ['Zeit ohne Arbeit und besondere Verpflichtungen', 'Zeit in der Schule', 'Zeit für Hausaufgaben', 'nur das Wochenende'], ok: 0},
+  {q: 'Was bedeutet kognitiv?', a: ['Wahrnehmen, Lernen, Denken betreffend', 'von Gefühlen bestimmt', 'körperlich', 'sportlich'], ok: 0},
+  {q: 'Wie gewinnst du mehr Freizeit?', a: ['Zeitfresser streichen und Aufgaben teilen', 'mehr Termine machen', 'weniger schlafen', 'Hausaufgaben aufschieben'], ok: 0},
+  {q: 'Was ist eine Funktion von Freizeit?', a: ['Stressausgleich', 'Geld verdienen', 'Prüfungen schreiben', 'Pflichten erfüllen'], ok: 0}
+]);
+</script>

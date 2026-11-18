@@ -1,0 +1,158 @@
+<!--
+title: Regional, saisonal und bio-logisch!
+short: Regional & saisonal
+time: 1–2 Unterrichtsstunden
+book: S. 80–81 und Saisonkalender S. 293–295
+q: Warum ist die Tomate im Juli klimafreundlicher als im Januar?
+facts: Regionale Produkte: kurze Wege, frisch, reif geerntet, Arbeitsplätze in der Region | Saisonal: Freilandware statt beheiztes Gewächshaus | Bio-Lebensmittel erkennt man am EU-Bio-Siegel; Anbauverbände mit strengeren Regeln | „Regional“ ist nicht geschützt – genau hinschauen
+inter: Tomaten-Vergleich (CO₂ je kg) · Interaktiver Saisonkalender · Siegel-Kunde · Regional, saisonal, bio – sortieren
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Regional, saisonal und bio-logisch!</h1>
+      <p class="lead">Südafrikanische Weintrauben zu Ostern, marokkanische Tomaten und Erdbeeren aus Israel zu Weihnachten? Obst und Gemüse mit langem Weg gibt es das ganze Jahr im Supermarkt. Na und?</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Warum ist die Tomate im Juli klimafreundlicher als im Januar?</p></div>
+      <div class="controls"><button class="btn primary" data-go="regional">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="regional" data-label="Regional" data-yr="Erarbeitung" data-title="Regional ist genial" data-sub="Kurze Wege, frische Ware">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Regional ist genial</h2>
+      <p class="lead">Immer mehr Menschen wollen die Herkunft ihrer Lebensmittel kennen. Produkte aus der Region sind wieder im Trend.</p>
+      <ul class="facts">
+        <li>Regionale Ware wird <b>reif geerntet</b>, ist frischer und aromatischer.</li>
+        <li><b>Kurze Transportwege</b> schonen das Klima; Importware reist oft per Schiff, Lkw oder sogar Flugzeug.</li>
+        <li>Importware aus trockenen Regionen verbraucht beim Anbau oft <b>viel Wasser</b>.</li>
+        <li>Der Kauf regionaler Produkte sichert <b>Arbeitsplätze</b> in der Region.</li>
+      </ul>
+      <div class="achtung"><p>Die Angabe „regional“ ist gesetzlich <b>nicht geschützt</b>. Regionalinitiativen haben eigene Zeichen mit sehr unterschiedlichen Kriterien – genau prüfen, wofür „regional“ steht.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>CO₂-Ausstoß Tomatenanbau (g pro kg)</h3></div>
+      <div id="bars"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="saison" data-label="Saisonkalender" data-yr="Anwendung" data-title="Die Saison beachten" data-sub="Was wächst wann?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Anwendung</p>
+      <h2>Die Saison beachten</h2>
+      <p class="lead">Obst und Gemüse wachsen von Natur aus zu bestimmten Zeiten im Jahr und können dann reif in großen Mengen geerntet werden. Erdbeeren haben bei uns z. B. von Ende Mai bis Ende August Saison.</p>
+      <p>Freilandware verursacht beim Anbau deutlich weniger klimaschädliche Gase als Produkte aus beheizten Gewächshäusern. <b>Lagerware</b> wie Äpfel, Kartoffeln oder Kohl gibt es auch im Winter aus der Region.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Saisonkalender (vereinfacht)</h3></div>
+      <div class="slider"><label for="mo">Monat <output id="mo-o"></output></label><input type="range" id="mo" min="0" max="11" value="6"></div>
+      <div id="sk"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="bio" data-label="Bio-Siegel" data-yr="Erarbeitung" data-title="Auf das Siegel kommt es an" data-sub="Bio erkennen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Erarbeitung</p>
+      <h2>Auf das Siegel kommt es an</h2>
+      <p class="lead">Ökologisch erzeugte Lebensmittel heißen auch <b>Bio-Lebensmittel</b>. „Bio“ und „Öko“ sind geschützt – sie müssen kontrolliert werden. Begriffe wie „naturnah“ oder „aus kontrolliertem Anbau“ klingen täuschend echt, sind aber nicht geschützt.</p>
+      <ul class="facts">
+        <li>Bio-Produkte müssen zu <b>mindestens 95 %</b> aus ökologischen Zutaten bestehen.</li>
+        <li>Zusatzstoffe sind nur begrenzt zugelassen.</li>
+        <li><b>Regional + bio + saisonal</b> ist die beste Kombination.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Siegel-Kunde</h3></div>
+      <div id="ex-s"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="einkauf" data-label="Einkaufen" data-yr="Übung" data-title="Klug einkaufen" data-sub="Was passt am besten?">
+  <div class="section-head"><p class="eyebrow">Station 4 · Übung</p><h2>Klug einkaufen im Mai</h2><p class="lead">Es ist Mitte Mai, du kaufst für einen Obstsalat und ein Gemüsegericht ein. Welche Wahl ist die nachhaltigste?</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Regional, saisonal, bio</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Regional, saisonal und bio</h3><span>AES · Klasse 7</span></div>
+      <ol>
+        <li data-step><b>Regional</b>: kurze Transportwege, reif geerntet, frischer, sichert Arbeitsplätze. Aber: „regional“ ist nicht geschützt.</li>
+        <li data-step><b>Saisonal</b>: Obst und Gemüse zur natürlichen Erntezeit aus dem Freiland verursachen viel weniger CO₂ als Ware aus beheizten Gewächshäusern (Tomate: ca. 35–85 g statt über 9000 g CO₂ pro kg).</li>
+        <li data-step>Der <b>Saisonkalender</b> zeigt, wann es welches Obst und Gemüse frisch bei uns gibt.</li>
+        <li data-step><b>Bio-Lebensmittel</b> tragen das EU-Bio-Siegel. Anbauverbände wie Demeter, Bioland und Naturland haben noch strengere Regeln.</li>
+        <li data-step>Am besten für eine nachhaltige Ernährung: <b>regional, saisonal und ökologisch</b> erzeugtes Obst und Gemüse.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Recherche</span><p>Sucht im Saisonkalender (Buch S. 293) Obst und Gemüse, das es jetzt gerade frisch bei uns gibt, und plant daraus ein Gericht.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Saison-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+bars($('#bars'), [{l: 'konventionell, beheiztes Treibhaus', v: 9300, c: 'c1'}, {l: 'ökologisch, beheiztes Treibhaus', v: 9200, c: 'c1'}, {l: 'Freiland Spanien (mit Transport)', v: 600, c: 'c5'}, {l: 'konventionell, Freiland, regional, saisonal', v: 85, c: 'c2'}, {l: 'ökologisch, Freiland, regional, saisonal', v: 35, c: 'c2'}], {unit: 'g', dec: 0, note: 'Werte nach Buch S. 80. Selbst Bio-Tomaten aus dem beheizten Gewächshaus sind schlechter als konventionelle Freilandtomaten!'});
+
+(() => {
+  const M = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+  // [Name, Freiland-Monate (0–11), Lager-Monate]
+  const P = [['Äpfel', [7, 8, 9, 10], [0, 1, 2, 3, 11]], ['Birnen', [7, 8, 9], [10, 11]], ['Erdbeeren', [4, 5, 6, 7], []], ['Kirschen', [5, 6, 7], []], ['Himbeeren', [5, 6, 7, 8], []], ['Heidelbeeren', [6, 7, 8], []], ['Pflaumen', [6, 7, 8], []], ['Rhabarber', [3, 4, 5], []], ['Spargel', [3, 4, 5], []], ['Radieschen', [3, 4, 5, 6, 7, 8], []], ['Kopfsalat', [4, 5, 6, 7, 8, 9], []], ['Spinat', [2, 3, 4, 8, 9, 10], []], ['Tomaten', [6, 7, 8, 9], []], ['Gurken', [5, 6, 7, 8], []], ['Zucchini', [5, 6, 7, 8], []], ['Paprika', [6, 7, 8, 9], []], ['Brokkoli', [5, 6, 7, 8, 9], []], ['Bohnen', [6, 7, 8, 9], []], ['Kürbis', [8, 9, 10], [11, 0, 1]], ['Karotten', [5, 6, 7, 8, 9, 10], [11, 0, 1, 2, 3, 4]], ['Kartoffeln', [5, 6, 7, 8, 9], [10, 11, 0, 1, 2, 3, 4]], ['Weißkohl', [6, 7, 8, 9, 10], [11, 0, 1, 2]], ['Rosenkohl', [9, 10, 11, 0, 1], []], ['Grünkohl', [10, 11, 0, 1], []], ['Feldsalat', [9, 10, 11, 0, 1, 2], []], ['Lauch', [6, 7, 8, 9, 10, 11, 0, 1, 2], []]];
+  const upd = () => {
+    const m = +$('#mo').value; $('#mo-o').textContent = M[m];
+    const fr = P.filter(p => p[1].includes(m)).map(p => p[0]), la = P.filter(p => p[2].includes(m)).map(p => p[0]), no = P.filter(p => !p[1].includes(m) && !p[2].includes(m)).map(p => p[0]);
+    const chips = (a, c) => a.map(n => `<span class="tag" style="background:color-mix(in srgb,var(--${c}) 18%,transparent);color:var(--ink);font-size:.8rem;letter-spacing:0;text-transform:none">${n}</span>`).join(' ');
+    $('#sk').innerHTML = `<p style="margin:.3rem 0 .2rem"><b class="good">frisch vom Feld:</b></p><div class="chip-row">${chips(fr, 'good') || '<span class="muted">kaum etwas – Zeit für Lagerware</span>'}</div><p style="margin:.6rem 0 .2rem"><b style="color:var(--warn)">Lagerware aus der Region:</b></p><div class="chip-row">${chips(la, 'warn') || '<span class="muted">–</span>'}</div><p style="margin:.6rem 0 .2rem"><b class="muted">keine Saison (Import oder Gewächshaus):</b></p><div class="chip-row">${chips(no, 'line')}</div>`;
+  };
+  $('#mo').oninput = upd; upd();
+})();
+
+explore($('#ex-s'), [
+  {ico: 'blatt', t: 'EU-Bio-Siegel', d: 'Stilisiertes Blatt aus weißen Sternen auf hellgrünem Grund. Pflicht für alle verpackten Bio-Lebensmittel in der EU. Garantiert einen einheitlichen Mindeststandard: mindestens 95 % Bio-Zutaten, keine Gentechnik, keine chemischen Pestizide.'},
+  {ico: 'schildok', t: 'Deutsches Bio-Siegel', d: 'Sechseckiges Zeichen mit der Aufschrift „Bio“. Freiwillig, gleiche Kriterien wie das EU-Siegel.'},
+  {ico: 'stern', t: 'Anbauverbände', d: 'Demeter, Bioland, Naturland und andere haben eine lange Tradition. Sie haben sich freiwillig zu noch strengeren Regeln für Anbau und Tierhaltung verpflichtet, z. B. ganzer Betrieb bio, weniger Zusatzstoffe.'},
+  {ico: 'haus', t: 'Bio-Zeichen Baden-Württemberg', d: 'Kombiniert Bio-Qualität mit regionaler Herkunft aus Baden-Württemberg.'},
+  {ico: 'etikett', t: 'Qualitätszeichen Baden-Württemberg', d: 'Garantiert Herkunft aus Baden-Württemberg und bestimmte Qualitätskriterien – aber nicht bio.'},
+  {ico: 'info', t: 'Regionalfenster', d: 'Informationsfeld, das angibt, woher die Hauptzutat stammt und wo das Produkt verarbeitet wurde.'}
+], {hint: 'Tippe auf ein Siegel.'});
+
+scenes($('#sc'), [
+  {s: 'Für den Obstsalat brauchst du Beeren.', a: ['Erdbeeren aus der Region (Saisonbeginn)', 'Heidelbeeren aus Chile', 'tiefgekühlte Mangos aus Peru'], ok: 0, why: 'Ab Ende Mai gibt es Erdbeeren aus dem Freiland.'},
+  {s: 'Für das Gemüsegericht willst du ein grünes Gemüse.', a: ['Spargel oder Spinat aus der Region', 'Bohnen aus Kenia per Flugzeug', 'Zucchini aus dem beheizten Gewächshaus'], ok: 0, why: 'Spargel und Spinat haben im Mai Saison.'},
+  {s: 'Es gibt Tomaten aus Marokko, aus dem beheizten Bio-Gewächshaus in Holland und gar keine aus der Region.', a: ['Auf Tomaten verzichten und z. B. Radieschen nehmen', 'Bio aus dem beheizten Gewächshaus – Bio ist immer am besten', 'Die günstigsten kaufen, egal woher'], ok: 0, why: 'Im Mai ist keine Tomatensaison; beheizte Gewächshäuser verursachen sehr viel CO₂.'},
+  {s: 'Die Kartoffeln: aus Ägypten (neue Ernte) oder Lagerkartoffeln aus der Region?', a: ['Lagerkartoffeln aus der Region', 'Frühkartoffeln aus Ägypten', 'Kartoffelpüree-Pulver'], ok: 0}
+], {label: 'Einkauf'});
+trueFalse($('#tf'), [
+  {t: 'Die Angabe „regional“ ist gesetzlich geschützt.', ok: false, why: 'Sie ist nicht geschützt – genau hinschauen.'},
+  {t: 'Bio-Tomaten aus dem beheizten Gewächshaus sind klimafreundlicher als konventionelle Freilandtomaten.', ok: false, why: '9200 g gegenüber 85 g CO₂ pro kg!'},
+  {t: 'Äpfel aus der Region gibt es als Lagerware auch im Winter.', ok: true},
+  {t: 'Das EU-Bio-Siegel zeigt ein Blatt aus Sternen.', ok: true},
+  {t: 'Spargel hat bei uns im Dezember Saison.', ok: false, why: 'April bis Juni.'},
+  {t: 'Anbauverbände wie Demeter haben strengere Regeln als das EU-Bio-Siegel.', ok: true}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Wann haben Erdbeeren bei uns Saison?', a: ['Ende Mai bis Ende August', 'Dezember bis Februar', 'ganzjährig', 'nur im Oktober'], ok: 0},
+  {q: 'Was garantiert das EU-Bio-Siegel?', a: ['mindestens 95 % Bio-Zutaten', 'regionale Herkunft', 'fairen Handel', 'vegane Zutaten'], ok: 0},
+  {q: 'Welche Tomate hat den kleinsten CO₂-Fußabdruck?', a: ['ökologisch, Freiland, regional, saisonal', 'konventionell, beheiztes Treibhaus', 'Bio, beheiztes Treibhaus', 'Freiland Spanien'], ok: 0},
+  {q: 'Welches Gemüse ist im Winter typisch regional?', a: ['Grünkohl', 'Zucchini', 'Tomaten', 'Spargel'], ok: 0},
+  {q: 'Was ist der Vorteil reif geernteter Ware?', a: ['aromatischer und frischer', 'größer', 'billiger in jedem Fall', 'länger haltbar als Konserven'], ok: 0}
+]);
+</script>

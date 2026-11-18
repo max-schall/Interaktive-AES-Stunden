@@ -1,0 +1,151 @@
+<!--
+title: Bist du ausgeglichen? Work-Life-Balance
+short: Work-Life-Balance
+time: 1 Unterrichtsstunde
+book: S. 212–213
+q: Wie bringe ich Schule, Arbeit und Privatleben ins Gleichgewicht?
+facts: Work-Life-Balance: Arbeits- und Privatleben ausgewogen für ein gesundes, glückliches Leben | Einflussfaktoren: Familie und Freunde, Arbeitszeiten, Pendeln, Karrierewunsch, Erwartungen, Betriebsklima, Freizeitstress | Folgen fehlender Balance: Erschöpfung, Leistungsabfall, im schlimmsten Fall Burn-out | Immer wieder ausbalancieren: Ziele, Pausen, Kontakte, Bewegung
+inter: Meine Waage · Zwei Tagesabläufe im Vergleich · Einflussfaktoren · Tipps für die Balance
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Bist du ausgeglichen? Work-Life-Balance</h1>
+      <p class="lead">Strebst du in der Schule gute Noten an und unternimmst viel in der Freizeit? Stehen in deinem Kalender neben Schulterminen auch zahlreiche Freizeittermine, weil Hobbys und Freunde nicht zu kurz kommen sollen?</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie bringe ich Schule, Arbeit und Privatleben ins Gleichgewicht?</p></div>
+      <div class="controls"><button class="btn primary" data-go="waage">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="waage" data-label="Meine Waage" data-yr="Einstieg" data-title="Was bedeutet Work-Life-Balance?" data-sub="Im Gleichgewicht?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Was bedeutet Work-Life-Balance?</h2>
+      <p class="lead">Der Begriff beschreibt, dass <b>Arbeits- und Privatleben ausgewogen</b> sein sollten, um ein glückliches und gesundes Leben zu führen. Wie das optimale Verhältnis aussieht, ist individuell: Manche kommen mit einem 12-Stunden-Tag gut zurecht, andere arbeiten lieber Teilzeit.</p>
+      <p class="note">Wie fühlt sich deine aktuelle Woche an? Stelle die Belastungen und die Kraftquellen ein (0 = gar nicht, 10 = sehr stark).</p>
+    </div>
+    <div class="vis">
+      <canvas id="cv-w" class="wide" aria-label="Waage zwischen Belastungen und Kraftquellen"></canvas>
+      <div class="two">
+        <div id="c-l"></div>
+        <div id="c-r"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="tage" data-label="Mia und Tom" data-yr="Erarbeitung" data-title="Zwei Tagesabläufe" data-sub="Mia und Tom im Vergleich">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Zwei Tagesabläufe im Vergleich</h2>
+      <p class="lead"><b>Mia</b> (34) leitet die Personalabteilung einer großen Krankenkasse. <b>Tom</b> (35) ist kaufmännischer Leiter einer großen Klinik. Beide haben verantwortungsvolle Jobs – aber sehr unterschiedliche Tage.</p>
+      <p>Bewege den Regler durch den Tag.</p>
+    </div>
+    <div class="vis">
+      <canvas id="cv-t" class="wide" aria-label="Tagesablauf von Mia und Tom"></canvas>
+      <div class="slider"><label for="tz">Uhrzeit <output id="tz-o"></output></label><input type="range" id="tz" min="6" max="22" step=".5" value="6.5"></div>
+      <div class="two"><div class="box" id="t-mia"></div><div class="box" id="t-tom"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="faktoren" data-label="Faktoren" data-yr="Vertiefung" data-title="Was beeinflusst die Balance?" data-sub="Kraftquellen und Stolpersteine">
+  <div class="section-head"><p class="eyebrow">Station 3 · Vertiefung</p><h2>Was beeinflusst die Balance?</h2><p class="lead">Für eine gute Work-Life-Balance sind <b>Familie, Erfolg und Selbstverwirklichung, soziale Kontakte</b> und <b>Gesundheit</b> maßgeblich. Viele weitere Faktoren können der Balance im Weg stehen. Sortiere.</p></div>
+  <div id="sort"></div>
+  <div class="achtung" style="margin-top:1rem"><p>Investierst du deine Kraft dauerhaft nur in einen Bereich, gerät die Balance in Schieflage: Leistungsfähigkeit sinkt, Druck, Stress und Erschöpfung wachsen. Im schlimmsten Fall kommt es zum <b>Burn-out</b> – einer körperlichen, emotionalen und geistigen Erschöpfung.</p></div>
+</section>
+
+<section class="station" id="tipps" data-label="Tipps" data-yr="Anwendung" data-title="Immer wieder ausbalancieren" data-sub="Was hilft?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Anwendung</p>
+      <h2>Immer wieder ausbalancieren</h2>
+      <p class="lead">Menschen durchlaufen unterschiedliche Lebensphasen: Erst steht die Karriere im Fokus, dann vielleicht die Familiengründung. Daher sollte das Verhältnis von Arbeitszeit zu Freizeit immer wieder überprüft und angepasst werden.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Mein Balance-Plan</h3></div>
+      <div id="chk"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Work-Life-Balance</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Work-Life-Balance</h3><span>AES · Klasse 10</span></div>
+      <ol>
+        <li data-step><b>Work-Life-Balance</b> beschreibt das Gleichgewicht zwischen Arbeit und Privatleben. Das optimale Verhältnis ist individuell.</li>
+        <li data-step>Wichtige Faktoren: Familie, Erfolg und Selbstverwirklichung, soziale Kontakte, Gesundheit. Hindernisse: lange Arbeitszeiten, Pendeln, Erwartungen, Multitasking, Freizeitstress.</li>
+        <li data-step>Eine unausgeglichene Work-Life-Balance kann im schlimmsten Fall zum <b>Burn-out</b> führen.</li>
+        <li data-step>Regelmäßig reflektieren: erreichbare Ziele setzen, Pausen einplanen, Familie und Freunde treffen, Sport oder kreative Tätigkeiten.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Tagebuch</span><p>Beschreibe deinen gestrigen Tag als Tagebucheintrag und beurteile deine Work-Life-Balance.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Ausgeglichen oder nicht?</h2></div>
+  <div id="sc"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+(() => {
+  let L = {s: 6, t: 5, e: 4}, R = {f: 5, b: 4, r: 4}, ang = 0;
+  calc($('#c-l'), [{id: 's', l: 'Schule, Lernen', min: 0, max: 10, v: 6}, {id: 't', l: 'Termine', min: 0, max: 10, v: 5}, {id: 'e', l: 'Erwartungen, Druck', min: 0, max: 10, v: 4}], v => { L = v; const s = v.s + v.t + v.e; return `<p style="margin:0"><b>Belastung:</b> ${s} Punkte</p>`; });
+  calc($('#c-r'), [{id: 'f', l: 'Freunde, Familie', min: 0, max: 10, v: 5}, {id: 'b', l: 'Bewegung, Hobbys', min: 0, max: 10, v: 4}, {id: 'r', l: 'Ruhe, Schlaf', min: 0, max: 10, v: 4}], v => { R = v; const s = v.f + v.b + v.r; return `<p style="margin:0"><b>Kraftquellen:</b> ${s} Punkte</p>`; });
+  canvasLoop($('#cv-w'), 'waage', (ctx, w, h, t, dt) => {
+    const a = L.s + L.t + L.e, b = R.f + R.b + R.r, target = clamp((a - b) / 30, -1, 1) * .35; ang += (target - ang) * Math.min(1, dt * 4);
+    const cx = w / 2, cy = Math.max(h * .32, 44 * TS), arm = Math.min(w * .36, 170);
+    ctx.fillStyle = C.ink2; ctx.beginPath(); ctx.moveTo(cx - 30, h * .9); ctx.lineTo(cx + 30, h * .9); ctx.lineTo(cx + 4, cy); ctx.lineTo(cx - 4, cy); ctx.fill();
+    const lx = cx - arm * Math.cos(ang), ly = cy + arm * Math.sin(ang), rx = cx + arm * Math.cos(ang), ry = cy - arm * Math.sin(ang);
+    ctx.strokeStyle = C.ink; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(rx, ry); ctx.stroke(); dotAt(ctx, cx, cy, C.ink, 7);
+    [[lx, ly, 'Work', 'c1', a], [rx, ry, 'Life', 'c2', b]].forEach(([x, y, n, c, v]) => { ctx.strokeStyle = C.ink2; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - 34, y + 46); ctx.moveTo(x, y); ctx.lineTo(x + 34, y + 46); ctx.stroke(); ctx.fillStyle = col(c); ctx.beginPath(); ctx.ellipse(x, y + 48, 44, 10, 0, 0, 7); ctx.fill(); label(ctx, `${n} · ${v}`, x, y + 72, {size: 13, weight: 700}); });
+    const d = a - b; label(ctx, Math.abs(d) <= 3 ? 'Im Gleichgewicht' : d > 0 ? 'Zu viel Belastung – Kraftquellen stärken!' : 'Viel Freiraum – gut, solange Pflichten nicht liegen bleiben', cx, 16 * TS, {size: 15, font: DISPLAY, weight: 600, color: Math.abs(d) <= 3 ? C.good : C.accent, maxW: w - 16});
+  });
+})();
+(() => {
+  const MIA = [[6, 'schläft'], [7.5, 'frühstückt und liest in Ruhe die Zeitung'], [8.5, 'ist in einer Besprechung'], [12, 'isst mit einer Kollegin in der Kantine eine warme Mahlzeit'], [13, 'arbeitet im Büro'], [17, 'verlässt pünktlich das Büro'], [18, 'spielt Tennis'], [20, 'isst in Gesellschaft zu Abend'], [22, 'geht schlafen']];
+  const TOM = [[6, 'schläft'], [6.5, 'sitzt am Frühstückstisch – im Stehen'], [7, 'pendelt ins Büro'], [8, 'sitzt vor seinem PC und telefoniert'], [12, 'isst ein belegtes Brötchen am Schreibtisch'], [13, 'Multitasking: Mails, Telefon, Besprechungen'], [18, 'sitzt noch am PC im Büro'], [20, 'sitzt vor dem TV, neben ihm eine Pizzaschachtel und zwei Aktenordner'], [22, 'kann nicht abschalten']];
+  const at = (L, z) => L.filter(([t]) => t <= z).pop()[1];
+  const upd = () => { const z = +$('#tz').value; $('#tz-o').textContent = `${Math.floor(z)}:${z % 1 ? '30' : '00'} Uhr`; $('#t-mia').innerHTML = `<b>Mia</b> ${at(MIA, z)}.`; $('#t-tom').innerHTML = `<b>Tom</b> ${at(TOM, z)}.`; };
+  $('#tz').oninput = upd; upd();
+  const MS = [[6, 7.5, 'c3'], [7.5, 8.5, 'c2'], [8.5, 12, 'c6'], [12, 13, 'c2'], [13, 17, 'c6'], [17, 18, 'c5'], [18, 19.5, 'c2'], [19.5, 22, 'c2']], TS = [[6, 6.5, 'c3'], [6.5, 7, 'c6'], [7, 8, 'c4'], [8, 22, 'c6']];
+  canvasLoop($('#cv-t'), 'tage', (ctx, w, h) => {
+    const x0 = 50, x1 = w - 14, X = t => lerp(x0, x1, (t - 6) / 16), z = +$('#tz').value;
+    [['Mia', MS, .3], ['Tom', TS, .62]].forEach(([n, S, yf]) => { const y = h * yf; label(ctx, n, 8, y, {size: 13, align: 'left', font: DISPLAY, weight: 600}); S.forEach(([a, b, c]) => { ctx.fillStyle = col(c); ctx.globalAlpha = .85; roundRect(ctx, X(a), y - 16, X(b) - X(a) - 2, 32, 6); ctx.fill(); ctx.globalAlpha = 1; }); });
+    [6, 10, 14, 18, 22].forEach(t => label(ctx, t + ' Uhr', X(t), h * .9, {size: 10, color: C.ink2, weight: 400}));
+    ctx.fillStyle = col('c6'); roundRect(ctx, x0, h * .06, 12, 12, 3); ctx.fill(); label(ctx, 'Arbeit', x0 + 16, h * .06 + 6, {size: 10, align: 'left', weight: 400});
+    ctx.fillStyle = col('c2'); roundRect(ctx, x0 + 70, h * .06, 12, 12, 3); ctx.fill(); label(ctx, 'Pause, Freizeit, Kontakte', x0 + 86, h * .06 + 6, {size: 10, align: 'left', weight: 400});
+    ctx.strokeStyle = C.accent; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(X(z), h * .16); ctx.lineTo(X(z), h * .8); ctx.stroke();
+  });
+})();
+sorter($('#sort'), [{id: 'k', name: 'Kraftquelle'}, {id: 's', name: 'Stolperstein'}], [
+  {t: 'Zeit mit Freunden und Familie', c: 'k'}, {t: 'Erfolg und Selbstverwirklichung', c: 'k'}, {t: 'Sport, Bewegung', c: 'k'}, {t: 'gutes Betriebsklima', c: 'k'}, {t: 'ausreichend Schlaf', c: 'k'},
+  {t: 'lange Arbeitszeiten', c: 's'}, {t: 'langes Pendeln', c: 's'}, {t: 'Multitasking', c: 's'}, {t: 'hohe Erwartungen', c: 's'}, {t: 'Existenzangst', c: 's'}, {t: 'Freizeitstress', c: 's'}
+]);
+checks($('#chk'), ['Ich setze mir neue, erreichbare Ziele.', 'Ich plane Pausen ein.', 'Ich nutze freie Zeit zur Erholung und Regeneration.', 'Ich treffe regelmäßig Familie und Freunde.', 'Ich bewege mich oder bin kreativ.', 'Ich schalte das Handy auch mal aus.', 'Ich sage auch mal Nein zu Terminen.'], {eval: (n, t) => n >= 5 ? 'Starker Balance-Plan!' : `${n} von ${t} – such dir zwei Punkte für diese Woche aus.`});
+scenes($('#sc'), [
+  {s: 'Ninos Vater kommt in letzter Zeit völlig erschöpft nach Hause. Er arbeitet 10 Stunden am Tag und hat keine Lust mehr auf Aktivitäten mit der Familie.', a: ['Warnsignal: Burn-out-Gefahr – Arbeitszeit reduzieren, Pausen, Unterstützung suchen', 'Ganz normal, er soll sich zusammenreißen', 'Noch mehr arbeiten, dann ist alles erledigt'], ok: 0},
+  {s: 'Tara hat Schule, Nachhilfe und viel Hausarbeit, weil ihre Brüder nicht helfen. Sie findet keine Zeit für ihre Freundinnen.', a: ['Hausarbeit fair verteilen und feste Zeiten für Freundinnen einplanen', 'Auf Freundinnen verzichten', 'Die Nachhilfe heimlich schwänzen'], ok: 0},
+  {s: 'Du hast an fünf Tagen der Woche feste Freizeittermine.', a: ['Prüfen, welche Termine wirklich wichtig sind – Freizeitstress vermeiden', 'Noch einen Termin dazu', 'Alles absagen'], ok: 0}
+], {label: 'Fall'});
+mcQuiz($('#quiz'), [
+  {q: 'Was beschreibt Work-Life-Balance?', a: ['Gleichgewicht zwischen Arbeit und Privatleben', 'möglichst viel Arbeit', 'möglichst viel Freizeit', 'ein Fitnessprogramm'], ok: 0},
+  {q: 'Was ist ein Burn-out?', a: ['körperliche, emotionale und geistige Erschöpfung', 'ein Sonnenbrand', 'eine Beförderung', 'ein Urlaub'], ok: 0},
+  {q: 'Welcher Faktor ist eine Kraftquelle?', a: ['soziale Kontakte', 'Pendeln', 'Multitasking', 'Existenzangst'], ok: 0},
+  {q: 'Ist das optimale Verhältnis von Arbeit und Freizeit für alle gleich?', a: ['nein, es ist individuell', 'ja, immer 50:50', 'ja, 8 Stunden Arbeit', 'ja, Teilzeit'], ok: 0}
+]);
+</script>

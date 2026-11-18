@@ -1,0 +1,81 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 214–215
+q: Kann ich Arbeit und Freizeit gesund und sinnvoll gestalten?
+facts: Fachbegriffe als Karteikarten und Paare | Fallbeispiel: Tara braucht eine Pause | Quiz mit 15 Fragen (10 zufällig pro Runde) | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Fallbeispiel · Großes Quiz · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Freizeit, Nähmaschine, kreative Techniken, Arbeitsformen und Work-Life-Balance: Prüfe, was du weißt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Kann ich Arbeit und Freizeit gesund und sinnvoll gestalten?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="fall" data-label="Fallbeispiel" data-yr="Anwenden" data-title="Tara braucht eine Pause" data-sub="Ratschläge geben">
+  <div class="section-head"><p class="eyebrow">Station 2 · Fallbeispiel</p><h2>Tara braucht eine Pause</h2><p class="lead">Tara würde gern mal wieder einen Nachmittag mit ihren Freundinnen verbringen. Doch neben Hausaufgaben und Mathe-Nachhilfe muss sie viele Aufgaben im Haushalt übernehmen – ihre drei älteren Brüder fühlen sich nicht verantwortlich. Tara ist gestresst. Sie ist gern kreativ, bewegt sich gern und mag Tiere.</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['Freizeit', 'Zeit ohne Arbeit und besondere Verpflichtungen'], ['kognitiv', 'Wahrnehmen, Lernen, Denken betreffend'], ['emotional', 'von Gefühlen bestimmt'], ['Steppstich', 'wichtigster Stich zum Zusammennähen'], ['Zick-Zack-Stich', 'versäubert Stoffkanten'], ['Verriegeln', 'Naht am Anfang und Ende sichern'], ['textile Kulturtechnik', 'Technik zum Herstellen und Gestalten von Textilien'], ['DIY', 'Do it yourself – mach es selbst'], ['Erwerbsarbeit', 'bezahlte Arbeit'], ['Familienarbeit', 'Betreuen, Erziehen, Pflegen'], ['Ehrenamt', 'freiwilliges Engagement fürs Gemeinwohl'], ['Work-Life-Balance', 'Gleichgewicht von Arbeit und Privatleben'], ['Burn-out', 'völlige Erschöpfung']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+scenes($('#sc'), [
+  {s: 'Warum ist Freizeit für Tara wichtig?', a: ['Für Stressausgleich, Gesundheit und soziale Kontakte', 'Freizeit ist unwichtig', 'Nur, um mehr zu lernen'], ok: 0},
+  {s: 'Wie lässt sich die Hausarbeit verteilen?', a: ['Familienrat: Aufgaben fair auf alle Familienmitglieder verteilen, auch auf die Brüder', 'Tara macht alles allein', 'Gar keine Hausarbeit mehr'], ok: 0},
+  {s: 'Welches Hobby passt zu Tara?', a: ['Z. B. mit dem Nachbarshund Gassi gehen oder ein Nähprojekt – Bewegung, Tiere, Kreativität', 'Nur Serien schauen', 'Gar keins'], ok: 0},
+  {s: 'Wie verbessert sie ihre Work-Life-Balance?', a: ['Wochenplan mit To-dos, Pausen und festen Treffen mit Freundinnen', 'Weniger schlafen', 'Alles gleichzeitig machen'], ok: 0}
+], {label: 'Frage'});
+mcQuiz($('#quiz'), [
+  {q: 'Was ist Freizeit?', a: ['Zeit ohne Arbeit und besondere Verpflichtungen', 'Zeit in der Schule', 'nur der Urlaub', 'Zeit für Hausaufgaben'], ok: 0},
+  {q: 'Welche Funktion hat Freizeit?', a: ['Stressausgleich', 'Geld verdienen', 'Noten verbessern', 'Pflichten erfüllen'], ok: 0},
+  {q: 'Kann ein übervoller Freizeitkalender ungesund sein?', a: ['ja', 'nein', 'nur bei Erwachsenen', 'nur im Winter'], ok: 0},
+  {q: 'Was tust du vor dem Nähen zuerst?', a: ['Not-Aus-Schalter suchen', 'Stoff zuschneiden', 'Musik anmachen', 'Faden kaufen'], ok: 0},
+  {q: 'Wozu dient der Zick-Zack-Stich?', a: ['zum Versäubern', 'zum Verriegeln', 'zum Heften', 'zum Bügeln'], ok: 0},
+  {q: 'Was gibt die Stichlänge an?', a: ['Abstand der Einstiche', 'seitliche Bewegung', 'Fadenspannung', 'Nadeldicke'], ok: 0},
+  {q: 'In welche Richtung drehst du das Handrad?', a: ['zu dir hin', 'von dir weg', 'egal', 'nie'], ok: 0},
+  {q: 'Welche ist eine textile Kulturtechnik?', a: ['Filzen', 'Grillen', 'Joggen', 'Gaming'], ok: 0},
+  {q: 'Was bedeutet DIY?', a: ['Do it yourself', 'Design it yearly', 'Deutsche Industrie', 'Do it yesterday'], ok: 0},
+  {q: 'Welche Arbeit ist bezahlt?', a: ['Erwerbsarbeit', 'Hausarbeit', 'Familienarbeit', 'Ehrenamt'], ok: 0},
+  {q: 'Was steht beim Ehrenamt im Vordergrund?', a: ['das Gemeinwohl', 'das Gehalt', 'die Karriere', 'die Freizeit'], ok: 0},
+  {q: 'Wie hat sich das Modell „Hausfrau und Mutter“ verändert?', a: ['Die meisten Frauen arbeiten heute in Teil- oder Vollzeit', 'gar nicht', 'Frauen arbeiten weniger als früher', 'Männer arbeiten nicht mehr'], ok: 0},
+  {q: 'Was ist Work-Life-Balance?', a: ['Gleichgewicht von Arbeit und Privatleben', 'eine Sportart', 'ein Arbeitsvertrag', 'eine Diät'], ok: 0},
+  {q: 'Was kann eine dauerhaft fehlende Balance auslösen?', a: ['Burn-out', 'mehr Energie', 'bessere Noten', 'nichts'], ok: 0},
+  {q: 'Welcher Tipp hilft bei der Balance?', a: ['Pausen einplanen', 'immer erreichbar sein', 'Multitasking', 'auf Schlaf verzichten'], ok: 0}
+], {pick: 10});
+selfCheck($('#sci'), [
+  {t: 'Ich kann Funktionen der Freizeit erklären und mein Freizeitverhalten analysieren.', href: '01_Freizeit.html#funktionen'},
+  {t: 'Ich kann den Nähmaschinenarbeitsplatz sicher einrichten.', href: '02_Naehmaschine.html#sicher'},
+  {t: 'Ich kenne Grundstiche und Fachbegriffe beim Nähen.', href: '02_Naehmaschine.html#stiche'},
+  {t: 'Ich kann textile Kulturtechniken nennen und ein DIY-Projekt umsetzen.', href: '03_Kreativ.html#techniken'},
+  {t: 'Ich kann verschiedene Arbeitsformen unterscheiden.', href: '04_Arbeitsformen.html#formen'},
+  {t: 'Ich kann Work-Life-Balance erklären und meine eigene beurteilen.', href: '05_Work_Life_Balance.html#waage'}
+]);
+</script>

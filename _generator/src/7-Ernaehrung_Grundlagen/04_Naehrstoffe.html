@@ -1,0 +1,176 @@
+<!--
+title: Nährstoffe – Was steckt in deinem Essen?
+short: Nährstoffe
+time: 1 Unterrichtsstunde
+book: S. 58–59
+q: Warum reichen Nudeln mit Ketchup auf Dauer nicht aus?
+facts: Sechs Nährstoffe: Kohlenhydrate, Fette, Eiweiße, Vitamine, Mineralstoffe, Wasser | Makro- und Mikronährstoffe, energieliefernd oder nicht | Brennstoffe, Baustoffe, Wirkstoffe | Ballaststoffe und sekundäre Pflanzenstoffe, Nährwert
+inter: Nährstoff-Übersicht · Brenn-, Bau- oder Wirkstoff? · Energie-Rechner kJ und kcal · Kein Lebensmittel kann alles
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Nährstoffe – Was steckt in deinem Essen?</h1>
+      <p class="lead">Du isst, weil du hungrig bist, weil es schmeckt oder weil es mit Freunden Spaß macht. Ganz nebenbei versorgst du deinen Körper mit lebensnotwendigen Nährstoffen. Wusstest du, dass es kein Lebensmittel gibt, das alle Nährstoffe in ausreichender Menge enthält?</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Warum reichen Nudeln mit Ketchup auf Dauer nicht aus?</p></div>
+      <div class="controls"><button class="btn primary" data-go="uebersicht">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="uebersicht" data-label="Übersicht" data-yr="Erarbeitung" data-title="Sechs Nährstoffe" data-sub="Makro und Mikro">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Sechs Nährstoffe</h2>
+      <p class="lead"><b>Nährstoffe</b> sind die verwertbaren Bestandteile unserer Nahrung. Sie erfüllen lebensnotwendige Aufgaben.</p>
+      <dl class="kv2">
+        <dt>Makronährstoffe</dt><dd>energieliefernd: <b>Kohlenhydrate, Fette, Eiweiße</b></dd>
+        <dt>Mikronährstoffe</dt><dd>nicht energieliefernd: <b>Vitamine, Mineralstoffe</b></dd>
+        <dt>Wasser</dt><dd>energiefrei, Lösungs- und Transportmittel</dd>
+      </dl>
+      <p class="note">Zusätzlich: <b>Ballaststoffe</b> (Faser- und Quellstoffe) und <b>sekundäre Pflanzenstoffe</b> (Farb-, Duft-, Geschmacksstoffe). Sie sind nicht lebensnotwendig, wirken aber gesundheitsfördernd.</p>
+      <ul class="words-box"><li>der Makronährstoff</li><li>der Mikronährstoff</li><li>der Nährwert</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf einen Nährstoff</h3></div>
+      <div id="ex-n"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="aufgaben" data-label="Aufgaben" data-yr="Erarbeitung" data-title="Brenn-, Bau- und Wirkstoffe" data-sub="Was Nährstoffe tun">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Brenn-, Bau- und Wirkstoffe</h2>
+      <dl class="kv2">
+        <dt>Brennstoffe</dt><dd>liefern dem Körper Energie für Stoffwechsel und Aktivitäten und halten die Körpertemperatur bei ca. 37 °C (Kohlenhydrate, Fette).</dd>
+        <dt>Baustoffe</dt><dd>sind am Aufbau und Erhalt von Zellen und Gewebe beteiligt (Eiweiße, einige Mineralstoffe, Wasser).</dd>
+        <dt>Wirkstoffe</dt><dd>Schutz- und Reglerstoffe: regulieren Körpervorgänge, stärken die Immunabwehr (Vitamine, Mineralstoffe).</dd>
+      </dl>
+      <p class="note">Der Nährstoffbedarf hängt z. B. von Alter, Geschlecht, Gesundheitszustand und Medikamenten ab.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Ordne die Hauptaufgabe zu</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="energie" data-label="Energie" data-yr="Anwendung" data-title="Energie berechnen" data-sub="kJ und kcal">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Wie viel Energie liefern Nährstoffe?</h2>
+      <ul class="facts">
+        <li>1 g Kohlenhydrate: <b>17 kJ</b> bzw. 4 kcal</li>
+        <li>1 g Eiweiß: <b>17 kJ</b> bzw. 4 kcal</li>
+        <li>1 g Fett: <b>37 kJ</b> bzw. 9 kcal – mehr als doppelt so viel!</li>
+      </ul>
+      <p class="note">Der <b>Nährwert</b> beschreibt den Anteil an Nährstoffen und Energie in einem Lebensmittel.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Nährwert-Rechner pro 100 g</h3></div>
+      <div class="pillrow" id="en-pick"></div>
+      <div id="calc-e"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="mischung" data-label="Mischung" data-yr="Diskussion" data-title="Auf die Mischung kommt es an" data-sub="Keine guten und bösen Lebensmittel">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Diskussion</p>
+      <h2>Auf die Mischung kommt es an</h2>
+      <p class="lead">Es gibt keine „gesunden“ oder „ungesunden“ Lebensmittel! Wichtig ist eine bewusste und abwechslungsreiche Auswahl und Zusammenstellung. So ergänzen sich die verschiedenen Nährstoffe optimal.</p>
+      <p class="prompt"><b>Diskutiert:</b> Nudeln mit Ketchup oder Pizza machen satt. Warum sind sie dauerhaft für eine optimale Nährstoffversorgung ungeeignet?</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Welche Nährstoffe stecken drin? (vereinfacht)</h3><div id="mi-seg"></div></div>
+      <div id="mi-bars"></div>
+      <p class="status" id="mi-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Nährstoffe</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Nährstoffe</h3><span>AES · Klasse 7</span></div>
+      <ol>
+        <li data-step><b>Nährstoffe</b> sind verwertbare Nahrungsbestandteile. Es gibt sechs: Kohlenhydrate, Fette, Eiweiße, Vitamine, Mineralstoffe und Wasser.</li>
+        <li data-step><b>Makronährstoffe</b> liefern Energie (Kohlenhydrate, Fette, Eiweiße), <b>Mikronährstoffe</b> nicht (Vitamine, Mineralstoffe).</li>
+        <li data-step>Hauptaufgaben: <b>Brennstoffe</b> liefern Energie, <b>Baustoffe</b> bauen den Körper auf, <b>Wirkstoffe</b> regeln Körpervorgänge.</li>
+        <li data-step>1 g Kohlenhydrate oder Eiweiß = 17 kJ (4 kcal), 1 g Fett = 37 kJ (9 kcal).</li>
+        <li data-step>Weitere gesundheitsfördernde Nahrungsbestandteile: Ballaststoffe und sekundäre Pflanzenstoffe. Iss abwechslungsreich – kein Lebensmittel enthält alles.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Mindmap</span><p>Erstellt eine Mindmap zur Einteilung und zu den Aufgaben der Nährstoffe.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Energie berechnen</h2></div>
+  <div id="ts"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+explore($('#ex-n'), [
+  {ico: 'brot', t: 'Kohlenhydrate', sub: 'Makro · Brennstoff', d: 'Liefern Energie (17 kJ/g). Vorkommen: Getreide, Kartoffeln, Obst, Hülsenfrüchte, Zucker.'},
+  {ico: 'oel', t: 'Fette', sub: 'Makro · Brennstoff', d: 'Liefern viel Energie (37 kJ/g), Schutz und Wärme, Träger für fettlösliche Vitamine. Vorkommen: Öle, Butter, Nüsse, Käse, Wurst.'},
+  {ico: 'ei', t: 'Eiweiße', sub: 'Makro · Baustoff', d: 'Bauen Muskeln, Organe, Haut, Haare auf (17 kJ/g). Vorkommen: Milch, Ei, Fleisch, Fisch, Hülsenfrüchte, Getreide.'},
+  {ico: 'sonne', t: 'Vitamine', sub: 'Mikro · Wirkstoff', d: 'Regeln Körpervorgänge, stärken das Immunsystem. Keine Energie. Vorkommen: Obst, Gemüse, Vollkorn, Milch.'},
+  {ico: 'salz', t: 'Mineralstoffe', sub: 'Mikro · Bau- und Wirkstoff', d: 'Z. B. Calcium für Knochen, Eisen für das Blut. Keine Energie. Vorkommen: Milch, Mineralwasser, Gemüse, Fleisch.'},
+  {ico: 'tropfen', t: 'Wasser', sub: 'energiefrei', d: 'Lösungsmittel, Transportmittel, Wärmeregulation. Der Körper besteht zu ca. 65 % aus Wasser.'},
+  {ico: 'blatt', t: 'Ballaststoffe', sub: 'weiterer Bestandteil', d: 'Faser- und Quellstoffe aus Pflanzen: sättigen und regen die Verdauung an.'},
+  {ico: 'idee', t: 'Sek. Pflanzenstoffe', sub: 'weiterer Bestandteil', d: 'Farb-, Duft- und Geschmacksstoffe in Obst und Gemüse: schützen die Gesundheit.'}
+], {hint: 'Tippe auf einen Nährstoff.'});
+
+sorter($('#sort'), [{id: 'b', name: 'Brennstoff'}, {id: 'a', name: 'Baustoff'}, {id: 'w', name: 'Wirkstoff'}], [
+  {t: 'liefert Energie für den Sport', c: 'b'}, {t: 'hält die Körpertemperatur bei 37 °C', c: 'b'}, {t: 'Kohlenhydrate', c: 'b'},
+  {t: 'baut Muskeln auf', c: 'a'}, {t: 'Eiweiß für Haare und Nägel', c: 'a'}, {t: 'Calcium für Knochen und Zähne', c: 'a'},
+  {t: 'stärkt die Immunabwehr', c: 'w'}, {t: 'Vitamine', c: 'w'}, {t: 'reguliert Stoffwechselvorgänge', c: 'w'}
+]);
+
+(() => {
+  const P = {Vollmilch: [3.5, 4.8, 3.3], Vollkornbrot: [1.2, 40, 7], Butter: [83, .6, .7], Linsen: [1.5, 41, 23], Apfel: [.2, 11, .3], Schokolade: [31, 56, 7]};
+  $('#en-pick').innerHTML = Object.keys(P).map(k => `<button class="btn" data-k="${k}">${k}</button>`).join('');
+  const build = (f, k, p) => calc($('#calc-e'), [
+    {id: 'f', l: 'Fett', min: 0, max: 100, step: .5, v: f, unit: 'g'}, {id: 'k', l: 'Kohlenhydrate', min: 0, max: 100, step: .5, v: k, unit: 'g'}, {id: 'p', l: 'Eiweiß', min: 0, max: 100, step: .5, v: p, unit: 'g'}
+  ], v => { const kj = v.f * 37 + (v.k + v.p) * 17; return v.f + v.k + v.p > 100 ? '<b class="bad">Mehr als 100 g Nährstoffe in 100 g?</b> Werte prüfen.' : `<span class="big">${numDE(kj, 0)} kJ · ${numDE(kj / 4.184, 0)} kcal</span><p>${numDE(v.f, 1)} · 37 + ${numDE(v.k, 1)} · 17 + ${numDE(v.p, 1)} · 17 = ${numDE(kj, 0)} kJ pro 100 g · Anteil aus Fett: <b>${kj ? Math.round(v.f * 37 / kj * 100) : 0} %</b></p>`; });
+  $('#en-pick').onclick = e => { const b = e.target.closest('[data-k]'); if (b) build(...P[b.dataset.k]); };
+  build(3.5, 4.8, 3.3);
+})();
+
+(() => {
+  const M = {ketchup: ['Nudeln mit Ketchup', [90, 25, 30, 10, 15, 20]], bolo: ['Vollkornnudeln mit Gemüse-Bolognese und Salat', [85, 60, 75, 80, 70, 75]], pizza: ['Tiefkühlpizza Salami', [75, 90, 55, 20, 35, 15]]};
+  const N = ['Kohlenhydrate', 'Fett', 'Eiweiß', 'Vitamine', 'Mineralstoffe', 'Ballaststoffe'];
+  seg($('#mi-seg'), Object.entries(M).map(([k, v]) => [k, v[0].split(' ')[0] === 'Vollkornnudeln' ? 'Vollkorn-Bolognese' : v[0].split(' mit')[0].replace('Tiefkühlpizza Salami', 'Pizza')]), v => {
+    const [n, vals] = M[v];
+    bars($('#mi-bars'), N.map((l, i) => ({l, v: vals[i], c: vals[i] > 80 && (i === 1) ? 'c1' : vals[i] < 35 ? 'c7' : 'c2'})), {unit: '%', dec: 0, max: 100, note: 'Deckung eines sinnvollen Anteils pro Mahlzeit – stark vereinfachtes Modell.'});
+    $('#mi-st').innerHTML = v === 'ketchup' ? '<b>Macht satt</b>, liefert aber kaum Vitamine, Mineralstoffe und Ballaststoffe.' : v === 'pizza' ? '<b>Viel Fett und Salz</b>, wenig Vitamine und Ballaststoffe.' : '<b class="good">Ausgewogen:</b> Vollkorn, Gemüse und Salat ergänzen sich.';
+  }, 'ketchup');
+})();
+
+taskSet($('#ts'), i => {
+  const f = randInt(1, 30), k = randInt(5, 70), p = randInt(1, 25), kj = f * 37 + (k + p) * 17;
+  return {key: '' + f + k + p, tag: 'Energie', q: `100 g eines Lebensmittels enthalten ${f} g Fett, ${k} g Kohlenhydrate und ${p} g Eiweiß. Berechne den Energiegehalt.`, fields: [{l: 'Energie', a: kj, tol: 2, unit: 'kJ'}, {l: 'Energie', a: Math.round(kj / 4.184), tol: 3, unit: 'kcal'}], hint: 'Fett · 37 + (KH + Eiweiß) · 17 = kJ; kJ : 4,184 = kcal'};
+}, {n: 4});
+mcQuiz($('#quiz'), [
+  {q: 'Welche Nährstoffe liefern Energie?', a: ['Kohlenhydrate, Fette, Eiweiße', 'Vitamine und Mineralstoffe', 'nur Wasser', 'Ballaststoffe'], ok: 0},
+  {q: 'Wie viel Energie liefert 1 g Fett?', a: ['37 kJ (9 kcal)', '17 kJ (4 kcal)', '4 kJ', '100 kJ'], ok: 0},
+  {q: 'Welche Hauptaufgabe haben Eiweiße?', a: ['Baustoff', 'Brennstoff', 'Wirkstoff', 'keine'], ok: 0},
+  {q: 'Was sind Mikronährstoffe?', a: ['Vitamine und Mineralstoffe', 'Kohlenhydrate und Fette', 'kleine Lebensmittel', 'Zusatzstoffe'], ok: 0},
+  {q: 'Was gehört zu den weiteren Nahrungsbestandteilen?', a: ['Ballaststoffe und sekundäre Pflanzenstoffe', 'Zucker und Salz', 'Vitamine', 'Wasser'], ok: 0}
+]);
+</script>

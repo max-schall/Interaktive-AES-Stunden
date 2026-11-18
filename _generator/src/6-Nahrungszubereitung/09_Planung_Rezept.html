@@ -1,0 +1,192 @@
+<!--
+title: Gut geplant ist halb gekocht – nach Rezept arbeiten
+short: Planung & Rezept
+time: 2 Unterrichtsstunden (mit Kochpraxis)
+book: S. 44–47
+q: Wie schaffe ich es, dass alles gleichzeitig fertig ist?
+facts: Vier Aufgabenbereiche: Vorbereitungs-, Zubereitungs-, Aufräum- und sonstige Arbeiten | Spülen von Hand in der richtigen Reihenfolge | Rezepte lesen: Abkürzungen und Mengen | Methode: in sechs Schritten nach Rezept arbeiten, Arbeitsplan erstellen
+inter: Aufgaben sortieren · Zeitplan mit und ohne Arbeitsplan · Rezept-Abkürzungen · Mengenrechner für Personenzahl · Methode in sechs Schritten
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}} · Methode</p>
+      <h1>Gut geplant ist halb gekocht</h1>
+      <p class="lead">Zur Nahrungszubereitung gehört mehr als Schneiden und Kochen. Damit du den Überblick behältst und am Ende alles gleichzeitig fertig ist, brauchst du ein gutes Rezept und einen Arbeitsplan.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie schaffe ich es, dass alles gleichzeitig fertig ist?</p></div>
+      <div class="controls"><button class="btn primary" data-go="aufgaben">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="aufgaben" data-label="Aufgaben" data-yr="Erarbeitung" data-title="Vier Aufgabenbereiche" data-sub="Wer macht was?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Vier Aufgabenbereiche</h2>
+      <ul class="facts">
+        <li><b>Vorbereitungsarbeiten</b> werden immer als Erstes erledigt.</li>
+        <li><b>Zubereitungs-, Aufräum- und sonstige Arbeiten</b> laufen teilweise gleichzeitig: Während der Kuchen im Ofen ist, kannst du abspülen.</li>
+        <li><b>Teamwork:</b> Aufgaben gerecht und abwechslungsreich verteilen. Wer fertig ist, hilft den anderen.</li>
+      </ul>
+      <ul class="words-box"><li>die Vorbereitungsarbeit</li><li>die Zubereitungsarbeit</li><li>die Aufräumarbeit</li><li>die Zeitplanung</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Ordne die Arbeiten zu</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="zeitplan" data-label="Zeitplan" data-yr="Erarbeitung" data-title="Mit Arbeitsplan schneller" data-sub="Nudeln mit Tomatensoße">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Mit Arbeitsplan schneller fertig</h2>
+      <p class="lead">Ein <b>Arbeitsplan</b> legt fest, welche Schritte wann erledigt werden. Wartezeiten (Wasser erhitzt sich, Soße köchelt) nutzt man für andere Arbeiten.</p>
+      <ol class="facts" style="list-style:decimal;padding-left:1.2rem">
+        <li style="padding-left:.2rem">Rezept in einzelne Arbeitsschritte aufteilen.</li>
+        <li style="padding-left:.2rem">Sinnvolle Reihenfolge festlegen: Was dauert am längsten? Was kann gleichzeitig laufen?</li>
+        <li style="padding-left:.2rem">Arbeiten gerecht im Team verteilen.</li>
+      </ol>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Zeitstrahl</h3><div id="zp-seg"></div></div>
+      <canvas id="cv-zp" class="wide" aria-label="Zeitplan mit Balken für jeden Arbeitsschritt"></canvas>
+      <p class="status" id="zp-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="rezept" data-label="Rezept lesen" data-yr="Methode" data-title="Rezepte lesen" data-sub="Abkürzungen und Mengen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Methode</p>
+      <h2>Rezepte lesen und verstehen</h2>
+      <p class="lead">Rezepte gibt es als Fließtext, als Tabelle oder mit Bildern. Am einfachsten zu lesen: Zutaten und Zubereitungsschritte stehen nebeneinander in einer Tabelle.</p>
+      <div class="achtung"><p>Rezepte im Internet sind nicht geprüft. Wer sicher sein will, probiert vorher aus oder nimmt ein Rezept aus einem Koch- oder Backbuch.</p></div>
+      <div class="tipp"><p>Zutaten lassen sich oft austauschen: Aus dem Apfelkuchen im Herbst wird im Sommer ein Kirschkuchen.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Mengen umrechnen: Tomatensoße</h3></div>
+      <div id="calc-r"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="methode" data-label="Sechs Schritte" data-yr="Methode" data-title="Nach Rezept arbeiten" data-sub="Sechs Schritte">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Methode</p>
+      <h2>Nach Rezept arbeiten – in sechs Schritten</h2>
+      <dl class="kv2">
+        <dt>1. Auswählen</dt><dd>Koch- oder Backbuch, Internet, App – nach Namen oder Zutaten suchen.</dd>
+        <dt>2. Lesen</dt><dd>Rezept genau lesen, unbekannte Begriffe klären.</dd>
+        <dt>3. Planen</dt><dd>Zutaten prüfen, Einkaufsliste, Reihenfolge prüfen, Arbeitsplan erstellen.</dd>
+        <dt>4. Vorbereiten</dt><dd>Arbeitsplatz einrichten, Zutaten und Geräte bereitstellen, Zutaten vorbereiten, ggf. Ofen vorheizen.</dd>
+        <dt>5. Zubereiten</dt><dd>nach Rezept und Arbeitsplan, Arbeitsschutz und Hygiene beachten, Tisch decken, anrichten, genießen.</dd>
+        <dt>6. Aufräumen</dt><dd>spülen, Arbeitsflächen und Esstisch reinigen.</dd>
+      </dl>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Abkürzungen im Rezept</h3></div>
+      <div id="match"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="spuelen" data-label="Spülen" data-yr="Praxis" data-title="Von Hand spülen" data-sub="Gläser zuerst">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 5 · Praxis</p>
+      <h2>Von Hand spülen</h2>
+      <ul class="facts">
+        <li>Schmutziges Geschirr steht <b>neben</b> dem Spülbecken, grobe Speisereste vorher entfernen.</li>
+        <li>In <b>warmem, stehendem</b> Wasser mit einem kleinen Spritzer Spülmittel spülen.</li>
+        <li>Sortieren nach Verschmutzung und Empfindlichkeit: <b>Gläser zuerst</b>, Töpfe zuletzt.</li>
+        <li>Schüsseln mit der Öffnung nach unten abstellen, mit sauberem Geschirrtuch abtrocknen.</li>
+      </ul>
+      <p class="prompt"><b>Versuch:</b> Fettet drei Teller mit Butter ein. Spült einen in kaltem Wasser mit Spülmittel, einen in heißem ohne und einen in heißem mit Spülmittel. Vergleicht!</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>In welcher Reihenfolge spülst du?</h3></div>
+      <div id="seq-sp"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Planung und Rezept</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Planung und Arbeiten nach Rezept</h3><span>AES · Klasse 6 · Methode</span></div>
+      <ol>
+        <li data-step>Aufgabenbereiche: <b>Vorbereitungs-, Zubereitungs-, Aufräum- und sonstige Arbeiten</b>. Vorbereitungsarbeiten kommen zuerst.</li>
+        <li data-step>Ein <b>Arbeitsplan</b> legt Reihenfolge und Zuständigkeiten fest. Wartezeiten nutzt man zum Spülen und Aufräumen – so ist am Ende alles gleichzeitig fertig.</li>
+        <li data-step>Nach Rezept arbeiten: 1. auswählen, 2. lesen und verstehen, 3. planen, 4. vorbereiten, 5. zubereiten, 6. aufräumen.</li>
+        <li data-step>Abkürzungen: EL Esslöffel, TL Teelöffel, Msp. Messerspitze, Pr. Prise, P. Päckchen, Bd. Bund, gestr. gestrichen, geh. gehäuft.</li>
+        <li data-step>Von Hand spülen: in warmem, stehendem Wasser mit wenig Spülmittel, Gläser zuerst.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Praxis</span><p>Sucht ein Rezept für Nudeln mit Tomatensoße, schreibt es in Tabellenform und erstellt einen Arbeitsplan für euer Küchenteam.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Die sechs Schritte</h2></div>
+  <div id="seq-m"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+sorter($('#sort'), [{id: 'v', name: 'Vorbereitung'}, {id: 'z', name: 'Zubereitung'}, {id: 'a', name: 'Aufräumen'}, {id: 's', name: 'Sonstiges'}], [
+  {t: 'Spül- und Geschirrtücher bereitlegen', c: 'v'}, {t: 'Abfallschüssel, Lebensmittel, Geräte bereitstellen', c: 'v'}, {t: 'Lebensmittel waschen und schälen', c: 'v'},
+  {t: 'Lebensmittel garen', c: 'z'}, {t: 'abschmecken und würzen', c: 'z'}, {t: 'Speisen anrichten', c: 'z'},
+  {t: 'spülen und abtrocknen', c: 'a'}, {t: 'Herd reinigen', c: 'a'}, {t: 'Geräte aufräumen', c: 'a'},
+  {t: 'Tisch decken', c: 's'}, {t: 'Wäsche zusammenlegen', c: 's'}, {t: 'Boden kehren', c: 's'}
+]);
+
+/* Zeitplan */
+(() => {
+  const T = [
+    ['Arbeitsplatz einrichten', 5, 'v'], ['Wasser aufsetzen', 2, 'v'], ['Wasser erhitzt sich', 10, 'w'], ['Zwiebel und Knoblauch schneiden', 5, 'v'],
+    ['Soße andünsten', 5, 'z'], ['Soße köcheln lassen', 15, 'w'], ['Nudeln kochen', 10, 'w'], ['Zwischendurch spülen', 5, 'a'], ['Tisch decken', 5, 's'], ['Anrichten', 3, 'z']
+  ];
+  const PLAN = [0, 5, 7, 7, 12, 17, 22, 17, 22, 32];
+  let mode = 'plan';
+  seg($('#zp-seg'), [['ohne', 'ohne Plan (nacheinander)'], ['plan', 'mit Arbeitsplan']], v => { mode = v; const tot = v === 'plan' ? 35 : T.reduce((s, x) => s + x[1], 0); $('#zp-st').innerHTML = v === 'plan' ? `<b class="good">Fertig nach ${tot} Minuten.</b> Während Wasser und Soße warten, wird geschnitten, gespült und der Tisch gedeckt. Soße und Nudeln sind gleichzeitig fertig.` : `<b class="bad">Fertig nach ${tot} Minuten.</b> Jeder Schritt wartet auf den vorherigen – die Soße ist längst kalt, wenn die Nudeln fertig sind.`; }, 'plan');
+  const CO = {v: 'c2', z: 'c1', a: 'c3', s: 'c5', w: 'ink-2'};
+  canvasLoop($('#cv-zp'), 'zeitplan', (ctx, w, h) => {
+    let start = []; if (mode === 'plan') start = PLAN; else { let s = 0; start = T.map(x => { const a = s; s += x[1]; return a; }); }
+    const max = 65, L = Math.min(210, w * .4), X = m => L + m / max * (w - L - 16), rowH = (h - 40) / T.length;
+    for (let m = 0; m <= max; m += 10) { ctx.fillStyle = alpha(C.ink2, .15); ctx.fillRect(X(m), 8, 1, h - 34); label(ctx, m + ' min', X(m), h - 14, {size: 10, color: C.ink2, weight: 400}); }
+    T.forEach(([n, d, k], i) => {
+      const y = 10 + i * rowH; label(ctx, n, L - 8, y + rowH / 2, {size: Math.min(12, rowH * .5), align: 'right', weight: k === 'w' ? 400 : 700, color: k === 'w' ? C.ink2 : C.ink});
+      ctx.fillStyle = k === 'w' ? alpha(C.ink2, .25) : col(CO[k]); roundRect(ctx, X(start[i]), y + 3, X(start[i] + d) - X(start[i]), rowH - 6, 5); ctx.fill();
+    });
+    const end = Math.max(...T.map((x, i) => start[i] + x[1]));
+    ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(X(end), 6); ctx.lineTo(X(end), h - 26); ctx.stroke(); ctx.setLineDash([]);
+  });
+})();
+
+calc($('#calc-r'), [{id: 'p', l: 'Personen', min: 1, max: 12, v: 4}], v => {
+  const f = v.p / 4, z = [['Nudeln', 400, 'g'], ['passierte Tomaten', 500, 'ml'], ['Zwiebel', 1, 'Stück'], ['Knoblauchzehe', 1, 'Stück'], ['Olivenöl', 2, 'EL'], ['Salz', 1, 'Pr.'], ['Basilikum', .5, 'Bd.']];
+  return `<p style="margin:0 0 .4rem">Originalrezept für 4 Personen → <b>${v.p} Person${v.p > 1 ? 'en' : ''}</b> (Faktor ${numDE(f, 2)})</p><table class="data"><tbody>${z.map(([n, m, e]) => `<tr><td>${n}</td><td class="num">${numDE(m * f, e === 'Stück' || e === 'EL' || e === 'Pr.' ? 1 : 0)} ${e}</td></tr>`).join('')}</tbody></table><p class="note">Ganze Zwiebeln oder Prisen rundet man sinnvoll.</p>`;
+});
+matcher($('#match'), [['EL', 'Esslöffel'], ['TL', 'Teelöffel'], ['Msp.', 'Messerspitze'], ['Pr.', 'Prise'], ['P.', 'Päckchen'], ['Bd.', 'Bund'], ['gestr.', 'gestrichen'], ['geh.', 'gehäuft'], ['Tr.', 'Tropfen']]);
+sequence($('#seq-sp'), ['Gläser', 'Besteck', 'Teller und Schüsseln', 'Arbeitsgeräte wie Schneidebretter', 'Töpfe und Pfannen']);
+sequence($('#seq-m'), ['Rezept auswählen', 'Rezept lesen und verstehen', 'Nahrungszubereitung planen (Zutaten prüfen, Arbeitsplan)', 'Vorbereitungsarbeiten', 'Zubereitungsarbeiten', 'Aufräumarbeiten']);
+mcQuiz($('#quiz'), [
+  {q: 'Was erledigt man immer zuerst?', a: ['Vorbereitungsarbeiten', 'Aufräumarbeiten', 'Tisch decken', 'Abschmecken'], ok: 0},
+  {q: 'Wofür nutzt man Wartezeiten?', a: ['zum Spülen und Aufräumen', 'zum Ausruhen am Handy', 'zum Einkaufen', 'gar nicht'], ok: 0},
+  {q: 'Was bedeutet „1 Msp.“?', a: ['eine Messerspitze', 'ein Messbecher', 'eine Mehlspeise', 'ein Milchshake'], ok: 0},
+  {q: 'Was spült man zuerst?', a: ['Gläser', 'Töpfe', 'Pfannen', 'Backbleche'], ok: 0, why: 'Erst das Saubere und Empfindliche, dann das Schmutzige.'},
+  {q: 'Ein Rezept ist für 4 Personen, ihr seid 6. Womit multipliziert ihr die Mengen?', a: ['1,5', '2', '6', '0,5'], ok: 0}
+]);
+</script>

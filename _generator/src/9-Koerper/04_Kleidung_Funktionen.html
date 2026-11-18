@@ -1,0 +1,172 @@
+<!--
+title: Funktionen von Kleidung
+short: Kleidungsfunktionen
+time: 1 Unterrichtsstunde
+book: S. 140–141
+q: Warum hält mich eine dünne Funktionsjacke wärmer als ein dicker Baumwollpulli?
+facts: Scham- und Schutzfunktion, Schmuckfunktion, Kennzeichnungsfunktion | Bekleidungsphysiologie: Feuchte- und Wärmemanagement | Tragekomfort funktioneller Kleidung: wasser- und winddicht, atmungsaktiv, thermoregulierend | Das Zwiebelprinzip mit drei Schichten
+inter: Funktionen zuordnen · Zwiebelprinzip-Simulator · Berufskleidung · Kleidung für jedes Wetter
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Funktionen von Kleidung</h1>
+      <p class="lead">Sicher hast du Lieblingsstücke, die du in der Schule oder in der Freizeit trägst. Kleidung zeigt Persönlichkeit – aber sie kann noch viel mehr.</p>
+      <div class="teaser"><span class="tag info">Was denkst du?</span><p>Nach welchen Kriterien wählst du morgens deine Kleidung aus?</p></div>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Warum hält mich eine dünne Funktionsjacke wärmer als ein dicker Baumwollpulli?</p></div>
+      <div class="controls"><button class="btn primary" data-go="funktionen">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="funktionen" data-label="Funktionen" data-yr="Erarbeitung" data-title="Vier Funktionen" data-sub="Scham, Schutz, Schmuck, Kennzeichnung">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Wozu wir Kleidung tragen</h2>
+      <dl class="kv2">
+        <dt>Scham- und Schutzfunktion</dt><dd>bedeckt den Körper, schützt vor Kälte, Wind, Regen, Hitze, UV-Licht; Berufskleidung bietet Arbeits- und Gesundheitsschutz (Klinik, Feuerwehr).</dd>
+        <dt>Schmuckfunktion</dt><dd>Selbstdarstellung, stärkt das Selbstwertgefühl; Accessoires und Stilrichtungen zeigen Werte und Geschmack.</dd>
+        <dt>Kennzeichnungsfunktion</dt><dd>zeigt ideologische, religiöse, soziale oder politische Zugehörigkeit: Uniform, Tracht, Fanbekleidung.</dd>
+      </dl>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Welche Funktion steht im Vordergrund?</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="zwiebel" data-label="Zwiebelprinzip" data-yr="Experiment" data-title="Das Zwiebelprinzip" data-sub="Schicht für Schicht">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Experiment</p>
+      <h2>Das Zwiebelprinzip</h2>
+      <p class="lead">Die <b>Bekleidungsphysiologie</b> beschäftigt sich mit dem Zusammenwirken von Kleidung und Körper, z. B. beim Feuchte- und Wärmemanagement. Ein einfacher Trick: mehrere dünne Schichten übereinander.</p>
+      <dl class="kv2">
+        <dt>1. Schicht</dt><dd>Feuchtigkeitsregulierung: leitet Schweiß von der Haut weg</dd>
+        <dt>2. Schicht</dt><dd>Wärmeisolierung: hält bei Bedarf die Wärme (Fleece, Wolle)</dd>
+        <dt>3. Schicht</dt><dd>Wetterschutz: schützt vor Regen und Wind, atmungsaktiv</dd>
+      </dl>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wetter und Aktivität</h3></div>
+      <div id="calc-z"></div>
+      <canvas id="cv-z" class="wide" aria-label="Schichten der Kleidung je nach Wetter"></canvas>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="funktionell" data-label="Funktionskleidung" data-yr="Erarbeitung" data-title="Funktionelle Kleidung" data-sub="Tragekomfort">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Erarbeitung</p>
+      <h2>Funktionelle Kleidung</h2>
+      <p class="lead">Kleidung soll nicht nur gut aussehen. Speziell bei Sport- und Outdoorkleidung zählen die <b>Tragefunktionen</b>.</p>
+      <p class="note">Baumwolle saugt Schweiß auf, wird nass und kühlt aus. Funktionsfasern leiten Feuchtigkeit nach außen.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tragefunktionen</h3></div>
+      <div id="ex-t"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="beruf" data-label="Berufskleidung" data-yr="Anwendung" data-title="Berufskleidung" data-sub="Schutz und Kennzeichnung">
+  <div class="section-head"><p class="eyebrow">Station 4 · Anwendung</p><h2>Berufskleidung</h2><p class="lead">Welche Funktion hat die Kleidung in diesen Berufen?</p></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Funktionen von Kleidung</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Funktionen von Kleidung</h3><span>AES · Klasse 9</span></div>
+      <ol>
+        <li data-step>Kleidung hat eine <b>Scham- und Schutzfunktion</b>, eine <b>Schmuckfunktion</b> und eine <b>Kennzeichnungsfunktion</b>.</li>
+        <li data-step>Die <b>Bekleidungsphysiologie</b> hat zum Ziel, körperliche Vorgänge wie Wärme- und Feuchtigkeitsregulierung optimal zu unterstützen.</li>
+        <li data-step><b>Zwiebelprinzip:</b> 1. Schicht Feuchtigkeitsregulierung, 2. Schicht Wärme, 3. Schicht Wetterschutz – so passt man sich flexibel an.</li>
+        <li data-step>Funktionelle Kleidung hat einen besonderen Tragekomfort: wasser- und winddicht, atmungsaktiv, thermoregulierend, gute Passform, Bewegungsfreiheit.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Zur Leitfrage</span><p>Funktionsfasern leiten Schweiß nach außen, Baumwolle saugt ihn auf und kühlt. Zusammen mit Schichten hält das wärmer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Kleidungs-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+sorter($('#sort'), [{id: 's', name: 'Schutz'}, {id: 'm', name: 'Schmuck'}, {id: 'k', name: 'Kennzeichnung'}], [
+  {t: 'Regenjacke', c: 's'}, {t: 'Sonnenhut', c: 's'}, {t: 'Sicherheitsschuhe auf dem Bau', c: 's'},
+  {t: 'Lieblings-Ohrringe', c: 'm'}, {t: 'trendiges Outfit für die Party', c: 'm'}, {t: 'farbige Sneaker', c: 'm'},
+  {t: 'Trikot des Lieblingsvereins', c: 'k'}, {t: 'Polizeiuniform', c: 'k'}, {t: 'Tracht beim Heimatfest', c: 'k'}
+]);
+(() => {
+  let s = {T: 5, R: 1, A: 1};
+  calc($('#calc-z'), [{id: 'T', l: 'Temperatur', min: -10, max: 30, v: 5, unit: '°C'}, {id: 'R', l: 'Wetter', opts: [['0', 'trocken'], ['1', 'Regen / Wind']], v: '1'}, {id: 'A', l: 'Aktivität', opts: [['0', 'ruhig'], ['1', 'Wandern, Radfahren']], v: '1'}], v => {
+    s = v; const l = [true, v.T < 15 && !(v.A && v.T > 10), v.R || v.T < 5];
+    const t = ['Funktionsshirt (Schicht 1)', 'Fleece oder Wolle (Schicht 2)', 'atmungsaktive Regen- oder Windjacke (Schicht 3)'].filter((x, i) => l[i]);
+    return `<p style="margin:0"><b>Empfehlung:</b> ${t.join(' + ')}${v.T < 0 ? ' + Mütze und Handschuhe' : ''}.</p><p class="note">Wird dir warm, ziehst du einfach eine Schicht aus.</p>`;
+  });
+  canvasLoop($('#cv-z'), 'zwiebel', (ctx, w, h, t) => {
+    const l = [true, s.T < 15 && !(s.A && s.T > 10), s.R || s.T < 5];
+    const L = [['Haut', 'Körper', '#e8b796', '#7a4a33'], ['Schicht 1', 'Funktionsshirt', '#4D8796', '#fff'], ['Schicht 2', 'Fleece / Wolle', '#B08A2E', '#fff'], ['Schicht 3', 'Regenjacke', '#4E64A0', '#fff']].filter((x, i) => i === 0 || l[i - 1]);
+    const bw = Math.min(w * .16, 120), top = 34 * TS, n = L.length, outX = bw * n;
+    /* Außenbereich */
+    ctx.fillStyle = s.T < 5 ? alpha(C.cold, .12) : s.T > 22 ? alpha(C.hot, .1) : alpha(C.ink2, .05); ctx.fillRect(outX, 0, w - outX, h);
+    L.forEach(([name, sub, c, tc], i) => {
+      const x = i * bw;
+      ctx.fillStyle = c; ctx.fillRect(x, 0, bw, h);
+      if (i) { ctx.fillStyle = 'rgba(255,255,255,.12)'; for (let y = (i * 7) % 10; y < h; y += 10) ctx.fillRect(x, y, bw, 2); }
+      ctx.strokeStyle = 'rgba(0,0,0,.18)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x + bw, 0); ctx.lineTo(x + bw, h); ctx.stroke();
+      label(ctx, name, x + bw / 2, top * .55, {size: 13, color: tc, maxW: bw - 8, halo: false});
+      label(ctx, sub, x + bw / 2, top * 1.15, {size: 11, color: tc, weight: 500, maxW: bw - 8, halo: false});
+    });
+    /* Schweiß wandert von der Haut nach außen */
+    for (let i = 0; i < 7; i++) { const p = (t * .35 + i / 7) % 1, x = bw * .5 + p * (outX - bw * .5), y = top * 1.8 + (i * 53) % (h - top * 2.2); ctx.globalAlpha = 1 - p * .6; ctx.fillStyle = '#dff1ff'; ctx.strokeStyle = '#1f6a9a'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x, y - 8); ctx.quadraticCurveTo(x + 6, y + 1, x, y + 6); ctx.quadraticCurveTo(x - 6, y + 1, x, y - 8); ctx.fill(); ctx.stroke(); ctx.globalAlpha = 1; }
+    /* Regen prallt an Schicht 3 ab */
+    const shell = L.length === 4;
+    if (s.R) for (let i = 0; i < 18; i++) {
+      const p = (t * .9 + i / 18) % 1, x0 = outX + 12 + ((i * 47) % Math.max(20, w - outX - 24)), y = p * h;
+      const hit = shell && x0 - p * 40 < outX + 6;
+      ctx.strokeStyle = alpha(C.water, .8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x0 - p * 40, y); ctx.lineTo(x0 - p * 40 - 6, y + 14); ctx.stroke();
+      if (hit) { ctx.beginPath(); ctx.arc(outX + 4, y + 10, 4, -1.2, 1.2); ctx.stroke(); }
+    }
+    if (s.R && !shell) label(ctx, 'Regen dringt ein!', outX + (w - outX) / 2, h * .82, {size: 15, color: C.bad});
+    label(ctx, `${s.T} °C`, outX + (w - outX) / 2, h * .42, {size: 30, font: DISPLAY, weight: 600, color: s.T < 5 ? C.cold : s.T > 22 ? C.hot : C.ink});
+    label(ctx, 'Schweiß wird nach außen geleitet →', outX / 2, h - 14 * TS, {size: 12, color: '#fff', weight: 600, maxW: outX - 10, halo: false});
+  });
+})();
+explore($('#ex-t'), [
+  {ico: 'tropfen', t: 'wasser- und winddicht', d: 'Regen und Wind kommen nicht hinein – z. B. durch Membranen oder Beschichtungen.'},
+  {ico: 'wind', t: 'atmungsaktiv', d: 'Wasserdampf (Schweiß) kann nach außen entweichen – man schwitzt nicht „im eigenen Saft“.'},
+  {ico: 'thermo', t: 'thermoregulierend', d: 'Hält warm, wenn es kalt ist, und kühlt, wenn es heiß ist.'},
+  {ico: 'hand', t: 'angenehm zur Haut', d: 'Weich, kratzt nicht, reibt nicht – wichtig bei langer Belastung.'},
+  {ico: 'laufen', t: 'Bewegungsfreiheit und Passform', d: 'Ergonomische Schnitte erlauben jede Bewegung, nichts drückt oder rutscht.'}
+], {hint: 'Tippe auf eine Tragefunktion.'});
+matcher($('#match'), [['Feuerwehr', 'Schutz vor Hitze und Flammen'], ['Klinik', 'Hygiene, Schutz vor Keimen'], ['Polizei', 'Kennzeichnung und Schutz'], ['Koch / Köchin', 'Hygiene, Schutz vor Hitze'], ['Straßenbau', 'Warnfarbe, Sichtbarkeit'], ['Bank', 'seriöses Auftreten']]);
+trueFalse($('#tf'), [
+  {t: 'Beim Zwiebelprinzip trägt man eine einzige dicke Schicht.', ok: false, why: 'Mehrere dünne Schichten.'},
+  {t: 'Die erste Schicht reguliert die Feuchtigkeit.', ok: true},
+  {t: 'Fanbekleidung hat eine Kennzeichnungsfunktion.', ok: true},
+  {t: 'Atmungsaktiv bedeutet, dass Regen hineinkommt.', ok: false, why: 'Wasserdampf kann hinaus – Regen bleibt draußen.'},
+  {t: 'Baumwolle saugt Schweiß auf und kann dadurch auskühlen.', ok: true}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Welche Funktion hat eine Uniform vor allem?', a: ['Kennzeichnung', 'Schmuck', 'Scham', 'keine'], ok: 0},
+  {q: 'Was macht die dritte Schicht beim Zwiebelprinzip?', a: ['Wetterschutz', 'Feuchtigkeit leiten', 'Wärme speichern', 'schmücken'], ok: 0},
+  {q: 'Womit beschäftigt sich die Bekleidungsphysiologie?', a: ['Zusammenwirken von Kleidung und Körper', 'Modegeschichte', 'Preise', 'Nähtechnik'], ok: 0},
+  {q: 'Was ist ein Vorteil des Zwiebelprinzips?', a: ['flexible Anpassung an Wetter und Aktivität', 'man braucht nur ein Kleidungsstück', 'es ist am billigsten', 'nichts'], ok: 0}
+]);
+</script>

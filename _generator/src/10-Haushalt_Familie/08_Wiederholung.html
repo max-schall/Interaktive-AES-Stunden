@@ -1,0 +1,87 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 232–233
+q: Kann ich Haushalt und Familienleben gerecht, sicher und vielfältig gestalten?
+facts: Fachbegriffe als Karteikarten und Paare | Fallbeispiel: Meleks erstes eigenes Budget | Quiz mit 15 Fragen (10 zufällig pro Runde) | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Melek rechnet · Großes Quiz · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Familienformen, Geschlechterrollen, Arbeitsteilung, die erste Wohnung, Kinder fördern, Vielfalt und Berufe: Prüfe, was du weißt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Kann ich Haushalt und Familienleben gerecht, sicher und vielfältig gestalten?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="fall" data-label="Fallbeispiel" data-yr="Anwenden" data-title="Melek rechnet" data-sub="Das erste eigene Budget">
+  <div class="section-head"><p class="eyebrow">Station 2 · Fallbeispiel</p><h2>Melek rechnet</h2><p class="lead">Melek macht eine Ausbildung und bekommt 950 € netto im Monat. Ihre Kaltmiete beträgt 200 €, Nebenkosten und Heizung kosten 70 €, Strom 30 €. Für den Handyvertrag zahlt sie 30 €, für die Bus- und Bahnfahrkarte 50 €, dazu 20 € für Versicherungen. Außerdem gibt sie aus: 40 € in der Mittagspause, 10 € für Kosmetik, 60 € für Kleidung, 80 € für Lebensmittel und 80 € für Freizeit.</p></div>
+  <div id="ts"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['Kernfamilie', 'Kinder leben mit Mutter und Vater zusammen'], ['Patchworkfamilie', 'Kinder haben nicht alle die gleichen Eltern'], ['Regenbogenfamilie', 'gleichgeschlechtliche Eltern mit Kind(ern)'], ['Sozialisierung', 'Werte und Normen vermitteln'], ['Gender-Mainstreaming', 'Strategien zur Gleichstellung der Geschlechter'], ['Mütterarmut', 'Armut von Müttern, z. B. durch Teilzeit'], ['Elternzeit', 'Auszeit vom Beruf zur Kinderbetreuung'], ['Haushaltsplan', 'zeigt, wer wann wofür zuständig ist'], ['Kaltmiete', 'Miete nur für den Wohnraum'], ['Kaution', 'Sicherheit beim Mieten'], ['Budget', 'zur Verfügung stehende Geldmittel'], ['Ich-Botschaft', 'eigene Gefühle und Wünsche ohne Vorwurf äußern'], ['Diversität', 'Vielfalt'], ['Inklusion', 'niemand wird ausgegrenzt']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+taskSet($('#ts'), (() => {
+  const T = [
+    {q: 'Wie hoch sind Meleks <b>feste Ausgaben</b> (Miete, Nebenkosten, Strom, Handy, Fahrkarte, Versicherungen)?', fields: [{l: 'feste Ausgaben', a: 400, unit: '€'}], hint: '200 + 70 + 30 + 30 + 50 + 20'},
+    {q: 'Wie viel Geld bleibt nach Abzug der festen Ausgaben zur freien Verfügung?', fields: [{l: 'frei verfügbar', a: 550, unit: '€'}], hint: '950 € − feste Ausgaben'},
+    {q: 'Wie viel gibt Melek insgesamt für Mittagspause, Kosmetik, Kleidung, Lebensmittel und Freizeit aus?', fields: [{l: 'variable Ausgaben', a: 270, unit: '€'}], hint: '40 + 10 + 60 + 80 + 80'},
+    {q: 'Wie viel kann Melek am Monatsende sparen?', fields: [{l: 'Rest', a: 280, unit: '€'}], hint: '550 € − 270 €'},
+    {q: 'Fitnessstudio: Jahresvertrag 25 € im Monat, Halbjahresvertrag 35 € im Monat. Was kostet der <b>Jahresvertrag</b> insgesamt?', fields: [{l: 'Jahresvertrag', a: 300, unit: '€'}], hint: '12 × 25 €', good: 'Richtig! Günstiger pro Monat – aber Melek ist ein ganzes Jahr gebunden.'},
+    {q: 'Und was kostet der <b>Halbjahresvertrag</b> insgesamt?', fields: [{l: 'Halbjahresvertrag', a: 210, unit: '€'}], hint: '6 × 35 €', good: 'Richtig! Teurer pro Monat, aber flexibler – gut, wenn sie nicht sicher ist, ob sie dranbleibt.'}
+  ];
+  return i => T[i];
+})(), {n: 6, fixed: true});
+mcQuiz($('#quiz'), [
+  {q: 'Was beschreibt der Begriff Familie?', a: ['Zusammenleben von Eltern und Kindern in einem Haushalt', 'nur verheiratete Paare', 'alle Bewohner eines Hauses', 'nur Großeltern'], ok: 0},
+  {q: 'Welche Funktion des Haushalts ist „Einkommen beschaffen“?', a: ['ökonomisch', 'Sozialisierung', 'Regeneration', 'Reproduktion'], ok: 0},
+  {q: 'Wie viele Familien in Deutschland sind etwa alleinerziehend?', a: ['ca. 20 %', 'ca. 5 %', 'ca. 50 %', 'ca. 70 %'], ok: 0},
+  {q: 'Was steht in Artikel 3 des Grundgesetzes?', a: ['Männer und Frauen sind gleichberechtigt.', 'Kinder müssen im Haushalt helfen.', 'Jeder hat Anspruch auf eine Wohnung.', 'Die Miete ist begrenzt.'], ok: 0},
+  {q: 'Warum ist das Armutsrisiko für Mütter höher?', a: ['Teilzeit, geringere Bezahlung, geringere Rente', 'Sie bekommen kein Kindergeld.', 'Sie zahlen mehr Steuern.', 'Es ist nicht höher.'], ok: 0},
+  {q: 'Ab welchem Alter besteht Anspruch auf einen Kitaplatz?', a: ['ab einem Jahr', 'ab drei Jahren', 'ab sechs Jahren', 'ab Geburt'], ok: 0},
+  {q: 'Welches Gesetz verpflichtet Kinder zur Mithilfe im Haushalt?', a: ['§ 1619 BGB', 'Art. 3 GG', 'Jugendschutzgesetz', 'Mietrecht'], ok: 0},
+  {q: 'Was sollte mit einem Haushaltsplan regelmäßig passieren?', a: ['testen, reflektieren, anpassen', 'nie ändern', 'wegwerfen', 'nur die Eltern lesen ihn'], ok: 0},
+  {q: 'Was bezahlt man mit der Kaltmiete?', a: ['nur den Wohnraum', 'Wohnraum und Heizung', 'Wohnraum und Strom', 'alles'], ok: 0},
+  {q: 'Was zeigt der Mietspiegel?', a: ['die ortsübliche Miete', 'die Kaution', 'den Stromverbrauch', 'die Nebenkosten'], ok: 0},
+  {q: 'Zu welcher Spielform gehört Memory?', a: ['Regelspiel', 'Bewegungsspiel', 'Rollenspiel', 'Konstruktionsspiel'], ok: 0},
+  {q: 'Was bedeutet „fördern und fordern“?', a: ['nicht über- oder unterfordern', 'immer mehr verlangen', 'nichts verlangen', 'nur loben'], ok: 0},
+  {q: 'Welcher Satz ist eine Ich-Botschaft?', a: ['„Ich wünsche mir, dass du anklopfst.“', '„Du nervst!“', '„Immer kommst du zu spät.“', '„Du bist schuld.“'], ok: 0},
+  {q: 'Was ist der letzte Schritt der Konfliktlösung?', a: ['Kompromisse machen und sich einigen', 'eigene Sichtweise erklären', 'Lösungen vorschlagen', 'streiten'], ok: 0},
+  {q: 'Zu welchem Berufsfeld gehört Hörakustiker/-in?', a: ['Gesundheit und Pflege', 'Sozialwesen', 'Fitness und Bewegung', 'Hauswirtschaft'], ok: 0}
+], {pick: 10});
+selfCheck($('#sci'), [
+  {t: 'Ich kann verschiedene Familienformen und die Funktionen eines Haushalts erklären.', href: '01_Familie_Haushalt.html#funktionen'},
+  {t: 'Ich kann den Wandel der Geschlechterrollen und das Risiko der Mütterarmut erläutern.', href: '02_Geschlechterrollen.html#armut'},
+  {t: 'Ich kann einen gerechten, altersgerechten Haushaltsplan erstellen.', href: '03_Arbeitsteilung.html#plan'},
+  {t: 'Ich kann eine Wohnungsanzeige prüfen und ein Budget aufstellen.', href: '04_Wohnen.html#budget'},
+  {t: 'Ich kann Spielformen und Entwicklungsphasen von Kindern beschreiben.', href: '05_Kinder_foerdern.html#phasen'},
+  {t: 'Ich kann Konflikte mit Ich-Botschaften lösen.', href: '06_Vielfalt_Konflikte.html#konflikt'},
+  {t: 'Ich kann Berufe rund um AES mit meinen Interessen vergleichen.', href: '07_Berufe.html#check'}
+]);
+</script>

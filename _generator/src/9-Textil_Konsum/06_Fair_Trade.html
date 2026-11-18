@@ -1,0 +1,159 @@
+<!--
+title: Fair Trade – du kannst etwas bewirken!
+short: Fair Trade
+time: 1 Unterrichtsstunde
+book: S. 178–179
+q: Was bringt es einer Kakaobäuerin, wenn ich faire Schokolade kaufe?
+facts: Ziel: Handelsbeziehungen mit Dialog, Transparenz und Respekt; bessere Lebens- und Arbeitsbedingungen | Fairtrade-Mindestpreis und Fairtrade-Prämie für Kooperativen | Standards: angemessener Lohn, keine Kinder- und Zwangsarbeit, Versammlungsfreiheit, Diskriminierungsverbot, umweltverträglicher Anbau | Siegel erkennen; Mischprodukte mit mind. 20 % fairen Zutaten
+inter: Weltmarktpreis gegen Mindestpreis · Fairtrade-Standards · Was wird fair gehandelt? · Echt fair?
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Fair Trade – du kannst etwas bewirken!</h1>
+      <p class="lead">Wir kaufen fast täglich ein – meist nach Geschmack und Preis. Wusstest du, dass du mit deinem Einkauf auch etwas Gutes für die Menschen tun kannst, die die Produkte herstellen?</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Was bringt es einer Kakaobäuerin, wenn ich faire Schokolade kaufe?</p></div>
+      <div class="controls"><button class="btn primary" data-go="preis">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="preis" data-label="Mindestpreis" data-yr="Erarbeitung" data-title="Mindestpreis und Prämie" data-sub="Sicherheit statt Schwankung">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Mindestpreis und Prämie</h2>
+      <p class="lead">Der <b>Marktpreis</b> bildet sich auf dem freien Markt durch Angebot und Nachfrage – er schwankt stark. Sinkt er, können Kleinbauernfamilien ihre Kosten nicht mehr decken.</p>
+      <ul class="facts">
+        <li>Fairtrade garantiert einen <b>Mindestpreis</b>: Liegt der Marktpreis darunter, wird der Mindestpreis gezahlt.</li>
+        <li>Zusätzlich gibt es eine <b>Fairtrade-Prämie</b> für die Kooperativen. Damit werden Projekte für Produktivität, Qualität oder Gemeinschaft (Schulen, Brunnen) finanziert.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Preis für Kakao (Modell)</h3></div>
+      <canvas id="cv-p" class="wide" aria-label="Schwankender Marktpreis und fester Mindestpreis"></canvas>
+      <div class="slider"><label for="mp">Jahr <output id="mp-o"></output></label><input type="range" id="mp" min="0" max="20" value="10"></div>
+      <p class="status" id="mp-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="standards" data-label="Standards" data-yr="Erarbeitung" data-title="Fairtrade-Standards" data-sub="Mehr als ein Preis">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Was bedeutet fair?</h2>
+      <p class="lead">Ziel von Fair Trade sind Handelsbeziehungen, die entlang der gesamten Produktionskette auf <b>Dialog, Transparenz und Respekt</b> beruhen. Durch die Sicherung sozialer Rechte leistet Fair Trade einen wichtigen Beitrag zur nachhaltigen Entwicklung.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf einen Standard</h3></div>
+      <div id="ex-s"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="produkte" data-label="Produkte" data-yr="Vertiefung" data-title="Immer mehr wird fair" data-sub="Vom Kaffee bis zum Fußball">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Vertiefung</p>
+      <h2>Immer mehr wird fair</h2>
+      <p class="lead">Die Menge fair gehandelter Produkte nimmt ständig zu. Verkauft werden vor allem Lebensmittel wie Kaffee, Kakao oder Bananen, aber auch Baumwolltextilien, Blumen oder Fußbälle.</p>
+      <ul class="facts">
+        <li>Fair-Trade-Produkte gibt es nicht mehr nur im Weltladen, sondern auch im Supermarkt und beim Discounter.</li>
+        <li>Das bekannteste Siegel ist das internationale <b>Fairtrade-Siegel</b>. Hersteller brauchen eine Lizenz (in Deutschland von TransFair).</li>
+        <li><b>Mischprodukte</b> wie Eis oder Schokolade müssen nur zu mindestens <b>20 %</b> aus fair gehandelten Zutaten bestehen.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Umsatz Fairtrade in Deutschland (Mio. €, ca.)</h3></div>
+      <div id="bars"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="echt" data-label="Echt fair?" data-yr="Anwendung" data-title="Echt fair?" data-sub="Labels prüfen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Anwendung</p>
+      <h2>Echt fair?</h2>
+      <p class="lead">Der Begriff „fair“ ist nicht geschützt. Daher gibt es viele Labels, die mit „fair“ werben, aber keine festgelegten Standards einhalten. Zertifizierte Labels findest du mit Apps oder im Internet (z. B. siegelklarheit.de).</p>
+      <p class="note">Weitere Siegel für fairen Handel: GEPA fair+, Naturland Fair, WFTO, Fair Wear (Textilien).</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wie entscheidest du?</h3></div>
+      <div id="sc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Fair Trade</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Fair Trade</h3><span>AES · Klasse 9</span></div>
+      <ol>
+        <li data-step>Fair Trade schafft Handelsbeziehungen auf Basis von Dialog, Transparenz und Respekt und verbessert die Lebens- und Arbeitsbedingungen von Kleinbauernfamilien und Beschäftigten.</li>
+        <li data-step>Ein <b>Mindestpreis</b> schützt vor schwankenden Marktpreisen; die <b>Fairtrade-Prämie</b> finanziert Gemeinschaftsprojekte der Kooperativen.</li>
+        <li data-step>Standards: angemessener Lohn, geregelte Arbeitsbedingungen, keine Kinder- und Zwangsarbeit, demokratische Organisation, Versammlungsfreiheit, Diskriminierungsverbot, umweltverträglicher Anbau.</li>
+        <li data-step>Das bekannteste Siegel ist das Fairtrade-Siegel. „Fair“ allein ist nicht geschützt – Labels prüfen.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Projekt</span><p>Wir organisieren einen Fair-Trade-Point für die Schule (Buch S. 273).</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Fair-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+(() => {
+  const mk = y => 2.2 + .9 * Math.sin(y * .8) + .5 * Math.sin(y * 2.1 + 1), MIN = 2.4;
+  const upd = () => { const y = +$('#mp').value, m = mk(y); $('#mp-o').textContent = 2004 + y; $('#mp-st').innerHTML = m < MIN ? `Marktpreis <b class="bad">${numDE(m, 2)} $/kg</b> liegt unter dem Mindestpreis – fair gehandelt gibt es <b class="good">${numDE(MIN, 2)} $/kg</b> plus Prämie.` : `Marktpreis <b>${numDE(m, 2)} $/kg</b> liegt über dem Mindestpreis – es wird der Marktpreis gezahlt, plus Prämie.`; };
+  $('#mp').oninput = upd; upd();
+  canvasLoop($('#cv-p'), 'preis', (ctx, w, h) => {
+    const {X, Y} = axes(ctx, w, h, {x: [0, 20], y: [0, 4], xt: [0, 5, 10, 15, 20], yt: [0, 1, 2, 3, 4], xl: 'Jahre', yl: '$ pro kg (Modell)', xf: v => 2004 + v});
+    const pts = []; for (let y = 0; y <= 20; y += .1) pts.push([X(y), Y(mk(y))]); polyline(ctx, pts, C.ink2, 2.5);
+    polyline(ctx, [[X(0), Y(MIN)], [X(20), Y(MIN)]], C.good, 3, [6, 4]); label(ctx, 'Fairtrade-Mindestpreis', X(20) - 4, Y(MIN) - 10, {size: 11, align: 'right', color: C.good});
+    const y = +$('#mp').value; dotAt(ctx, X(y), Y(Math.max(MIN, mk(y))), C.good, 7); dotAt(ctx, X(y), Y(mk(y)), C.ink2, 5);
+  });
+})();
+explore($('#ex-s'), [
+  {ico: 'euro', t: 'angemessener Lohn', d: 'Löhne, von denen Familien leben können; Mindestpreis und Prämie.'},
+  {ico: 'uhr', t: 'geregelte Arbeitsbedingungen', d: 'Arbeitszeiten, Pausen, Arbeitsschutz.'},
+  {ico: 'baby', t: 'keine Kinder- und Zwangsarbeit', d: 'Ausbeuterische Kinderarbeit und Zwangsarbeit sind verboten. Kinder sollen zur Schule gehen.'},
+  {ico: 'gruppe', t: 'demokratische Organisation', d: 'Kleinbauern schließen sich in Kooperativen zusammen und entscheiden gemeinsam, z. B. über die Prämie.'},
+  {ico: 'sprechen', t: 'Versammlungsfreiheit, Gewerkschaften', d: 'Arbeitende dürfen sich organisieren und ihre Interessen vertreten.'},
+  {ico: 'waage', t: 'Diskriminierungsverbot', d: 'Keine Benachteiligung wegen Geschlecht, Herkunft oder Religion.'},
+  {ico: 'blatt', t: 'umweltverträglicher Anbau', d: 'Weniger Pestizide, Schutz von Wasser und Boden; Bio wird gefördert.'}
+], {hint: 'Tippe auf einen Standard.'});
+bars($('#bars'), [['2016', 1150], ['2018', 1600], ['2020', 2040], ['2022', 2360]].map(([l, v]) => ({l, v, c: 'c2'})), {unit: 'Mio. €', dec: 0, note: 'Gerundet nach Fairtrade Deutschland.'});
+scenes($('#sc'), [
+  {s: 'Auf einer Schokolade steht „fair produziert“, aber kein bekanntes Siegel.', a: ['Kritisch sein: „fair“ ist nicht geschützt – Siegel prüfen', 'Sicher fair, steht ja drauf', 'Fair ist immer bio'], ok: 0},
+  {s: 'Ein Fairtrade-Eis besteht zu 25 % aus fairen Zutaten.', a: ['Erlaubt: Mischprodukte brauchen mindestens 20 %', 'Betrug', 'Muss 100 % sein'], ok: 0},
+  {s: 'Fairtrade-Bananen kosten 30 Cent mehr pro Kilo.', a: ['Damit werden Mindestpreis und Prämie finanziert', 'Das Geld geht nur an den Supermarkt', 'Das ist reine Werbung'], ok: 0},
+  {s: 'Du willst faire Fußbälle für den Sportverein.', a: ['Nach dem Fairtrade-Siegel suchen – Bälle werden oft von Hand genäht', 'Die günstigsten online bestellen', 'Fußbälle gibt es nicht fair'], ok: 0}
+], {label: 'Situation'});
+trueFalse($('#tf'), [
+  {t: 'Der Fairtrade-Mindestpreis schützt vor niedrigen Marktpreisen.', ok: true},
+  {t: 'Die Fairtrade-Prämie wird für Gemeinschaftsprojekte verwendet.', ok: true},
+  {t: 'Fair-Trade-Produkte gibt es nur im Weltladen.', ok: false, why: 'Auch im Supermarkt und beim Discounter.'},
+  {t: 'Der Begriff „fair“ ist gesetzlich geschützt.', ok: false},
+  {t: 'Kinderarbeit ist bei Fairtrade verboten.', ok: true}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Was ist der Marktpreis?', a: ['Preis durch Angebot und Nachfrage', 'ein fester Preis', 'der Preis im Weltladen', 'ein Rabatt'], ok: 0},
+  {q: 'Wer bekommt die Fairtrade-Prämie?', a: ['die Kooperativen', 'der Supermarkt', 'die Werbung', 'die Kunden'], ok: 0},
+  {q: 'Welches Produkt wird am häufigsten fair gehandelt?', a: ['Kaffee', 'Smartphones', 'Autos', 'Möbel'], ok: 0},
+  {q: 'Wie viel faire Zutaten braucht ein Mischprodukt mindestens?', a: ['20 %', '100 %', '5 %', '50 %'], ok: 0}
+]);
+</script>

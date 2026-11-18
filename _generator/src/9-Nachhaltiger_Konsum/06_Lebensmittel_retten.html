@@ -1,0 +1,143 @@
+<!--
+title: Schone Ressourcen – rette Lebensmittel
+short: Lebensmittel retten
+time: 1–2 Unterrichtsstunden
+book: S. 162–163
+q: Warum landet so viel Essen im Müll – und was kann ich dagegen tun?
+facts: 10,9 Millionen Tonnen Lebensmittelabfälle pro Jahr in Deutschland, mehr als die Hälfte in Privathaushalten | Ca. 78 kg pro Person und Jahr, etwa die Hälfte vermeidbar | Vermeidbare und unvermeidbare Abfälle, MHD und Verbrauchsdatum | Tipps: planen, richtig lagern, Sinne nutzen, Reste verwerten
+inter: Wer wirft wie viel weg? · Kühlschrank richtig einräumen · Vermeidbar oder nicht? · Resteküche
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Schone Ressourcen – rette Lebensmittel</h1>
+      <p class="lead">Das Mindesthaltbarkeitsdatum des Joghurts ist überschritten, die Bananen liegen überreif im Obstkorb: Das sind nur ein paar Gründe, warum täglich Lebensmittel weggeworfen werden.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Warum landet so viel Essen im Müll – und was kann ich dagegen tun?</p></div>
+      <div class="controls"><button class="btn primary" data-go="zahlen">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="zahlen" data-label="Zahlen" data-yr="Einstieg" data-title="Zahlen und Fakten" data-sub="Wer wirft wie viel weg?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Zahlen und Fakten</h2>
+      <p class="lead">In Deutschland werden jedes Jahr ca. <b>10,9 Millionen Tonnen</b> Lebensmittel entlang der Produktionskette weggeworfen. Mehr als die Hälfte davon in <b>privaten Haushalten</b> – ca. <b>78 kg pro Person</b>, etwa die Hälfte vermeidbar.</p>
+      <p>Lebensmittel sind wertvoll: Für sie wurden Wasser, Fläche, Energie und Arbeitskraft verbraucht. Wer sie wegwirft, verschwendet Ressourcen – und Geld.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Lebensmittelabfälle in Deutschland</h3><div id="z-seg"></div></div>
+      <div id="bars"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="kuehlschrank" data-label="Kühlschrank" data-yr="Praxis" data-title="Richtig lagern" data-sub="Der Kühlschrank hat Zonen">
+  <div class="section-head"><p class="eyebrow">Station 2 · Praxis</p><h2>Richtig lagern</h2><p class="lead">Wer Lebensmittel richtig lagert, verlängert ihre Haltbarkeit. Im Kühlschrank ist es nicht überall gleich kalt. Tomaten, Brot, Bananen, Kartoffeln und Zwiebeln gehören <b>nicht</b> in den Kühlschrank. Tippe auf ein Lebensmittel und dann auf das richtige Fach.</p></div>
+  <div id="sort-k"></div>
+</section>
+
+<section class="station" id="vermeidbar" data-label="Vermeidbar?" data-yr="Erarbeitung" data-title="Vermeidbar oder nicht?" data-sub="Mit allen Sinnen prüfen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Erarbeitung</p>
+      <h2>Vermeidbar oder unvermeidbar?</h2>
+      <ul class="facts">
+        <li><b>Unvermeidbare</b> Lebensmittelabfälle sind nicht essbare Bestandteile wie Knochen, Nuss- oder Bananenschalen.</li>
+        <li><b>Vermeidbar</b> sind z. B. überreifes Obst, altes Brot, Reste vom Vortag.</li>
+        <li>Beachte den Unterschied zwischen <b>MHD</b> und <b>Verbrauchsdatum</b>: Nach dem MHD kannst du Farbe, Geruch, Konsistenz und Geschmack mit den eigenen Sinnen prüfen.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Sortiere</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="reste" data-label="Resteküche" data-yr="Anwendung" data-title="Die Resteküche" data-sub="Was koche ich daraus?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Anwendung</p>
+      <h2>Die Resteküche</h2>
+      <p class="lead">Mache überschüssige Lebensmittel haltbar, z. B. durch Einkochen oder Einfrieren – oder koche etwas Neues daraus.</p>
+      <ul class="facts">
+        <li>Plane den Einkauf mit Einkaufszettel und verschaffe dir vorher einen Überblick.</li>
+        <li>Erwarte keine perfekten Produkte: Kaufe auch mal die krumme Gurke oder Brot vom Vortag.</li>
+        <li>Teilen: Foodsharing, Nachbarn, Tafel.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Was ist noch da?</h3></div>
+      <div class="chip-row" id="rk-pick"></div>
+      <div class="calc-out" id="rk-out" style="min-height:6rem"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Lebensmittel retten</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Lebensmittel retten</h3><span>AES · Klasse 9</span></div>
+      <ol>
+        <li data-step>In Deutschland werden jährlich ca. 10,9 Mio. t Lebensmittel weggeworfen, mehr als die Hälfte in Privathaushalten (ca. 78 kg pro Person). Etwa die Hälfte ist vermeidbar.</li>
+        <li data-step>Lebensmittelverschwendung verbraucht unnötig Ressourcen (Wasser, Fläche, Energie, Arbeit) und kostet viel Geld.</li>
+        <li data-step>Unvermeidbar: nicht essbare Teile (Knochen, Schalen). Vermeidbar: Reste, überreifes Obst, altes Brot.</li>
+        <li data-step>Tipps: Einkauf planen, richtig lagern, MHD und Verbrauchsdatum unterscheiden, Sinne nutzen, Reste verwerten, einfrieren, teilen.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Projekt</span><p>Führt eine Woche lang ein Abfall-Tagebuch zu Hause: Was wurde weggeworfen – und warum?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Retter-Check</h2></div>
+  <div id="sc"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+(() => {
+  const W = [['private Haushalte', 5.9, 'c1'], ['Verarbeitung', 1.6, 'c5'], ['Restaurants, Kantinen', 1.9, 'c6'], ['Handel', .8, 'c3'], ['Landwirtschaft', .6, 'c2']];
+  const H = [['Obst, Gemüse', 35, 'c2'], ['zubereitete Speisen', 15, 'c1'], ['Brot, Backwaren', 13, 'c5'], ['Getränke', 12, 'c3'], ['Milchprodukte', 9, 'c6'], ['Fertigprodukte', 6, 'c4'], ['Fleisch, Wurst, Fisch', 4, 'c7'], ['Sonstiges', 6, 'c3']];
+  seg($('#z-seg'), [['wer', 'Wer?'], ['was', 'Was in Haushalten?']], v => v === 'wer' ? bars($('#bars'), W.map(([l, x, c]) => ({l, v: x, c})), {unit: 'Mio. t', dec: 1, note: 'Gerundete Werte (Thünen-Institut).'}) : bars($('#bars'), H.map(([l, x, c]) => ({l, v: x, c})), {unit: '%', dec: 0, note: 'Anteile am Abfall privater Haushalte, gerundet.'}));
+})();
+sorter($('#sort-k'), [{id: 'o', name: 'oben (ca. 8 °C): Käse, Reste'}, {id: 'm', name: 'Mitte (ca. 5 °C): Milchprodukte'}, {id: 'u', name: 'unten (ca. 2 °C): Fleisch, Fisch'}, {id: 'g', name: 'Gemüsefach'}, {id: 't', name: 'Tür: Butter, Getränke, Eier'}, {id: 'n', name: 'nicht in den Kühlschrank'}], [
+  {t: 'Hartkäse', c: 'o'}, {t: 'Reste vom Vortag (abgedeckt)', c: 'o'}, {t: 'Joghurt', c: 'm'}, {t: 'Hackfleisch', c: 'u'}, {t: 'Lachs', c: 'u'}, {t: 'Möhren', c: 'g'}, {t: 'Salat', c: 'g'},
+  {t: 'Butter', c: 't'}, {t: 'Eier', c: 't'}, {t: 'Tomaten', c: 'n'}, {t: 'Bananen', c: 'n'}, {t: 'Brot', c: 'n'}
+]);
+sorter($('#sort'), [{id: 'v', name: 'vermeidbar'}, {id: 'u', name: 'unvermeidbar'}], [
+  {t: 'überreife Bananen', c: 'v'}, {t: 'Brot vom Vortag', c: 'v'}, {t: 'Nudelreste', c: 'v'}, {t: 'Joghurt einen Tag über dem MHD', c: 'v'}, {t: 'welker Salat', c: 'v'},
+  {t: 'Bananenschale', c: 'u'}, {t: 'Hähnchenknochen', c: 'u'}, {t: 'Nussschalen', c: 'u'}, {t: 'Kaffeesatz', c: 'u'}
+]);
+(() => {
+  const R = {Brot: 'Arme Ritter, Croûtons, Semmelknödel, Brotsalat', Nudeln: 'Nudelauflauf, Nudelsalat, Nudelpfanne mit Gemüse', Reis: 'gebratener Reis mit Gemüse, Reisbratlinge, Milchreis', Kartoffeln: 'Bratkartoffeln, Kartoffelpuffer, Kartoffelsuppe', Bananen: 'Bananenbrot, Smoothie, Bananen-Pfannkuchen, einfrieren für „Nicecream“', Gemüsereste: 'Gemüsesuppe, Ofengemüse, Gemüsebrühe aus Schalen', Äpfel: 'Apfelmus, Apfelkuchen, Bratapfel', Joghurt: 'Dip, Smoothie, Joghurtkuchen', Käse: 'überbacken, Käsesoße, Pizza'};
+  const sel = new Set();
+  $('#rk-pick').innerHTML = Object.keys(R).map(k => `<button class="btn" data-k="${k}" aria-pressed="false" style="padding:.3rem .7rem;font-size:.85rem">${k}</button>`).join('');
+  const upd = () => { $('#rk-out').innerHTML = sel.size ? [...sel].map(k => `<p style="margin:.2rem 0"><b>${k}:</b> ${R[k]}</p>`).join('') + (sel.size >= 2 ? '<p class="note">Kombiniert: z. B. eine Pfanne oder ein Auflauf mit allem, was da ist!</p>' : '') : '<span class="muted">Tippe auf Reste.</span>'; };
+  $('#rk-pick').addEventListener('click', e => { const b = e.target.closest('[data-k]'); if (!b) return; sel.has(b.dataset.k) ? sel.delete(b.dataset.k) : sel.add(b.dataset.k); b.setAttribute('aria-pressed', sel.has(b.dataset.k)); upd(); });
+  upd();
+})();
+scenes($('#sc'), [
+  {s: 'Du gehst ohne Plan einkaufen und kaufst „sicherheitshalber“ viel ein.', a: ['Vorher in Kühlschrank und Vorrat schauen, Einkaufszettel schreiben', 'Noch mehr kaufen', 'Nur Sonderangebote kaufen'], ok: 0},
+  {s: 'Die Milch ist einen Tag über dem MHD.', a: ['Riechen, schauen, probieren – meist noch gut', 'Sofort wegschütten', 'Ungeöffnet zurückbringen'], ok: 0},
+  {s: 'Vom Mittagessen ist viel Soße übrig.', a: ['Abgekühlt einfrieren', 'Wegschütten', 'Bis nächste Woche auf dem Herd lassen'], ok: 0},
+  {s: 'Im Supermarkt liegen krumme Gurken günstiger.', a: ['Kaufen – sie schmecken genauso', 'Liegen lassen, sie sind nicht schön', 'Nur die geraden nehmen'], ok: 0}
+], {label: 'Situation'});
+mcQuiz($('#quiz'), [
+  {q: 'Wie viele Lebensmittel werden in Deutschland jährlich weggeworfen?', a: ['ca. 10,9 Mio. Tonnen', 'ca. 10 000 Tonnen', 'ca. 1 Mio. Tonnen', 'ca. 100 Mio. Tonnen'], ok: 0},
+  {q: 'Wer wirft am meisten weg?', a: ['private Haushalte', 'Landwirtschaft', 'Handel', 'Schulen'], ok: 0},
+  {q: 'Was wird in Haushalten am häufigsten weggeworfen?', a: ['Obst und Gemüse', 'Fleisch', 'Fertigprodukte', 'Getränke'], ok: 0},
+  {q: 'Wo lagert man Hackfleisch im Kühlschrank?', a: ['unten, am kältesten', 'in der Tür', 'oben', 'im Gemüsefach'], ok: 0},
+  {q: 'Was ist ein unvermeidbarer Abfall?', a: ['Bananenschale', 'altes Brot', 'Nudelreste', 'überreifes Obst'], ok: 0}
+]);
+</script>

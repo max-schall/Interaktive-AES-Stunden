@@ -1,0 +1,176 @@
+<!--
+title: Garverfahren in feuchter Hitze
+short: Feuchte Hitze
+time: 2 Unterrichtsstunden (mit Kochversuch)
+book: S. 38–39
+q: Kochen, dünsten oder dämpfen – was ist am besten für die Karotte?
+facts: Garen ist das Zubereiten von Lebensmitteln unter Wärmeeinwirkung | Kochen, Dünsten, Dämpfen, Quellen, Garziehen, Druckgaren | Temperatur und Flüssigkeitsmenge unterscheiden die Verfahren | Den Dampfdrucktopf sicher bedienen
+inter: Garverfahren-Vergleich mit Temperatur und Wassermenge · Lebensmittel zuordnen · Nährstoffverluste vergleichen · Dampfdrucktopf Schritt für Schritt
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Garverfahren in feuchter Hitze</h1>
+      <p class="lead">Nudeln kocht man, Reis lässt man quellen, Knödel ziehen gar, Gemüse wird gedünstet oder gedämpft. Alle diese Verfahren arbeiten mit Wasser oder Wasserdampf – aber bei unterschiedlichen Temperaturen und Mengen.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Kochen, dünsten oder dämpfen – was ist am besten für die Karotte?</p></div>
+      <div class="controls"><button class="btn primary" data-go="verfahren">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="verfahren" data-label="Verfahren" data-yr="Erarbeitung" data-title="Sechs Garverfahren" data-sub="Temperatur und Flüssigkeit">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Garverfahren in feuchter Hitze</h2>
+      <p class="lead"><b>Garen</b> ist das Zubereiten von Lebensmitteln unter Wärmeeinwirkung. Bei der <b>feuchten Hitze</b> wird immer eine Flüssigkeit verwendet, meist Wasser.</p>
+      <dl class="kv2" id="gv-kv"></dl>
+      <ul class="words-box"><li>garen</li><li>das Garverfahren</li><li>die Garzeit</li><li>der Kochregler</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wähle ein Garverfahren</h3></div>
+      <div class="pillrow" id="gv-pick"></div>
+      <canvas id="cv-gv" class="wide" aria-label="Topf mit Flüssigkeit und Thermometer"></canvas>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="naehrstoffe" data-label="Nährstoffe" data-yr="Experiment" data-title="Der Karotten-Versuch" data-sub="Was bleibt im Gemüse?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Experiment</p>
+      <h2>Der Karotten-Versuch</h2>
+      <p class="lead">Schneidet eine Karotte in Scheiben. Kocht, dünstet und dämpft je einen Teil. Führt danach ein Sinnexperiment durch und notiert die Ergebnisse in einer Tabelle.</p>
+      <ul class="facts">
+        <li>Wasserlösliche Vitamine (z. B. Vitamin C) und Mineralstoffe gehen ins Kochwasser über.</li>
+        <li>Je mehr Wasser und je länger die Garzeit, desto größer der Verlust.</li>
+        <li>Die Art des Garverfahrens beeinflusst auch den <b>Geschmack</b>, die Farbe und den Biss.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Vitamin-C-Verlust beim Gemüse (Richtwerte)</h3></div>
+      <div id="bars"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="druck" data-label="Dampfdrucktopf" data-yr="Praxis" data-title="Der Dampfdrucktopf" data-sub="Schnell und Energie sparend">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Praxis</p>
+      <h2>Der Dampfdrucktopf</h2>
+      <p class="lead">Der Schnellkochtopf arbeitet mit Dampf und Druck: Im geschlossenen Topf steigt die Temperatur auf über 100 °C. So gart das Essen schneller und spart Energie.</p>
+      <ul class="facts">
+        <li>Mindestens ¼ Liter Wasser einfüllen.</li>
+        <li>Stufe 1 (ein Ring) für Gemüse und Fisch, Stufe 2 (zwei Ringe) für Fleisch und Kartoffeln.</li>
+        <li>Nach der Garzeit: Herd sofort aus. Druck <b>langsam</b> (stehen lassen) oder <b>schnell</b> (kaltes Wasser über den Deckelrand) ablassen.</li>
+      </ul>
+      <div class="achtung"><p>Den Topf erst öffnen, wenn der Druckanzeiger ganz unten ist!</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Bringe die Schritte in die richtige Reihenfolge</h3></div>
+      <div id="seq"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="zuordnen" data-label="Zuordnen" data-yr="Übung" data-title="Was wird wie gegart?" data-sub="Lebensmittel und Verfahren">
+  <div class="section-head"><p class="eyebrow">Station 4 · Übung</p><h2>Was wird wie gegart?</h2></div>
+  <div id="sort"></div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Garen in feuchter Hitze</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Garen in feuchter Hitze</h3><span>AES · Klasse 6</span></div>
+      <ol>
+        <li data-step><b>Garen</b> ist das Zubereiten von Lebensmitteln unter Wärmeeinwirkung. Bei feuchter Hitze wird immer eine Flüssigkeit verwendet.</li>
+        <li data-step><b>Kochen:</b> viel Flüssigkeit, 100 °C · <b>Garziehen:</b> viel Flüssigkeit, 75–95 °C · <b>Quellen:</b> Flüssigkeit wird vollständig aufgenommen, 75–95 °C.</li>
+        <li data-step><b>Dünsten:</b> wenig Flüssigkeit (oft mit etwas Fett), 95–100 °C · <b>Dämpfen:</b> im Wasserdampf, 100 °C.</li>
+        <li data-step><b>Druckgaren</b> im Dampfdrucktopf: bis ca. 120 °C, schnell und Energie sparend.</li>
+        <li data-step>Dünsten und Dämpfen schonen Vitamine und Mineralstoffe; die Art des Garverfahrens beeinflusst den Geschmack.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Versuch</span><p>Dämpft Karotten im Dampfdrucktopf und im normalen Topf mit Siebeinsatz. Vergleicht die Garzeit.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Garverfahren erkennen</h2></div>
+  <div id="sc"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+const GV = {
+  kochen: {n: 'Kochen', t: [100, 100], fl: .75, dampf: false, deckel: true, b: 'Nudeln, Suppen, Soßen, Kartoffeln', h: 'höchste Stufe bis zum Kochen, dann zurückschalten', g: 'großer Topf mit Deckel'},
+  garziehen: {n: 'Garziehen', t: [75, 95], fl: .75, dampf: false, deckel: false, b: 'Klöße, Knödel, Würstchen', h: 'höchste Stufe zum Erhitzen, dann sehr niedrige Stufe – das Wasser darf nicht sprudeln', g: 'großer Topf'},
+  quellen: {n: 'Quellen', t: [75, 95], fl: .3, dampf: false, deckel: true, b: 'Reis, Grünkern, Couscous, Hirse', h: 'höchste Stufe zum Erhitzen, dann sehr niedrige Stufe', g: 'Topf mit Deckel'},
+  duensten: {n: 'Dünsten', t: [95, 100], fl: .1, dampf: false, deckel: true, b: 'Gemüse, Obst, Fisch, helles Fleisch (Geflügel, Kalb)', h: 'höchste Stufe zum Erhitzen, dann mittlere Stufe; oft mit etwas Butter, es entstehen keine Röststoffe', g: 'Topf oder Pfanne mit Deckel'},
+  daempfen: {n: 'Dämpfen', t: [100, 100], fl: .12, dampf: true, deckel: true, b: 'Kartoffeln, Gemüse, Fisch, helles Fleisch', h: 'höchste Stufe zum Erhitzen, dann mittlere Stufe', g: 'Topf mit gut schließendem Deckel und Siebeinsatz'},
+  druck: {n: 'Druckgaren', t: [105, 120], fl: .15, dampf: true, deckel: true, druck: true, b: 'Kartoffeln, Hülsenfrüchte, Gemüse, Fleisch', h: 'höchste Stufe bis Ring 1 oder 2 sichtbar ist, dann zurückschalten', g: 'Dampfdrucktopf'}
+};
+(() => {
+  let k = 'kochen';
+  const show = () => { const v = GV[k]; $('#gv-kv').innerHTML = `<dt>Temperatur</dt><dd>${v.t[0] === v.t[1] ? v.t[0] : v.t[0] + '–' + v.t[1]} °C</dd><dt>Beispiele</dt><dd>${v.b}</dd><dt>Herd</dt><dd>${v.h}</dd><dt>Gerät</dt><dd>${v.g}</dd>`; $$('#gv-pick .btn').forEach(b => b.setAttribute('aria-pressed', b.dataset.k === k)); };
+  $('#gv-pick').innerHTML = Object.entries(GV).map(([key, v]) => `<button class="btn" data-k="${key}" aria-pressed="false">${v.n}</button>`).join('');
+  $('#gv-pick').onclick = e => { const b = e.target.closest('[data-k]'); if (b) { k = b.dataset.k; show(); } };
+  show();
+  const BUB = [...Array(30)].map((_, i) => { const r = rng(i * 11 + 1); return {x: r(), p: r(), s: 2 + r() * 3}; });
+  canvasLoop($('#cv-gv'), 'verfahren', (ctx, w, h, t) => {
+    const v = GV[k], px = w * .1, pw = w * .5, py = h * .25, ph = h * .62, ink = col('ink-2');
+    // Herdplatte
+    ctx.fillStyle = col('surface-2'); roundRect(ctx, px - 10, py + ph + 4, pw + 20, 12, 4); ctx.fill();
+    ctx.fillStyle = alpha(C.hot, .5 + .1 * Math.sin(t * 3)); ctx.fillRect(px + pw * .1, py + ph + 4, pw * .8, 4);
+    // Topf
+    ctx.strokeStyle = ink; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py + ph); ctx.lineTo(px + pw, py + ph); ctx.lineTo(px + pw, py); ctx.stroke();
+    const lvl = py + ph - ph * v.fl;
+    ctx.fillStyle = alpha(C.water, .35); ctx.fillRect(px + 2, lvl, pw - 4, py + ph - lvl - 2);
+    if (v.fl > .2 && !v.dampf) { ctx.fillStyle = k === 'quellen' ? '#f3ecd9' : k === 'garziehen' ? '#e8d6a6' : '#f1d58a'; for (let i = 0; i < (k === 'quellen' ? 40 : 5); i++) { const r = rng(i + 3); ctx.beginPath(); k === 'quellen' ? ctx.ellipse(px + 10 + r() * (pw - 20), py + ph - 8 - r() * ph * .25, 5, 2.5, r() * 3, 0, 7) : ctx.arc(px + pw * (.15 + i * .17), lvl + (py + ph - lvl) * .55, pw * .07, 0, 7); ctx.fill(); } }
+    if (v.dampf) { ctx.strokeStyle = ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(px + 6, lvl - 10); ctx.lineTo(px + pw - 6, lvl - 10); ctx.stroke(); for (let i = 0; i < 4; i++) { ctx.fillStyle = '#e9852f'; ctx.beginPath(); ctx.ellipse(px + pw * (.2 + i * .2), lvl - 18, pw * .07, 7, 0, 0, 7); ctx.fill(); } for (const b of BUB) { const p = (t * .25 + b.p) % 1, x = px + 8 + b.x * (pw - 16), y = lerp(lvl - 12, py + 10, p); ctx.fillStyle = alpha('#ffffff', .7 * (1 - p)); ctx.strokeStyle = alpha(ink, .25 * (1 - p)); ctx.beginPath(); ctx.arc(x, y, 3 + p * 4, 0, 7); ctx.fill(); ctx.stroke(); } }
+    if (k === 'duensten') { for (let i = 0; i < 6; i++) { ctx.fillStyle = '#7fb25a'; ctx.beginPath(); ctx.ellipse(px + pw * (.12 + i * .15), lvl - 8, pw * .06, 9, i, 0, 7); ctx.fill(); } }
+    // Blasen (sprudeln nur bei 100 °C)
+    if (!v.dampf && v.t[1] >= 100) for (const b of BUB) { const p = (t * .6 + b.p) % 1, x = px + 8 + b.x * (pw - 16), y = lerp(py + ph - 6, lvl + 3, p); ctx.strokeStyle = alpha('#ffffff', .9); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(x, y, b.s, 0, 7); ctx.stroke(); }
+    if (v.t[1] < 100) for (let i = 0; i < 4; i++) { const p = (t * .2 + i * .25) % 1; ctx.strokeStyle = alpha('#ffffff', .6); ctx.beginPath(); ctx.arc(px + pw * (.2 + i * .2), lerp(py + ph - 6, lvl + 4, p), 1.5, 0, 7); ctx.stroke(); }
+    if (v.deckel) { ctx.fillStyle = v.druck ? '#7d858e' : alpha(col('ink-2'), .7); roundRect(ctx, px - 8, py - 10, pw + 16, 10, 4); ctx.fill(); ctx.fillRect(px + pw / 2 - 12, py - 20, 24, 10); if (v.druck) { ctx.fillStyle = C.bad; ctx.fillRect(px + pw / 2 - 3, py - 34, 6, 14); label(ctx, 'Druckanzeiger', px + pw / 2 + 10, py - 30, {size: 11, align: 'left', color: C.ink2}); } }
+    label(ctx, v.n, px + pw / 2, h * .08, {size: 18, font: DISPLAY, weight: 600});
+    // Thermometer-Skala 60–130 °C
+    const tx = w * .78, t0 = h * .12, t1 = h * .9, Y = c => lerp(t1, t0, (c - 60) / 70);
+    ctx.fillStyle = col('surface-2'); roundRect(ctx, tx - 8, t0, 16, t1 - t0, 8); ctx.fill();
+    ctx.fillStyle = alpha(C.hot, .75); roundRect(ctx, tx - 8, Y(v.t[1]) - 3, 16, Y(v.t[0]) - Y(v.t[1]) + 6, 6); ctx.fill();
+    [60, 75, 95, 100, 120].forEach(c => { ctx.fillStyle = C.ink2; ctx.fillRect(tx + 10, Y(c), 8, 1.5); label(ctx, c + ' °C', tx + 22, Y(c), {size: 11, align: 'left', color: C.ink2, weight: c === 100 ? 700 : 400}); });
+    label(ctx, 'Siedepunkt', tx - 14, Y(100), {size: 10, align: 'right', color: C.ink2, weight: 400});
+  });
+})();
+
+bars($('#bars'), [{l: 'Kochen', v: 45, c: 'c1'}, {l: 'Garziehen', v: 35, c: 'c5'}, {l: 'Dünsten', v: 25, c: 'c2'}, {l: 'Dämpfen', v: 20, c: 'c3'}, {l: 'Druckgaren', v: 15, c: 'c6'}], {unit: '%', dec: 0, max: 60, note: 'Gerundete Richtwerte; der tatsächliche Verlust hängt von Gemüse, Schnittgröße und Garzeit ab.'});
+
+sequence($('#seq'), ['Mindestens ¼ Liter Wasser einfüllen, Siebeinsatz und Lebensmittel einsetzen', 'Dichtungsring prüfen, Topfrand säubern, Deckel schließen (Markierungen treffen sich, Klicken)', 'Kochregler auf Stufe 1 oder 2 stellen', 'Auf höchster Stufe erhitzen, bis der Ring sichtbar ist', 'Herdplatte zurückschalten – die Garzeit beginnt', 'Nach der Garzeit Herd sofort ausschalten', 'Druck langsam oder schnell ablassen, bis der Anzeiger ganz unten ist', 'Kochregler auf 0, Deckel öffnen']);
+
+sorter($('#sort'), [{id: 'k', name: 'Kochen'}, {id: 'z', name: 'Garziehen'}, {id: 'q', name: 'Quellen'}, {id: 'd', name: 'Dünsten / Dämpfen'}], [
+  {t: 'Spaghetti', c: 'k'}, {t: 'Gemüsesuppe', c: 'k'}, {t: 'Kartoffelknödel', c: 'z'}, {t: 'Wiener Würstchen', c: 'z'},
+  {t: 'Reis', c: 'q'}, {t: 'Couscous', c: 'q'}, {t: 'Brokkoli', c: 'd'}, {t: 'Lachsfilet', c: 'd'}, {t: 'Apfelkompott', c: 'd'}
+]);
+scenes($('#sc'), [
+  {s: 'Die Würstchen sind aufgeplatzt, weil das Wasser sprudelnd gekocht hat. Welches Verfahren wäre richtig gewesen?', a: ['Garziehen bei 75–95 °C', 'Kochen bei 100 °C', 'Braten'], ok: 0, why: 'Würstchen und Knödel ziehen gar – das Wasser darf nicht sprudeln.'},
+  {s: 'Der Reis hat das ganze Wasser aufgenommen und ist weich. Wie heißt das Verfahren?', a: ['Quellen', 'Dämpfen', 'Garziehen'], ok: 0},
+  {s: 'Der Brokkoli liegt im Siebeinsatz über dem kochenden Wasser.', a: ['Dämpfen', 'Kochen', 'Dünsten'], ok: 0, why: 'Das Gemüse hat keinen Kontakt zum Wasser.'},
+  {s: 'Karotten garen mit wenig Wasser und einem Stück Butter im geschlossenen Topf.', a: ['Dünsten', 'Kochen', 'Quellen'], ok: 0},
+  {s: 'Linsen sollen schnell und Energie sparend gar werden.', a: ['Druckgaren im Dampfdrucktopf', 'Garziehen', 'Quellen ohne Deckel'], ok: 0}
+], {label: 'Fall'});
+mcQuiz($('#quiz'), [
+  {q: 'Was ist Garen?', a: ['Zubereiten von Lebensmitteln unter Wärmeeinwirkung', 'Kühlen von Lebensmitteln', 'Würzen von Speisen', 'Waschen von Gemüse'], ok: 0},
+  {q: 'Bei welcher Temperatur wird gekocht?', a: ['100 °C', '75 °C', '150 °C', '200 °C'], ok: 0},
+  {q: 'Welches Verfahren arbeitet über 100 °C?', a: ['Druckgaren', 'Garziehen', 'Quellen', 'Dünsten'], ok: 0},
+  {q: 'Warum sind Dämpfen und Dünsten nährstoffschonend?', a: ['Wenig oder kein Kontakt mit viel Wasser', 'Sie dauern länger', 'Sie sind heißer', 'Es wird Salz zugegeben'], ok: 0},
+  {q: 'Wann darf man den Dampfdrucktopf öffnen?', a: ['wenn der Druckanzeiger ganz unten ist', 'sofort nach dem Ausschalten', 'wenn es zischt', 'nach genau einer Minute'], ok: 0}
+]);
+</script>

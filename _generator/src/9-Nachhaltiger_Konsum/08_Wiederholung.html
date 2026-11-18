@@ -1,0 +1,84 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 180–181 (Training, Auszug)
+q: Kann ich nachhaltige Konsumentscheidungen treffen und begründen?
+facts: Fachbegriffe als Karteikarten und Paare | Fallbeispiel: Wochenendeinkauf | Quiz mit 16 Fragen (10 zufällig pro Runde) | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Fallbeispiel · Großes Quiz · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Bedürfnisse, Nachhaltigkeit, Fußabdruck, Verpackung, Fleischkonsum, Lebensmittelrettung und Kauftricks: Prüfe, was du weißt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Kann ich nachhaltige Konsumentscheidungen treffen und begründen?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="fall" data-label="Fallbeispiel" data-yr="Anwenden" data-title="Der Wochenendeinkauf" data-sub="Nachhaltig entscheiden">
+  <div class="section-head"><p class="eyebrow">Station 2 · Fallbeispiel</p><h2>Der Wochenendeinkauf</h2><p class="lead">Jonas kauft für das Wochenende ein. Er hat 25 € und möchte nachhaltig einkaufen.</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['Bedürfnis', 'empfundener Mangel mit dem Wunsch, ihn zu beseitigen'], ['Bedarf', 'befriedigt ein Bedürfnis, materiell oder nicht-materiell'], ['Bedürfnispyramide', 'Rangfolge der Bedürfnisse nach Maslow'], ['Nachhaltigkeit', 'so leben, dass auch künftige Generationen gut leben können'], ['Drei-Säulen-Modell', 'Ökologie, Ökonomie, Soziales'], ['Agenda 2030', '17 Nachhaltigkeitsziele der UN'], ['ökologischer Fußabdruck', 'Verbrauch im Vergleich zu den verfügbaren Ressourcen'], ['Erdüberlastungstag', 'ab hier leben wir auf Pump'], ['Mehrweg', 'Verpackung, die wiederbefüllt wird'], ['stoffliche Verwertung', 'aus Altmaterial wird neues Material'], ['virtuelles Wasser', 'gesamtes Wasser für die Herstellung eines Produkts'], ['vermeidbarer Abfall', 'z. B. Reste, altes Brot'], ['Quengelzone', 'Süßigkeiten an der Kasse'], ['Markterkundung', 'objektive Untersuchung eines Marktes']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+scenes($('#sc'), [
+  {s: 'Vor dem Einkauf …', a: ['schaut Jonas in den Kühlschrank und schreibt eine Einkaufsliste', 'geht er hungrig und ohne Plan los', 'nimmt er den größten Wagen'], ok: 0},
+  {s: 'Für den Grillabend: 1 kg Billig-Grillfleisch oder 300 g Bio-Fleisch plus Grillgemüse?', a: ['300 g Bio-Fleisch plus regionales Gemüse', '1 kg Billigfleisch', '2 kg Billigfleisch, falls was übrig bleibt'], ok: 0},
+  {s: 'Getränke: Einweg-Plastikflaschen, Mehrwegflaschen oder Dosen?', a: ['Mehrwegflaschen (oder Leitungswasser)', 'Dosen', 'Einweg-Plastik'], ok: 0},
+  {s: 'An der Kasse liegen Schokoriegel. Jonas …', a: ['bleibt bei seiner Liste', 'nimmt drei mit', 'kauft eine Großpackung'], ok: 0},
+  {s: 'Am Sonntag ist Grillgemüse übrig.', a: ['Montag als Nudelpfanne verwerten', 'wegwerfen', 'eine Woche im Auto lassen'], ok: 0}
+], {label: 'Entscheidung'});
+mcQuiz($('#quiz'), [
+  {q: 'Was steht ganz unten in der Bedürfnispyramide?', a: ['Grundbedürfnisse', 'Selbstverwirklichung', 'Anerkennung', 'Sicherheit'], ok: 0},
+  {q: 'Was ist ein nicht-materieller Bedarf?', a: ['Zeit mit Freunden', 'Fahrrad', 'Smartphone', 'Jacke'], ok: 0},
+  {q: 'Woher stammt der Begriff Nachhaltigkeit?', a: ['aus der Forstwirtschaft', 'aus der Mode', 'aus der Raumfahrt', 'aus dem Sport'], ok: 0},
+  {q: 'Wie viele Ziele hat die Agenda 2030?', a: ['17', '3', '10', '30'], ok: 0},
+  {q: 'Wie viele Erden bräuchten wir, wenn alle wie in Deutschland lebten?', a: ['ca. 3', 'ca. 1', 'ca. 0,5', 'ca. 10'], ok: 0},
+  {q: 'Wie hoch ist der CO₂-Fußabdruck pro Kopf in Deutschland etwa?', a: ['10,5 t', '1 t', '50 t', '0,1 t'], ok: 0},
+  {q: 'Welche Verpackung hat den geringsten CO₂-Ausstoß?', a: ['Mehrweg-PET oder Mehrweg-Glas', 'Aluminium', 'Weißblech', 'Einweg-Kunststoff'], ok: 0},
+  {q: 'Wie viel Kunststoff wird stofflich recycelt?', a: ['ca. 15 %', 'ca. 90 %', 'ca. 100 %', 'ca. 0 %'], ok: 0},
+  {q: 'Wie viel virtuelles Wasser steckt in 1 kg Rindfleisch?', a: ['ca. 15 400 l', 'ca. 154 l', 'ca. 1,5 l', 'ca. 154 000 l'], ok: 0},
+  {q: 'Wie viel Fleisch empfiehlt die DGE pro Woche höchstens?', a: ['300–600 g', '2 kg', '100 g', '5 kg'], ok: 0},
+  {q: 'Wer wirft in Deutschland die meisten Lebensmittel weg?', a: ['private Haushalte', 'Landwirtschaft', 'Handel', 'Kantinen'], ok: 0},
+  {q: 'Was gehört nicht in den Kühlschrank?', a: ['Tomaten', 'Joghurt', 'Hackfleisch', 'Butter'], ok: 0},
+  {q: 'Wo stehen teure Markenprodukte?', a: ['auf Augenhöhe', 'ganz unten', 'ganz oben', 'im Lager'], ok: 0},
+  {q: 'Was ist ein Nachteil von Kundenkarten?', a: ['Preisgabe persönlicher Daten', 'Rabatte', 'Gutscheine', 'Punkte'], ok: 0},
+  {q: 'Was muss man vor einer Markterkundung tun?', a: ['die Marktleitung um Erlaubnis bitten', 'heimlich fotografieren', 'nichts', 'einkaufen'], ok: 0},
+  {q: 'Was ist Methan im Vergleich zu CO₂?', a: ['25-mal klimaschädlicher', 'harmlos', 'gleich schädlich', 'gut fürs Klima'], ok: 0}
+], {pick: 10});
+selfCheck($('#sci'), [
+  {t: 'Ich kann Bedürfnis und Bedarf unterscheiden und die Bedürfnispyramide erklären.', href: '01_Beduerfnisse.html#pyramide'},
+  {t: 'Ich kann Nachhaltigkeit mit dem Drei-Säulen-Modell erklären.', href: '02_Nachhaltigkeit.html#saeulen'},
+  {t: 'Ich kann den ökologischen Fußabdruck erklären und meinen schätzen.', href: '03_Fussabdruck.html#rechner'},
+  {t: 'Ich kann Verpackungen bewerten und Müll richtig trennen.', href: '04_Verpackung.html#trennung'},
+  {t: 'Ich kann Auswirkungen des Fleischkonsums beschreiben.', href: '05_Fleischkonsum.html#folgen'},
+  {t: 'Ich kann Lebensmittel richtig lagern und Reste verwerten.', href: '06_Lebensmittel_retten.html#kuehlschrank'},
+  {t: 'Ich kann Verkaufstricks erkennen und eine Markterkundung planen.', href: '07_Kauftricks_Markterkundung.html#markt'}
+]);
+</script>

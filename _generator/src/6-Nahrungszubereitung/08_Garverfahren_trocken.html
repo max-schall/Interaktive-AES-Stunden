@@ -1,0 +1,198 @@
+<!--
+title: Garverfahren in trockener Hitze
+short: Trockene Hitze
+time: 2 Unterrichtsstunden (mit Bratversuch und Erklärvideo)
+book: S. 40–43
+q: Warum wird ein Schnitzel in heißem Fett knusprig – und in kaltem nicht?
+facts: Braten, Schmoren, Grillen, Backen, Frittieren | Röststoffe entstehen bei hoher Temperatur | Backofenprogramme: Ober-/Unterhitze, Umluft, Unterhitze, Grill | Methode: Ein Erklärvideo erstellen
+inter: Garverfahren mit Temperaturen · Backofenprogramme im Modell · Kaltes oder heißes Fett? · Erklärvideo in acht Schritten
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Garverfahren in trockener Hitze</h1>
+      <p class="lead">Ob Spiegelei, Gulasch, Grillgemüse oder Pizza: Beim Garen in trockener Hitze wird kein Wasser verwendet, sondern heißes Fett oder heiße Luft. Dabei entstehen Bräune und Röstaromen.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Warum wird ein Schnitzel in heißem Fett knusprig – und in kaltem nicht?</p></div>
+      <div class="controls"><button class="btn primary" data-go="verfahren">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="verfahren" data-label="Verfahren" data-yr="Erarbeitung" data-title="Garverfahren in trockener Hitze" data-sub="Fett oder heiße Luft">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Fett oder heiße Luft</h2>
+      <p class="lead">Beim Garen in trockener Hitze wird immer <b>Fett oder heiße Luft</b> verwendet. Die Temperaturen liegen deutlich über 100 °C – deshalb bräunen die Lebensmittel und es entstehen <b>Röststoffe</b>.</p>
+      <div class="vis" style="padding:.8rem"><div id="bars-t"></div></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf ein Verfahren</h3></div>
+      <div id="ex-v"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="ofen" data-label="Backofen" data-yr="Praxis" data-title="Der Backofen" data-sub="Programme richtig wählen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Praxis</p>
+      <h2>Der Backofen</h2>
+      <p class="lead">Jeder Backofen hat einen <b>Temperaturregler</b> und einen <b>Programmregler</b>. Je nach Programm trifft die Hitze von unterschiedlichen Seiten auf das Lebensmittel.</p>
+      <ul class="facts">
+        <li>Die Angaben zu Temperatur und Programm stehen im Rezept.</li>
+        <li>Bei <b>Umluft</b> muss der Backofen nicht vorgeheizt werden, die Temperatur liegt etwa <b>20–30 °C niedriger</b>. Das spart Energie.</li>
+        <li>Vorsicht beim Öffnen: Ausströmende Luft und Wasserdampf sind sehr heiß. Immer Topfhandschuhe!</li>
+      </ul>
+      <ul class="words-box"><li>Ober-/Unterhitze</li><li>Umluft</li><li>vorheizen</li><li>der Programmregler</li><li>der Temperaturregler</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Programm</h3><div id="of-seg"></div></div>
+      <canvas id="cv-of" class="wide" aria-label="Backofen mit Hitzeverteilung"></canvas>
+      <p class="status" id="of-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="fett" data-label="Bratversuch" data-yr="Experiment" data-title="Kaltes oder heißes Fett?" data-sub="Der Bratversuch">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Experiment</p>
+      <h2>Kaltes oder heißes Fett?</h2>
+      <p class="lead">Bratet ein kleines Stück Fleisch oder Tofu: einmal in kaltes Fett gelegt, einmal in heißes. Beschreibt eure Beobachtungen und führt ein Sinnexperiment durch.</p>
+      <ul class="facts">
+        <li>Zum Braten braucht man <b>wasserfreies</b> Fett (Öl, Butterschmalz). Butter enthält Wasser und Eiweiß – sie spritzt und verbrennt schnell.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Pfanne</h3><div id="bf-seg"></div></div>
+      <canvas id="cv-bf" class="wide" aria-label="Fleisch in der Pfanne"></canvas>
+      <div class="controls"><button class="btn primary" id="bf-go">Fleisch hineinlegen</button><button class="btn" id="bf-reset">Zurücksetzen</button></div>
+      <p class="status" id="bf-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="video" data-label="Erklärvideo" data-yr="Methode" data-title="Methode: Erklärvideo" data-sub="Garverfahren erklären">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Methode</p>
+      <h2>Ein Erklärvideo erstellen</h2>
+      <p class="lead">Erklärt ein Garverfahren in einem Video von 1–3 Minuten. Drei Formate sind möglich:</p>
+      <dl class="kv2">
+        <dt>Legetrick</dt><dd>Explainity-Clip: Bilder und Figuren werden unter der Kamera gelegt.</dd>
+        <dt>How-to</dt><dd>zeigt, wie etwas gemacht wird – meist nur die Hände.</dd>
+        <dt>Vlogging</dt><dd>eine oder mehrere Personen erklären vor der Kamera.</dd>
+      </dl>
+      <div class="achtung"><p>Bei Veröffentlichung: Datenschutz (DSGVO), Urheberrecht und Lizenzen beachten, Erlaubnis der Schule einholen. Nur rechtefreie Musik verwenden.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Acht Schritte – bringe sie in Reihenfolge</h3></div>
+      <div id="seq-v"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Garen in trockener Hitze</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Garen in trockener Hitze</h3><span>AES · Klasse 6</span></div>
+      <ol>
+        <li data-step>Beim Garen in <b>trockener Hitze</b> wird immer Fett oder heiße Luft verwendet. Es entstehen Röststoffe.</li>
+        <li data-step><b>Braten:</b> heißes wasserfreies Fett, 120–200 °C · <b>Schmoren:</b> anbraten bei ca. 200 °C, dann in Flüssigkeit bei 100 °C weitergaren · <b>Grillen:</b> Strahlungs- oder Kontakthitze, 200–300 °C.</li>
+        <li data-step><b>Backen:</b> heiße Luft, 150–250 °C · <b>Frittieren:</b> schwimmend in heißem Fett, ca. 160–180 °C.</li>
+        <li data-step>Backofen: Ober-/Unterhitze (ein Blech), Umluft (mehrere Bleche, nicht vorheizen, 20–30 °C weniger), Unterhitze, Grill.</li>
+        <li data-step>Fleisch immer in <b>heißes</b> Fett legen: Es bräunt sofort, Röststoffe entstehen und es bleibt saftig.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Projekt</span><p>Dreht in Gruppen ein How-to-Video zu einem Garverfahren und gebt euch gegenseitig Feedback.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Feucht oder trocken?</h2></div>
+  <div id="sort"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+bars($('#bars-t'), [{l: 'Kochen (zum Vergleich)', v: 100, c: 'c3'}, {l: 'Braten', v: 200, c: 'c1', note: '120–200 °C'}, {l: 'Schmoren', v: 200, c: 'c4'}, {l: 'Frittieren', v: 180, c: 'c5'}, {l: 'Backen', v: 250, c: 'c7', note: '150–250 °C'}, {l: 'Grillen', v: 300, c: 'c6', note: '200–300 °C'}], {unit: '°C', dec: 0, max: 300, note: 'Höchsttemperaturen der Verfahren'});
+explore($('#ex-v'), [
+  {ico: 'pfanne', t: 'Braten', d: '<p>Garen und Bräunen bei <b>120–200 °C</b> in heißem wasserfreien Fett. Es entstehen Röststoffe.</p><p>Beispiele: Fleisch, Fisch, Bratkartoffeln, Spiegelei. Gerät: Pfanne. Herd: höchste Stufe zum Erhitzen des Fetts, dann zurückschalten.</p>'},
+  {ico: 'topf', t: 'Schmoren', d: '<p>Erst <b>anbraten</b> in heißem Fett bei ca. 200 °C, dann in siedender Flüssigkeit bei 100 °C <b>weitergaren</b>.</p><p>Beispiele: Gulasch, Rouladen, gefülltes Gemüse. Gerät: Topf oder Bräter mit Deckel.</p>'},
+  {ico: 'flamme', t: 'Grillen', d: '<p>Garen und Bräunen durch <b>Strahlungs- oder Kontakthitze</b> bei 200–300 °C.</p><p>Beispiele: Fleisch, Gemüse, Käse. Geräte: Backofengrill, Grill, Grillplatte.</p>'},
+  {ico: 'brot', t: 'Backen', d: '<p>Garen und Bräunen in <b>heißer Luft</b> bei 150–250 °C.</p><p>Beispiele: Kuchen, Kekse, Pizza, Aufläufe. Geräte: Backblech, Backform, Auflaufform. Temperatur: siehe Rezept.</p>'},
+  {ico: 'oel', t: 'Frittieren', d: '<p>Garen und Bräunen <b>schwimmend in viel heißem Fett</b> bei ca. 160–180 °C.</p><p>Beispiele: Pommes frites, Fettgebäck, Gemüse im Teig. Geräte: Fritteuse oder hoher Topf, Schaumkelle.</p>'}
+], {hint: 'Tippe auf ein Verfahren.'});
+
+/* Backofen */
+(() => {
+  let p = 'ou';
+  const P = {ou: ['Ober-/Unterhitze', 'Der Ofen heizt von oben und unten. Nur <b>ein Blech</b> oder ein Gitterrost mit Backform in der Mitte. Für Kuchen, Brot, Aufläufe. Vorheizen.'], um: ['Umluft', 'Ein Ventilator verteilt die heiße Luft gleichmäßig. <b>Zwei oder drei Bleche</b> gleichzeitig möglich, kein Vorheizen, Temperatur 20–30 °C niedriger – spart Energie.'], u: ['Unterhitze', 'Hitze nur von unten: zum Nachbräunen von Böden, z. B. bei Pizza oder Quiche.'], g: ['Grill', 'Starke Strahlungshitze von oben: zum Überbacken und Bräunen, z. B. Toast oder Gratin.']};
+  seg($('#of-seg'), Object.entries(P).map(([k, v]) => [k, v[0]]), v => { p = v; $('#of-st').innerHTML = P[v][1]; });
+  canvasLoop($('#cv-of'), 'ofen', (ctx, w, h, t) => {
+    const ox = w * .12, ow = w * .76, oy = h * .08, oh = h * .84, ink = col('ink-2');
+    ctx.fillStyle = col('surface-2'); roundRect(ctx, ox, oy, ow, oh, 14); ctx.fill(); ctx.strokeStyle = ink; ctx.lineWidth = 2; ctx.stroke();
+    const ix = ox + ow * .06, iw = ow * .88, iy = oy + oh * .08, ih = oh * .84;
+    ctx.fillStyle = alpha('#000', .06); ctx.fillRect(ix, iy, iw, ih);
+    const heat = (y, on) => { ctx.strokeStyle = on ? alpha(C.hot, .7 + .3 * Math.sin(t * 4)) : alpha(ink, .3); ctx.lineWidth = 4; ctx.beginPath(); for (let x = ix + 10; x < ix + iw - 10; x += 16) { ctx.lineTo(x, y + (x / 16 % 2 ? 4 : -4)); } ctx.stroke(); };
+    heat(iy + 8, p === 'ou' || p === 'g'); heat(iy + ih - 8, p === 'ou' || p === 'u');
+    if (p === 'g') { for (let i = 0; i < 6; i++) { const x = ix + iw * (.12 + i * .15), d = ((t * 60) + i * 13) % (ih * .4); arrow(ctx, x, iy + 16 + d, x, iy + 30 + d, alpha(C.hot, .6), 2.5, 7); } }
+    const trays = p === 'um' ? [.33, .55, .77] : [.55];
+    trays.forEach(f => { const ty = iy + ih * f; ctx.fillStyle = ink; ctx.fillRect(ix + 6, ty, iw - 12, 3); ctx.fillStyle = '#e2b56a'; for (let i = 0; i < 5; i++) { ctx.beginPath(); ctx.ellipse(ix + iw * (.15 + i * .18), ty - 6, iw * .06, 6, 0, Math.PI, 0); ctx.fill(); } });
+    if (p === 'um') {
+      const fx = ix + iw - 22, fy = iy + ih / 2; ctx.save(); ctx.translate(fx, fy); ctx.rotate(t * 5); ctx.strokeStyle = ink; ctx.lineWidth = 3; for (let i = 0; i < 4; i++) { ctx.rotate(Math.PI / 2); ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(14, 4); ctx.stroke(); } ctx.restore();
+      ctx.strokeStyle = alpha(C.hot, .55); ctx.lineWidth = 2.5; for (let k = 0; k < 3; k++) { const a = (t * 1.5 + k * 2.1) % (Math.PI * 2); ctx.beginPath(); ctx.ellipse(ix + iw / 2, fy, iw * .38, ih * .36, 0, a, a + 1.4); ctx.stroke(); }
+    }
+    if (p === 'u') { for (let i = 0; i < 6; i++) { const x = ix + iw * (.12 + i * .15), d = ((t * 50) + i * 11) % (ih * .3); arrow(ctx, x, iy + ih - 16 - d, x, iy + ih - 30 - d, alpha(C.hot, .6), 2.5, 7); } }
+    if (p === 'ou') { for (let i = 0; i < 5; i++) { const x = ix + iw * (.15 + i * .18), d = ((t * 40) + i * 9) % (ih * .18); arrow(ctx, x, iy + 16 + d, x, iy + 28 + d, alpha(C.hot, .5), 2, 6); arrow(ctx, x, iy + ih - 16 - d, x, iy + ih - 28 - d, alpha(C.hot, .5), 2, 6); } }
+  });
+  $('#of-st').innerHTML = P.ou[1];
+})();
+
+/* Bratversuch */
+(() => {
+  let fat = 'heiss', tt = -1;
+  const reset = () => { tt = -1; $('#bf-go').disabled = false; $('#bf-st').innerHTML = fat === 'heiss' ? 'Das Öl ist heiß (ca. 180 °C) – ein Holzlöffelstiel bildet kleine Bläschen.' : 'Das Öl ist noch kalt.'; };
+  seg($('#bf-seg'), [['heiss', 'heißes Fett'], ['kalt', 'kaltes Fett']], v => { fat = v; reset(); });
+  $('#bf-go').onclick = () => { tt = 0; $('#bf-go').disabled = true; };
+  $('#bf-reset').onclick = reset;
+  canvasLoop($('#cv-bf'), 'fett', (ctx, w, h, t, dt) => {
+    if (tt >= 0 && tt < 6) tt += dt;
+    const cx = w * .45, py = h * .7, pw = w * .6, hot = fat === 'heiss', u = clamp(tt / 5, 0, 1);
+    ctx.fillStyle = '#4a4f55'; ctx.beginPath(); ctx.ellipse(cx, py, pw / 2, 26, 0, 0, 7); ctx.fill(); ctx.fillRect(cx + pw / 2 - 6, py - 6, w * .2, 10);
+    ctx.fillStyle = alpha('#d8b04a', .8); ctx.beginPath(); ctx.ellipse(cx, py - 3, pw / 2 - 10, 16, 0, 0, 7); ctx.fill();
+    if (tt >= 0) {
+      const brown = hot ? u : u * .25, juice = hot ? .1 : u;
+      ctx.fillStyle = mix('#c98b8b', '#7a4a22', brown); ctx.beginPath(); ctx.ellipse(cx, py - 8, pw * .25, 13 - (hot ? 0 : u * 3), 0, 0, 7); ctx.fill();
+      if (juice > .1) { ctx.fillStyle = alpha('#b8875a', .5 * juice); ctx.beginPath(); ctx.ellipse(cx, py - 2, pw * .33 * (1 + juice * .3), 10, 0, 0, 7); ctx.fill(); }
+      if (hot) for (let i = 0; i < 20; i++) { const r = rng(i + 9), p = (t * 1.6 + r()) % 1; ctx.strokeStyle = alpha('#ffffff', .7 * (1 - p)); ctx.beginPath(); ctx.arc(cx + (r() - .5) * pw * .6, py - 8 - p * h * .2, 2 + p * 3, 0, 7); ctx.stroke(); }
+      else if (u > .4) for (let i = 0; i < 6; i++) { const r = rng(i + 2), p = (t * .4 + r()) % 1; ctx.fillStyle = alpha('#cccccc', .25 * (1 - p)); ctx.beginPath(); ctx.arc(cx + (r() - .5) * pw * .4, py - 20 - p * h * .3, 8 + p * 10, 0, 7); ctx.fill(); }
+      if (tt > 5) $('#bf-st').innerHTML = hot ? '<b class="good">Es zischt!</b> Die Oberfläche bräunt sofort, Röststoffe entstehen. Der Fleischsaft bleibt innen – saftig und knusprig.' : '<b class="bad">Es zischt nicht.</b> Das Fleisch wird grau, Saft tritt aus und es „kocht“ im eigenen Saft. Es wird zäh und kaum braun.';
+    }
+  });
+  reset();
+})();
+
+sequence($('#seq-v'), ['Vorüberlegungen: Inhalt festlegen, Rollen verteilen', 'Informationen zum Thema einholen', 'Drehbuch schreiben: Szenen nummerieren, ca. 6 Sekunden je Szene', 'Filmen: hell, quer, ruhig (Stativ), nah', 'Schneiden: Szenen in die Timeline ziehen, Vor- und Abspann', 'Vertonen oder untertiteln', 'Film beurteilen: Feedback geben und bekommen', 'Veröffentlichen: DSGVO, Urheberrecht und Lizenzen beachten']);
+
+sorter($('#sort'), [{id: 'f', name: 'feuchte Hitze'}, {id: 't', name: 'trockene Hitze'}], [
+  {t: 'Kochen', c: 'f'}, {t: 'Dünsten', c: 'f'}, {t: 'Dämpfen', c: 'f'}, {t: 'Quellen', c: 'f'}, {t: 'Garziehen', c: 'f'},
+  {t: 'Braten', c: 't'}, {t: 'Grillen', c: 't'}, {t: 'Backen', c: 't'}, {t: 'Frittieren', c: 't'}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Was wird beim Garen in trockener Hitze verwendet?', a: ['Fett oder heiße Luft', 'viel Wasser', 'Wasserdampf', 'Eis'], ok: 0},
+  {q: 'Welches Verfahren kombiniert trockene und feuchte Hitze?', a: ['Schmoren', 'Grillen', 'Backen', 'Dämpfen'], ok: 0, why: 'Erst anbraten, dann in Flüssigkeit weitergaren.'},
+  {q: 'Was gilt bei Umluft?', a: ['nicht vorheizen, 20–30 °C weniger', 'immer 50 °C mehr', 'nur ein Blech', 'nur für Grillgut'], ok: 0},
+  {q: 'Warum legt man Fleisch in heißes Fett?', a: ['Es bräunt sofort und bleibt saftig', 'Damit das Fett kalt wird', 'Damit es Wasser aufnimmt', 'Das ist egal'], ok: 0},
+  {q: 'Wie lang sollte ein Erklärvideo sein?', a: ['1–3 Minuten', '10–15 Minuten', '10 Sekunden', 'eine Stunde'], ok: 0, why: 'Bei längeren Videos sinkt die Aufmerksamkeit.'}
+]);
+</script>

@@ -1,0 +1,89 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 130–131
+q: Weiß ich, was mich gesund hält – und was ich in Krisen tun kann?
+facts: Fachbegriffe als Karteikarten und Paare | Fallbeispiel: Prüfungswoche | Quiz mit 18 Fragen (10 zufällig pro Runde) | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Fallbeispiel · Großes Quiz · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Gesundheit, Einflussfaktoren, Vorsorge, Erste Hilfe, Stress, Resilienz, Strategien und Beratung: Prüfe, was du weißt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Weiß ich, was mich gesund hält – und was ich in Krisen tun kann?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="fall" data-label="Fallbeispiel" data-yr="Anwenden" data-title="Die Prüfungswoche" data-sub="Gesund durch den Stress">
+  <div class="section-head"><p class="eyebrow">Station 2 · Fallbeispiel</p><h2>Samiras Prüfungswoche</h2><p class="lead">Samira hat in einer Woche drei Klassenarbeiten, Handballtraining und den Geburtstag ihrer Oma.</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['WHO-Definition', 'körperliches, seelisches und soziales Wohlbefinden'], ['Salutogenese', 'Gesundheit als Prozess'], ['Kohärenzgefühl', 'Verstehbarkeit, Bewältigbarkeit, Sinnhaftigkeit'], ['Gesundheitsressource', 'z. B. Bewegung, Ernährung, soziale Kontakte'], ['primäre Prävention', 'Krankheiten verhindern, z. B. Impfung'], ['sekundäre Prävention', 'Früherkennung, z. B. Screening'], ['tertiäre Prävention', 'Folgen begrenzen, z. B. Reha'], ['Rettungskette', 'Sofortmaßnahmen – Notruf – Erste Hilfe – Rettungsdienst – Krankenhaus'], ['PECH', 'Pause, Eis, Compression, Hochlagern'], ['Stressor', 'Auslöser von Stress'], ['Eustress', 'positiver Stress'], ['Distress', 'negativer Dauerstress'], ['Resilienz', 'seelische Widerstandskraft'], ['regenerative Strategie', 'Erholung, Schlaf, Bewegung'], ['Beratung', 'freiwillig, vertraulich, kostenlos']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+scenes($('#sc'), [
+  {s: 'Sonntagabend: Samira sieht den Wald vor lauter Bäumen nicht.', a: ['Einen Wochenplan mit Prioritäten und Pausen schreiben (instrumentell)', 'Alles auf Donnerstag schieben', 'Die Nacht durchlernen'], ok: 0},
+  {s: 'Montag: Sie denkt „Das schaffe ich nie“.', a: ['„Eins nach dem anderen – Mathe hat letztes Mal auch geklappt.“', 'Aufgeben', 'Noch mehr grübeln'], ok: 0},
+  {s: 'Dienstag: Training oder lernen?', a: ['Zum Training gehen – Bewegung baut Stress ab', 'Training immer ausfallen lassen', 'Bis Mitternacht zocken als Pause'], ok: 0},
+  {s: 'Mittwoch: Eine Mitschülerin bricht im Flur zusammen. Sie reagiert nicht, atmet aber.', a: ['Stabile Seitenlage, 112 anrufen lassen, bei ihr bleiben', 'Herzdruckmassage', 'Weitergehen'], ok: 0},
+  {s: 'Donnerstag: Samira hat Bauchschmerzen und schläft schlecht.', a: ['Warnsignal ernst nehmen: entspannen, mit jemandem reden', 'Ignorieren', 'Energydrinks trinken'], ok: 0},
+  {s: 'Freitag: Alles geschafft, Samira ist stolz.', a: ['Eustress – ihr Selbstvertrauen steigt', 'Distress', 'Burnout'], ok: 0}
+], {label: 'Tag'});
+mcQuiz($('#quiz'), [
+  {q: 'Wie definiert die WHO Gesundheit?', a: ['vollständiges körperliches, seelisches und soziales Wohlbefinden', 'kein Fieber', 'viel Sport', 'genug Geld'], ok: 0},
+  {q: 'Was sieht die Salutogenese in der Gesundheit?', a: ['einen Prozess', 'einen festen Zustand', 'Zufall', 'nur Körperliches'], ok: 0},
+  {q: 'Welcher Einflussfaktor ist kaum beeinflussbar?', a: ['Erbanlagen', 'Bewegung', 'Ernährung', 'Mediennutzung'], ok: 0},
+  {q: 'Wie viel Bewegung täglich empfiehlt die WHO Jugendlichen?', a: ['mindestens 60 Minuten', '10 Minuten', '5 Stunden', 'keine'], ok: 0},
+  {q: 'Eine Impfung ist …', a: ['primäre Prävention', 'sekundäre Prävention', 'tertiäre Prävention', 'keine Prävention'], ok: 0},
+  {q: 'Was geht bei der Ersten Hilfe vor?', a: ['Eigensicherung', 'Fotos machen', 'Beatmung', 'Notruf'], ok: 0},
+  {q: 'Die Person atmet nicht. Was tust du?', a: ['Wiederbeleben: 30 × drücken, 2 × beatmen', 'stabile Seitenlage', 'warten', 'Wasser geben'], ok: 0},
+  {q: 'Wie oft pro Minute drückt man bei der Herzdruckmassage?', a: ['100–120', '30', '200', '60'], ok: 0},
+  {q: 'Wie lange kühlt man kleine Verbrennungen?', a: ['höchstens 10 Minuten', '1 Stunde', 'gar nicht', '1 Tag'], ok: 0},
+  {q: 'Was passiert bei Stress im Körper?', a: ['Adrenalin wird ausgeschüttet', 'Der Puls sinkt', 'Die Muskeln werden schlaff', 'nichts'], ok: 0},
+  {q: 'Was ist Distress?', a: ['negativer Dauerstress', 'Verliebtsein', 'eine gemeisterte Herausforderung', 'Urlaub'], ok: 0},
+  {q: 'Was ist der erste Schritt einer Umfrage?', a: ['Thema und Zielgruppe festlegen', 'Präsentation', 'Diagramm', 'Auswertung'], ok: 0},
+  {q: 'Was bedeutet Resilienz?', a: ['seelische Widerstandskraft', 'Muskelkraft', 'Ausdauer', 'Intelligenz'], ok: 0},
+  {q: 'Welche Säule der Resilienz meint „Ich kann etwas bewirken“?', a: ['Selbstwirksamkeit', 'Akzeptanz', 'Bindung', 'Optimismus'], ok: 0},
+  {q: 'Welche Strategie gehört zur regenerativen Stressbewältigung?', a: ['Musik hören', 'Termine streichen', 'Gedanken ändern', 'Prioritäten setzen'], ok: 0},
+  {q: 'Welche Nummer hat die Nummer gegen Kummer?', a: ['116 111', '112', '110', '0800 123'], ok: 0},
+  {q: 'Was gilt für Beratungen?', a: ['freiwillig, vertraulich, kostenlos', 'teuer', 'öffentlich', 'Pflicht'], ok: 0},
+  {q: 'Was ist eine Gesundheitsressource?', a: ['gute soziale Kontakte', 'Einsamkeit', 'Dauerstress', 'Bewegungsmangel'], ok: 0}
+], {pick: 10});
+selfCheck($('#sci'), [
+  {t: 'Ich kann Gesundheit nach WHO und Salutogenese erklären.', href: '01_Gesundheit.html#kontinuum'},
+  {t: 'Ich kann Einflussfaktoren auf die Gesundheit nennen und unterscheiden, was ich beeinflussen kann.', href: '02_Einfluesse.html#hand'},
+  {t: 'Ich kann Gesundheitsressourcen nennen und meine Bewegung einschätzen.', href: '03_Gesundheit_foerdern.html#ressourcen'},
+  {t: 'Ich kann die drei Ebenen der Prävention mit Beispielen erklären.', href: '04_Vorsorge.html#ebenen'},
+  {t: 'Ich kann einen Notruf absetzen und Erste Hilfe leisten.', href: '05_Erste_Hilfe.html#ablauf'},
+  {t: 'Ich kann Eustress und Distress unterscheiden und eine Umfrage planen.', href: '06_Stress_Umfrage.html#eustress'},
+  {t: 'Ich kann die sieben Säulen der Resilienz erklären.', href: '07_Resilienz.html#saeulen'},
+  {t: 'Ich kann Strategien gegen Stress anwenden.', href: '08_Stress_Strategien.html#strategien'},
+  {t: 'Ich weiß, wo ich Hilfe bekomme.', href: '09_Beratungsstellen.html#angebote'}
+]);
+</script>

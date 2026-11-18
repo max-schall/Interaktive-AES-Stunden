@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Impressum – Interaktive AES-Stunden</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --bg:#F7F4EF; --surface:#FFFDF9; --ink:#252019; --ink-2:#675D51; --line:#E2D9CC; --accent:#6B5A48;
+  --f-display:"Fraunces",Georgia,serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+  font-size:clamp(16px, 0.5vw + 12px, 20px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#15130F; --surface:#1E1B16; --ink:#F1ECE4; --ink-2:#B9AE9F; --line:#3C362D; --accent:#D9C6AE; color-scheme:dark;}
+}
+:root[data-theme="dark"]{--bg:#15130F; --surface:#1E1B16; --ink:#F1ECE4; --ink-2:#B9AE9F; --line:#3C362D; --accent:#D9C6AE; color-scheme:dark;}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);line-height:1.6}
+main{max-width:720px;margin:0 auto;padding:clamp(28px,6vw,64px) 16px 72px}
+.back{font-family:var(--f-mono);font-size:.85rem;color:var(--accent);text-decoration:none}
+.back:hover{text-decoration:underline}
+h1{font-family:var(--f-display);font-weight:600;font-size:clamp(2rem,6vw,3rem);line-height:1.05;margin:.6em 0 .8em}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 24px}
+.card p{margin:0}
+.card p + p{margin-top:1em}
+.label{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="index.html">← Startseite</a>
+  <h1>Impressum</h1>
+  <div class="card">
+    <p class="label">Angaben gemäß § 5 DDG und § 18 Abs. 1 MStV</p>
+    <p>Max Schall<br>
+       c/o Gemeinschaftsschule Weil im Schönbuch<br>
+       In der Röte 92<br>
+       71093 Weil im Schönbuch</p>
+    <p>E-Mail: <a href="mailto:schall@schule-weil.de">schall@schule-weil.de</a></p>
+  </div>
+  <p style="margin-top:2em;color:var(--ink-2);font-size:.82rem"><a href="datenschutz.html" style="color:inherit">Datenschutz</a></p>
+</main>
+</body>
+</html>

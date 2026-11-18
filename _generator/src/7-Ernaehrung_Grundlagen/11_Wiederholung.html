@@ -1,0 +1,87 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 86–87 (Training, Auszug)
+q: Kann ich erklären, was in meinem Essen steckt und wozu mein Körper es braucht?
+facts: Fachbegriffe als Karteikarten und Paare | Nährstoffe ihren Aufgaben zuordnen | Quiz mit 20 Fragen (10 zufällig pro Runde) | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Nährstoff-Sortierung · Großes Quiz · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Grundbegriffe, Ernährungspyramide und -kreis, die sechs Nährstoffe, Ballaststoffe und sekundäre Pflanzenstoffe: Prüfe, was du weißt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Kann ich erklären, was in meinem Essen steckt und wozu mein Körper es braucht?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="ordnen" data-label="Ordnen" data-yr="Anwenden" data-title="Nährstoffe und Lebensmittel" data-sub="Wo steckt was?">
+  <div class="section-head"><p class="eyebrow">Station 2 · Anwenden</p><h2>Wo steckt besonders viel davon?</h2></div>
+  <div id="sort"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['Nahrungsmittel', 'liefern Nährstoffe und Energie'], ['Genussmittel', 'wegen Geschmack oder Wirkung verzehrt, verzichtbar'], ['Nährstoffdichte', 'Nährstoffgehalt : Energiegehalt'], ['Energiedichte', 'Energie pro Gramm'], ['Ernährungspyramide', '8 Gruppen, 22 Bausteine, Ampelfarben'], ['Ernährungskreis', '7 Gruppen der DGE, Getränke in der Mitte'], ['Makronährstoffe', 'Kohlenhydrate, Fette, Eiweiße'], ['Mikronährstoffe', 'Vitamine und Mineralstoffe'], ['Brennstoff', 'liefert Energie'], ['Baustoff', 'baut den Körper auf'], ['Wirkstoff', 'regelt Körpervorgänge'], ['Vielfachzucker', 'z. B. Stärke'], ['essenzielle Fettsäuren', 'Omega-3 und Omega-6'], ['biologische Wertigkeit', 'wie viel Körpereiweiß aus 100 g Nahrungseiweiß entsteht'], ['fettlösliche Vitamine', 'A, D, E, K'], ['Ballaststoffe', 'pflanzliche Faser- und Quellstoffe'], ['sekundäre Pflanzenstoffe', 'Farb-, Duft- und Geschmacksstoffe']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+sorter($('#sort'), [{id: 'k', name: 'Kohlenhydrate'}, {id: 'f', name: 'Fett'}, {id: 'e', name: 'Eiweiß'}, {id: 'v', name: 'Vitamin C'}, {id: 'b', name: 'Ballaststoffe'}], [
+  {t: 'Nudeln', c: 'k'}, {t: 'Reis', c: 'k'}, {t: 'Butter', c: 'f'}, {t: 'Salami', c: 'f'}, {t: 'Quark', c: 'e'}, {t: 'Hühnerei', c: 'e'}, {t: 'Paprika', c: 'v'}, {t: 'Kiwi', c: 'v'}, {t: 'Vollkornbrot', c: 'b'}, {t: 'Linsen', c: 'b'}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Was ist ein Genussmittel?', a: ['Kaffee', 'Kartoffel', 'Milch', 'Apfel'], ok: 0},
+  {q: 'Welches Lebensmittel hat die höhere Nährstoffdichte?', a: ['Pellkartoffeln', 'Pommes frites', 'Chips', 'Kroketten'], ok: 0},
+  {q: 'Wie viele Portionen Getränke empfiehlt die Pyramide?', a: ['6', '2', '1', '10'], ok: 0},
+  {q: 'Was bedeutet Rot in der Pyramide?', a: ['sparsam', 'reichlich', 'mäßig', 'verboten'], ok: 0},
+  {q: 'Was steht im Ernährungskreis in der Mitte?', a: ['Getränke', 'Obst', 'Fleisch', 'Süßigkeiten'], ok: 0},
+  {q: 'Wie ist die empfohlene Nährstoffverteilung?', a: ['55 % KH, 30 % Fett, 15 % Eiweiß', '30 % KH, 30 % Fett, 40 % Eiweiß', '80 % KH, 10 % Fett, 10 % Eiweiß', 'egal'], ok: 0},
+  {q: 'Welcher Nährstoff liefert pro Gramm am meisten Energie?', a: ['Fett', 'Kohlenhydrate', 'Eiweiß', 'Vitamine'], ok: 0},
+  {q: 'Wie viel sollten Jugendliche trinken?', a: ['ca. 1,5 Liter', 'ca. 0,3 Liter', 'ca. 5 Liter', 'nur bei Durst'], ok: 0},
+  {q: 'Was ist Haushaltszucker?', a: ['ein Zweifachzucker', 'ein Einfachzucker', 'ein Vielfachzucker', 'ein Fett'], ok: 0},
+  {q: 'Wo beginnt die Verdauung der Stärke?', a: ['im Mund', 'im Magen', 'im Dickdarm', 'in der Leber'], ok: 0},
+  {q: 'Welcher Teil des Getreidekorns fehlt in hellem Mehl?', a: ['Schale und Keimling', 'Mehlkörper', 'Stärke', 'nichts'], ok: 0},
+  {q: 'Wo kommen Omega-3-Fettsäuren vor?', a: ['Lachs und Leinöl', 'Weißbrot', 'Zucker', 'Cola'], ok: 0},
+  {q: 'Welches Fett eignet sich für Salate?', a: ['kaltgepresstes Öl', 'Butterschmalz', 'Kokosfett', 'Schmalz'], ok: 0},
+  {q: 'Was ist die Hauptaufgabe der Eiweiße?', a: ['Baustoff', 'Brennstoff', 'Lösungsmittel', 'Geschmacksträger'], ok: 0},
+  {q: 'Welche Kombination hat die höchste biologische Wertigkeit?', a: ['Kartoffel + Ei', 'Brot + Marmelade', 'Reis + Cola', 'Nudeln + Butter'], ok: 0},
+  {q: 'Welche Vitamine sind fettlöslich?', a: ['A, D, E, K', 'B und C', 'nur C', 'nur D'], ok: 0},
+  {q: 'Wofür braucht man Calcium?', a: ['Knochen und Zähne', 'Blutbildung', 'Sehen', 'Verdauung'], ok: 0},
+  {q: 'Wie viele Ballaststoffe sollte man täglich essen?', a: ['mindestens 30 g', '3 g', '300 g', 'gar keine'], ok: 0},
+  {q: 'Was zeigt die Iodprobe an?', a: ['Stärke', 'Fett', 'Eiweiß', 'Vitamin C'], ok: 0},
+  {q: 'Was sind sekundäre Pflanzenstoffe?', a: ['Farb-, Duft- und Geschmacksstoffe', 'Zusatzstoffe', 'Vitamine', 'Fette'], ok: 0}
+], {pick: 10});
+selfCheck($('#sci'), [
+  {t: 'Ich kann Lebensmittel, Nahrungsmittel und Genussmittel unterscheiden und die Nährstoffdichte berechnen.', href: '01_Grundbegriffe.html#dichte'},
+  {t: 'Ich kann die acht Gruppen der Ernährungspyramide und ihre Portionen nennen.', href: '02_Ernaehrungspyramide.html#aufbau'},
+  {t: 'Ich kann den Ernährungskreis erklären und mit der Pyramide vergleichen.', href: '03_Ernaehrungskreis.html#vergleich'},
+  {t: 'Ich kann die sechs Nährstoffe einteilen und ihre Hauptaufgaben nennen.', href: '04_Naehrstoffe.html#aufgaben'},
+  {t: 'Ich kann erklären, wozu der Körper Wasser braucht und was gute Durstlöscher sind.', href: '05_Wasser.html#getraenke'},
+  {t: 'Ich kann Kohlenhydrate einteilen und ihre Verdauung beschreiben.', href: '06_Kohlenhydrate.html#verdauung'},
+  {t: 'Ich kann Fette nach Fettsäuren unterscheiden und versteckte Fette erkennen.', href: '07_Fette.html#versteckt'},
+  {t: 'Ich kann die biologische Wertigkeit und die Ergänzungswirkung erklären.', href: '08_Eiweisse.html#kombi'},
+  {t: 'Ich kann Vitamine und Mineralstoffe einteilen und schonend mit ihnen umgehen.', href: '09_Vitamine_Mineralstoffe.html#schonend'},
+  {t: 'Ich kann die Wirkung von Ballaststoffen erklären und einen Versuch protokollieren.', href: '10_Ballaststoffe_Versuch.html#versuch'}
+]);
+</script>

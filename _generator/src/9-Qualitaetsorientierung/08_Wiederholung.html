@@ -1,0 +1,85 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 200–201
+q: Kann ich bewusst und sicher einkaufen und meine Rechte nutzen?
+facts: Fachbegriffe als Karteikarten und Paare | Fallbeispiel: Zeyneps Kopfhörer | Quiz mit 16 Fragen (10 zufällig pro Runde) | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Fallbeispiel · Großes Quiz · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Kaufentscheidungen, Qualität, Siegel, Verbraucherschutz, Verbraucherrechte und Online-Shopping: Prüfe, was du weißt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Kann ich bewusst und sicher einkaufen und meine Rechte nutzen?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="fall" data-label="Fallbeispiel" data-yr="Anwenden" data-title="Zeyneps Kopfhörer" data-sub="Was nun?">
+  <div class="section-head"><p class="eyebrow">Station 2 · Fallbeispiel</p><h2>Zeyneps Kopfhörer</h2><p class="lead">Zeynep hat sich im Internet spontan die neuen, trendigen Kopfhörer bestellt, die in sozialen Netzwerken viele Likes hatten. Beim Auspacken sind sie zerkratzt, unbequem und klingen schlecht – bei einem hohen Preis.</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['extensive Kaufentscheidung', 'ausführlich informieren und vergleichen'], ['habitualisierte Kaufentscheidung', 'aus Gewohnheit'], ['Impulskauf', 'spontaner Kauf ohne Nachdenken'], ['AIDA-Modell', 'Attention, Interest, Desire, Action'], ['Qualität', 'Grad, in dem Anforderungen erfüllt werden'], ['Preis-Leistungs-Verhältnis', 'was bekomme ich für mein Geld?'], ['Gütesiegel', 'unabhängig vergeben und kontrolliert'], ['Ökolabel', 'zeigt umweltfreundliche Eigenschaften'], ['Verbraucherzentrale', 'gemeinnützig, berät und darf klagen'], ['Mogelpackung', 'täuscht mehr Inhalt vor'], ['Gewährleistung', 'gesetzlich, 2 Jahre'], ['Garantie', 'freiwillige Leistung'], ['Widerruf', '14 Tage bei Onlinekauf'], ['Fernabsatz', 'Vertrag aus der Ferne'], ['Impressum', 'Pflichtangaben zum Anbieter']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+scenes($('#sc'), [
+  {s: 'Welcher Kaufentscheidungstyp war Zeyneps Kauf?', a: ['Impulskauf', 'extensive Kaufentscheidung', 'habitualisierte Kaufentscheidung'], ok: 0},
+  {s: 'Die Kopfhörer sind zerkratzt. Welches Recht hat sie?', a: ['Gewährleistung: Ersatz oder Reparatur verlangen – oder 14 Tage Widerruf nutzen', 'Keines, sie hat ja bestellt', 'Nur die Garantie des Herstellers'], ok: 0},
+  {s: 'Sie will die Kopfhörer einfach zurückgeben.', a: ['Widerruf innerhalb von 14 Tagen erklären (Rücksendeschein), Beleg aufheben', 'Einfach in den Müll', 'Bewertung schreiben und behalten'], ok: 0},
+  {s: 'Wie bereitet sie den nächsten Kauf vor?', a: ['Qualitätsmerkmale festlegen, Tests lesen, im Fachmarkt probehören', 'Wieder nach Likes gehen', 'Das teuerste Modell nehmen'], ok: 0},
+  {s: 'Online oder im Elektrofachmarkt vor Ort?', a: ['Vor Ort: ausprobieren und beraten lassen; online: Preise vergleichen – beides abwägen', 'Nur online ist gut', 'Nur vor Ort ist gut'], ok: 0}
+], {label: 'Frage'});
+mcQuiz($('#quiz'), [
+  {q: 'Welcher Kauftyp vergleicht ausführlich?', a: ['extensiv', 'impulsiv', 'habitualisiert', 'limitiert'], ok: 0},
+  {q: 'Wofür steht das A am Ende von AIDA?', a: ['Action', 'Attention', 'Angebot', 'Aktion −30 %'], ok: 0},
+  {q: 'Was ist die erste Stufe des Kaufentscheidungsprozesses?', a: ['Produktwunsch', 'Bewertung', 'Kauf', 'Reklamation'], ok: 0},
+  {q: 'Sind Markenprodukte immer besser?', a: ['nein', 'ja', 'nur Elektrogeräte', 'nur Lebensmittel'], ok: 0},
+  {q: 'Wie viele Labels gibt es ungefähr?', a: ['mehr als 1000', 'etwa 20', 'etwa 100', 'genau 12'], ok: 0},
+  {q: 'Was ist Co-Labelling?', a: ['Eigenmarke neben gleichbedeutendem Siegel', 'zwei Marken in einer Packung', 'ein Etikettendrucker', 'ein Fake Shop'], ok: 0},
+  {q: 'Welches Siegel gehört zu Textilien?', a: ['GOTS', 'Demeter', 'FSC', 'Blauer Engel'], ok: 0},
+  {q: 'Wer vermittelt außergerichtlich im Streit?', a: ['Schlichtungsstelle', 'Aufsichtsbehörde', 'Vergleichsportal', 'Herstellerfirma'], ok: 0},
+  {q: 'Was ist eine Mogelpackung?', a: ['täuscht mehr Inhalt vor', 'eine Mehrwegflasche', 'eine Bio-Packung', 'eine Großpackung'], ok: 0},
+  {q: 'Wie lange gilt die gesetzliche Gewährleistung?', a: ['2 Jahre', '14 Tage', '6 Monate', '10 Jahre'], ok: 0},
+  {q: 'Ist ein Umtausch einwandfreier Ware Pflicht?', a: ['nein, nur Kulanz', 'ja, immer', 'ja, 2 Jahre', 'nur online'], ok: 0},
+  {q: 'Was ist bei der Gewährleistung der erste Schritt?', a: ['Nacherfüllung', 'Rücktritt', 'Schadenersatz', 'Stornierung'], ok: 0},
+  {q: 'Wie lange gilt das Widerrufsrecht online?', a: ['14 Tage', '2 Jahre', '1 Tag', '3 Monate'], ok: 0},
+  {q: 'Welche Ware ist vom Widerruf ausgenommen?', a: ['Maßanfertigung', 'Turnschuhe', 'Bücher', 'Smartphones'], ok: 0},
+  {q: 'Ein Warnzeichen für Fake Shops ist …', a: ['nur Vorkasse', 'Kauf auf Rechnung', 'https', 'vollständiges Impressum'], ok: 0},
+  {q: 'Wie berechnet man das Gesamtergebnis im Warentest?', a: ['Summe der Noten : Anzahl der Kriterien', 'beste Note zählt', 'schlechteste Note zählt', 'Preis : Note'], ok: 0}
+], {pick: 10});
+selfCheck($('#sci'), [
+  {t: 'Ich kann die vier Kaufentscheidungstypen nennen.', href: '01_Kaufentscheidungen.html#typen'},
+  {t: 'Ich kann eine Werbung mit dem AIDA-Modell analysieren.', href: '01_Kaufentscheidungen.html#aida'},
+  {t: 'Ich kann Produkte mit Qualitätsmerkmalen vergleichen.', href: '02_Bewusst_kaufen.html#tabelle'},
+  {t: 'Ich kann Siegel einordnen und kritisch prüfen.', href: '03_Siegel.html#arten'},
+  {t: 'Ich kenne Verbraucherschutzinstitutionen und ihre Aufgaben.', href: '04_Verbraucherschutz.html#inst'},
+  {t: 'Ich kann Gewährleistung, Garantie, Umtausch und Widerruf unterscheiden.', href: '05_Verbraucherrechte.html#begriffe'},
+  {t: 'Ich erkenne Fake Shops und kaufe sicher online ein.', href: '06_Online_Shopping.html#fake'},
+  {t: 'Ich kann einen Warentest planen und auswerten.', href: '07_Warentest.html#schritte'}
+]);
+</script>

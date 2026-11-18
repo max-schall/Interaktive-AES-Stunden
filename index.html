@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Interaktive AES-Stunden</title>
+<meta name="description" content="Interaktive Präsentationen und Arbeitsblätter für Alltagskultur, Ernährung, Soziales (AES), Klassen 6 bis 10.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --bg:#F7F4EF; --surface:#FFFDF9; --surface-2:#EFE9E0; --ink:#252019; --ink-2:#675D51; --line:#E2D9CC;
+  --accent:#6B5A48; --accent-ink:#FFFFFF;
+  --g6:#A9562F; --g6-ink:#FFFFFF; --g7:#4C7650; --g7-ink:#FFFFFF; --g8:#2C6B73; --g8-ink:#FFFFFF; --g9:#784C7D; --g9-ink:#FFFFFF; --g10:#42548C; --g10-ink:#FFFFFF;
+  --f-display:"Fraunces",Georgia,serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+  --radius:18px; --shadow:0 1px 2px rgba(40,30,20,.05),0 8px 24px -16px rgba(40,30,20,.22);
+  font-size:clamp(16px, 0.5vw + 12px, 20px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15130F; --surface:#1E1B16; --surface-2:#29251E; --ink:#F1ECE4; --ink-2:#B9AE9F; --line:#3C362D;
+    --accent:#D9C6AE; --accent-ink:#15130F;
+    --g6:#EB9A70; --g6-ink:#1A1410; --g7:#93C495; --g7-ink:#111711; --g8:#80C4CB; --g8-ink:#0F1718; --g9:#CFA2D4; --g9-ink:#171216; --g10:#9AACE8; --g10-ink:#11141A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15130F; --surface:#1E1B16; --surface-2:#29251E; --ink:#F1ECE4; --ink-2:#B9AE9F; --line:#3C362D;
+    --accent:#D9C6AE; --accent-ink:#15130F;
+  --g6:#EB9A70; --g6-ink:#1A1410; --g7:#93C495; --g7-ink:#111711; --g8:#80C4CB; --g8-ink:#0F1718; --g9:#CFA2D4; --g9-ink:#171216; --g10:#9AACE8; --g10-ink:#11141A;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);line-height:1.5}
+main{max-width:1040px;margin:0 auto;padding:clamp(28px,6vw,64px) 16px 72px}
+.eyebrow{font-family:var(--f-body);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin:0 0 .6em}
+h1{font-family:var(--f-display);font-weight:600;font-size:clamp(2.1rem,6vw,3.6rem);line-height:1.02;margin:0 0 .35em}
+.lead{color:var(--ink-2);margin:0;max-width:58ch}
+
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:2.4em 0 1.2em;font-family:var(--f-body);font-weight:700;font-size:.85rem}
+.crumbs button{font:inherit;color:var(--accent);background:none;border:0;padding:4px 6px;border-radius:6px;cursor:pointer}
+.crumbs button:hover{background:var(--surface-2)}
+.crumbs span[aria-current]{color:var(--ink);padding:4px 6px}
+.crumbs .sep{color:var(--ink-2)}
+
+h2{font-family:var(--f-display);font-weight:600;font-size:1.35rem;margin:0 0 .8em}
+
+.grades{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.grade{--c:var(--accent);font:inherit;color:inherit;text-align:left;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px 18px;display:flex;flex-direction:column;gap:4px;position:relative;overflow:hidden;transition:border-color .15s,transform .15s;box-shadow:var(--shadow)}
+.grade::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--c)}
+.grade .num{font-family:var(--f-display);font-weight:600;font-size:clamp(2.6rem,9vw,4.2rem);line-height:1;color:var(--c)}
+.grade .lbl{font-weight:700}
+.grade .meta{color:var(--ink-2);font-size:.88rem}
+.grade[data-g="6"]{--c:var(--g6)}
+:root[data-grade="6"]{--accent:var(--g6); --accent-ink:var(--g6-ink)}
+.grade[data-g="7"]{--c:var(--g7)}
+:root[data-grade="7"]{--accent:var(--g7); --accent-ink:var(--g7-ink)}
+.grade[data-g="8"]{--c:var(--g8)}
+:root[data-grade="8"]{--accent:var(--g8); --accent-ink:var(--g8-ink)}
+.grade[data-g="9"]{--c:var(--g9)}
+:root[data-grade="9"]{--accent:var(--g9); --accent-ink:var(--g9-ink)}
+.grade[data-g="10"]{--c:var(--g10)}
+:root[data-grade="10"]{--accent:var(--g10); --accent-ink:var(--g10-ink)}
+
+.topics{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.topic{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%;height:100%;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 20px;display:flex;flex-direction:column;gap:6px;transition:border-color .15s,transform .15s}
+.topic .t{font-family:var(--f-display);font-weight:600;font-size:1.1rem;line-height:1.2}
+.topic .d{color:var(--ink-2);font-size:.88rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.topic .n{margin-top:auto;padding-top:6px;font-family:var(--f-body);font-size:.78rem;color:var(--ink-2)}
+
+.grade:hover,.grade:focus-visible,.topic:hover,.topic:focus-visible,.lesson a:hover,.lesson a:focus-visible{border-color:var(--accent);transform:translateY(-2px);outline:none}
+
+.topic-head{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between;margin-bottom:1.2em}
+.topic-head h2{margin:0;font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.1}
+.topic-head p{color:var(--ink-2);margin:.4em 0 0;max-width:60ch}
+.btn{display:inline-block;font-weight:700;text-decoration:none;color:var(--accent-ink);background:var(--accent);padding:10px 18px;border-radius:999px;white-space:nowrap}
+.btn:hover{filter:brightness(1.08)}
+.lessons{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.lesson a{display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;transition:border-color .15s,transform .15s}
+.lesson .no{font-family:var(--f-display);font-weight:600;font-size:.85rem;color:var(--accent);min-width:2.2em}
+.lesson .lt{font-weight:700;flex:1}
+.lesson .go{color:var(--ink-2)}
+.lesson{display:flex;gap:8px}
+.lesson a:first-child{flex:1}
+.lesson a.ws{display:flex;align-items:center;text-decoration:none;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:0 16px;font-size:.85rem;font-weight:700}
+.lesson a.ws:hover{border-color:var(--accent);color:var(--accent)}
+
+footer{margin-top:4em;color:var(--ink-2);font-size:.82rem}
+footer a{color:inherit}
+footer a:hover{color:var(--accent)}
+[hidden]{display:none!important}
+@media (max-width:560px){.grades{grid-template-columns:1fr}.grade{flex-direction:row;align-items:center;gap:16px}.grade .num{min-width:1.6em}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Alltagskultur · Ernährung · Soziales · Klassen 6–10</p>
+  <h1>Interaktive AES-Stunden</h1>
+  <p class="lead">Wähle zuerst die Klassenstufe, dann das Thema. Alle Stunden laufen direkt im Browser – zu jeder Stunde gibt es ein Arbeitsblatt.</p>
+
+  <nav class="crumbs" aria-label="Navigation" id="crumbs"></nav>
+
+  <section id="v-grade" aria-labelledby="h-grade">
+    <h2 id="h-grade">Klassenstufe wählen</h2>
+    <div class="grades" id="grades"></div>
+  </section>
+
+  <section id="v-topic" aria-labelledby="h-topic" hidden>
+    <h2 id="h-topic"></h2>
+    <ul class="topics" id="topics"></ul>
+  </section>
+
+  <section id="v-lessons" aria-labelledby="h-lessons" hidden>
+    <div class="topic-head">
+      <div><h2 id="h-lessons"></h2><p id="lessons-lead"></p></div>
+      <a class="btn" id="overview-link" href="#">Zur Übersicht der Reihe →</a>
+    </div>
+    <ol class="lessons" id="lessons"></ol>
+  </section>
+
+  <footer>Interaktive AES-Stunden · freie Unterrichtsmaterialien · nach starkeSeiten AES (Klett) · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></footer>
+</main>
+<script>
+const TOPICS = [{"id": "6-Essverhalten", "grade": 6, "title": "Essverhalten", "lead": "Geschmack ist mehr als Zunge: Die Reihe untersucht, wie Sinne, Erinnerungen, Hunger und Sättigung, Familie, Freunde, Werbung und Kultur unser Essverhalten prägen. Ein Sinnexperiment zeigt, wie stark Augen und Nase mitessen, und ein Blick auf Tischsitten in aller Welt öffnet den Horizont.", "lessons": [{"file": "01_Geschmack.html", "title": "Wie entsteht dein Geschmack?"}, {"file": "02_Koerper.html", "title": "Dein Körper beeinflusst dein Essverhalten"}, {"file": "03_Umwelt.html", "title": "Die Umwelt beeinflusst dein Essverhalten"}, {"file": "04_Tischsitten.html", "title": "Tischsitten – So isst die Welt"}, {"file": "05_Sinnexperiment.html", "title": "Methode: Sinnexperiment"}, {"file": "06_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "6-Nahrungszubereitung", "grade": 6, "title": "Nahrungszubereitung", "lead": "Von der Hygiene über Unfallverhütung, Küchengeräte und Messerkunde bis zur Arbeitsplatzvorbereitung: Die Reihe macht fit für die Schulküche. Garverfahren in feuchter und trockener Hitze, ein Arbeitsplan und das Arbeiten nach Rezept führen zum ersten eigenen Gericht.", "lessons": [{"file": "01_Hygiene.html", "title": "Hygienisch rein – muss das sein?"}, {"file": "02_Kuechenunfaelle.html", "title": "Küchenunfälle – Vorsicht, heiß und fettig!"}, {"file": "03_Arbeitsgeraete.html", "title": "Arbeitsgeräte in der Küche"}, {"file": "04_Vorbereitung.html", "title": "Vorbereitung – Bist du startklar?"}, {"file": "05_Zubereitung.html", "title": "Zubereitung – Jetzt kannst du loslegen!"}, {"file": "06_Messer.html", "title": "Das richtige Messer für jeden Zweck"}, {"file": "07_Garverfahren_feucht.html", "title": "Garverfahren in feuchter Hitze"}, {"file": "08_Garverfahren_trocken.html", "title": "Garverfahren in trockener Hitze"}, {"file": "09_Planung_Rezept.html", "title": "Gut geplant ist halb gekocht – nach Rezept arbeiten"}, {"file": "10_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "7-Ernaehrung_Grundlagen", "grade": 7, "title": "Ernährung und Nährstoffe", "lead": "Lebensmittel, Nährstoffe, Energie: Die Reihe klärt die Grundbegriffe, arbeitet mit Ernährungspyramide und Ernährungskreis und stellt die Nährstoffe einzeln vor – Wasser, Kohlenhydrate, Fette, Eiweiße, Vitamine und Mineralstoffe, Ballaststoffe und sekundäre Pflanzenstoffe. Einfache Versuche machen Nährstoffe sichtbar.", "lessons": [{"file": "01_Grundbegriffe.html", "title": "Grundbegriffe für den Durchblick"}, {"file": "02_Ernaehrungspyramide.html", "title": "Die Ernährungspyramide – einfach spitze"}, {"file": "03_Ernaehrungskreis.html", "title": "Der Ernährungskreis – eine runde Sache"}, {"file": "04_Naehrstoffe.html", "title": "Nährstoffe – Was steckt in deinem Essen?"}, {"file": "05_Wasser.html", "title": "Wozu braucht dein Körper Wasser?"}, {"file": "06_Kohlenhydrate.html", "title": "Wozu braucht dein Körper Kohlenhydrate?"}, {"file": "07_Fette.html", "title": "Wozu braucht dein Körper Fette?"}, {"file": "08_Eiweisse.html", "title": "Wozu braucht dein Körper Eiweiße?"}, {"file": "09_Vitamine_Mineralstoffe.html", "title": "Vitamine und Mineralstoffe – täglich für dich im Einsatz"}, {"file": "10_Ballaststoffe_Versuch.html", "title": "Ballaststoffe, sekundäre Pflanzenstoffe und Versuche"}, {"file": "11_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "7-Nachhaltige_Ernaehrung", "grade": 7, "title": "Nachhaltige Ernährung", "lead": "Wie viel Energie brauche ich? Und was kostet mein Essen das Klima? Die Reihe berechnet den Energiebedarf, vergleicht den CO₂-Fußabdruck von Lebensmitteln, stellt konventionelle und ökologische Landwirtschaft gegenüber, arbeitet mit dem Saisonkalender und diskutiert vegetarische Ernährung und die Planetary Health Diet.", "lessons": [{"file": "01_Energiebedarf.html", "title": "Wovon ist dein Energiebedarf abhängig?"}, {"file": "02_Klima.html", "title": "Wie beeinflusst dein Essen unser Klima?"}, {"file": "03_Landwirtschaft.html", "title": "Konventionell oder ökologisch?"}, {"file": "04_Regional_Saisonal.html", "title": "Regional, saisonal und bio-logisch!"}, {"file": "05_Vegetarismus.html", "title": "Vegetarismus – die Besser-Esser?"}, {"file": "06_Planetary_Health_Diet.html", "title": "Die Planetary Health Diet – dein Speiseplan für die Zukunft"}, {"file": "07_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "8-Lebensmittelqualitaet", "grade": 8, "title": "Qualität von Lebensmitteln", "lead": "Pflichtangaben auf dem Etikett, Nutri-Score, Zusatzstoffe mit E-Nummern und der Qualitätsfächer: Die Reihe macht Lebensmittelqualität messbar und vergleichbar. Am Beispiel Convenience Food wird mit einer Entscheidungsmatrix abgewogen, wann Fertigprodukte sinnvoll sind.", "lessons": [{"file": "01_Kennzeichnung.html", "title": "Lebensmittelkennzeichnung – das Etikett unter der Lupe"}, {"file": "02_Nutri_Score.html", "title": "Der Nutri-Score – von A bis E gut informiert?"}, {"file": "03_Zusatzstoffe.html", "title": "Lebensmittelzusatzstoffe – nützlich, aber immer unverzichtbar?"}, {"file": "04_Qualitaetssicherung.html", "title": "Blickpunkt Lebensmittelqualität"}, {"file": "05_Qualitaetsfaecher.html", "title": "Der Qualitätsfächer für Lebensmittel"}, {"file": "06_Convenience_Matrix.html", "title": "Convenience Food – vielfältig und schnell"}, {"file": "07_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "8-Gesundheit_Stress", "grade": 8, "title": "Gesundheit und Stress", "lead": "Was ist Gesundheit, und was beeinflusst sie? Die Reihe geht von der WHO-Definition über Einflussfaktoren und Vorsorge zur Ersten Hilfe. Danach geht es um Stress: wie er entsteht, wie man ihn misst (Umfrage), was Resilienz ausmacht, welche Strategien helfen und wo es Beratung gibt.", "lessons": [{"file": "01_Gesundheit.html", "title": "Gesundheit – was ist das eigentlich?"}, {"file": "02_Einfluesse.html", "title": "Was hat Einfluss auf deine Gesundheit?"}, {"file": "03_Gesundheit_foerdern.html", "title": "Was kannst du für deine Gesundheit tun?"}, {"file": "04_Vorsorge.html", "title": "Vorsorge muss sein"}, {"file": "05_Erste_Hilfe.html", "title": "Erste Hilfe leisten"}, {"file": "06_Stress_Umfrage.html", "title": "Stress – was steckt dahinter?"}, {"file": "07_Resilienz.html", "title": "Resilienz – das macht dich stark"}, {"file": "08_Stress_Strategien.html", "title": "Stress-Strategien – chill doch mal!"}, {"file": "09_Beratungsstellen.html", "title": "Beratungsstellen – lass dir helfen!"}, {"file": "10_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "9-Koerper", "grade": 9, "title": "Körper und Körpergestaltung", "lead": "Schönheitsideale im Wandel, Mode und Trends, Tattoos und Piercings, die Funktionen von Kleidung, Diäten und Essstörungen: Die Reihe fragt, wer bestimmt, was schön ist, und stärkt einen selbstbewussten, gesunden Umgang mit dem eigenen Körper.", "lessons": [{"file": "01_Schoenheitsideale.html", "title": "Schönheitsideale – wer bestimmt, was schön ist?"}, {"file": "02_Mode_Trends.html", "title": "Mode und Trends"}, {"file": "03_Bodymodification.html", "title": "Bodymodification – ein modischer Trend"}, {"file": "04_Kleidung_Funktionen.html", "title": "Funktionen von Kleidung"}, {"file": "05_Diaeten.html", "title": "Diäten unter der Lupe"}, {"file": "06_Essstoerungen.html", "title": "Essstörungen"}, {"file": "07_Schoenheit_Ansicht.html", "title": "Ist Schönheit (m)eine Ansichtssache?"}, {"file": "08_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "9-Nachhaltiger_Konsum", "grade": 9, "title": "Nachhaltiger Konsum", "lead": "Bedürfnisse und Bedarf, das Drei-Säulen-Modell der Nachhaltigkeit, der ökologische Fußabdruck, Verpackungsmüll, Fleischkonsum, Lebensmittelverschwendung und die Tricks des Supermarkts: Die Reihe zeigt, wie Konsumentscheidungen Umwelt und Mitmenschen betreffen – und was jede und jeder tun kann.", "lessons": [{"file": "01_Beduerfnisse.html", "title": "Du und deine Bedürfnisse – was wünschst du dir?"}, {"file": "02_Nachhaltigkeit.html", "title": "Nachhaltigkeit leben – denkst du heute schon an morgen?"}, {"file": "03_Fussabdruck.html", "title": "Dein ökologischer Fußabdruck"}, {"file": "04_Verpackung.html", "title": "So kannst du Verpackungsabfall reduzieren"}, {"file": "05_Fleischkonsum.html", "title": "Fleischkonsum frisst Ressourcen"}, {"file": "06_Lebensmittel_retten.html", "title": "Schone Ressourcen – rette Lebensmittel"}, {"file": "07_Kauftricks_Markterkundung.html", "title": "Tricks, die dich zum Kauf verführen – Markterkundung"}, {"file": "08_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "9-Textil_Konsum", "grade": 9, "title": "Textilien und Mode", "lead": "Von der Baumwollpflanze bis in den Altkleidercontainer: Die Reihe verfolgt die textile Kette, untersucht ökologische und soziale Folgen von Fast Fashion, zeigt Alternativen wie Slow Fashion, Kreislaufwirtschaft und Fair Trade und fragt, was faire Preise bedeuten.", "lessons": [{"file": "01_Textile_Kette.html", "title": "Textile Kette – Lebensweg deiner Kleidung"}, {"file": "02_Fast_Fashion_Umwelt.html", "title": "Fast Fashion – Folgen für die Umwelt"}, {"file": "03_Fast_Fashion_Sozial.html", "title": "Fast Fashion – soziale Auswirkungen"}, {"file": "04_Slow_Fashion.html", "title": "Slow Fashion – Nachhaltigkeit zum Anziehen"}, {"file": "05_Kreislaufwirtschaft.html", "title": "Kreislaufwirtschaft statt Wegwerfkultur"}, {"file": "06_Fair_Trade.html", "title": "Fair Trade – du kannst etwas bewirken!"}, {"file": "07_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "9-Qualitaetsorientierung", "grade": 9, "title": "Qualitätsorientierung", "lead": "Was beeinflusst Kaufentscheidungen? Die Reihe trainiert bewusstes Einkaufen mit Qualitätsmerkmalen, ordnet Siegel ein, stellt Verbraucherschutzinstitutionen und Verbraucherrechte vor, vergleicht Einkauf vor Ort und online und führt einen eigenen Warentest durch.", "lessons": [{"file": "01_Kaufentscheidungen.html", "title": "Kaufentscheidungen und Werbung"}, {"file": "02_Bewusst_kaufen.html", "title": "Bewusste Kaufentscheidungen treffen"}, {"file": "03_Siegel.html", "title": "Qualität garantiert? Siegel und Labels"}, {"file": "04_Verbraucherschutz.html", "title": "Verbraucherschutz – so bist du gut beraten"}, {"file": "05_Verbraucherrechte.html", "title": "Verbraucherrechte – dein gutes Recht"}, {"file": "06_Online_Shopping.html", "title": "Vor Ort einkaufen oder online shoppen?"}, {"file": "07_Warentest.html", "title": "Methode: Einen Warentest durchführen"}, {"file": "08_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "10-Arbeit_Freizeit", "grade": 10, "title": "Arbeit und Freizeit", "lead": "Wozu brauchen wir Freizeit, und wie nutzen wir sie? Die Reihe ordnet Funktionen der Freizeit, führt in das Nähen mit der Nähmaschine ein, regt kreative Projekte an, unterscheidet Erwerbs-, Familien- und ehrenamtliche Arbeit und fragt nach der eigenen Work-Life-Balance.", "lessons": [{"file": "01_Freizeit.html", "title": "Wozu brauchen wir Freizeit?"}, {"file": "02_Naehmaschine.html", "title": "Methode: Nähen mit der Nähmaschine"}, {"file": "03_Kreativ.html", "title": "Werde kreativ in deiner Freizeit"}, {"file": "04_Arbeitsformen.html", "title": "Ist Arbeit gleich Arbeit?"}, {"file": "05_Work_Life_Balance.html", "title": "Bist du ausgeglichen? Work-Life-Balance"}, {"file": "06_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "10-Haushalt_Familie", "grade": 10, "title": "Haushalt und Familie", "lead": "Der Haushalt als kleines Unternehmen, Geschlechterrollen, faire Arbeitsteilung und Zeitmanagement, Wohnformen, Erziehung und das Zusammenleben in Vielfalt: Die Reihe verbindet Alltag und Gesellschaft und endet mit einem Blick auf Berufe rund um AES.", "lessons": [{"file": "01_Familie_Haushalt.html", "title": "Unternehmen Familie und Haushalt"}, {"file": "02_Geschlechterrollen.html", "title": "Geschlechterrollen und ihre Auswirkungen"}, {"file": "03_Arbeitsteilung.html", "title": "Arbeitsteilung und Zeitmanagement in der Familie"}, {"file": "04_Wohnen.html", "title": "So will ich leben und wohnen"}, {"file": "05_Kinder_foerdern.html", "title": "Kinder fördern und fordern"}, {"file": "06_Vielfalt_Konflikte.html", "title": "Zusammenleben heißt Vielfalt erleben"}, {"file": "07_Berufe.html", "title": "Ein Beruf für dich?"}, {"file": "08_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "10-Ernaehrung_Gesundheit", "grade": 10, "title": "Ernährung und Gesundheit", "lead": "Gentechnik im Essen, funktionelle Lebensmittel und Nahrungsergänzungsmittel, Consumer Citizenship und Warenkennzeichnung: Die Reihe übt mit einer Dilemma-Diskussion, begründet Position zu beziehen, und zeigt, wie Verbraucherinnen und Verbraucher den Markt mitgestalten.", "lessons": [{"file": "01_Gentechnik.html", "title": "Gentechnisch veränderte Lebensmittel"}, {"file": "02_Dilemma_Diskussion.html", "title": "Methode: Dilemma-Diskussion"}, {"file": "03_Functional_Food.html", "title": "Brauchst du funktionelle Lebensmittel?"}, {"file": "04_Nahrungsergaenzung.html", "title": "Nahrungsergänzungsmittel"}, {"file": "05_Consumer_Citizenship.html", "title": "Consumer Citizenship – aktiv mitgestalten!"}, {"file": "06_Verpackung.html", "title": "Auf der Verpackung den Durchblick behalten"}, {"file": "07_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "10-Lebensgestaltung", "grade": 10, "title": "Lebensgestaltung und Konsum", "lead": "Die erste eigene Wohnung, ein Haushaltsbudget, sinnvolle Versicherungen, die Konkurrenz um Flächen und gemeinsames, nachhaltiges Konsumieren: Die Reihe bereitet auf Entscheidungen vor, die nach der Schule anstehen.", "lessons": [{"file": "01_Wohnformen.html", "title": "Welche Wohnform passt zu dir?"}, {"file": "02_Finanzen.html", "title": "Hast du deine Finanzen im Griff?"}, {"file": "03_Versicherungen.html", "title": "Absicherung durch Versicherungen"}, {"file": "04_Flaechenkonkurrenz.html", "title": "Flächen-Nutzungs-Konkurrenz"}, {"file": "05_Gemeinsam_konsumieren.html", "title": "Gemeinsam nachhaltiger konsumieren"}, {"file": "06_Wiederholung.html", "title": "Wiederholung und Selbsttest"}]}, {"id": "10-Engagement", "grade": 10, "title": "Lernen durch Engagement", "lead": "Ehrenamt, Projektarbeit und vier Projektideen – vom Upcycling über weniger Lebensmittelabfälle bis zum Präventionstag und Fair-Trade-Point. Zum Abschluss verbinden die Schwerpunktseiten Ernährung, Gesundheit, Konsum und Leben das ganze Fach.", "lessons": [{"file": "01_Ehrenamt.html", "title": "Gemeinsam mehr erreichen – bist du dabei?"}, {"file": "02_Projektmethode.html", "title": "Methode: Projekte planen, durchführen, bewerten"}, {"file": "03_Projektideen.html", "title": "Vier Projektideen"}, {"file": "04_Schwerpunkt_Ernaehrung_Gesundheit.html", "title": "Schwerpunkt Ernährung und Gesundheit"}, {"file": "05_Schwerpunkt_Konsum_Leben.html", "title": "Schwerpunkt Konsum und Leben"}, {"file": "06_Abschluss.html", "title": "Großer Abschlusstest AES"}]}];
+const $ = id => document.getElementById(id);
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const grades = [...new Set(TOPICS.map(t => t.grade))].sort((a, b) => a - b);
+
+$('grades').innerHTML = grades.map(g => {
+  const ts = TOPICS.filter(t => t.grade === g);
+  const n = ts.reduce((s, t) => s + t.lessons.length, 0);
+  return `<button class="grade" data-g="${g}" type="button">
+    <span class="num">${g}</span>
+    <span><span class="lbl">Klasse ${g}</span><br><span class="meta">${ts.length} Themen · ${n} Stunden</span></span>
+  </button>`;
+}).join('');
+$('grades').addEventListener('click', e => {
+  const b = e.target.closest('.grade'); if (b) location.hash = b.dataset.g;
+});
+$('topics').addEventListener('click', e => {
+  const b = e.target.closest('.topic'); if (b) location.hash = b.dataset.grade + '/' + b.dataset.id;
+});
+$('crumbs').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (b) location.hash = b.dataset.to;
+});
+
+function crumbs(parts) {
+  $('crumbs').innerHTML = parts.map((p, i) => i === parts.length - 1
+    ? `<span aria-current="page">${esc(p.label)}</span>`
+    : `<button type="button" data-to="${p.to}">${esc(p.label)}</button><span class="sep">›</span>`).join('');
+}
+
+function render() {
+  const [gs, id] = decodeURIComponent(location.hash.slice(1)).split('/');
+  const g = grades.includes(+gs) ? +gs : null;
+  const topic = g && TOPICS.find(t => t.id === id && t.grade === g);
+  $('v-grade').hidden = !!g;
+  $('v-topic').hidden = !g || !!topic;
+  $('v-lessons').hidden = !topic;
+  if (g) document.documentElement.dataset.grade = g; else delete document.documentElement.dataset.grade;
+
+  if (!g) {
+    $('crumbs').innerHTML = '';
+  } else if (!topic) {
+    crumbs([{label: 'Start', to: ''}, {label: 'Klasse ' + g}]);
+    $('h-topic').textContent = `Klasse ${g} – Thema wählen`;
+    $('topics').innerHTML = TOPICS.filter(t => t.grade === g).map(t => `<li>
+      <button class="topic" type="button" data-grade="${g}" data-id="${t.id}">
+        <span class="t">${esc(t.title)}</span>
+        ${t.lead ? `<span class="d">${esc(t.lead)}</span>` : ''}
+        <span class="n">${t.lessons.length} Stunden</span>
+      </button></li>`).join('');
+  } else {
+    crumbs([{label: 'Start', to: ''}, {label: 'Klasse ' + g, to: String(g)}, {label: topic.title}]);
+    $('h-lessons').textContent = topic.title;
+    $('lessons-lead').textContent = topic.lead;
+    $('overview-link').href = topic.id + '/00_Uebersicht.html';
+    $('lessons').innerHTML = topic.lessons.map((l, i) => `<li class="lesson">
+      <a href="${topic.id}/${encodeURI(l.file)}"><span class="no">${String(i + 1).padStart(2, '0')}</span><span class="lt">${esc(l.title)}</span><span class="go" aria-hidden="true">→</span></a><a class="ws" href="${topic.id}/${encodeURI(l.file.replace('.html', '.pdf'))}" target="_blank" rel="noopener" title="Arbeitsblatt (PDF)">Arbeitsblatt</a>
+    </li>`).join('');
+  }
+  const h = document.querySelector('section:not([hidden]) h2');
+  if (h && document.activeElement && document.activeElement !== document.body) { h.tabIndex = -1; h.focus({preventScroll: true}); }
+}
+addEventListener('hashchange', render);
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!--
+title: Wiederholung und Selbsttest
+short: Selbsttest
+time: 1 Unterrichtsstunde
+book: S. 148–149
+q: Kann ich reflektiert mit meinem Körper und meinem Aussehen umgehen?
+facts: Fachbegriffe als Karteikarten und Paare | Fallbeispiel: Social-Media-Druck | Quiz mit 16 Fragen (10 zufällig pro Runde) | „Ich kann …“-Liste mit Links zurück in die Stunden
+inter: Karteikarten · Begriffe-Paare · Fallbeispiel · Großes Quiz · Selbsteinschätzung
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wiederholung und Selbsttest</h1>
+      <p class="lead">Schönheitsideale, Mode, Körpergestaltung, Kleidungsfunktionen, Diäten, Essstörungen und innere Schönheit: Prüfe, was du weißt.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Kann ich reflektiert mit meinem Körper und meinem Aussehen umgehen?</p></div>
+      <div class="controls"><button class="btn primary" data-go="begriffe">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="begriffe" data-label="Begriffe" data-yr="Wiederholen" data-title="Fachbegriffe" data-sub="Karteikarten und Paare">
+  <div class="section-head"><p class="eyebrow">Station 1 · Fachbegriffe</p><h2>Diese Begriffe solltest du kennen</h2></div>
+  <div id="flip"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Paare finden</h3></div>
+  <div id="match"></div>
+</section>
+
+<section class="station" id="fall" data-label="Fallbeispiel" data-yr="Anwenden" data-title="Leonies Feed" data-sub="Druck aus den sozialen Medien">
+  <div class="section-head"><p class="eyebrow">Station 2 · Fallbeispiel</p><h2>Leonies Feed</h2><p class="lead">Leonie (15) folgt vielen Fitness- und Beauty-Influencerinnen. In letzter Zeit fühlt sie sich nach dem Scrollen oft schlecht.</p></div>
+  <div id="sc"></div>
+</section>
+
+<section class="station" id="quiz-st" data-label="Quiz" data-yr="Testen" data-title="Großes Quiz" data-sub="10 zufällige Fragen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Quiz</p><h2>Großes Quiz</h2></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<section class="station" id="uebungen" data-label="Ich kann …">
+  <div class="section-head"><p class="eyebrow">Selbsteinschätzung</p><h2>Ich kann …</h2></div>
+  <ol id="sci"></ol>
+</section>
+
+<script>
+const BEGRIFFE = [['Schönheitsideal', 'Vorstellung davon, was als schön gilt'], ['subjektiv', 'persönliche Wahrnehmung'], ['Zeitgeist', 'Denkweise und Geschmack einer Epoche'], ['Mode', 'für einen Zeitraum geltender Trend'], ['Trendsetter', 'Person, die Trends vorgibt'], ['temporär', 'vorübergehend'], ['Bodymodification', 'dauerhafte Körpergestaltung'], ['Kennzeichnungsfunktion', 'Kleidung zeigt Zugehörigkeit'], ['Zwiebelprinzip', 'mehrere dünne Kleidungsschichten'], ['Monodiät', 'nur bestimmte Lebensmittel'], ['Jo-Jo-Effekt', 'schnelle Gewichtszunahme nach einer Diät'], ['Magersucht', 'Untergewicht, verzerrte Körperwahrnehmung'], ['Bulimie', 'Ess-Brech-Sucht'], ['innere Schönheit', 'Charakter, Ausstrahlung']];
+flipCards($('#flip'), BEGRIFFE);
+matcher($('#match'), shuffle(BEGRIFFE.slice()).slice(0, 7));
+scenes($('#sc'), [
+  {s: 'Leonie vergleicht sich ständig mit perfekt wirkenden Fotos.', a: ['Sich bewusst machen: Viele Bilder sind gefiltert und retuschiert', 'Mehr solchen Accounts folgen', 'Fotos von sich selbst stark bearbeiten'], ok: 0},
+  {s: 'Eine Influencerin wirbt für einen „Detox-Tee – 3 kg in 3 Tagen“.', a: ['Unseriös – vor allem Wasserverlust, Jo-Jo-Effekt', 'Sofort bestellen', 'Ausprobieren, schadet ja nicht'], ok: 0},
+  {s: 'Leonie überlegt, nur noch Salat zu essen.', a: ['Keine einseitige Diät – ausgewogen essen, bewegen, ggf. mit Ärztin sprechen', 'Gute Idee, Salat ist gesund', 'Gar nichts mehr essen'], ok: 0},
+  {s: 'Ihre Freundin merkt, dass Leonie kaum noch isst.', a: ['Sie spricht Leonie behutsam an und bietet Hilfe an', 'Sie sagt nichts', 'Sie lacht darüber'], ok: 0},
+  {s: 'Was kann Leonie tun, um sich wieder wohler zu fühlen?', a: ['Accounts entfolgen, die ihr nicht guttun, Zeit mit Freunden und Hobbys verbringen', 'Noch mehr scrollen', 'Sich zurückziehen'], ok: 0}
+], {label: 'Situation'});
+mcQuiz($('#quiz'), [
+  {q: 'Was galt im Mittelalter als schön?', a: ['runde Körperformen', 'Sixpack', 'sehr schlanke Models', 'Tattoos'], ok: 0},
+  {q: 'Was beeinflusst Schönheitsideale?', a: ['Medien, Kultur, Zeitgeist', 'nur das Wetter', 'nichts', 'nur die Schule'], ok: 0},
+  {q: 'Was bedeutet „Kleider machen Leute“?', a: ['Kleidung prägt den ersten Eindruck', 'Kleider nähen sich selbst', 'nur Reiche tragen Kleider', 'Mode ist unwichtig'], ok: 0},
+  {q: 'Wer ist ein Trendsetter?', a: ['eine Influencerin, die Stile vorgibt', 'ein Modemuffel', 'ein Schneider', 'ein Model ohne Follower'], ok: 0},
+  {q: 'Welche Körpergestaltung ist permanent?', a: ['Tattoo', 'Make-up', 'Frisur', 'Nagellack'], ok: 0},
+  {q: 'Was ist bei Tattoos unter 18 zu beachten?', a: ['Einverständnis der Eltern, gut überlegen', 'nichts', 'nur kleine Motive', 'nur im Sommer'], ok: 0},
+  {q: 'Welche Funktion hat Fanbekleidung?', a: ['Kennzeichnung', 'Schutz', 'Scham', 'keine'], ok: 0},
+  {q: 'Was macht die erste Schicht beim Zwiebelprinzip?', a: ['Feuchtigkeit regulieren', 'Regen abhalten', 'schmücken', 'Wärme speichern'], ok: 0},
+  {q: 'Was heißt „atmungsaktiv“?', a: ['Schweiß kann als Dampf entweichen', 'Regen kommt hinein', 'man kann darin besser atmen', 'die Jacke ist durchsichtig'], ok: 0},
+  {q: 'Welche Diät ist empfehlenswert?', a: ['energiereduzierte Mischkost', 'Ananas-Diät', 'Crashdiät', 'Kohlsuppendiät'], ok: 0},
+  {q: 'Was ist der Jo-Jo-Effekt?', a: ['schnelle Gewichtszunahme nach einer Diät', 'ein Muskelaufbau', 'ein Spiel', 'Abnehmen im Schlaf'], ok: 0},
+  {q: 'Was berücksichtigt der BMI nicht?', a: ['die Muskelmasse', 'das Gewicht', 'die Größe', 'nichts'], ok: 0},
+  {q: 'Was ist typisch für Binge-Eating?', a: ['Essanfälle ohne Gegenmaßnahmen', 'Erbrechen', 'Untergewicht', 'kein Interesse an Essen'], ok: 0},
+  {q: 'Wie reagierst du, wenn du dir Sorgen um eine Freundin machst?', a: ['ansprechen, Verständnis zeigen, Hilfe holen', 'ignorieren', 'auslachen', 'kontrollieren'], ok: 0},
+  {q: 'Was gehört zur inneren Schönheit?', a: ['Humor', 'Frisur', 'Schmuck', 'Kleidung'], ok: 0},
+  {q: 'Was hilft gegen Social-Media-Druck?', a: ['Accounts entfolgen, die nicht guttun', 'mehr scrollen', 'Fotos stärker filtern', 'nichts'], ok: 0}
+], {pick: 10});
+selfCheck($('#sci'), [
+  {t: 'Ich kann erklären, wie Schönheitsideale entstehen und sich wandeln.', href: '01_Schoenheitsideale.html#wandel'},
+  {t: 'Ich kann beschreiben, was Mode und Kleidung ausdrücken.', href: '02_Mode_Trends.html#ausdruck'},
+  {t: 'Ich kann temporäre und permanente Körpergestaltung unterscheiden und abwägen.', href: '03_Bodymodification.html#arten'},
+  {t: 'Ich kann die Funktionen von Kleidung und das Zwiebelprinzip erklären.', href: '04_Kleidung_Funktionen.html#zwiebel'},
+  {t: 'Ich kann Diäten beurteilen und den Jo-Jo-Effekt erklären.', href: '05_Diaeten.html#check'},
+  {t: 'Ich kann Formen von Essstörungen beschreiben und weiß, wie ich helfen kann.', href: '06_Essstoerungen.html#umgang'},
+  {t: 'Ich kann äußere und innere Schönheit unterscheiden.', href: '07_Schoenheit_Ansicht.html#innen'}
+]);
+</script>

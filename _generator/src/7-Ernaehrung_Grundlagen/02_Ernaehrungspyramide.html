@@ -1,0 +1,193 @@
+<!--
+title: Die Ernährungspyramide – einfach spitze
+short: Pyramide
+time: 1–2 Unterrichtsstunden
+book: S. 54–55
+q: Wie viele Portionen von was sollte ich am Tag essen?
+facts: Vollwertige Ernährung nach DGE | Acht Lebensmittelgruppen in 22 Bausteinen | Ampelfarben: reichlich, mäßig, sparsam | Portionsgrößen im Handmaß
+inter: Interaktive Pyramide zum Antippen · Lebensmittel einordnen · Mein Tag in Bausteinen · Handmaß-Trainer
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Die Ernährungspyramide – einfach spitze</h1>
+      <p class="lead">Du willst gesund essen, ohne auf einzelne Lebensmittel verzichten zu müssen? Die Ernährungspyramide zeigt mit abzählbaren Bausteinen, wie viele Portionen du von welcher Lebensmittelgruppe essen kannst.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie viele Portionen von was sollte ich am Tag essen?</p></div>
+      <div class="controls"><button class="btn primary" data-go="aufbau">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="aufbau" data-label="Aufbau" data-yr="Erarbeitung" data-title="Aufbau der Pyramide" data-sub="Acht Gruppen, drei Farben">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Aufbau der Ernährungspyramide</h2>
+      <p class="lead">Die Pyramide (Bundeszentrum für Ernährung) teilt die Lebensmittel in <b>acht Gruppen</b> ein. Jeder Baustein steht für <b>eine Portion</b> am Tag.</p>
+      <ul class="facts">
+        <li><b style="color:var(--good)">grün</b> = reichlich essen und trinken</li>
+        <li><b style="color:var(--warn)">gelb</b> = mäßig essen</li>
+        <li><b style="color:var(--bad)">rot</b> = sparsam essen – „Extras“ sind erlaubt, aber nur eine Portion am Tag</li>
+      </ul>
+      <p class="quote">„Eine vollwertige Ernährung ist die Basis, um Wachstum, Entwicklung, Leistungsfähigkeit und Gesundheit ein Leben lang zu fördern.“<cite>nach der Deutschen Gesellschaft für Ernährung (DGE)</cite></p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Tippe auf einen Baustein</h3></div>
+      <div id="pyr"></div>
+      <div class="ex-panel" id="pyr-info"><p class="muted">Welche Lebensmittel gehören dazu?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="einordnen" data-label="Einordnen" data-yr="Übung" data-title="Lebensmittel einordnen" data-sub="Welche Gruppe?">
+  <div class="section-head"><p class="eyebrow">Station 2 · Übung</p><h2>Lebensmittel einordnen</h2><p class="lead">Achtung, Sonderfälle: Fruchtjoghurt zählt wegen des hohen Zuckergehalts als 1 Portion Milch <i>und</i> 1 Portion Extras. Ein Glas Saft oder Smoothie kann ab und zu eine Portion Obst ersetzen.</p></div>
+  <div id="sort"></div>
+</section>
+
+<section class="station" id="tag" data-label="Mein Tag" data-yr="Anwendung" data-title="Mein Tag in Bausteinen" data-sub="Passt mein Essen zur Pyramide?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Mein Tag in Bausteinen</h2>
+      <p class="lead">Zähle die Portionen, die du gestern gegessen und getrunken hast. Die Pyramide zeigt, wo du gut liegst und wo du ausgleichen könntest.</p>
+      <div id="tag-ui" style="display:flex;flex-direction:column;gap:.35rem"></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Deine Pyramide</h3><button class="btn" id="tag-reset">Leeren</button></div>
+      <div id="pyr2"></div>
+      <p class="status" id="tag-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="handmass" data-label="Handmaß" data-yr="Praxis" data-title="Portionen im Handmaß" data-sub="Deine Hand misst mit">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Praxis</p>
+      <h2>Portionen im Handmaß</h2>
+      <p class="lead">Das Abmessen ist kinderleicht: Beim <b>Handmaß</b> passt sich die Portionsgröße automatisch der Körpergröße und damit dem Bedarf an. Kinderhände = kleinere Portionen, Erwachsenenhände = größere Portionen.</p>
+      <ul class="facts">
+        <li>Manche Portionen misst man mit einem Glas oder einem Löffel.</li>
+        <li>Als Getränke geeignet: Wasser, Saftschorlen (3 Teile Wasser, 1 Teil Saft), ungesüßte Tees.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wie misst man eine Portion?</h3></div>
+      <div id="ex-h"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Die Ernährungspyramide</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Die Ernährungspyramide</h3><span>AES · Klasse 7</span></div>
+      <ol>
+        <li data-step>Die Ernährungspyramide teilt die Lebensmittel in <b>acht Gruppen</b> ein. Jeder Baustein ist eine Portion pro Tag.</li>
+        <li data-step>Täglich: 6 Getränke · 3 Gemüse · 2 Obst · 4 Brot, Getreide, Beilagen · 3 Milch und Milchprodukte · 1 Fleisch, Fisch, Ei oder Hülsenfrüchte · 2 Fette und Öle · 1 Extra.</li>
+        <li data-step>Die <b>Ampelfarben</b> bedeuten: grün = reichlich, gelb = mäßig, rot = sparsam.</li>
+        <li data-step>Mit dem <b>Handmaß</b> lassen sich Portionen einfach und bedarfsgerecht abmessen.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Tipp</span><p>Wechsle bei den Eiweißquellen ab: Hülsenfrüchte (Linsen, Erbsen, Bohnen) mindestens einmal pro Woche.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Pyramiden-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+const G = [
+  {k: 'getr', n: 'Getränke', p: 6, a: 'g', ico: 'tropfen', d: 'Wasser, ungesüßte Kräuter- und Früchtetees, Saftschorlen (3 : 1). Limonaden und Energydrinks gehören zu den Extras.'},
+  {k: 'gem', n: 'Gemüse', p: 3, a: 'g', ico: 'karotte', d: 'Alle Gemüsesorten, z. B. Tomaten, Kohlrabi, Blattsalate. Eine Portion kann ab und zu durch ein Glas Gemüsesaft ersetzt werden. Je bunter, desto besser!'},
+  {k: 'obst', n: 'Obst', p: 2, a: 'g', ico: 'apfel', d: 'Alle Obstsorten, z. B. Birnen, Beeren, Bananen, Zitrusfrüchte. Ab und zu darf eine Portion ein Glas reiner Fruchtsaft, ein Smoothie oder eine Handvoll Trockenobst sein.'},
+  {k: 'brot', n: 'Brot, Getreide, Beilagen', p: 4, a: 'g', ico: 'brot', d: 'Alle Getreidesorten (Weizen, Dinkel, Hafer, Reis, Hirse, Mais), Pseudogetreide (Quinoa, Amaranth), Mehl, Haferflocken, Nudeln, Kartoffeln. Vollkorn ist die beste Wahl.'},
+  {k: 'milch', n: 'Milch und Milchprodukte', p: 3, a: 'y', ico: 'milch', d: 'Milch, Ayran, Buttermilch, Naturjoghurt, Quark, Käse. Fruchtjoghurt = 1 Portion Milch + 1 Portion Extras. Ein Glas Hafer- oder Sojadrink kann 1 Portion ersetzen.'},
+  {k: 'eiw', n: 'Fleisch, Fisch, Ei, Hülsenfrüchte', p: 1, a: 'y', ico: 'fisch', d: 'Pflanzliche und tierische Eiweißquellen – am besten abwechseln. Hülsenfrüchte (Linsen, Erbsen, Bohnen) mindestens einmal pro Woche.'},
+  {k: 'fett', n: 'Fette und Öle', p: 2, a: 'y', ico: 'oel', d: 'Pflanzenöle wie Raps- oder Olivenöl, Butter, Margarine, Nüsse und Saaten (Sonnenblumen-, Kürbiskerne, Sesam, Leinsamen, Chia). Eine kleine Handvoll Nüsse genügt.'},
+  {k: 'extra', n: 'Extras', p: 1, a: 'r', ico: 'stern', d: 'Lebensmittel mit viel Zucker und/oder Fett oder mit Alkohol: Süßigkeiten, Kuchen, Limonaden, Energydrinks, Fruchtnektare, gezuckerte Frühstücksflocken, Nuss-Nougat-Creme, Chips, Pommes. Eine Portion am Tag ist erlaubt – du kannst aber auch verzichten.'}
+];
+const AMP = {g: 'good', y: 'warn', r: 'bad'};
+/* Pyramide aus Bausteinen: Reihen von unten */
+const ROWS = [['getr', 6], ['gem', 3, 'obst', 2], ['brot', 4], ['milch', 3, 'eiw', 1], ['fett', 2], ['extra', 1]];
+function pyramidSVG(root, o = {}) {
+  const W = 360, bw = 54, bh = 34, gap = 4, H = ROWS.length * (bh + gap) + 10;
+  let s = `<svg viewBox="0 0 ${W} ${H}" class="svgfig" role="img" aria-label="Ernährungspyramide aus Bausteinen">`;
+  ROWS.forEach((row, r) => {
+    const blocks = []; for (let i = 0; i < row.length; i += 2) for (let j = 0; j < row[i + 1]; j++) blocks.push(row[i]);
+    const n = blocks.length, y = H - (r + 1) * (bh + gap), x0 = W / 2 - (n * bw + (n - 1) * gap) / 2;
+    const idx = {};
+    blocks.forEach((k, i) => {
+      const g = G.find(x => x.k === k), c = col(AMP[g.a]); idx[k] = (idx[k] || 0) + 1;
+      const filled = o.fill ? (o.fill[k] || 0) >= idx[k] : true, over = o.fill && i === blocks.lastIndexOf(k) && (o.fill[k] || 0) > g.p;
+      s += `<g class="hit" data-k="${k}"><rect x="${x0 + i * (bw + gap)}" y="${y}" width="${bw}" height="${bh}" rx="7" fill="${filled ? c : col('surface')}" fill-opacity="${filled ? .85 : 1}" stroke="${c}" stroke-width="${over ? 3.5 : 1.5}" ${over ? 'stroke-dasharray="4 3"' : ''}/><g transform="translate(${x0 + i * (bw + gap) + bw / 2 - 10} ${y + bh / 2 - 10}) scale(.85)" style="stroke:${filled ? '#fff' : c};fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="${ICONS[g.ico]}"/></g></g>`;
+    });
+  });
+  root.innerHTML = s + '</svg>';
+}
+pyramidSVG($('#pyr'));
+$('#pyr').addEventListener('click', e => {
+  const h = e.target.closest('[data-k]'); if (!h) return;
+  const g = G.find(x => x.k === h.dataset.k);
+  $$('#pyr .hit').forEach(x => x.classList.toggle('dim', x.dataset.k !== g.k));
+  $('#pyr-info').innerHTML = `<h4>${g.n} · ${g.p} Portion${g.p > 1 ? 'en' : ''} am Tag</h4><p><b style="color:var(--${AMP[g.a]})">${g.a === 'g' ? 'reichlich' : g.a === 'y' ? 'mäßig' : 'sparsam'}</b> – ${g.d}</p>`;
+});
+
+sorter($('#sort'), G.filter(g => g.k !== 'gem').map(g => ({id: g.k === 'obst' ? 'og' : g.k, name: g.k === 'obst' ? 'Obst und Gemüse' : g.n})), [
+  {t: 'Mineralwasser', c: 'getr'}, {t: 'Pfefferminztee', c: 'getr'}, {t: 'Kohlrabi', c: 'og'}, {t: 'Banane', c: 'og'}, {t: 'Quinoa', c: 'brot'}, {t: 'Kartoffelbrei', c: 'brot'},
+  {t: 'Ayran', c: 'milch'}, {t: 'Quark', c: 'milch'}, {t: 'Kichererbsen', c: 'eiw'}, {t: 'Lachs', c: 'eiw'}, {t: 'Rapsöl', c: 'fett'}, {t: 'Walnüsse', c: 'fett'}, {t: 'Energydrink', c: 'extra'}, {t: 'Pommes frites', c: 'extra'}
+]);
+
+/* Mein Tag */
+(() => {
+  const fill = {};
+  const draw = () => {
+    pyramidSVG($('#pyr2'), {fill});
+    $('#tag-ui').innerHTML = G.map(g => `<div class="ctr-row" style="display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;gap:.5rem;align-items:center"><span style="font-weight:700;font-size:.92rem"><span style="display:inline-block;width:.7rem;height:.7rem;border-radius:3px;background:var(--${AMP[g.a]});margin-right:.4rem"></span>${g.n}</span><button class="btn" data-d="-1" data-k="${g.k}" style="padding:.2rem .65rem">−</button><b style="min-width:3.2rem;text-align:center;font-variant-numeric:tabular-nums">${fill[g.k] || 0} / ${g.p}</b><button class="btn" data-d="1" data-k="${g.k}" style="padding:.2rem .65rem">+</button></div>`).join('');
+    const low = G.filter(g => (fill[g.k] || 0) < g.p && g.a === 'g').map(g => g.n), high = G.filter(g => (fill[g.k] || 0) > g.p && g.a !== 'g').map(g => g.n);
+    const any = Object.values(fill).some(v => v);
+    $('#tag-st').innerHTML = !any ? 'Trage links deine Portionen ein.' : (low.length ? `<b>Mehr wäre gut:</b> ${low.join(', ')}. ` : '<b class="good">Grüne Gruppen erfüllt!</b> ') + (high.length ? `<b class="bad">Weniger wäre besser:</b> ${high.join(', ')}.` : '') + ' <span class="muted">Ein Tag muss nicht perfekt sein – gleiche in den nächsten Tagen aus.</span>';
+  };
+  $('#tag-ui').addEventListener('click', e => { const b = e.target.closest('[data-d]'); if (!b) return; fill[b.dataset.k] = clamp((fill[b.dataset.k] || 0) + +b.dataset.d, 0, 12); draw(); });
+  $('#tag-reset').onclick = () => { Object.keys(fill).forEach(k => delete fill[k]); draw(); };
+  draw();
+})();
+
+explore($('#ex-h'), [
+  {ico: 'hand', t: 'Gemüse, Obst', d: 'Was in <b>eine oder zwei Hände</b> passt: großes Obst (Apfel) eine Hand, kleines Obst und Gemüse (Beeren, Salat) zwei Hände zur Schale geformt.'},
+  {ico: 'brot', t: 'Brot', d: 'Eine Scheibe Brot so groß wie die <b>Handfläche mit Fingern</b>.'},
+  {ico: 'schuessel', t: 'Nudeln, Reis, Kartoffeln', d: 'Gegart: <b>zwei Hände</b> zur Schale geformt. Kartoffeln: zwei faustgroße.'},
+  {ico: 'milch', t: 'Milch', d: 'Ein <b>Glas</b> (200 ml) Milch, Buttermilch oder Ayran; ein Becher Joghurt (150 g); Käse: zwei Scheiben so groß wie die Handfläche.'},
+  {ico: 'fleisch', t: 'Fleisch, Fisch', d: 'So groß und dick wie die <b>Handfläche</b> (ohne Finger).'},
+  {ico: 'oel', t: 'Fette und Öle', d: '<b>1–2 Esslöffel</b> Öl; Butter so groß wie der Daumen bis zum ersten Glied; Nüsse: eine kleine Handvoll.'},
+  {ico: 'tropfen', t: 'Getränke', d: 'Ein <b>Glas</b> (200–250 ml). 6 Gläser ergeben etwa 1,5 Liter.'},
+  {ico: 'stern', t: 'Extras', d: 'Was in <b>eine Hand</b> passt: z. B. eine Handvoll Gummibärchen oder Chips, ein Stück Kuchen.'}
+], {hint: 'Tippe auf eine Lebensmittelgruppe.'});
+
+trueFalse($('#tf'), [
+  {t: 'Die Pyramide besteht aus acht Lebensmittelgruppen.', ok: true},
+  {t: 'Extras sind verboten.', ok: false, why: 'Eine Portion am Tag ist erlaubt.'},
+  {t: 'Fruchtjoghurt zählt als Milchprodukt und als Extra.', ok: true, why: 'Wegen des hohen Zuckergehalts.'},
+  {t: 'Gelb bedeutet „reichlich essen“.', ok: false, why: 'Gelb = mäßig, grün = reichlich.'},
+  {t: 'Erwachsene haben größere Portionen als Kinder, weil ihre Hände größer sind.', ok: true},
+  {t: 'Kartoffeln gehören zur Gruppe Gemüse.', ok: false, why: 'Sie gehören zu Brot, Getreide und Beilagen.'}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Wie viele Portionen Getränke empfiehlt die Pyramide?', a: ['6', '2', '3', '10'], ok: 0},
+  {q: 'Wie viele Portionen Obst und Gemüse sind es zusammen?', a: ['5', '3', '2', '8'], ok: 0},
+  {q: 'Zu welcher Gruppe gehören Linsen?', a: ['Fleisch, Fisch, Ei, Hülsenfrüchte', 'Gemüse', 'Extras', 'Getränke'], ok: 0},
+  {q: 'Was ist eine Saftschorle?', a: ['3 Teile Wasser, 1 Teil Saft', 'Saft mit Zucker', 'Saft mit Milch', 'Limonade'], ok: 0},
+  {q: 'Warum ist das Handmaß praktisch?', a: ['Die Portion passt sich automatisch dem Bedarf an', 'Man braucht keine Hände zu waschen', 'Es ist genauer als eine Waage', 'Es gilt nur für Kinder'], ok: 0}
+]);
+</script>

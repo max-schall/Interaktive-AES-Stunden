@@ -1,0 +1,159 @@
+<!--
+title: Wozu braucht dein Körper Eiweiße?
+short: Eiweiße
+time: 1 Unterrichtsstunde
+book: S. 66–67
+q: Brauche ich Protein-Shakes, um fit zu sein?
+facts: Eiweiße (Proteine) als Baustoffe | 20 Aminosäuren, acht davon unentbehrlich | Biologische Wertigkeit und Ergänzungswirkung (Kartoffel + Ei = 136) | Bedarf 0,9 g pro kg Körpergewicht, Denaturierung ab 60 °C
+inter: Aminosäurekette bauen · Biologische Wertigkeit vergleichen · Gute Kombinationen finden · Eiweißbedarf-Rechner
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wozu braucht dein Körper Eiweiße?</h1>
+      <p class="lead">Schöne Haut und Haare sind dir wichtig? Du treibst Sport und willst fit bleiben? Laut Werbung helfen dabei High-Protein-Shakes und Proteinriegel. Aber brauchst du solche Produkte wirklich?</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Brauche ich Protein-Shakes, um fit zu sein?</p></div>
+      <div class="controls"><button class="btn primary" data-go="aufbau">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="aufbau" data-label="Aufbau" data-yr="Erarbeitung" data-title="Aufbau und Aufgaben" data-sub="Ketten aus Aminosäuren">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Aufbau und Aufgaben</h2>
+      <p class="lead">Eiweiße – auch <b>Proteine</b> genannt – sind Makronährstoffe. Ohne Eiweiße gibt es kein Leben und kein Wachstum.</p>
+      <ul class="facts">
+        <li>Eiweiße sind aus <b>20 verschiedenen Aminosäuren</b> aufgebaut, die sich wie Perlen einer Kette aneinanderreihen.</li>
+        <li><b>Acht Aminosäuren sind unentbehrlich</b> (essenziell): Der Körper kann sie nicht selbst herstellen.</li>
+        <li>Eiweiße sind vor allem <b>Baustoffe</b> für Knochen, Muskeln, Organe, Blut, Haut, Zellen, Haare und Nägel. 1 g = 17 kJ (4 kcal); ca. 15 % der Energie.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Eine Aminosäurekette</h3><button class="btn" id="as-new">Neue Kette</button></div>
+      <canvas id="cv-as" class="low" aria-label="Aminosäurekette aus farbigen Perlen"></canvas>
+      <p class="note">Dunkle Perlen = unentbehrliche Aminosäuren. Die Reihenfolge bestimmt, welches Eiweiß entsteht.</p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="wertigkeit" data-label="Wertigkeit" data-yr="Erarbeitung" data-title="Biologische Wertigkeit" data-sub="Wie gut wird Körpereiweiß?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Biologische Wertigkeit</h2>
+      <p class="lead">Die <b>biologische Wertigkeit (BW)</b> gibt an, wie viel Gramm Körpereiweiß aus 100 g Nahrungseiweiß gebildet werden kann.</p>
+      <ul class="facts">
+        <li>Referenzwert: Hühnervollei = <b>100</b>.</li>
+        <li>Je mehr unentbehrliche Aminosäuren ein Lebensmittel enthält, desto höher die Wertigkeit.</li>
+        <li>Tierisches Eiweiß ist dem menschlichen Eiweiß sehr ähnlich. Aber auch Hülsenfrüchte, Vollkorn und Kartoffeln liefern wertvolles Eiweiß.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Biologische Wertigkeit (ca.)</h3><div id="bw-seg"></div></div>
+      <div id="bw"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="kombi" data-label="Kombinieren" data-yr="Anwendung" data-title="Die Ergänzungswirkung" data-sub="Zusammen besser">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Die Ergänzungswirkung</h2>
+      <p class="lead">Durch geschickte Kombination ergänzen sich die unentbehrlichen Aminosäuren. Die höchste Wertigkeit erreicht <b>Kartoffel mit Ei: 136</b>.</p>
+      <ul class="facts">
+        <li>Kartoffeln mit Quark oder Fisch</li>
+        <li>Getreideprodukte mit Milch</li>
+        <li>Hülsenfrüchte mit Kartoffeln</li>
+        <li>Getreide mit Hülsenfrüchten</li>
+      </ul>
+      <p class="note">So ist auch eine pflanzliche Ernährung gut möglich.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Welche Gerichte nutzen die Ergänzung?</h3></div>
+      <div id="match"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="kueche" data-label="Bedarf & Küche" data-yr="Praxis" data-title="Bedarf und Denaturierung" data-sub="Wie viel? Und was passiert beim Kochen?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Praxis</p>
+      <h2>Bedarf und Küchentechnik</h2>
+      <p class="lead">Kinder und Jugendliche bis 19 Jahre brauchen täglich ca. <b>0,9 g Eiweiß pro kg Körpergewicht</b>, Erwachsene bis 65 ca. 0,8 g.</p>
+      <p><b>Denaturierung:</b> Eiweiß ist hitzeempfindlich. Ab ca. 60 °C gerinnt es und verändert seine Struktur – beim Hartkochen von Eiern oder Braten von Fleisch. Auch Säure (Zitronensaft in Milch), Milchsäurebakterien (Joghurt) oder kräftiges Aufschlagen (Eischnee) denaturieren Eiweiß.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Mein Eiweißbedarf</h3></div>
+      <div id="calc-e"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Eiweiße</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Eiweiße (Proteine)</h3><span>AES · Klasse 7</span></div>
+      <ol>
+        <li data-step>Eiweiße sind Makronährstoffe und dienen vor allem als <b>Baustoffe</b> (Muskeln, Organe, Haut, Haare, Blut). 1 g = 17 kJ (4 kcal).</li>
+        <li data-step>Sie bestehen aus <b>20 Aminosäuren</b>; <b>acht sind unentbehrlich</b> und müssen mit der Nahrung aufgenommen werden.</li>
+        <li data-step>Die <b>biologische Wertigkeit</b> gibt an, wie viel Körpereiweiß aus 100 g Nahrungseiweiß gebildet werden kann (Ei = 100).</li>
+        <li data-step><b>Ergänzungswirkung:</b> Kombinationen wie Kartoffel + Ei (136), Getreide + Milch, Hülsenfrüchte + Getreide erhöhen die Wertigkeit.</li>
+        <li data-step>Bedarf Jugendlicher: ca. 0,9 g pro kg Körpergewicht. Ab ca. 60 °C gerinnt Eiweiß (Denaturierung).</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Zur Leitfrage</span><p>Mit einer abwechslungsreichen Ernährung ist der Eiweißbedarf – auch bei Sport – meist gut gedeckt. Shakes und Riegel sind teuer und oft unnötig.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Eiweiß-Check</h2></div>
+  <div id="ts"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+(() => {
+  let chain = [];
+  const make = () => { chain = [...Array(24)].map(() => randInt(0, 19)); };
+  make(); $('#as-new').onclick = make;
+  canvasLoop($('#cv-as'), 'aufbau', (ctx, w, h, t) => {
+    const r = Math.min(14, w / 60);
+    chain.forEach((a, i) => {
+      const x = 20 + r + i * (w - 40 - 2 * r) / 23, y = h / 2 + Math.sin(i * .7 + t) * h * .22;
+      if (i) { const px = 20 + r + (i - 1) * (w - 40 - 2 * r) / 23, py = h / 2 + Math.sin((i - 1) * .7 + t) * h * .22; ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(x, y); ctx.stroke(); }
+      const ess = a < 8; ctx.fillStyle = ess ? mix(col(PAL[a % 7]), '#000000', .25) : mix(col(PAL[a % 7]), '#ffffff', .35); ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
+    });
+  });
+})();
+(() => {
+  const S = {einzeln: [['Hühnerei', 100], ['Kartoffel', 98], ['Rindfleisch', 92], ['Kuhmilch', 88], ['Thunfisch', 83], ['Sojabohne', 85], ['Reis', 81], ['Bohnen', 72], ['Weizenmehl', 59]], kombi: [['Kartoffel + Ei', 136], ['Milch + Weizen', 125], ['Ei + Soja', 124], ['Bohnen + Mais', 99], ['Hühnerei', 100]]};
+  seg($('#bw-seg'), [['einzeln', 'einzelne Lebensmittel'], ['kombi', 'Kombinationen']], v => bars($('#bw'), S[v].map(([l, x]) => ({l, v: x, c: x >= 100 ? 'c2' : x >= 80 ? 'c5' : 'c1', hl: l === 'Hühnerei'})), {dec: 0, max: 140, note: 'Referenz: Hühnervollei = 100. Gerundete Literaturwerte.'}));
+})();
+matcher($('#match'), [['Pellkartoffeln mit Kräuterquark', 'Kartoffel + Milchprodukt'], ['Bauernfrühstück (Bratkartoffeln mit Ei)', 'Kartoffel + Ei'], ['Müsli mit Milch', 'Getreide + Milch'], ['Linsensuppe mit Brot', 'Hülsenfrüchte + Getreide'], ['Chili sin Carne mit Reis', 'Bohnen + Getreide'], ['Kartoffeln mit Fischfilet', 'Kartoffel + Fisch']]);
+calc($('#calc-e'), [{id: 'kg', l: 'Körpergewicht', min: 25, max: 90, v: 50, unit: 'kg'}, {id: 'f', l: 'Alter', opts: [['0.9', 'bis 19 Jahre'], ['0.8', 'Erwachsene']], v: '0.9'}], v => {
+  const g = v.kg * v.f;
+  return `<span class="big">${numDE(g, 0)} g Eiweiß am Tag</span><p>Das entspricht z. B. ${numDE(g / 8, 1)} Gläsern Milch (je 7 g) – oder einer Mischung: 1 Glas Milch (7 g) + 1 Ei (7 g) + 2 Scheiben Vollkornbrot (7 g) + 1 Portion Linsen (12 g) + 1 Becher Quark (18 g) ergeben schon ${7 + 7 + 7 + 12 + 18} g.</p>`;
+});
+taskSet($('#ts'), i => {
+  const kg = randInt(30, 80); return {key: 'kg' + kg, tag: 'Bedarf', q: `Wie viel Eiweiß braucht eine ${randInt(12, 17)}-jährige Person mit ${kg} kg Körpergewicht pro Tag?`, fields: [{l: 'Eiweiß', a: Math.round(kg * .9 * 10) / 10, tol: .6, unit: 'g'}], hint: 'Körpergewicht · 0,9 g'};
+}, {n: 3});
+mcQuiz($('#quiz'), [
+  {q: 'Woraus bestehen Eiweiße?', a: ['Aminosäuren', 'Fettsäuren', 'Zuckerbausteinen', 'Mineralstoffen'], ok: 0},
+  {q: 'Wie viele Aminosäuren sind unentbehrlich?', a: ['acht', 'zwanzig', 'zwei', 'keine'], ok: 0},
+  {q: 'Welche Kombination hat die höchste biologische Wertigkeit?', a: ['Kartoffel + Ei', 'Weißbrot + Marmelade', 'Reis + Zucker', 'Nudeln + Ketchup'], ok: 0},
+  {q: 'Ab welcher Temperatur gerinnt Eiweiß?', a: ['ab ca. 60 °C', 'ab 0 °C', 'ab 150 °C', 'nie'], ok: 0},
+  {q: 'Was ist die Hauptaufgabe der Eiweiße?', a: ['Baustoff', 'Wärmeisolierung', 'Geschmacksträger', 'Lösungsmittel'], ok: 0}
+]);
+</script>

@@ -1,0 +1,131 @@
+<!--
+title: Konventionell oder ökologisch?
+short: Landwirtschaft
+time: 1 Unterrichtsstunde
+book: S. 78–79
+q: Was unterscheidet einen Bio-Hof von einem konventionellen Betrieb?
+facts: Konventionelle Landwirtschaft: hohe Erträge, günstige Preise, aber Umweltbelastungen | Ökologische Landwirtschaft: Kreislaufwirtschaft im Einklang mit der Natur | Vier Grundsätze: Boden, Tierschutz, Gewässerschutz, Artenvielfalt | 2021 wurden knapp 89 % der Fläche konventionell bewirtschaftet
+inter: Vergleichstabelle zum Aufdecken · Merkmale zuordnen · Der ökologische Kreislauf · Meinungsbarometer
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Konventionell oder ökologisch?</h1>
+      <p class="lead">Ob Getreide, Gemüse oder Milch: Die Landwirtschaft erzeugt unsere Lebensmittel und sichert unsere Versorgung. Große Herausforderungen sind die wachsende Weltbevölkerung und der Klimawandel. Damit du dich besser entscheiden kannst, solltest du die Unterschiede kennen.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Was unterscheidet einen Bio-Hof von einem konventionellen Betrieb?</p></div>
+      <div class="controls"><button class="btn primary" data-go="vergleich">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="vergleich" data-label="Vergleich" data-yr="Erarbeitung" data-title="Zwei Wirtschaftsweisen" data-sub="Merkmale im Vergleich">
+  <div class="section-head"><p class="eyebrow">Station 1 · Erarbeitung</p><h2>Zwei Wirtschaftsweisen im Vergleich</h2><p class="lead"><b>Konventionell</b> bezeichnet die derzeit übliche Landwirtschaft. 2021 wurden knapp 89 % der landwirtschaftlichen Fläche in Deutschland so bewirtschaftet – Tendenz rückläufig. Tippe auf die grauen Felder.</p></div>
+  <div class="table-wrap"><table class="cmp quiz" id="cmp">
+    <thead><tr><th></th><th>konventionell</th><th>ökologisch (biologisch)</th></tr></thead>
+    <tbody>
+      <tr><th>Ziel</th><td class="q"><span>möglichst viele Nahrungsmittel zu möglichst günstigem Preis</span></td><td class="q"><span>Erzeugung im Einklang mit der Natur, Kreislaufwirtschaft</span></td></tr>
+      <tr><th>Betriebe</th><td class="q"><span>meist Großbetriebe, spezialisiert auf Ackerbau, Tierzucht oder Milch</span></td><td class="q"><span>meist kleinere Mischbetriebe mit Ackerbau und Tierhaltung</span></td></tr>
+      <tr><th>Anbau</th><td class="q"><span>Monokulturen, Hochleistungssorten</span></td><td class="q"><span>Fruchtfolge, regelmäßiger Wechsel der Nutzpflanzen</span></td></tr>
+      <tr><th>Dünger, Pflanzenschutz</th><td class="q"><span>mineralischer Dünger, Pestizide erlaubt</span></td><td class="q"><span>organischer Dünger (Mist, Gründüngung), keine chemischen Pestizide</span></td></tr>
+      <tr><th>Tierhaltung</th><td class="q"><span>meist Stallhaltung, Massentierhaltung erlaubt, vorsorglich Antibiotika</span></td><td class="q"><span>artgerecht, mehr Platz und Auslauf, Bio-Futter, keine Hormone, kein vorsorglicher Antibiotika-Einsatz</span></td></tr>
+      <tr><th>Gentechnik</th><td class="q"><span>erlaubt</span></td><td class="q"><span>verboten</span></td></tr>
+      <tr><th>Folgen</th><td class="q"><span>Bodenerosion, weniger Artenvielfalt, Wasser- und Luftverschmutzung, Rückstände möglich</span></td><td class="q"><span>schont Boden, Wasser und Klima, mehr Artenvielfalt; aber mehr Arbeit, mehr Fläche, höhere Preise</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="controls" style="margin-top:.8rem"><button class="btn" id="cmp-q">Wieder verdecken</button><button class="btn primary" id="cmp-a">Alles aufdecken</button></div>
+</section>
+
+<section class="station" id="kreislauf" data-label="Kreislauf" data-yr="Erarbeitung" data-title="Der ökologische Kreislauf" data-sub="Alles hängt zusammen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Die ökologische Kreislaufwirtschaft</h2>
+      <p class="lead">Im Bio-Betrieb hängt alles zusammen: Die Tiere fressen Futter vom eigenen Hof, ihr Mist düngt die Felder, auf denen wieder Futter und Lebensmittel wachsen.</p>
+      <p class="note">Jeder Betrieb, der Bio-Produkte erzeugen und verkaufen will, muss bei einer Öko-Kontrollstelle angemeldet sein. Das kostet Geld – Bio-Produkte sind daher teils teurer.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Schritt für Schritt</h3></div>
+      <canvas id="cv-k" class="wide" aria-label="Kreislauf aus Feld, Futter, Tier und Dünger"></canvas>
+      <div id="k-step"></div>
+      <p class="status" id="k-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="grundsaetze" data-label="Grundsätze" data-yr="Übung" data-title="Vier Grundsätze" data-sub="Merkmale zuordnen">
+  <div class="section-head"><p class="eyebrow">Station 3 · Übung</p><h2>Die vier Grundsätze der ökologischen Landwirtschaft</h2><p class="lead">Ordne jede Maßnahme dem Grundsatz zu, zu dem sie gehört.</p></div>
+  <div id="sort"></div>
+</section>
+
+<section class="station" id="meinung" data-label="Meinung" data-yr="Diskussion" data-title="Was denkst du?" data-sub="Denkanstöße">
+  <div class="section-head"><p class="eyebrow">Station 4 · Diskussion</p><h2>Denkanstöße</h2></div>
+  <ol id="op"></ol>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Konventionell oder ökologisch?</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Konventionelle und ökologische Landwirtschaft</h3><span>AES · Klasse 7</span></div>
+      <ol>
+        <li data-step>Die <b>konventionelle</b> Landwirtschaft trägt zur Ernährungssicherheit bei (hohe Erträge, günstige Preise), belastet aber die Umwelt stärker.</li>
+        <li data-step>Die <b>ökologische</b> Landwirtschaft wirtschaftet im Einklang mit der Natur als Kreislaufwirtschaft und schont die Umwelt.</li>
+        <li data-step>Vier Grundsätze: Bodenfruchtbarkeit (Fruchtfolge, organischer Dünger), Tierschutz (artgerechte Haltung), Gewässerschutz (keine Pestizide, kein Mineraldünger), Artenvielfalt.</li>
+        <li data-step>Ökologisch: keine Gentechnik, keine Hormone, kein vorsorglicher Antibiotika-Einsatz. Bio-Produkte sind teils teurer.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Erkundung</span><p>Besucht einen Bio-Hof oder einen konventionellen Betrieb in der Nähe und vergleicht.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Konventionell oder ökologisch?</h2></div>
+  <div id="sort2"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+quizTable($('#cmp'), $('#cmp-q'), $('#cmp-a'));
+(() => {
+  const S = ['<b>Feld:</b> Auf den Feldern wachsen Getreide, Gemüse und Futterpflanzen – im Wechsel (Fruchtfolge).', '<b>Futter:</b> Ein Teil der Ernte wird zu Bio-Futter, meist vom eigenen Betrieb.', '<b>Tiere:</b> Die Tiere werden artgerecht gehalten und liefern Milch, Eier und Fleisch.', '<b>Dünger:</b> Ihr Mist wird zu organischem Dünger, der die Felder fruchtbar macht.', '<b>Lebensmittel:</b> Ein Teil der Ernte und tierische Produkte gehen als Bio-Lebensmittel zu den Menschen.'];
+  let k = 0;
+  stepper($('#k-step'), 5, i => { k = i; $('#k-st').innerHTML = S[i]; });
+  canvasLoop($('#cv-k'), 'kreislauf', (ctx, w, h, t) => {
+    const cx = w * .45, cy = h * .5, R = Math.min(w, h) * .33, N = [['Feld', 'blatt', 'c2'], ['Futter', 'paket', 'c5'], ['Tiere', 'herz', 'c1'], ['Dünger', 'kreislauf', 'c4']];
+    ctx.strokeStyle = alpha(C.ink2, .3); ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.stroke();
+    for (let i = 0; i < 4; i++) { const a = -Math.PI / 2 + i * Math.PI / 2 + .55; arrow(ctx, cx + R * Math.cos(a - .1), cy + R * Math.sin(a - .1), cx + R * Math.cos(a + .1), cy + R * Math.sin(a + .1), C.ink2, 3, 10); }
+    N.forEach(([n, ico, c], i) => { const a = -Math.PI / 2 + i * Math.PI / 2, x = cx + R * Math.cos(a), y = cy + R * Math.sin(a), on = i === k || (k === 4 && i === 0); ctx.fillStyle = on ? col(c) : col('surface-2'); ctx.beginPath(); ctx.arc(x, y, 30 + (on ? 4 * Math.sin(t * 3) : 0), 0, 7); ctx.fill(); label(ctx, n, x, y, {size: 13, color: on ? '#fff' : C.ink}); });
+    const p = (t * .15) % 1, a = -Math.PI / 2 + p * Math.PI * 2; ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(cx + R * Math.cos(a), cy + R * Math.sin(a), 5, 0, 7); ctx.fill();
+    const on5 = k === 4; ctx.fillStyle = on5 ? col('c3') : col('surface-2'); roundRect(ctx, w * .8, cy - 26, w * .18, 52, 12); ctx.fill(); label(ctx, 'Lebensmittel', w * .89, cy, {size: 12, color: on5 ? '#fff' : C.ink});
+    arrow(ctx, cx + R + 32, cy, w * .8 - 4, cy, on5 ? C.accent : alpha(C.ink2, .4), 3, 10);
+  });
+})();
+sorter($('#sort'), [{id: 'b', name: 'Bodenfruchtbarkeit'}, {id: 't', name: 'Tierschutz'}, {id: 'g', name: 'Gewässerschutz'}, {id: 'a', name: 'Artenvielfalt'}], [
+  {t: 'Fruchtfolge statt Monokultur', c: 'b'}, {t: 'Mist und Gründüngung', c: 'b'}, {t: 'mehr Platz im Stall', c: 't'}, {t: 'Auslauf im Freien', c: 't'}, {t: 'kein vorsorgliches Antibiotikum', c: 't'},
+  {t: 'kein Mineraldünger, weniger Nitrat im Grundwasser', c: 'g'}, {t: 'keine chemischen Pestizide im Wasser', c: 'g'}, {t: 'blühende Ackerränder für Insekten', c: 'a'}, {t: 'viele verschiedene Pflanzen statt einer Sorte', c: 'a'}
+]);
+opinion($('#op'), [
+  {t: 'Bio-Lebensmittel sind ihren höheren Preis wert.', why: 'Mehr Arbeit, mehr Fläche, Kontrollen – das kostet. Dafür werden Umwelt und Tiere geschont. Nicht alle Familien können sich das leisten.'},
+  {t: 'Nur mit konventioneller Landwirtschaft kann man alle Menschen ernähren.', why: 'Konventionell bringt höhere Erträge. Gleichzeitig landet weltweit viel Getreide im Tierfutter und viele Lebensmittel im Müll.'},
+  {t: 'Bio-Produkte aus Übersee sind besser als konventionelle aus der Region.', why: 'Lange Transporte belasten das Klima. Am besten ist die Kombination: regional, saisonal und bio.'},
+  {t: 'Tierwohl ist mir beim Einkauf wichtig.', why: 'Haltungsform-Kennzeichnung und Bio-Siegel helfen bei der Entscheidung.'}
+]);
+sorter($('#sort2'), [{id: 'k', name: 'konventionell'}, {id: 'o', name: 'ökologisch'}], [
+  {t: 'Monokultur', c: 'k'}, {t: 'mineralischer Dünger', c: 'k'}, {t: 'Massentierhaltung erlaubt', c: 'k'}, {t: 'Gentechnik erlaubt', c: 'k'}, {t: 'möglichst günstige Preise', c: 'k'},
+  {t: 'Fruchtfolge', c: 'o'}, {t: 'organischer Dünger', c: 'o'}, {t: 'Bio-Futter vom eigenen Hof', c: 'o'}, {t: 'Öko-Kontrollstelle', c: 'o'}, {t: 'Behandlung erst mit pflanzlichen Mitteln', c: 'o'}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Wie viel Prozent der Fläche wurden 2021 konventionell bewirtschaftet?', a: ['knapp 89 %', 'ca. 10 %', 'ca. 50 %', '100 %'], ok: 0},
+  {q: 'Was ist eine Monokultur?', a: ['nur eine Pflanzenart auf einer Fläche', 'ein Bio-Hof', 'eine Fruchtfolge', 'ein Kuhstall'], ok: 0},
+  {q: 'Was ist in der ökologischen Landwirtschaft verboten?', a: ['Gentechnik und chemische Pestizide', 'Kühe', 'Traktoren', 'Getreideanbau'], ok: 0},
+  {q: 'Warum sind Bio-Produkte oft teurer?', a: ['mehr Arbeit, mehr Fläche, Kontrollen', 'weil sie importiert werden', 'wegen der Werbung', 'weil sie größer sind'], ok: 0},
+  {q: 'Was bedeutet Kreislaufwirtschaft auf dem Bio-Hof?', a: ['Futter, Tiere und Dünger stammen aus dem eigenen Betrieb', 'Die Tiere laufen im Kreis', 'Alles wird gekauft', 'Es gibt keine Tiere'], ok: 0}
+]);
+</script>

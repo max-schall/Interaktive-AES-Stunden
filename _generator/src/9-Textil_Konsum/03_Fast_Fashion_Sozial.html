@@ -1,0 +1,141 @@
+<!--
+title: Fast Fashion – soziale Auswirkungen
+short: Fast Fashion sozial
+time: 1 Unterrichtsstunde
+book: S. 172–173
+q: Wie kann ein T-Shirt weniger kosten als eine Pizza?
+facts: Moderne Sklaverei: schlechte Arbeitszeiten (bis 16 Stunden, 6–7 Tage), niedrige Löhne (Mindestlohn Bangladesch ca. 85 € im Monat) | Mangelnder Sicherheits- und Gesundheitsschutz | Kinderarbeit (ca. 160 Mio. Kinder weltweit) und mangelnde Rechte | Preisaufteilung: Ein teures T-Shirt ist nicht automatisch fairer
+inter: Wer verdient am T-Shirt? · Ein Arbeitstag in der Fabrik · Rechte oder Verletzungen? · Sozialsiegel
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Fast Fashion – soziale Auswirkungen</h1>
+      <p class="lead">Bis ein T-Shirt bei uns im Laden hängt, hat es einen weiten Weg hinter sich, und es stecken viele Ressourcen und viel Arbeitszeit darin. Trotzdem findet man leicht ein T-Shirt, das weniger kostet als eine Pizza.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie kann ein T-Shirt weniger kosten als eine Pizza?</p></div>
+      <div class="controls"><button class="btn primary" data-go="preis">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="preis" data-label="Wer verdient?" data-yr="Einstieg" data-title="Wer verdient am T-Shirt?" data-sub="4,99 € und 19,99 €">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Einstieg</p>
+      <h2>Wer verdient am T-Shirt?</h2>
+      <p class="lead">Kleidung kann bei uns nur so günstig angeboten werden, weil sie zum größten Teil in Asien unter extrem schlechten Arbeitsbedingungen produziert wird.</p>
+      <p class="prompt"><b>Schätze zuerst:</b> Wie viel des Preises bekommt die Näherin?</p>
+      <div class="achtung"><p>Ein teures Kleidungsstück ist nicht automatisch sozialverträglicher! Achte auf textile Sozialsiegel, z. B. Fair Wear oder Fairtrade Cotton.</p></div>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Preisaufteilung</h3><div id="p-seg"></div></div>
+      <div id="bars"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="tag" data-label="Arbeitstag" data-yr="Erarbeitung" data-title="Ein Arbeitstag in der Fabrik" data-sub="Untragbar: moderne Sklaverei">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Ein Arbeitstag in der Fabrik</h2>
+      <ul class="facts">
+        <li><b>Arbeitszeit:</b> Viele Näherinnen und Näher in Asien arbeiten bis zu 16 Stunden am Tag, 6–7 Tage pro Woche. Freie Tage gibt es oft nicht, manchmal nicht einmal Pausen zum Essen oder für die Toilette.</li>
+        <li><b>Bezahlung:</b> Der Mindestlohn in Bangladesch liegt bei ca. 85 € im Monat – etwa 3 € pro Tag. Er reicht oft nicht für Miete, Essen, Arzt und Schule. Kranken- oder Urlaubsgeld gibt es meist nicht.</li>
+        <li><b>Gesundheit:</b> Fehlende Schutzkleidung, Handschuhe und Atemmasken; giftige Pestizide und Färbemittel; Sandstrahlen für den Used-Look.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Dein Tag – ihr Tag</h3></div>
+      <canvas id="cv-t" class="wide" aria-label="Vergleich eines Schultags mit einem Arbeitstag in der Fabrik"></canvas>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="rechte" data-label="Rechte" data-yr="Vertiefung" data-title="Kinderarbeit und Rechte" data-sub="Menschenrechte werden verletzt">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Vertiefung</p>
+      <h2>Kinderarbeit und mangelnde Rechte</h2>
+      <ul class="facts">
+        <li>Weil die Löhne der Eltern nicht ausreichen, werden Kinder zum Arbeiten gezwungen. Nach Schätzungen der Internationalen Arbeitsorganisation und Unicef arbeiten weltweit ca. <b>160 Millionen</b> Kinder – etwa die Hälfte unter 12 Jahren, auch auf Baumwollplantagen und in Textilfabriken.</li>
+        <li>Viele Arbeitende kennen ihre Rechte nicht. Die <b>Versammlungsfreiheit</b> ist ein Menschenrecht – dennoch werden <b>Gewerkschaften</b> behindert oder verboten.</li>
+      </ul>
+      <ul class="words-box"><li>die Gewerkschaft</li><li>die Versammlungsfreiheit</li><li>der Mindestlohn</li></ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Recht oder Rechtsverletzung?</h3></div>
+      <div id="sort"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="handeln" data-label="Was tun?" data-yr="Anwendung" data-title="Was kann ich tun?" data-sub="Meinungsbarometer">
+  <div class="section-head"><p class="eyebrow">Station 4 · Anwendung</p><h2>Was kann ich tun?</h2></div>
+  <ol id="op"></ol>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Soziale Folgen von Fast Fashion</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Fast Fashion – soziale Auswirkungen</h3><span>AES · Klasse 9</span></div>
+      <ol>
+        <li data-step>Die Arbeitsbedingungen in der Textilindustrie sind oft <b>menschenunwürdig und gesundheitsgefährdend</b>.</li>
+        <li data-step>Probleme: bis zu 16 Stunden Arbeit am Tag, Löhne unter dem Existenzminimum, fehlender Gesundheitsschutz, Kinderarbeit, Behinderung von Gewerkschaften.</li>
+        <li data-step>Am T-Shirt verdienen vor allem Handel und Marke; die Lohnkosten machen nur wenige Cent aus.</li>
+        <li data-step>Ein teures Kleidungsstück ist nicht automatisch sozialverträglicher – <b>Sozialsiegel</b> helfen bei der Orientierung.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Zur Leitfrage</span><p>Weil Löhne, Arbeitsschutz und Umweltschutz eingespart werden – auf Kosten der Menschen in den Produktionsländern.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Wissens-Check</h2></div>
+  <div id="tf"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+(() => {
+  const P = {b: [['Lohnkosten', .05, 'c1'], ['Fabrikkosten', .65, 'c5'], ['Transport und Steuern', .55, 'c3'], ['Markenwerbung', 1.24, 'c4'], ['Einzelhandel', 2.5, 'c6']], t: [['Lohnkosten', .2, 'c1'], ['Fabrikkosten', 2.6, 'c5'], ['Transport und Steuern', 2.2, 'c3'], ['Markenwerbung', 4.99, 'c4'], ['Einzelhandel', 10, 'c6']]};
+  seg($('#p-seg'), [['b', 'T-Shirt 4,99 €'], ['t', 'T-Shirt 19,99 €']], v => bars($('#bars'), P[v].map(([l, x, c]) => ({l, v: x, c, hl: l === 'Lohnkosten'})), {unit: '€', dec: 2, max: v === 'b' ? 2.5 : 10, note: v === 'b' ? 'Die Näherin bekommt etwa 1 % des Preises.' : 'Auch beim teuren T-Shirt bekommt die Näherin nur ca. 20 ct – das meiste geht an Handel und Werbung.'}));
+})();
+canvasLoop($('#cv-t'), 'tag', (ctx, w, h) => {
+  const rows = [['dein Schultag', [[0, 8, 'c3', 'Schlaf'], [8, 14, 'c6', 'Schule'], [14, 16, 'c5', 'Hausaufgaben'], [16, 22, 'c2', 'Freizeit'], [22, 24, 'c3', '']]], ['Näherin in Bangladesch', [[0, 5, 'c3', 'Schlaf'], [5, 6, 'c5', 'Weg'], [6, 22, 'c1', 'Arbeit in der Fabrik (16 h)'], [22, 23, 'c5', 'Weg'], [23, 24, 'c3', '']]]];
+  const x0 = 20, x1 = w - 20, X = t => lerp(x0, x1, t / 24);
+  rows.forEach(([n, segs], r) => { const y = h * (.22 + r * .42); label(ctx, n, x0, y - 22, {size: 13, align: 'left'}); segs.forEach(([a, b, c, t]) => { ctx.fillStyle = col(c); ctx.globalAlpha = .8; roundRect(ctx, X(a), y - 14, X(b) - X(a) - 2, 28, 6); ctx.fill(); ctx.globalAlpha = 1; if (t && X(b) - X(a) > 40) label(ctx, t, (X(a) + X(b)) / 2, y, {size: 11, color: '#fff', maxW: X(b) - X(a) - 8}); }); });
+  [0, 6, 12, 18, 24].forEach(t => label(ctx, t + ' Uhr', X(t), h * .96, {size: 10, color: C.ink2, weight: 400}));
+});
+sorter($('#sort'), [{id: 'r', name: 'Recht der Arbeitenden'}, {id: 'v', name: 'Verletzung'}], [
+  {t: 'existenzsichernder Lohn', c: 'r'}, {t: 'Versammlungsfreiheit', c: 'r'}, {t: 'Schutzkleidung bei der Arbeit', c: 'r'}, {t: 'geregelte Arbeitszeiten und Pausen', c: 'r'},
+  {t: 'Kinder färben Stoffe', c: 'v'}, {t: 'Gewerkschaften verboten', c: 'v'}, {t: '7-Tage-Woche ohne freien Tag', c: 'v'}, {t: 'Sandstrahlen ohne Atemschutz', c: 'v'}
+]);
+opinion($('#op'), [
+  {t: 'Ich würde für faire Kleidung mehr bezahlen.', why: 'Wenige Euro mehr pro Teil würden schon deutlich höhere Löhne ermöglichen – wenn das Geld tatsächlich bei den Arbeitenden ankommt (Siegel prüfen).'},
+  {t: 'Die Unternehmen sind verantwortlich, nicht die Kunden.', why: 'Beides: Seit 2023 gibt es in Deutschland ein Lieferkettengesetz für große Unternehmen. Kunden bestimmen mit ihrer Nachfrage mit.'},
+  {t: 'Lieber weniger, aber dafür bessere Kleidung kaufen.', why: 'Weniger kaufen ist die wirksamste Maßnahme – für Umwelt und Menschen.'},
+  {t: 'Ein Boykott billiger Marken hilft den Näherinnen.', why: 'Nicht unbedingt: Fällt die Arbeit weg, verlieren sie ihr Einkommen. Besser: faire Bedingungen fordern.'}
+]);
+trueFalse($('#tf'), [
+  {t: 'Ein teures T-Shirt wird immer fair produziert.', ok: false},
+  {t: 'Viele Näherinnen arbeiten bis zu 16 Stunden am Tag.', ok: true},
+  {t: 'Der Mindestlohn in Bangladesch reicht immer zum Leben.', ok: false},
+  {t: 'Weltweit arbeiten ca. 160 Mio. Kinder.', ok: true},
+  {t: 'Versammlungsfreiheit ist ein Menschenrecht.', ok: true}
+]);
+mcQuiz($('#quiz'), [
+  {q: 'Wie viel bekommt die Näherin bei einem 4,99-€-T-Shirt etwa?', a: ['ca. 5 Cent', 'ca. 2 €', 'ca. 50 Cent', 'ca. 4 €'], ok: 0},
+  {q: 'Was ist eine Gewerkschaft?', a: ['Organisation von Arbeitnehmenden zur Durchsetzung ihrer Interessen', 'eine Fabrik', 'ein Modegeschäft', 'eine Behörde'], ok: 0},
+  {q: 'Wer verdient am meisten an einem T-Shirt?', a: ['der Einzelhandel', 'die Näherin', 'die Baumwollbäuerin', 'der Transport'], ok: 0},
+  {q: 'Was hilft, fair produzierte Kleidung zu erkennen?', a: ['Sozialsiegel', 'ein hoher Preis', 'eine bekannte Marke', 'die Farbe'], ok: 0}
+]);
+</script>

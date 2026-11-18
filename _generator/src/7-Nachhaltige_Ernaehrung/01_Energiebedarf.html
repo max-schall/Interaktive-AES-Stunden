@@ -1,0 +1,181 @@
+<!--
+title: Wovon ist dein Energiebedarf abhängig?
+short: Energiebedarf
+time: 1–2 Unterrichtsstunden
+book: S. 74–75
+q: Wie viel Energie brauche ich – und wie lange muss ich für eine Brezel Rad fahren?
+facts: Energiegehalt in kJ und kcal (1 kcal ≈ 4,2 kJ) | Grundumsatz ≈ 1 kcal pro kg Körpergewicht und Stunde | Leistungsumsatz und PAL-Wert | Gesamtenergiebedarf = Grundumsatz × PAL, Energiebilanz
+inter: Grundumsatz-Rechner · PAL-Werte im Alltag · Energiebilanz als Waage · Aktivitäten-Rechner: so lange für einen Snack
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Wovon ist dein Energiebedarf abhängig?</h1>
+      <p class="lead">Du kennst das Gefühl, manchmal matt, unkonzentriert und schneller gereizt zu sein? Das passiert, wenn dein Körper nicht genug Energie hat, um alle Körperfunktionen optimal aufrechtzuerhalten.</p>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Wie viel Energie brauche ich – und wie lange muss ich für eine Brezel Rad fahren?</p></div>
+      <div class="controls"><button class="btn primary" data-go="grund">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="grund" data-label="Grundumsatz" data-yr="Erarbeitung" data-title="Der Grundumsatz" data-sub="Energie in völliger Ruhe">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 1 · Erarbeitung</p>
+      <h2>Der Grundumsatz</h2>
+      <p class="lead">Der <b>Grundumsatz (GU)</b> ist die Energie, die der Körper bei völliger Ruhe im Liegen (20–25 °C) braucht, um Atmung, Herz- und Gehirntätigkeit aufrechtzuerhalten.</p>
+      <p class="prompt"><b>Faustformel:</b> Grundumsatz ≈ 1 kcal × kg Körpergewicht × 24 h</p>
+      <ul class="facts">
+        <li><b>Alter:</b> Der Energiebedarf sinkt mit zunehmendem Alter.</li>
+        <li><b>Geschlecht:</b> Frauen haben einen niedrigeren Bedarf als Männer.</li>
+        <li><b>Größe, Gewicht, Muskelmasse:</b> Je größer und muskulöser, desto höher.</li>
+      </ul>
+      <p class="note">Energiegehalt der Nährstoffe: 1 g Kohlenhydrate oder Eiweiß 17 kJ/4 kcal, 1 g Fett 37 kJ/9 kcal, 1 g Alkohol 29 kJ/7 kcal. 1 kcal ≈ 4,2 kJ.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Grundumsatz-Rechner</h3></div>
+      <div id="calc-g"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="pal" data-label="PAL-Wert" data-yr="Erarbeitung" data-title="Leistungsumsatz und PAL" data-sub="Wie aktiv bist du?">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Erarbeitung</p>
+      <h2>Leistungsumsatz und PAL-Wert</h2>
+      <p class="lead">Der <b>Leistungsumsatz (LU)</b> ist die Energie, die du zusätzlich für körperliche Aktivitäten brauchst. Er wird mit dem <b>PAL-Wert</b> (Physical Activity Level) erfasst.</p>
+      <p class="prompt"><b>Gesamtenergiebedarf</b> = Grundumsatz × PAL-Wert</p>
+      <p>Deinen Leistungsumsatz steigerst du durch Sport, aber auch durch Alltagsaktivitäten wie Treppensteigen, zu Fuß gehen, Haus- und Gartenarbeit.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>PAL-Werte im Alltag</h3></div>
+      <div id="ex-p"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="bilanz" data-label="Energiebilanz" data-yr="Anwendung" data-title="Die Energiebilanz" data-sub="Zufuhr und Verbrauch">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Die Energiebilanz</h2>
+      <p class="lead">Führst du deinem Körper langfristig genau so viel Energie zu, wie er verbraucht, ist die Energiebilanz <b>ausgeglichen</b>: Das Körpergewicht bleibt stabil.</p>
+      <ul class="facts">
+        <li>Zufuhr größer als Verbrauch: Der Körper speichert Fett – langfristig Übergewicht.</li>
+        <li>Zufuhr kleiner als Verbrauch: Der Körper greift Reserven an – Untergewicht, Müdigkeit.</li>
+      </ul>
+      <p class="note">Richtwerte für die Energiezufuhr helfen im Alltag, wenn man den eigenen Bedarf nicht kennt.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Zufuhr und Verbrauch</h3></div>
+      <div id="calc-b"></div>
+      <canvas id="cv-b" class="low" aria-label="Waage aus Energiezufuhr und Energieverbrauch"></canvas>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="aktiv" data-label="Snack & Sport" data-yr="Vertiefung" data-title="Wie lange für einen Snack?" data-sub="Kalorien und Bewegung">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Vertiefung</p>
+      <h2>Wie lange für einen Snack?</h2>
+      <p class="lead">Wie viele Minuten Bewegung braucht man, um die Energie eines Snacks zu verbrauchen? (Richtwerte für eine Jugendliche mit ca. 50 kg)</p>
+      <p class="note">Achtung: Es geht nicht ums „Abtrainieren“. Essen ist Genuss und Energie für den Tag. Die Rechnung zeigt nur, wie viel Energie in Snacks und Getränken steckt.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Snack wählen</h3></div>
+      <div id="calc-a"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Energiebedarf</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Der Energiebedarf</h3><span>AES · Klasse 7</span></div>
+      <ol>
+        <li data-step>Energie wird in <b>Kilojoule (kJ)</b> oder <b>Kilokalorien (kcal)</b> angegeben; 1 kcal ≈ 4,2 kJ.</li>
+        <li data-step>Der <b>Grundumsatz</b> ist die Energie, die der Körper in Ruhe für seine Funktionen braucht (≈ 1 kcal pro kg und Stunde). Er hängt von Alter, Geschlecht, Größe, Gewicht und Muskelmasse ab.</li>
+        <li data-step>Der <b>Leistungsumsatz</b> ist die zusätzliche Energie für Aktivitäten; er wird mit dem PAL-Wert erfasst.</li>
+        <li data-step><b>Gesamtenergiebedarf = Grundumsatz × PAL-Wert</b>. Beispiel Lea (52 kg, PAL 1,6): 1248 kcal × 1,6 ≈ 2000 kcal.</li>
+        <li data-step>Bei ausgeglichener <b>Energiebilanz</b> bleibt das Körpergewicht stabil.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Alltag</span><p>Nenne drei Möglichkeiten, deinen Leistungsumsatz im Alltag zu steigern.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Energiebedarf berechnen</h2></div>
+  <div id="ts"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+calc($('#calc-g'), [{id: 'kg', l: 'Körpergewicht', min: 25, max: 100, v: 52, unit: 'kg'}, {id: 'pal', l: 'PAL-Wert', min: 1.2, max: 2.4, step: .1, v: 1.6}], v => {
+  const gu = v.kg * 24, ge = gu * v.pal;
+  return `<span class="big">${numDE(Math.round(ge), 0)} kcal</span><p>Grundumsatz: 1 kcal × ${v.kg} kg × 24 h = <b>${numDE(gu, 0)} kcal</b><br>Gesamtbedarf: ${numDE(gu, 0)} kcal × ${numDE(v.pal, 1)} = <b>${numDE(Math.round(ge), 0)} kcal</b> ≈ ${numDE(Math.round(ge * 4.184), 0)} kJ</p>`;
+});
+explore($('#ex-p'), [
+  {ico: 'bett', t: 'PAL 1,2', sub: 'nur sitzend oder liegend', d: 'Ausschließlich sitzende oder liegende Lebensweise, z. B. alte, gebrechliche Menschen.'},
+  {ico: 'buch', t: 'PAL 1,4–1,5', sub: 'fast nur sitzend', d: 'Ausschließlich sitzende Tätigkeit mit wenig Freizeitaktivität, z. B. Büroangestellte.'},
+  {ico: 'person', t: 'PAL 1,6–1,7', sub: 'sitzend, gelegentlich gehend', d: 'Überwiegend sitzend, zeitweise auch gehend oder stehend: z. B. Schülerinnen und Schüler, Kraftfahrer.'},
+  {ico: 'wagen', t: 'PAL 1,8–1,9', sub: 'meist gehend oder stehend', d: 'Überwiegend gehende und stehende Arbeit: z. B. Verkaufspersonal, Handwerk, Kellnerinnen.'},
+  {ico: 'laufen', t: 'PAL 2,0–2,4', sub: 'körperlich anstrengend', d: 'Körperlich anstrengende Arbeit oder Leistungssport: z. B. Bauarbeiter, Landwirtinnen, Leistungssportler.'}
+], {hint: 'Tippe auf eine Aktivitätsstufe.'});
+(() => {
+  let diff = 0;
+  calc($('#calc-b'), [{id: 'in', l: 'Energiezufuhr', min: 1200, max: 3500, step: 50, v: 2200, unit: 'kcal'}, {id: 'out', l: 'Energieverbrauch', min: 1200, max: 3500, step: 50, v: 2200, unit: 'kcal'}], v => {
+    diff = v.in - v.out;
+    return Math.abs(diff) <= 100 ? '<b class="good">Ausgeglichene Energiebilanz</b> – das Gewicht bleibt stabil.' : diff > 0 ? `<b class="bad">Positive Bilanz (+${diff} kcal)</b> – langfristig speichert der Körper Fett (7000 kcal ≈ 1 kg Körperfett).` : `<b class="bad">Negative Bilanz (${diff} kcal)</b> – der Körper greift seine Reserven an. Auf Dauer: Gewichtsverlust, Müdigkeit, Leistungsschwäche.`;
+  });
+  canvasLoop($('#cv-b'), 'bilanz', (ctx, w, h) => {
+    const a = clamp(diff / 1500, -1, 1) * .3, cx = w / 2, cy = h * .2, L = Math.min(w * .34, h * .85), base = h * .94, OL = '#4a4f58';
+    /* Fuß und Säule */
+    ctx.fillStyle = '#8b9098'; roundRect(ctx, cx - h * .22, base - h * .05, h * .44, h * .05, 6); ctx.fill();
+    ctx.fillStyle = '#a3a8b0'; ctx.fillRect(cx - 5, cy, 10, base - cy - h * .04);
+    /* Balken */
+    const ex = Math.cos(a) * L, ey = Math.sin(a) * L, P = [[cx - ex, cy + ey], [cx + ex, cy - ey]];
+    ctx.strokeStyle = OL; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(...P[0]); ctx.lineTo(...P[1]); ctx.stroke();
+    ctx.fillStyle = col('accent'); ctx.beginPath(); ctx.moveTo(cx, cy - 12); ctx.lineTo(cx - 11, cy + 8); ctx.lineTo(cx + 11, cy + 8); ctx.closePath(); ctx.fill();
+    const hang = h * .34, pw = Math.min(L * .55, h * .42);
+    const pan = ([x, y], txt, c, items) => {
+      const py = y + hang;
+      ctx.strokeStyle = '#7b8089'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - pw * .5, py); ctx.moveTo(x, y); ctx.lineTo(x + pw * .5, py); ctx.stroke();
+      items(x, py);
+      ctx.fillStyle = col(c); ctx.strokeStyle = OL; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x - pw * .55, py); ctx.quadraticCurveTo(x, py + pw * .32, x + pw * .55, py); ctx.closePath(); ctx.fill(); ctx.stroke();
+      label(ctx, txt, x, py + pw * .32 + 14, {size: 13, color: C.ink2});
+      return py;
+    };
+    pan(P[0], 'Zufuhr (Essen)', 'c5', (x, y) => { [[-.28, '#d9534f', .13], [0, '#d9a35b', .16], [.27, '#7cb86a', .12]].forEach(([dx, c, r]) => { ctx.fillStyle = c; ctx.strokeStyle = 'rgba(0,0,0,.35)'; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(x + dx * pw, y - r * pw, r * pw, 0, 7); ctx.fill(); ctx.stroke(); }); });
+    pan(P[1], 'Verbrauch (GU + LU)', 'c3', (x, y) => { const r = pw * .2; ctx.fillStyle = '#e9853a'; ctx.beginPath(); ctx.moveTo(x, y - r * 2.4); ctx.bezierCurveTo(x + r * 1.3, y - r * 1.2, x + r * .9, y, x, y); ctx.bezierCurveTo(x - r * .9, y, x - r * 1.3, y - r * 1.2, x, y - r * 2.4); ctx.fill(); ctx.fillStyle = '#f7c548'; ctx.beginPath(); ctx.ellipse(x, y - r * .55, r * .4, r * .6, 0, 0, 7); ctx.fill(); });
+  });
+})();
+(() => {
+  const SN = {'Apfel (125 g) · 65 kcal': [17, 11, 7], 'Energydrink (250 ml) · 113 kcal': [31, 19, 13], 'kleine Pommes (125 g) · 155 kcal': [42, 26, 18], 'Schokomuffin (65 g) · 194 kcal': [53, 32, 22], 'Butterbrezel (85 g) · 337 kcal': [92, 56, 38], 'Döner (350 g) · 644 kcal': [175, 107, 73]};
+  calc($('#calc-a'), [{id: 's', l: 'Snack', opts: Object.keys(SN).map(k => [k, k.split(' ·')[0]]), v: 'Apfel (125 g) · 65 kcal'}], v => {
+    const [a, b, c] = SN[v.s];
+    return `<p style="margin:0 0 .5rem"><b>${v.s}</b></p>` + [['Spazieren gehen (4 km/h)', a, 'c2'], ['Fahrrad fahren (18 km/h)', b, 'c3'], ['Fußball/Handball', c, 'c1']].map(([n, m, cc]) => `<div class="bar-row"><span class="bl">${n}</span><span class="bt"><i style="width:${m / 175 * 100}%;--c:${col(cc)}"></i></span><span class="bv">${m} min</span></div>`).join('');
+  });
+})();
+taskSet($('#ts'), i => {
+  const kg = randInt(35, 75), pal = pick([1.4, 1.5, 1.6, 1.7, 1.8, 2.0]), gu = kg * 24;
+  return {key: kg + '' + pal, tag: 'Energiebedarf', q: `Eine Person wiegt ${kg} kg, ihr PAL-Wert ist ${numDE(pal, 1)}. Berechne Grundumsatz und Gesamtenergiebedarf.`, fields: [{l: 'Grundumsatz', a: gu, tol: 2, unit: 'kcal'}, {l: 'Gesamtbedarf', a: Math.round(gu * pal), tol: 5, unit: 'kcal'}], hint: 'GU = 1 kcal × kg × 24; Gesamt = GU × PAL'};
+}, {n: 4});
+mcQuiz($('#quiz'), [
+  {q: 'Was ist der Grundumsatz?', a: ['Energie für die Körperfunktionen in Ruhe', 'Energie für Sport', 'Energie aus dem Frühstück', 'die Energie von Fett'], ok: 0},
+  {q: 'Wie berechnet man den Gesamtenergiebedarf?', a: ['Grundumsatz × PAL-Wert', 'Gewicht × Größe', 'Grundumsatz − PAL', 'kcal × 4,2'], ok: 0},
+  {q: 'Welchen PAL-Wert haben Schülerinnen und Schüler etwa?', a: ['1,6–1,7', '1,2', '2,4', '3,0'], ok: 0},
+  {q: 'Was passiert bei ausgeglichener Energiebilanz?', a: ['Das Gewicht bleibt stabil', 'Man nimmt zu', 'Man nimmt ab', 'Man wird müde'], ok: 0},
+  {q: 'Wie verändert sich der Energiebedarf mit dem Alter?', a: ['Er sinkt', 'Er steigt immer', 'Er bleibt gleich', 'Er verdoppelt sich'], ok: 0}
+]);
+</script>

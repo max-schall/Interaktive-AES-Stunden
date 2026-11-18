@@ -1,0 +1,214 @@
+<!--
+title: Arbeitsgeräte in der Küche
+short: Arbeitsgeräte
+time: 1 Unterrichtsstunde
+book: S. 30–31
+q: Welche Küchengeräte brauche ich wirklich?
+facts: Die wichtigsten Arbeitsgeräte und ihre Verwendung | Waage mit TARA, Messbecher in Millilitern | Topfboden so groß wie die Herdplatte | Küchen-Gadgets kritisch prüfen
+inter: Gerätekunde mit Erklärungen · Waagen-Training mit TARA · Energiesparen mit dem richtigen Topf · Gerät und Aufgabe zuordnen
+-->
+<section class="station" id="start" data-label="Start">
+  <div class="start">
+    <div class="txt">
+      <p class="eyebrow">Stunde {{N}} · {{R}}</p>
+      <h1>Arbeitsgeräte in der Küche</h1>
+      <p class="lead">In der Küche gibt es viele Arbeitsgeräte. Wer sie richtig einsetzt, spart Zeit und Kraft – und Kochen und Backen machen mehr Spaß. Für die meisten Arbeiten reichen übrigens wenige Geräte.</p>
+      <div class="teaser"><span class="tag info">Was denkst du?</span><p>Welche Küchengeräte benutzt ihr zu Hause am häufigsten?</p></div>
+      <div class="teaser"><span class="tag info">Leitfrage</span><p>Welche Küchengeräte brauche ich wirklich?</p></div>
+      <div class="controls"><button class="btn primary" data-go="geraete">Los geht's →</button></div>
+      <!--BOOK-->
+    </div>
+<!--PREVIEW-->
+  </div>
+</section>
+
+<section class="station" id="geraete" data-label="Gerätekunde" data-yr="Erarbeitung" data-title="Gerätekunde" data-sub="Name und Verwendung">
+  <div class="section-head"><p class="eyebrow">Station 1 · Erarbeitung</p><h2>Gerätekunde</h2><p class="lead">Tippe auf ein Gerät und lies, wofür man es verwendet. Sucht die Geräte anschließend in der Schulküche.</p></div>
+  <div id="ex-a"></div>
+</section>
+
+<section class="station" id="waage" data-label="Waage" data-yr="Praxis" data-title="Richtig wiegen" data-sub="Mit TARA auf null">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 2 · Praxis</p>
+      <h2>Richtig wiegen und messen</h2>
+      <ul class="facts">
+        <li>Bei der Waage muss immer <b>Gramm (g)</b> eingestellt sein.</li>
+        <li>Mit <b>TARA</b> (oder TARE) wird die Waage wieder auf null gestellt – so wiegt man nur die Zutat, nicht die Schüssel.</li>
+        <li>Messbecher haben oft mehrere Skalen. Für Flüssigkeiten ist <b>Milliliter (ml)</b> die richtige Einheit.</li>
+      </ul>
+      <p class="prompt"><b>Auftrag:</b> Wiege genau <b id="w-ziel">250 g</b> Mehl ab.</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Digitale Küchenwaage</h3></div>
+      <canvas id="cv-w" class="wide" aria-label="Küchenwaage mit Schüssel"></canvas>
+      <div class="controls"><button class="btn" id="w-bowl">Schüssel auflegen</button><button class="btn" id="w-tara">TARA</button><button class="btn" id="w-add">+ 50 g Mehl</button><button class="btn" id="w-add2">+ 10 g</button><button class="btn" id="w-reset">Neu</button></div>
+      <p class="status" id="w-st"></p>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="topf" data-label="Topfgröße" data-yr="Nachhaltigkeit" data-title="Topf und Herdplatte" data-sub="Energie sparen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 3 · Nachhaltigkeit</p>
+      <h2>Topf und Herdplatte</h2>
+      <p class="lead">Töpfe und Pfannen werden zum Erhitzen von Speisen verwendet. Wichtig: Der <b>Boden muss genauso groß sein wie die Herdplatte</b>.</p>
+      <ul class="facts">
+        <li>Ist der Topf zu klein, geht Wärme an der Seite verloren.</li>
+        <li>Mit Deckel kocht Wasser schneller und spart Energie.</li>
+        <li>Bei Töpfen, Pfannen, Messern und dem Handrührgerät lohnt sich gute Qualität.</li>
+      </ul>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Wie viel Energie geht verloren?</h3></div>
+      <div id="calc-t"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="gadgets" data-label="Gadgets" data-yr="Diskussion" data-title="Brauche ich das?" data-sub="Küchen-Gadgets prüfen">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Diskussion</p>
+      <h2>Küchen-Gadget – brauche ich das?</h2>
+      <p class="lead">Vor allem im Internet werden immer mehr moderne Küchenhelfer angeboten. Oft sind sie aber nur einseitig einsetzbar, aufwendig zu reinigen und teuer.</p>
+      <ul class="words-box"><li>das Arbeitsgerät</li><li>das Küchen-Gadget (technische Spielerei)</li></ul>
+      <p class="prompt"><b>Prüffragen:</b> Wie oft würde ich es benutzen? Kann ein anderes Gerät das auch? Wie aufwendig ist die Reinigung? Was kostet es? Wo bewahre ich es auf?</p>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Sinnvoll oder Spielerei?</h3></div>
+      <ol id="op"></ol>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="merke" data-label="Hefteintrag">
+  <div class="section-head"><p class="eyebrow">Sicherung</p><h2>Hefteintrag: Arbeitsgeräte</h2></div>
+  <div class="heft-grid">
+    <div class="heft">
+      <div class="heft-title"><h3>Arbeitsgeräte in der Küche</h3><span>AES · Klasse 6</span></div>
+      <ol>
+        <li data-step>Der richtige Einsatz von Küchengeräten <b>spart Zeit und Kraft</b>.</li>
+        <li data-step>Waage: Einheit Gramm, mit <b>TARA</b> auf null stellen. Messbecher: Flüssigkeiten in Millilitern.</li>
+        <li data-step>EL und TL dienen zum Abmessen und Probieren, nicht zum Rühren. Zum Rühren: Kochlöffel oder Schneebesen; zum Ausschaben: Teigschaber.</li>
+        <li data-step>Der Topfboden muss so groß sein wie die Herdplatte, sonst wird Energie verschwendet.</li>
+        <li data-step>Bei Küchen-Gadgets immer Reinigungsaufwand und Preis im Blick behalten.</li>
+      </ol>
+      <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
+    </div>
+    <div class="stack">
+      <div class="box"><span class="tag info">Recherche</span><p>Erstellt ein Infoblatt: Wie reinigt man Schneidebretter aus Holz, Glas, Kunststoff und Edelstahl?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="uebungen" data-label="Übungen">
+  <div class="section-head"><p class="eyebrow">Jetzt seid ihr dran</p><h2>Welches Gerät nimmst du?</h2></div>
+  <div id="match"></div>
+  <div class="section-head" style="margin-top:2rem"><h3>Quiz</h3></div>
+  <div class="mc" id="quiz"></div>
+</section>
+
+<script>
+const GER = [
+  {ico: 'waage', t: 'Waage & Messbecher', d: 'Zum Wiegen und Messen von Zutaten. Waage auf Gramm einstellen, mit TARA auf null. Flüssigkeiten im Messbecher in Millilitern (ml).'},
+  {ico: 'schuessel', t: 'Sieb', d: 'Trennt Festes und Flüssiges. Feine Siebe für Mehl oder zum Passieren, grobe Siebe zum Waschen von Obst und Gemüse oder zum Abgießen von Nudeln.'},
+  {ico: 'loeffel', t: 'Esslöffel & Teelöffel', d: 'Zum Abmessen von Zutaten (EL, TL) oder zum Probieren. Nicht zum Rühren oder Ausleeren von Schüsseln – dafür gibt es Schneebesen und Teigschaber.'},
+  {ico: 'loeffel', t: 'Schaumkelle', d: 'Wie eine Schöpfkelle mit Löchern. Zum Herausheben fester Speisen aus heißem Fett oder Wasser, z. B. Knödel, Spätzle, Fettgebäck.'},
+  {ico: 'loeffel', t: 'Kochlöffel', d: 'Zum Umrühren in Töpfen und Pfannen oder zum Schlagen von Teig. Holz hält hohe Temperaturen aus und schont die Beschichtung. Das Loch erleichtert das Rühren fester Speisen wie Risotto.'},
+  {ico: 'schuessel', t: 'Schöpfkelle', d: 'Zum Umfüllen flüssiger Speisen wie Suppen oder Soßen.'},
+  {ico: 'brot', t: 'Wellholz', d: 'Auch Nudelholz: zum gleichmäßigen Ausrollen von Teig. Vorher leicht mit Mehl bestäuben, damit der Teig nicht klebt.'},
+  {ico: 'wind', t: 'Schneebesen', d: 'Zum Verrühren von Zutaten zu einer einheitlichen Masse oder zum Schaumigschlagen. Bei Sahne, Eiweiß oder großen Mengen spart das Handrührgerät Zeit.'},
+  {ico: 'pfanne', t: 'Pfannenwender', d: 'Zum Umdrehen von Gargut wie Schnitzel oder Pfannkuchen. Holz ist hitzebeständig und schont die Beschichtung.'},
+  {ico: 'blitz', t: 'Handrührgerät', d: 'Rührbesen für flüssige oder cremige Lebensmittel (Sahne, Eiweiß, Rührteig), Knethaken für feste Teige (Hefeteig, Hackfleischteig). Oft mit Pürierstab.'},
+  {ico: 'hand', t: 'Teigschaber', d: 'Schabt Schüsseln und Töpfe restlos aus. Erleichtert das Spülen und verhindert Lebensmittelverschwendung.'},
+  {ico: 'topf', t: 'Töpfe & Pfannen', d: 'Zum Erhitzen von Speisen, z. B. Kochen und Braten. Der Boden muss so groß sein wie die Herdplatte.'},
+  {ico: 'schuessel', t: 'Rührschüssel', d: 'Kunststoff zum Rühren und Kneten von Teig und Cremes. Für Heißes wie geschmolzene Schokolade ist Edelstahl besser.'},
+  {ico: 'milch', t: 'Schlagbecher', d: 'Schmale, hohe Schüssel zum Schlagen von Sahne oder Eiweiß – nichts spritzt heraus.'}
+];
+explore($('#ex-a'), GER, {hint: 'Tippe auf ein Arbeitsgerät.'});
+
+/* Waagen-Simulation */
+(() => {
+  let bowl = false, tara = 0, flour = 0, target = 250, shown = 0;
+  const BOWL = 412;
+  const total = () => (bowl ? BOWL : 0) + flour;
+  const disp = () => Math.round(total() - tara);
+  const upd = msg => {
+    $('#w-ziel').textContent = target + ' g';
+    const d = disp(); let m = msg || '';
+    if (!msg) {
+      if (!bowl) m = 'Lege zuerst die leere Schüssel auf.';
+      else if (tara === 0 && flour === 0) m = `Die Waage zeigt ${d} g – das ist die Schüssel. Drücke TARA, um auf null zu stellen.`;
+      else if (tara === 0) m = `<b class="bad">Achtung:</b> Die Anzeige enthält die Schüssel (${BOWL} g). Du weißt nicht, wie viel Mehl es ist. Fang neu an und nutze TARA.`;
+      else if (flour === target) m = `<b class="good">Genau ${target} g Mehl!</b> Dank TARA zeigt die Waage nur die Zutat.`;
+      else if (flour > target) m = `<b class="bad">${flour - target} g zu viel.</b> Mit einem Löffel wieder etwas herausnehmen – oder neu beginnen.`;
+      else m = `Noch ${target - flour} g Mehl fehlen.`;
+    }
+    $('#w-st').innerHTML = m;
+    $('#w-tara').disabled = !bowl; $('#w-add').disabled = $('#w-add2').disabled = !bowl;
+  };
+  $('#w-bowl').onclick = () => { bowl = true; $('#w-bowl').disabled = true; upd(); };
+  $('#w-tara').onclick = () => { tara = total(); upd(); };
+  $('#w-add').onclick = () => { flour += 50; upd(); };
+  $('#w-add2').onclick = () => { flour += 10; upd(); };
+  $('#w-reset').onclick = () => { bowl = false; tara = 0; flour = 0; target = pick([150, 200, 250, 300, 375, 120]); $('#w-bowl').disabled = false; upd(); };
+  canvasLoop($('#cv-w'), 'waage', (ctx, w, h, t, dt) => {
+    shown += (disp() - shown) * Math.min(1, dt * 10);
+    const cx = w / 2, ww = Math.min(w * .72, h * 1.25), by = h * .66, OL = '#4a4f58';
+    /* Schatten, Gehäuse (¾-Ansicht) */
+    ctx.fillStyle = 'rgba(0,0,0,.12)'; ctx.beginPath(); ctx.ellipse(cx, by + ww * .2, ww * .52, ww * .05, 0, 0, 7); ctx.fill();
+    ctx.fillStyle = '#e9e6e1'; ctx.strokeStyle = OL; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(cx - ww * .46, by); ctx.lineTo(cx + ww * .46, by); ctx.lineTo(cx + ww * .5, by + ww * .16); ctx.quadraticCurveTo(cx + ww * .5, by + ww * .19, cx + ww * .47, by + ww * .19); ctx.lineTo(cx - ww * .47, by + ww * .19); ctx.quadraticCurveTo(cx - ww * .5, by + ww * .19, cx - ww * .5, by + ww * .16); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#d4d0c9'; ctx.fillRect(cx - ww * .49, by + ww * .15, ww * .98, ww * .035);
+    /* Wiegefläche */
+    const g = ctx.createLinearGradient(0, by - ww * .1, 0, by); g.addColorStop(0, '#f4f6f8'); g.addColorStop(1, '#bfc6ce');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.ellipse(cx, by - ww * .02, ww * .4, ww * .075, 0, 0, 7); ctx.fill(); ctx.stroke();
+    /* Display und Tasten */
+    const dx = cx - ww * .2, dy = by + ww * .045, dw = ww * .4, dh = ww * .085;
+    ctx.fillStyle = '#1f2328'; roundRect(ctx, dx, dy, dw, dh, 6); ctx.fill();
+    label(ctx, `${Math.round(shown)} g`, cx, dy + dh / 2 + 1, {size: 22, font: MONO, color: '#9be59b', halo: false});
+    [['TARA', cx + ww * .32], ['ON', cx - ww * .32]].forEach(([tx, x]) => { ctx.fillStyle = '#cfd4da'; ctx.strokeStyle = OL; ctx.lineWidth = 1.5; roundRect(ctx, x - ww * .06, dy + dh * .15, ww * .12, dh * .7, 6); ctx.fill(); ctx.stroke(); label(ctx, tx, x, dy + dh / 2, {size: 12, color: '#3a3f47', halo: false}); });
+    /* Schüssel */
+    const top = by - ww * .03, bw = ww * .56, bh = ww * .26;
+    if (bowl) {
+      const bg = ctx.createLinearGradient(cx - bw / 2, 0, cx + bw / 2, 0); bg.addColorStop(0, '#9fc3d1'); bg.addColorStop(.5, '#d7e9f0'); bg.addColorStop(1, '#8fb6c6');
+      ctx.fillStyle = bg; ctx.strokeStyle = '#4d7484'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(cx - bw / 2, top - bh); ctx.bezierCurveTo(cx - bw / 2, top - bh * .2, cx - bw * .3, top, cx, top); ctx.bezierCurveTo(cx + bw * .3, top, cx + bw / 2, top - bh * .2, cx + bw / 2, top - bh); ctx.closePath(); ctx.fill(); ctx.stroke();
+      if (flour) { const f = Math.min(1, flour / 500); ctx.fillStyle = '#f5eedc'; ctx.strokeStyle = '#d8ccb0'; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.ellipse(cx, top - bh * (.25 + f * .55), bw * (.28 + f * .18), bh * (.12 + f * .1), 0, Math.PI, 0); ctx.closePath(); ctx.fill(); ctx.stroke(); }
+      ctx.fillStyle = '#c4dde6'; ctx.strokeStyle = '#4d7484'; ctx.beginPath(); ctx.ellipse(cx, top - bh, bw / 2, bh * .16, 0, 0, 7); ctx.globalAlpha = .55; ctx.fill(); ctx.globalAlpha = 1; ctx.stroke();
+    } else {
+      ctx.setLineDash([6, 6]); ctx.strokeStyle = alpha(C.ink2, .5); ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(cx - bw / 2, top - bh); ctx.bezierCurveTo(cx - bw / 2, top - bh * .2, cx - bw * .3, top, cx, top); ctx.bezierCurveTo(cx + bw * .3, top, cx + bw / 2, top - bh * .2, cx + bw / 2, top - bh); ctx.stroke(); ctx.setLineDash([]);
+      label(ctx, 'Schüssel auflegen', cx, top - bh * .55, {size: 15, color: C.ink2, weight: 600});
+    }
+  });
+  upd();
+})();
+
+calc($('#calc-t'), [
+  {id: 'd', l: 'Topfboden im Vergleich zur Herdplatte', opts: [['1', 'gleich groß'], ['.8', 'etwas kleiner'], ['.6', 'viel kleiner']], v: '1'},
+  {id: 'deckel', l: 'Deckel', opts: [['1', 'mit Deckel'], ['0', 'ohne Deckel']], v: '1'}
+], v => {
+  const loss = Math.round((1 - v.d) * 60 + (v.deckel ? 0 : 25));
+  const min = Math.round(8 * (1 + loss / 100) * 10) / 10;
+  return `<span class="big">${loss} % Verlust</span><p>1 Liter Wasser kocht nach etwa <b>${numDE(min, 1)} Minuten</b> (Modellrechnung). ${loss === 0 ? 'Optimal: Die Wärme geht fast vollständig in den Topf.' : 'Ein Teil der Wärme heizt die Küchenluft statt das Essen.'}</p>`;
+});
+
+opinion($('#op'), [
+  {t: 'Ein elektrischer Spiralschneider für Gemüsenudeln', why: 'Selten genutzt, viele Teile zu reinigen. Ein Sparschäler schneidet auch Streifen.'},
+  {t: 'Ein Teigschaber', why: 'Günstig, vielseitig, spart Lebensmittel – sehr sinnvoll.'},
+  {t: 'Ein Avocado-Schneider', why: 'Ein Messer und ein Löffel können das genauso gut.'},
+  {t: 'Eine digitale Küchenwaage', why: 'Genaues Abwiegen ist besonders beim Backen wichtig.'}
+], {labels: ['Spielerei', 'eher unnötig', 'kommt drauf an', 'eher sinnvoll', 'unverzichtbar']});
+
+matcher($('#match'), [['Schaumkelle', 'Knödel aus dem Wasser holen'], ['Teigschaber', 'Rührschüssel restlos ausleeren'], ['Knethaken', 'Hefeteig kneten'], ['Wellholz', 'Plätzchenteig ausrollen'], ['grobes Sieb', 'Nudeln abgießen'], ['Schöpfkelle', 'Suppe in Teller füllen'], ['Pfannenwender', 'Pfannkuchen wenden']]);
+mcQuiz($('#quiz'), [
+  {q: 'Was macht die TARA-Taste?', a: ['Sie stellt die Waage auf null', 'Sie schaltet auf Kilogramm um', 'Sie speichert den Wert', 'Sie schaltet die Waage aus'], ok: 0},
+  {q: 'In welcher Einheit misst man Milch im Messbecher?', a: ['Milliliter (ml)', 'Gramm (g)', 'Zentimeter (cm)', 'Kilogramm (kg)'], ok: 0},
+  {q: 'Warum sind Kochlöffel aus Holz praktisch?', a: ['hitzebeständig und schonen die Beschichtung', 'sie sind spülmaschinenfest', 'sie sind magnetisch', 'sie wiegen ab'], ok: 0},
+  {q: 'Welche Schüssel nimmt man für geschmolzene Schokolade?', a: ['Edelstahl', 'Kunststoff', 'Holz', 'Papier'], ok: 0},
+  {q: 'Wann spart man beim Kochen Energie?', a: ['Topfboden so groß wie Herdplatte, mit Deckel', 'kleiner Topf auf großer Platte', 'ohne Deckel', 'Platte auf höchster Stufe lassen'], ok: 0}
+]);
+</script>
