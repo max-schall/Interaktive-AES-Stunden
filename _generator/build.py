@@ -106,7 +106,7 @@ def build_lesson(series, idx, lessons, outdir, css, js):
         prev.append(f'      <li><button data-go="{sid}"><span class="num">{k + 1}</span><span class="y">{a["yr"]}</span><span class="n"><b>{a.get("title", a.get("label"))}</b><span>{a.get("sub", "")}</span></span></button></li>')
     prev.append('    </ol>')
     body = body.replace('<!--PREVIEW-->', '\n'.join(prev))
-    book = f'<p class="book">Buch: {meta["book"]}</p>' if meta.get('book') else ''
+    book = ''  # keine Buchverweise in der Ausgabe
     body = body.replace('<!--BOOK-->', book)
     body = body.replace('{{N}}', str(num)).replace('{{K}}', str(grade)).replace('{{R}}', series['name'])
     if idx + 1 < len(lessons):
@@ -226,7 +226,7 @@ def build_overview(series, lessons, outdir, css):
     <div class="ov-facts">
       <div class="meter"><span>Stunden</span><b>{len(lessons)}</b><small>Präsentationen</small></div>
       <div class="meter"><span>Umfang</span><b>≈ {series["ue"]}</b><small>Unterrichtsstunden</small></div>
-      <div class="meter"><span>Buchkapitel</span><b>{series["kap"]}</b><small>{series["kapsub"]}</small></div>
+      <div class="meter"><span>Klasse</span><b>{series["grade"]}</b><small>Alltagskultur, Ernährung, Soziales</small></div>
     </div>
   </div>
 

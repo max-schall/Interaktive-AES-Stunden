@@ -148,38 +148,31 @@ explore($('#ex-m'), [
     tunnel: ['Runde Lebensmittel: Auflageschnitt – Schnittfläche nach unten legen.', 'Die Hand greift von oben und bildet einen Tunnel (Daumen auf der einen, Finger auf der anderen Seite).', 'Das Messer wird durch den Tunnel geführt.', 'Das Lebensmittel wird durchgeschnitten – die Finger bleiben außerhalb der Schneide.']};
   const st = stepper($('#gr-step'), 4, i => { k = i; $('#gr-st').innerHTML = `<b>Schritt ${i + 1}:</b> ${TXT[g][i]}`; });
   seg($('#gr-seg'), [['kralle', 'Krallengriff'], ['tunnel', 'Tunnelgriff']], v => { g = v; st.go(0); });
-  /* Illustration als SVG in ¾-Ansicht: Brett, Lebensmittel, Messer, Hand */
+  /* Illustration als SVG: Krallengriff von vorn (Klinge von der Schneide her gesehen), Tunnelgriff von der Seite */
   const sv = $('#sv-gr'), NS = 'http://www.w3.org/2000/svg';
+  sv.style.overflow = 'hidden';
   const E = (tag, a, par) => { const e = document.createElementNS(NS, tag); for (const q in a) e.setAttribute(q, a[q]); (par || sv).appendChild(e); return e; };
-  const OL = '#6b4630', SKIN = '#f3c7a1', SKIN2 = '#e0a47c';
+  const OL = '#6b4630', SKIN = '#f3c7a1', SKIN2 = '#e2a87f', SKIN3 = '#cf9268', BY = 252;
+  const ease = q => q < 0 ? 0 : q > 1 ? 1 : q * q * (3 - 2 * q);
   const defs = () => {
     const d = E('defs', {});
     const g = (id, a, b, x2 = 0, y2 = 1) => { const lg = E('linearGradient', {id, x1: 0, y1: 0, x2, y2}, d); E('stop', {offset: 0, 'stop-color': a}, lg); E('stop', {offset: 1, 'stop-color': b}, lg); };
-    g('gr-wood', '#ecd09f', '#d6aa6c'); g('gr-wood2', '#b9864e', '#996a39'); g('gr-car', '#f8a94f', '#dd6b1f'); g('gr-blade', '#f7f9fb', '#b4bdc8', 1, 0); g('gr-onion', '#f3d7a8', '#d6a865'); g('gr-skin', SKIN, SKIN2);
+    g('gr-wood', '#ecd09f', '#d6aa6c'); g('gr-wood2', '#b9864e', '#996a39'); g('gr-car', '#f8a94f', '#dd6b1f'); g('gr-onion', '#f6e2bd', '#d9ae6c');
+    g('gr-blade', '#f4f6f9', '#aab4c0'); g('gr-edge', '#cfd6de', '#8d98a6', 1, 0); g('gr-handle', '#5d4130', '#33241a'); g('gr-skin', SKIN, SKIN2);
   };
   const board = () => {
     E('ellipse', {cx: 320, cy: 306, rx: 296, ry: 11, fill: 'rgba(0,0,0,.12)'});
     E('path', {d: 'M64 204 H576 L602 268 H38 Z', fill: 'url(#gr-wood)', stroke: OL, 'stroke-width': 1.5, 'stroke-linejoin': 'round'});
     E('path', {d: 'M38 268 H602 V290 Q602 297 595 297 H45 Q38 297 38 290 Z', fill: 'url(#gr-wood2)', stroke: OL, 'stroke-width': 1.5});
-    [220, 236, 256].forEach((y, i) => E('path', {d: `M${84 + i * 12} ${y} q120 ${i % 2 ? 4 : -4} 240 0 t220 0`, fill: 'none', stroke: 'rgba(120,80,40,.2)', 'stroke-width': 1.5}));
+    [220, 236, 258].forEach((y, i) => E('path', {d: `M${84 + i * 12} ${y} q120 ${i % 2 ? 4 : -4} 240 0 t220 0`, fill: 'none', stroke: 'rgba(120,80,40,.2)', 'stroke-width': 1.5}));
   };
-  /* Messer in ¾-Ansicht: Schneide trifft bei (x, y) auf, Spitze zeigt nach hinten links, Griff nach vorn rechts; L = Anheben */
-  const knife = (x, y, L) => {
-    const g = E('g', {transform: `translate(0 ${-L})`});
-    E('line', {x1: x + 16, y1: y - 60, x2: x + 30, y2: y + 30, stroke: '#2f2119', 'stroke-width': 25, 'stroke-linecap': 'round'}, g);
-    E('line', {x1: x + 16, y1: y - 60, x2: x + 30, y2: y + 30, stroke: '#5a3e2d', 'stroke-width': 20, 'stroke-linecap': 'round'}, g);
-    E('line', {x1: x + 20, y1: y - 50, x2: x + 29, y2: y + 18, stroke: 'rgba(255,255,255,.2)', 'stroke-width': 4, 'stroke-linecap': 'round'}, g);
-    [[x + 21, y - 26], [x + 26, y + 6]].forEach(([cx, cy]) => E('circle', {cx, cy, r: 3.2, fill: '#d9dde2', stroke: '#2f2119', 'stroke-width': .8}, g));
-    E('path', {d: `M${x + 4} ${y - 88} L${x + 26} ${y - 84} L${x + 28} ${y - 56} L${x + 6} ${y - 52} Z`, fill: '#9aa4b0', stroke: '#4f5966', 'stroke-width': 1.4, 'stroke-linejoin': 'round'}, g);
-    E('path', {d: `M${x - 44} ${y - 70} Q${x - 14} ${y + 4} ${x + 8} ${y + 4} L${x + 8} ${y - 88} Q${x - 24} ${y - 88} ${x - 44} ${y - 70} Z`, fill: 'url(#gr-blade)', stroke: '#4f5966', 'stroke-width': 1.6, 'stroke-linejoin': 'round'}, g);
-    E('path', {d: `M${x - 40} ${y - 66} Q${x - 14} ${y - 2} ${x + 6} ${y}`, fill: 'none', stroke: '#ffffff', 'stroke-width': 1.6, opacity: .95}, g);
-    E('path', {d: `M${x - 26} ${y - 80} Q${x - 10} ${y - 84} ${x + 4} ${y - 84}`, fill: 'none', stroke: 'rgba(255,255,255,.75)', 'stroke-width': 3, 'stroke-linecap': 'round'}, g);
-    return g;
-  };
-  const stroke2 = (d, w, skin, par) => {
-    E('path', {d, fill: 'none', stroke: OL, 'stroke-width': w + 4, 'stroke-linecap': 'round', 'stroke-linejoin': 'round'}, par);
+  const caption = txt => { const t = E('text', {x: 626, y: 316, 'text-anchor': 'end', class: 'lbl', style: `fill:${col('ink2')};font-size:13px`}); t.textContent = txt; };
+  /* Gliedmaßen als Röhre mit Kontur */
+  const tube = (d, w, skin, par) => {
+    E('path', {d, fill: 'none', stroke: OL, 'stroke-width': w + 3.5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round'}, par);
     E('path', {d, fill: 'none', stroke: skin, 'stroke-width': w, 'stroke-linecap': 'round', 'stroke-linejoin': 'round'}, par);
   };
+  const crease = (x, y, w = 8, rot = 0) => E('path', {d: `M${x - w / 2} ${y} q${w / 2} -3 ${w} 0`, transform: `rotate(${rot} ${x} ${y})`, fill: 'none', stroke: 'rgba(140,80,50,.5)', 'stroke-width': 1.4, 'stroke-linecap': 'round'});
   const note = (txt, x, y, tx, ty, anchor = 'start') => {
     const a = col('accent'), halo = col('surface'), d = `M${x + (anchor === 'end' ? -4 : 4)} ${y + 7} Q${(x + tx) / 2} ${y + 7} ${tx} ${ty}`;
     E('path', {d, fill: 'none', stroke: halo, 'stroke-width': 6, 'stroke-linecap': 'round'});
@@ -187,79 +180,139 @@ explore($('#ex-m'), [
     E('circle', {cx: tx, cy: ty, r: 5, fill: a, stroke: halo, 'stroke-width': 2});
     const t = E('text', {x, y, 'text-anchor': anchor, class: 'lbl', style: `fill:${a};font-size:16px;paint-order:stroke;stroke:${halo};stroke-width:5px;stroke-linejoin:round`}); t.textContent = txt;
   };
-  /* Karotte: liegt auf dem Brett (Unterkante BY), Dicke wächst nach rechts */
-  const X0 = 110, X1 = 500, BY = 252, r = x => 7 + (Math.min(X1, Math.max(X0, x)) - X0) / (X1 - X0) * 17, top = x => BY - 2 * r(x);
-  const carrot = from => {
-    const n = 24, up = [], dn = [];
-    for (let i = 0; i <= n; i++) { const x = from + (X1 - from) * i / n; up.push(`${x.toFixed(1)} ${top(x).toFixed(1)}`); dn.unshift(`${x.toFixed(1)} ${BY}`); }
-    E('path', {d: `M${X1 + 4} ${BY - r(X1)} q30 -26 54 -18 M${X1 + 4} ${BY - r(X1)} q38 -4 50 12 M${X1 + 4} ${BY - r(X1)} q16 -36 38 -44`, fill: 'none', stroke: '#4f8a3a', 'stroke-width': 6, 'stroke-linecap': 'round'});
-    E('path', {d: `M${up.join(' L')} Q${X1 + 14} ${top(X1) + 2} ${X1 + 8} ${BY - r(X1)} Q${X1 + 12} ${BY} ${X1} ${BY} L${dn.join(' L')} Z`, fill: 'url(#gr-car)', stroke: '#9c4a14', 'stroke-width': 1.5, 'stroke-linejoin': 'round'});
-    for (let x = from + 34; x < X1 - 10; x += 44) E('path', {d: `M${x} ${top(x) + 5} q5 ${r(x)} 0 ${2 * r(x) - 10}`, fill: 'none', stroke: 'rgba(150,60,10,.32)', 'stroke-width': 1.5, 'stroke-linecap': 'round'});
-    E('ellipse', {cx: from, cy: BY - r(from), rx: 5.5, ry: r(from) - .5, fill: from > X0 ? '#fbc27c' : '#ea8a35', stroke: '#c8641c', 'stroke-width': 1.2});
+  const arrow = (x1, y, x2, txt) => {
+    const a = col('accent'), dir = Math.sign(x2 - x1);
+    E('path', {d: `M${x1} ${y} H${x2 - dir * 10}`, stroke: a, 'stroke-width': 3});
+    E('path', {d: `M${x2} ${y} l${-dir * 13} -7 v14 z`, fill: a});
+    const t = E('text', {x: (x1 + x2) / 2, y: y - 10, 'text-anchor': 'middle', class: 'lbl', style: `fill:${a};font-size:16px`}); t.textContent = txt;
   };
-  const slice = (x, ox, i) => {
-    const g = E('g', {transform: `rotate(${-12 - i * 3} ${x} ${BY})`});
-    E('ellipse', {cx: x, cy: BY - r(ox), rx: 6, ry: r(ox), fill: '#f39a3f', stroke: '#b5571a', 'stroke-width': 1.2}, g);
-    E('ellipse', {cx: x + 1.5, cy: BY - r(ox), rx: 3.2, ry: r(ox) * .5, fill: '#fbc27c'}, g);
+
+  /* ---------- Krallengriff (Blick von vorn) ---------- */
+  /* Karotte liegt quer: dickes Ende mit Grün links, Spitze rechts; geschnitten wird von rechts nach links */
+  const CX0 = 92, CX1 = 556, cr = x => 25 - (Math.min(CX1, Math.max(CX0, x)) - CX0) / (CX1 - CX0) * 15, ctop = x => BY - 2 * cr(x);
+  const carSeg = (a, b, dx) => {
+    const n = Math.max(2, Math.ceil((b - a) / 12)), up = [];
+    for (let i = 0; i <= n; i++) { const x = a + (b - a) * i / n; up.push(`${(x + dx).toFixed(1)} ${ctop(x).toFixed(1)}`); }
+    let d = a <= CX0 ? `M${a + dx} ${BY} Q${a + dx - 12} ${BY - cr(a)} ${up[0]} L${up.slice(1).join(' L')}` : `M${a + dx} ${BY} L${up.join(' L')}`;
+    d += b >= CX1 - .5 ? ` Q${b + dx + 12} ${BY - cr(b) + 2} ${b + dx} ${BY} Z` : ` L${b + dx} ${BY} Z`;
+    E('path', {d, fill: 'url(#gr-car)', stroke: '#9c4a14', 'stroke-width': 1.4, 'stroke-linejoin': 'round'});
+    for (let x = Math.ceil(a / 46) * 46 + 10; x < b - 8; x += 46) E('path', {d: `M${x + dx} ${ctop(x) + 5} q4 ${cr(x) - 4} 0 ${2 * cr(x) - 10}`, fill: 'none', stroke: 'rgba(150,60,10,.3)', 'stroke-width': 1.4, 'stroke-linecap': 'round'});
+    if (a > CX0) E('ellipse', {cx: a + dx + 1.5, cy: BY - cr(a), rx: 3, ry: cr(a) - 1.5, fill: '#fcc683', stroke: '#d0742a', 'stroke-width': 1});
   };
-  /* Krallenhand (linke Hand) von der Seite: Knöchel vorn an der Klinge, Fingerkuppen eingezogen, Daumen hinten */
-  const clawHand = (xc, ring) => {
-    const g = E('g', {});
-    stroke2(`M${xc + 128} ${top(xc + 120) - 52} Q${xc + 108} ${top(xc + 112) - 26} ${xc + 116} ${top(xc + 116) + 2}`, 22, SKIN2, g);
-    stroke2(`M${xc + 110} 132 C${xc + 160} 100 ${xc + 210} 84 ${xc + 262} 80`, 50, SKIN2, g);
-    const F = [[100, 152, 82, 20, SKIN2], [78, 148, 58, 23, SKIN2], [54, 146, 34, 24, SKIN], [30, 146, 10, 24, SKIN]];
-    F.forEach(([kx, ky, tx, w, sk], i) => { const px = xc + kx - 26, py = 182; stroke2(`M${xc + kx} ${ky} Q${px - 2} ${ky + 4} ${px} ${py} Q${px + 2} ${py + 24} ${xc + tx} ${top(xc + tx) - 4}`, w, sk, g); });
-    E('path', {d: `M${xc + 14} 128 C${xc + 30} 104 ${xc + 90} 96 ${xc + 126} 104 C${xc + 146} 112 ${xc + 146} 148 ${xc + 120} 160 C${xc + 80} 168 ${xc + 30} 166 ${xc + 16} 156 C${xc + 8} 148 ${xc + 8} 136 ${xc + 14} 128 Z`, fill: 'url(#gr-skin)', stroke: OL, 'stroke-width': 2, 'stroke-linejoin': 'round'}, g);
-    [[xc + 12, 176], [xc + 34, 176], [xc + 58, 178]].forEach(([x, y]) => E('path', {d: `M${x - 5} ${y - 6} q5 -4 10 0`, fill: 'none', stroke: 'rgba(140,80,50,.45)', 'stroke-width': 1.6, 'stroke-linecap': 'round'}, g));
-    E('path', {d: `M${xc + 40} 118 q36 -10 76 -4`, fill: 'none', stroke: 'rgba(255,255,255,.35)', 'stroke-width': 3, 'stroke-linecap': 'round'}, g);
-    if (ring) E('circle', {cx: xc + 2, cy: 180, r: 17, fill: 'none', stroke: col('accent'), 'stroke-width': 2.5, 'stroke-dasharray': '5 4'}, g);
-    return g;
+  const greens = () => E('path', {d: `M${CX0 - 6} ${BY - 26} q-26 -34 -60 -40 M${CX0 - 6} ${BY - 26} q-34 -8 -62 4 M${CX0 - 6} ${BY - 26} q-8 -40 -26 -62`, fill: 'none', stroke: '#4f8a3a', 'stroke-width': 6, 'stroke-linecap': 'round'});
+  /* Klinge von vorn: schmaler Keil (Rücken oben, Schneide unten); Griff zeigt zum Betrachter und steckt in der rechten Faust */
+  const knifeFront = (x, yE) => {
+    const yT = yE - 104;
+    E('path', {d: `M${x + 40} ${yT - 34} C${x + 90} ${yT - 60} ${x + 150} ${yT - 96} ${x + 240} ${yT - 120}`, fill: 'none', stroke: OL, 'stroke-width': 47.5, 'stroke-linecap': 'round'});
+    E('path', {d: `M${x + 40} ${yT - 34} C${x + 90} ${yT - 60} ${x + 150} ${yT - 96} ${x + 240} ${yT - 120}`, fill: 'none', stroke: SKIN2, 'stroke-width': 44, 'stroke-linecap': 'round'});
+    E('path', {d: `M${x - 4} ${yT} L${x + 4} ${yT} L${x + 1.2} ${yE - 7} L${x} ${yE} L${x - 1.2} ${yE - 7} Z`, fill: 'url(#gr-edge)', stroke: '#4f5966', 'stroke-width': 1.2, 'stroke-linejoin': 'round'});
+    E('path', {d: `M${x - 1.6} ${yT + 4} L${x - .6} ${yE - 10}`, stroke: 'rgba(255,255,255,.8)', 'stroke-width': 1.2});
+    E('rect', {x: x - 6, y: yT - 7, width: 12, height: 9, rx: 2, fill: '#8f9aa6', stroke: '#4f5966', 'stroke-width': 1.2});
+    // Faust (rechte Hand) um den Griff
+    E('path', {d: `M${x - 22} ${yT - 22} C${x - 24} ${yT - 50} ${x + 2} ${yT - 62} ${x + 26} ${yT - 58} C${x + 50} ${yT - 54} ${x + 58} ${yT - 30} ${x + 48} ${yT - 12} C${x + 38} ${yT + 2} ${x - 14} ${yT + 2} ${x - 22} ${yT - 22} Z`, fill: 'url(#gr-skin)', stroke: OL, 'stroke-width': 1.8, 'stroke-linejoin': 'round'});
+    [[-14, -38], [-14, -26], [-12, -14]].forEach(([dx, dy]) => crease(x + dx + 6, yT + dy, 10, 90));
+    E('path', {d: `M${x - 6} ${yT - 54} q16 -8 34 -2`, fill: 'none', stroke: 'rgba(255,255,255,.45)', 'stroke-width': 3, 'stroke-linecap': 'round'});
+    // Griffende, das zum Betrachter zeigt
+    E('rect', {x: x + 6, y: yT - 30, width: 20, height: 28, rx: 8, fill: 'url(#gr-handle)', stroke: '#1f150e', 'stroke-width': 1.4});
+    E('rect', {x: x + 10, y: yT - 26, width: 12, height: 20, rx: 5, fill: 'none', stroke: 'rgba(255,255,255,.18)', 'stroke-width': 1.5});
+    E('circle', {cx: x + 16, cy: yT - 16, r: 2.4, fill: '#d9dde2'});
+  };
+  /* linke Hand als Kralle: Knöchel (Mittelgelenke) liegen an der Klinge, Fingerkuppen eingezogen, Daumen hinten */
+  const claw = (xw, ring) => {
+    const T = ctop(xw - 26);
+    // Unterarm fast waagerecht nach links (lässt oben Platz für Beschriftungen)
+    tube(`M${xw - 150} ${T - 112} C${xw - 230} ${T - 122} ${xw - 380} ${T - 130} ${xw - 640} ${T - 132}`, 50, SKIN2);
+    // Daumen: weiter hinten, hält die Karotte seitlich
+    tube(`M${xw - 150} ${T - 86} Q${xw - 158} ${T - 40} ${xw - 128} ${T + 6}`, 23, SKIN2);
+    E('path', {d: `M${xw - 136} ${T - 2} q6 7 14 4`, fill: 'none', stroke: 'rgba(140,80,50,.55)', 'stroke-width': 1.4, 'stroke-linecap': 'round'});
+    // Finger: Grundglied schräg nach vorn, Mittelglied senkrecht an der Klinge, Endglied nach innen eingerollt
+    const finger = (ox, oy, w, sk) => tube(`M${xw - 84 + ox} ${T - 92 + oy} Q${xw - 22 + ox} ${T - 96 + oy} ${xw - 8 + ox} ${T - 66 + oy} Q${xw + 2 + ox} ${T - 38 + oy} ${xw - 8 + ox} ${T - 18 + oy} Q${xw - 18 + ox} ${T - 2 + oy} ${xw - 40 + ox} ${T - 4 + oy}`, w, sk);
+    finger(-22, -9, 23, SKIN3); finger(-11, -4, 25, SKIN2);
+    // Handrücken
+    E('path', {d: `M${xw - 176} ${T - 132} C${xw - 140} ${T - 146} ${xw - 80} ${T - 128} ${xw - 56} ${T - 104} C${xw - 44} ${T - 90} ${xw - 54} ${T - 72} ${xw - 78} ${T - 70} C${xw - 116} ${T - 66} ${xw - 152} ${T - 76} ${xw - 172} ${T - 92} C${xw - 188} ${T - 106} ${xw - 190} ${T - 124} ${xw - 176} ${T - 132} Z`, fill: 'url(#gr-skin)', stroke: OL, 'stroke-width': 1.8, 'stroke-linejoin': 'round'});
+    E('path', {d: `M${xw - 156} ${T - 128} q46 -10 86 16`, fill: 'none', stroke: 'rgba(255,255,255,.45)', 'stroke-width': 3, 'stroke-linecap': 'round'});
+    finger(0, 0, 27, SKIN);
+    crease(xw - 9, T - 64, 11, 80); crease(xw - 6, T - 20, 9, 100);
+    E('path', {d: `M${xw - 34} ${T - 10} q-8 -2 -12 4`, fill: 'none', stroke: 'rgba(160,100,70,.6)', 'stroke-width': 1.4, 'stroke-linecap': 'round'});
+    if (ring) E('circle', {cx: xw + 2, cy: T - 46, r: 22, fill: 'none', stroke: col('accent'), 'stroke-width': 2.5, 'stroke-dasharray': '5 4'});
+    return T;
   };
   const drawClaw = t => {
-    sv.innerHTML = ''; defs(); board();
-    const per = 1.2, cyc = t / per, ph = cyc % 1;
-    const n = k >= 3 ? Math.floor(cyc) % 9 + 1 : (k === 2 ? 1 : 0);
-    const xc = 196 + (k >= 3 ? (n - 1) * 13 : 0);
-    const lift = k >= 2 ? (1 - Math.abs(Math.cos(ph * Math.PI))) * 52 : 58;
-    if (k >= 2) {
-      const tip = `M${X0} ${BY - r(X0)} Q${X0 + 2} ${top(X0)} ${X0 + 10} ${top(X0 + 10)} L${180} ${top(180)} L180 ${BY} L${X0 + 8} ${BY} Q${X0} ${BY} ${X0} ${BY - r(X0)} Z`;
-      E('path', {d: tip, transform: 'translate(-30 0)', fill: 'url(#gr-car)', stroke: '#9c4a14', 'stroke-width': 1.5});
-      E('ellipse', {cx: 150, cy: BY - r(180), rx: 5, ry: r(180) - .5, fill: '#fbc27c', stroke: '#c8641c', 'stroke-width': 1.2});
-      for (let i = 0; i < n; i++) slice(170 + i * 4.5, 183 + i * 13, n - 1 - i);
+    sv.innerHTML = ''; defs(); board(); caption('Blick von vorn');
+    const W = 15, XS = 500, per = 1.6;
+    let n = 0, ph = 0;
+    if (k >= 2) { const cyc = t / per; ph = cyc % 1; n = k === 3 ? Math.floor(cyc) % 9 : 0; }
+    const cuts = k < 2 ? 0 : n + (ph > .42 ? 1 : 0);
+    const move = k === 3 && ph > .6 ? ease((ph - .6) / .4) : 0;
+    const xk = XS - W * n - W * move;
+    const lift = k < 2 ? 60 : ph < .42 ? 60 * (1 - ease(ph / .42)) : ph < .6 ? 0 : 60 * ease((ph - .6) / .4);
+    // Karotte und Scheiben
+    greens();
+    const c = i => XS - W * i, body = cuts ? c(cuts - 1) : CX1;
+    carSeg(CX0, body, 0);
+    for (let i = cuts - 1; i >= 0; i--) { const a = c(i), b = i === 0 ? CX1 : c(i - 1), dx = 4 + (cuts - 1 - i) * 3 + (i === 0 ? 6 : 0); carSeg(a, b, dx); }
+    const T = claw(xk - 6, k === 2);
+    knifeFront(xk, BY - lift);
+    if (k === 0) note('Fingerkuppen nach innen', 40, 34, xk - 44, T - 6);
+    if (k === 1) note('Daumen hält weiter hinten fest', 40, 34, xk - 136, T - 4);
+    if (k === 2) note('Klinge gleitet am Fingerknöchel', 40, 34, xk - 22, T - 64);
+    if (k === 3) { arrow(xk - 120, 40, xk - 250, 'Hand wandert nach hinten'); const s = E('text', {x: Math.min(560, xk + 46), y: BY + 34, 'text-anchor': 'middle', class: 'lbl', style: `fill:${col('ink')};font-size:14px`}); s.textContent = 'Scheiben'; }
+  };
+
+  /* ---------- Tunnelgriff (Blick von der Seite, wie im Buch) ---------- */
+  const OX = 262, OR = 104, OH = 92;
+  const onion = () => {
+    E('path', {d: `M${OX - OR} ${BY} A${OR} ${OH} 0 0 1 ${OX + OR} ${BY} Z`, fill: 'url(#gr-onion)', stroke: '#9c7444', 'stroke-width': 1.6, 'stroke-linejoin': 'round'});
+    [.78, .55, .3].forEach(q => E('path', {d: `M${OX - OR + 4} ${BY - 2} Q${OX} ${BY - OH * (1 + q) * .98} ${OX + OR - 4} ${BY - 2}`, fill: 'none', stroke: 'rgba(156,116,68,.38)', 'stroke-width': 1.4}));
+    E('path', {d: `M${OX - OR + 2} ${BY - 3} l-12 -6 m12 6 l-14 2 m14 -2 l-10 8`, stroke: '#8a6a44', 'stroke-width': 1.6, 'stroke-linecap': 'round'});
+    E('path', {d: `M${OX + OR - 3} ${BY - 4} q14 -6 22 -16`, fill: 'none', stroke: '#b98b4e', 'stroke-width': 3, 'stroke-linecap': 'round'});
+  };
+  /* Messer von der Seite: Spitze links, Griff rechts in der rechten Hand; (x = Ferse, yS = Klingenrücken) */
+  const knifeSide = (x, yS) => {
+    const tx = x - 214, yE = yS + 36;
+    E('path', {d: `M${x + 96} ${yS + 10} C${x + 150} ${yS} ${x + 220} ${yS - 40} ${x + 340} ${yS - 70}`, fill: 'none', stroke: OL, 'stroke-width': 47.5, 'stroke-linecap': 'round'});
+    E('path', {d: `M${x + 96} ${yS + 10} C${x + 150} ${yS} ${x + 220} ${yS - 40} ${x + 340} ${yS - 70}`, fill: 'none', stroke: SKIN2, 'stroke-width': 44, 'stroke-linecap': 'round'});
+    E('path', {d: `M${x} ${yS} L${tx + 40} ${yS + 2} Q${tx + 8} ${yS + 6} ${tx} ${yS + 14} Q${tx + 44} ${yE} ${tx + 100} ${yE} L${x} ${yE} Z`, fill: 'url(#gr-blade)', stroke: '#4f5966', 'stroke-width': 1.5, 'stroke-linejoin': 'round'});
+    E('path', {d: `M${tx + 8} ${yS + 15} Q${tx + 46} ${yE - 3} ${tx + 100} ${yE - 3} L${x - 2} ${yE - 3}`, fill: 'none', stroke: '#ffffff', 'stroke-width': 1.4, opacity: .9});
+    E('path', {d: `M${tx + 50} ${yS + 4} L${x - 4} ${yS + 3}`, stroke: 'rgba(255,255,255,.8)', 'stroke-width': 2.4, 'stroke-linecap': 'round'});
+    E('rect', {x, y: yS - 2, width: 10, height: yE - yS + 4, rx: 2, fill: '#8f9aa6', stroke: '#4f5966', 'stroke-width': 1.3});
+    E('path', {d: `M${x + 10} ${yS} H${x + 104} Q${x + 114} ${yS} ${x + 114} ${yS + 10} V${yS + 16} Q${x + 114} ${yS + 24} ${x + 104} ${yS + 24} H${x + 10} Z`, fill: 'url(#gr-handle)', stroke: '#1f150e', 'stroke-width': 1.4, 'stroke-linejoin': 'round'});
+    [x + 30, x + 92].forEach(cx => E('circle', {cx, cy: yS + 12, r: 2.6, fill: '#d9dde2', stroke: '#1f150e', 'stroke-width': .7}));
+    // rechte Hand umgreift den Griff
+    E('path', {d: `M${x + 40} ${yS - 4} C${x + 44} ${yS - 26} ${x + 82} ${yS - 32} ${x + 104} ${yS - 18} C${x + 122} ${yS - 6} ${x + 120} ${yS + 22} ${x + 104} ${yS + 34} C${x + 84} ${yS + 46} ${x + 50} ${yS + 44} ${x + 42} ${yS + 30} Z`, fill: 'url(#gr-skin)', stroke: OL, 'stroke-width': 1.8, 'stroke-linejoin': 'round'});
+    [0, 1, 2].forEach(i => crease(x + 58 + i * 16, yS + 30, 10, 90));
+    tube(`M${x + 58} ${yS - 14} Q${x + 40} ${yS - 10} ${x + 24} ${yS - 2}`, 13, SKIN);
+  };
+  const leftHand = part => {
+    const top = BY - OH;
+    if (part === 'back') {
+      tube(`M${OX - 70} ${top - 66} C${OX - 120} ${top - 92} ${OX - 190} ${top - 110} ${OX - 290} ${top - 116}`, 46, SKIN2);
+      [[16, SKIN3, 20], [8, SKIN2, 21]].forEach(([o, sk, w]) => tube(`M${OX + 30 + o} ${top - 54} C${OX + 70 + o} ${top - 50} ${OX + 82 + o} ${top + 10} ${OX + 76 + o} ${BY - 36}`, w, sk));
+      tube(`M${OX + 30} ${top - 54} C${OX + 68} ${top - 48} ${OX + 80} ${top + 10} ${OX + 72} ${BY - 32}`, 22, SKIN2);
+      return;
     }
-    carrot(k >= 2 ? xc : X0);
-    knife(xc - 26, BY, lift);
-    clawHand(xc + 2, k === 2);
-    if (k === 0) note('Fingerkuppen nach innen', 40, 54, xc + 16, top(xc + 16) - 8);
-    if (k === 1) note('Daumen hinten und seitlich', 600, 40, xc + 122, top(xc + 120) - 26, 'end');
-    if (k === 2) note('Klinge gleitet am Knöchel', 40, 54, xc - 14, 176);
-    if (k === 3) { note('Hand wandert zurück', 40, 54, xc + 60, 104); E('path', {d: `M${xc + 140} 40 h70`, stroke: col('accent'), 'stroke-width': 3}); E('path', {d: `M${xc + 216} 40 l-12 -7 v14 z`, fill: col('accent')}); }
+    if (part === 'palm') {
+      E('path', {d: `M${OX - 96} ${top - 66} C${OX - 90} ${top - 98} ${OX + 10} ${top - 108} ${OX + 50} ${top - 82} C${OX + 70} ${top - 70} ${OX + 64} ${top - 44} ${OX + 40} ${top - 40} C${OX} ${top - 34} ${OX - 60} ${top - 34} ${OX - 86} ${top - 46} C${OX - 98} ${top - 52} ${OX - 100} ${top - 60} ${OX - 96} ${top - 66} Z`, fill: 'url(#gr-skin)', stroke: OL, 'stroke-width': 1.8, 'stroke-linejoin': 'round'});
+      E('path', {d: `M${OX - 70} ${top - 86} q50 -16 100 -2`, fill: 'none', stroke: 'rgba(255,255,255,.45)', 'stroke-width': 3, 'stroke-linecap': 'round'});
+      return;
+    }
+    tube(`M${OX - 66} ${top - 50} C${OX - 86} ${top - 30} ${OX - 92} ${top + 30} ${OX - 82} ${BY - 26}`, 22, SKIN);
+    E('path', {d: `M${OX - 92} ${BY - 34} q7 6 15 3`, fill: 'none', stroke: 'rgba(140,80,50,.55)', 'stroke-width': 1.4, 'stroke-linecap': 'round'});
   };
   const drawTunnel = t => {
-    sv.innerHTML = ''; defs(); board();
-    const cx = 300, cut = k >= 3, gap = cut ? 10 : 0, R = 80, RH = 70;
-    const half = (dx, side) => {
-      const c = cx + dx, x0 = c - (side > 0 ? 0 : R), x1 = c + (side < 0 ? 0 : R);
-      const d = side === 0 ? `M${c - R} ${BY} A${R} ${RH} 0 0 1 ${c + R} ${BY} Z` : side < 0 ? `M${c - R} ${BY} A${R} ${RH} 0 0 1 ${c} ${BY - RH} L${c} ${BY} Z` : `M${c} ${BY - RH} A${R} ${RH} 0 0 1 ${c + R} ${BY} L${c} ${BY} Z`;
-      E('path', {d, fill: 'url(#gr-onion)', stroke: '#9c7444', 'stroke-width': 1.6, 'stroke-linejoin': 'round'});
-      [0.72, 0.48].forEach(q => { const a = R * q, b = RH * q; const dd = side === 0 ? `M${c - a} ${BY} A${a} ${b} 0 0 1 ${c + a} ${BY}` : side < 0 ? `M${c - a} ${BY} A${a} ${b} 0 0 1 ${c} ${BY - b}` : `M${c} ${BY - b} A${a} ${b} 0 0 1 ${c + a} ${BY}`; E('path', {d: dd, fill: 'none', stroke: 'rgba(156,116,68,.4)', 'stroke-width': 1.4}); });
-      if (side) E('path', {d: `M${c} ${BY - RH + 2} V${BY - 1}`, stroke: '#fbf1e2', 'stroke-width': 3});
-    };
-    if (cut) { half(-gap, -1); half(gap, 1); } else half(0, 0);
-    if (k === 0) { note('Schnittfläche liegt flach auf – nichts rollt', 40, 54, cx - 30, BY - 8); return; }
-    const lift = k === 2 ? (1 - Math.abs(Math.cos(t * 2.2))) * 22 : 0;
-    const H = E('g', {});
-    stroke2(`M${cx + 60} ${BY - 156} C${cx + 120} ${BY - 186} ${cx + 190} ${BY - 200} ${cx + 256} ${BY - 200}`, 54, SKIN2, H);
-    [[3, SKIN2], [2, SKIN2], [1, SKIN]].forEach(([i, sk]) => stroke2(`M${cx + 30 + i * 14} ${BY - 140} C${cx + 74 + i * 12} ${BY - 132} ${cx + 92 + i * 9} ${BY - 70} ${cx + 82 + i * 9} ${BY - 12}`, 22, sk, H));
-    if (k >= 2) knife(cx + 4, BY, lift);
-    E('path', {d: `M${cx - 74} ${BY - 140} C${cx - 70} ${BY - 176} ${cx + 30} ${BY - 192} ${cx + 82} ${BY - 166} C${cx + 100} ${BY - 152} ${cx + 92} ${BY - 126} ${cx + 66} ${BY - 122} C${cx + 20} ${BY - 116} ${cx - 40} ${BY - 112} ${cx - 64} ${BY - 120} C${cx - 74} ${BY - 124} ${cx - 76} ${BY - 132} ${cx - 74} ${BY - 140} Z`, fill: 'url(#gr-skin)', stroke: OL, 'stroke-width': 2, 'stroke-linejoin': 'round'}, H);
-    stroke2(`M${cx - 52} ${BY - 128} C${cx - 92} ${BY - 112} ${cx - 104} ${BY - 60} ${cx - 92} ${BY - 12}`, 26, SKIN, H);
-    stroke2(`M${cx + 34} ${BY - 132} C${cx + 74} ${BY - 124} ${cx + 92} ${BY - 70} ${cx + 82} ${BY - 12}`, 23, SKIN, H);
-    E('path', {d: `M${cx - 40} ${BY - 166} C${cx - 4} ${BY - 180} ${cx + 40} ${BY - 178} ${cx + 66} ${BY - 162}`, fill: 'none', stroke: 'rgba(255,255,255,.45)', 'stroke-width': 3, 'stroke-linecap': 'round'}, H);
-    [[cx + 74, BY - 36], [cx - 92, BY - 30]].forEach(([x, y]) => E('path', {d: `M${x - 6} ${y} q6 5 12 0`, fill: 'none', stroke: 'rgba(140,80,50,.5)', 'stroke-width': 1.6, 'stroke-linecap': 'round'}, H));
-    if (k === 1) { note('Daumen', 40, 120, cx - 98, BY - 40); note('Finger', 600, 150, cx + 104, BY - 40, 'end'); const tx = E('text', {x: cx - 4, y: BY - 90, 'text-anchor': 'middle', class: 'lbl', style: `fill:${col('accent')};font-size:16px`}); tx.textContent = 'Tunnel'; }
-    if (k === 2) note('Messer durch den Tunnel führen', 40, 40, cx - 26, BY - 74);
-    if (k === 3) note('Finger bleiben außerhalb der Schneide', 40, 40, cx - 96, BY - 40);
+    sv.innerHTML = ''; defs(); board(); caption('Blick von der Seite');
+    const top = BY - OH;
+    if (k >= 1) leftHand('back');
+    let x = OX + 120, yS = top - 38;
+    if (k === 2) { const p = (t / 2.4) % 1; x += 240 * (1 - ease(p / .55)); }
+    if (k === 3) { const p = (t / 2.4) % 1; yS += (OH + 2) * (p < .6 ? ease(p / .6) : p < .8 ? 1 : 1 - ease((p - .8) / .2)); }
+    if (k >= 2) knifeSide(x, yS);
+    onion();
+    if (k >= 1) { leftHand('palm'); leftHand('front'); }
+    if (k === 0) note('Schnittfläche liegt flach auf – nichts rollt', 40, 40, OX + 10, BY - 6);
+    if (k === 1) { note('Daumen', 40, 120, OX - 98, BY - 46); note('Finger', 600, 120, OX + 100, BY - 64, 'end'); const tx = E('text', {x: OX - 10, y: top - 12, 'text-anchor': 'middle', class: 'lbl', style: `fill:${col('accent')};font-size:16px;paint-order:stroke;stroke:${col('surface')};stroke-width:5px`}); tx.textContent = 'Tunnel'; }
+    if (k === 2) note('Messer durch den Tunnel führen', 40, 40, OX - 120, top - 24);
+    if (k === 3) note('Finger bleiben außerhalb der Schneide', 40, 40, OX - 96, BY - 46);
   };
   let tt = 0;
   visuals.push({station: 'griffe', tick(dt) { tt += RM.matches ? 0 : dt; (g === 'kralle' ? drawClaw : drawTunnel)(tt); }});

@@ -1,6 +1,6 @@
 # Interaktive AES-Stunden
 
-Interaktive HTML-Präsentationen mit Arbeitsblättern für das Fach **Alltagskultur, Ernährung, Soziales (AES)** der Klassen 6–10 – 15 Reihen, 115 Stunden. Grundlage ist der Aufbau von *starkeSeiten AES* (Klett); Texte, Grafiken und Simulationen sind eigenständig erstellt.
+Interaktive HTML-Präsentationen mit Arbeitsblättern für das Fach **Alltagskultur, Ernährung, Soziales (AES)** der Klassen 6–10 – 15 Reihen, 115 Stunden.
 
 **Online:** https://max-schall.github.io/Interaktive-AES-Stunden/
 
