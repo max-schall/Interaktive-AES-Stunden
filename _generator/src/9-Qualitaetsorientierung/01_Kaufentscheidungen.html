@@ -105,15 +105,61 @@ sorter($('#sort'), [{id: 'e', name: 'extensiv'}, {id: 'l', name: 'limitiert'}, {
 ]);
 (() => {
   const A = [['A', 'Attention – Aufmerksamkeit', 'Aufmerksamkeit erregen: Signalfarben, ungewöhnliche Bilder, originelle Slogans oder ein einprägsamer Jingle.', 'att'], ['I', 'Interest – Interesse', 'Interesse wecken: Detailinformationen in der Werbung oder ein Verweis auf weitere Infos auf einer Webseite.', 'int'], ['D', 'Desire – Verlangen', 'Verlangen wecken: Werbeversprechen, Preisvorteile, gute Produktqualität, ein Lifestyle, Image oder Status.', 'des'], ['A', 'Action – Handlung', 'Handlung auslösen: auffälliger „Jetzt kaufen“-Button oder Aufforderungen wie „Jetzt gleich zuschlagen!“.', 'act']];
-  const ac = col('accent');
-  $('#ad').innerHTML = `<svg viewBox="0 0 320 360" style="max-height:min(58vh,26rem);display:block;margin:0 auto" role="img" aria-label="Erfundene Werbeanzeige für ein Haarshampoo">
-    <rect x="6" y="6" width="308" height="348" rx="18" fill="${col('surface-2')}"/>
-    <g data-a="att"><rect x="20" y="20" width="280" height="64" rx="12" fill="#E8B23A"/><text x="160" y="50" text-anchor="middle" font-size="24" font-weight="700" fill="#2b2b2b" font-family="Fraunces, serif">FRISCH. FESTER. DU.</text><text x="160" y="72" text-anchor="middle" font-size="12" fill="#2b2b2b">Das neue feste Shampoo „Wellenwerk“</text></g>
-    <g data-a="int"><rect x="20" y="96" width="280" height="96" rx="12" fill="${col('surface')}"/><circle cx="72" cy="144" r="34" fill="#9CC5B8"/><text x="72" y="149" text-anchor="middle" font-size="11" fill="#1d3b33">Stück</text><text x="120" y="122" font-size="12" fill="${col('ink')}">✓ 100 % plastikfrei</text><text x="120" y="142" font-size="12" fill="${col('ink')}">✓ reicht für 60 Haarwäschen</text><text x="120" y="162" font-size="12" fill="${col('ink')}">✓ mehr Infos: wellenwerk.example</text></g>
-    <g data-a="des"><rect x="20" y="204" width="280" height="80" rx="12" fill="${col('surface')}"/><text x="160" y="232" text-anchor="middle" font-size="13" fill="${col('ink')}">„Seit Wellenwerk glänzen meine Haare</text><text x="160" y="250" text-anchor="middle" font-size="13" fill="${col('ink')}">wie nie zuvor!“ – Influencerin Mia</text><text x="160" y="272" text-anchor="middle" font-size="12" font-weight="700" fill="#B3402E">Nur heute −30 %</text></g>
-    <g data-a="act"><rect x="70" y="298" width="180" height="42" rx="21" fill="${ac}"/><text x="160" y="325" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Jetzt kaufen →</text></g>
+  const ac = col('accent'), ink = col('ink'), sf = col('surface'), s2 = col('surface-2');
+  const TIER = [['A', 'Attention', 'Aufmerksamkeit'], ['I', 'Interest', 'Interesse'], ['D', 'Desire', 'Verlangen'], ['A', 'Action', 'Handlung']];
+  const fun = TIER.map(([l, e, d], i) => { const y = 20 + i * 86, w0 = 120 - i * 24, w1 = 120 - (i + 1) * 24, x = 72; return `<g class="tier" data-t="${i}"><path d="M${x - w0 / 2} ${y} H${x + w0 / 2} L${x + w1 / 2} ${y + 80} H${x - w1 / 2} Z" rx="6"/><text x="${x}" y="${y + 38}" text-anchor="middle" font-size="26" font-weight="700" font-family="Fraunces, serif">${l}</text><text x="${x}" y="${y + 56}" text-anchor="middle" font-size="10">${e}</text></g>`; }).join('');
+  $('#ad').innerHTML = `<svg viewBox="0 0 470 370" style="max-height:min(60vh,27rem);display:block;margin:0 auto" role="img" aria-label="AIDA-Trichter und erfundene Werbeanzeige für ein Haarshampoo" id="ad-svg">
+    <style>
+      #ad-svg .tier path{fill:${s2};transition:fill .3s}#ad-svg .tier text{fill:${col('ink-2')};transition:fill .3s}
+      #ad-svg .tier.on path{fill:${ac}}#ad-svg .tier.on text{fill:#fff}
+      #ad-svg [data-a]{transition:opacity .4s}
+      #ad-svg .fx{opacity:0;transition:opacity .3s}
+      #ad-svg[data-p="att"] .fx-att,#ad-svg[data-p="int"] .fx-int,#ad-svg[data-p="des"] .fx-des,#ad-svg[data-p="act"] .fx-act{opacity:1}
+      #ad-svg[data-p="att"] .head{animation:ad-pop 1.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+      #ad-svg .burst{animation:ad-rot 6s linear infinite;transform-box:fill-box;transform-origin:center}
+      #ad-svg[data-p="int"] .fact{opacity:0;animation:ad-in 3.6s ease-out infinite}
+      #ad-svg[data-p="int"] .fact:nth-of-type(2){animation-delay:.4s}#ad-svg[data-p="int"] .fact:nth-of-type(3){animation-delay:.8s}
+      #ad-svg .lupe{animation:ad-scan 3.6s ease-in-out infinite}
+      #ad-svg .heart{animation:ad-heart 2.4s ease-out infinite}#ad-svg .heart:nth-of-type(2){animation-delay:.8s}#ad-svg .heart:nth-of-type(3){animation-delay:1.6s}
+      #ad-svg[data-p="des"] .ptag{animation:ad-swing 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+      #ad-svg[data-p="act"] .cta{animation:ad-pop 1s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+      #ad-svg .cursor{animation:ad-cursor 3s ease-in-out infinite}
+      #ad-svg .ripple{animation:ad-ripple 3s ease-out infinite;transform-box:fill-box;transform-origin:center}
+      @keyframes ad-pop{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+      @keyframes ad-rot{to{transform:rotate(360deg)}}
+      @keyframes ad-in{0%{opacity:0;transform:translateX(-8px)}15%,85%{opacity:1;transform:none}100%{opacity:1}}
+      @keyframes ad-scan{0%,100%{transform:translate(0,0)}33%{transform:translate(70px,20px)}66%{transform:translate(20px,40px)}}
+      @keyframes ad-heart{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(-46px);opacity:0}}
+      @keyframes ad-swing{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+      @keyframes ad-cursor{0%{transform:translate(90px,60px)}45%,100%{transform:translate(0,0)}}
+      @keyframes ad-ripple{0%,45%{transform:scale(.2);opacity:0}50%{opacity:.7}80%,100%{transform:scale(2.4);opacity:0}}
+      @media (prefers-reduced-motion:reduce){#ad-svg *{animation:none!important}}
+    </style>
+    ${fun}
+    <path id="ad-link" d="" fill="none" stroke="${ac}" stroke-width="2" stroke-dasharray="4 4"/>
+    <g transform="translate(150 0)">
+    <rect x="6" y="6" width="308" height="358" rx="18" fill="${s2}"/>
+    <g data-a="att"><g class="head"><rect x="20" y="20" width="280" height="64" rx="12" fill="#E8B23A"/><text x="160" y="50" text-anchor="middle" font-size="24" font-weight="700" fill="#2b2b2b" font-family="Fraunces, serif">FRISCH. FESTER. DU.</text><text x="160" y="72" text-anchor="middle" font-size="12" fill="#2b2b2b">Das neue feste Shampoo „Wellenwerk“</text></g>
+      <g class="fx fx-att"><g transform="translate(286 22)"><g class="burst"><path d="${[...Array(16)].map((_, i) => { const r = i % 2 ? 13 : 22, a = i / 16 * Math.PI * 2; return (i ? 'L' : 'M') + (Math.cos(a) * r).toFixed(1) + ' ' + (Math.sin(a) * r).toFixed(1); }).join(' ')}Z" fill="#d8402e"/></g><text y="4" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">NEU!</text></g></g></g>
+    <g data-a="int"><rect x="20" y="96" width="280" height="96" rx="12" fill="${sf}"/><circle cx="72" cy="144" r="34" fill="#9CC5B8"/><ellipse cx="72" cy="144" rx="22" ry="14" fill="#7fb0a1"/><text x="72" y="148" text-anchor="middle" font-size="10" fill="#1d3b33">Wellenwerk</text>
+      <text class="fact" x="120" y="122" font-size="12" fill="${ink}">✓ 100 % plastikfrei</text><text class="fact" x="120" y="142" font-size="12" fill="${ink}">✓ reicht für 60 Haarwäschen</text><text class="fact" x="120" y="162" font-size="12" fill="${ink}">✓ Infos: wellenwerk.example</text>
+      <g class="fx fx-int"><g class="lupe"><circle cx="138" cy="118" r="13" fill="rgba(255,255,255,.35)" stroke="${col('ink-2')}" stroke-width="2.5"/><path d="M147 127 l10 10" stroke="${col('ink-2')}" stroke-width="3.5" stroke-linecap="round"/></g></g></g>
+    <g data-a="des"><rect x="20" y="204" width="280" height="84" rx="12" fill="${sf}"/><text x="160" y="228" text-anchor="middle" font-size="13" fill="${ink}">„Seit Wellenwerk glänzen meine Haare</text><text x="160" y="246" text-anchor="middle" font-size="13" fill="${ink}">wie nie zuvor!“ – Influencerin Mia</text><text x="110" y="270" text-anchor="middle" font-size="13" fill="#E8B23A">★★★★★</text>
+      <g class="ptag"><rect x="180" y="256" width="108" height="22" rx="5" fill="#B3402E"/><text x="234" y="271" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Nur heute −30 %</text></g>
+      <g class="fx fx-des">${[40, 60, 285].map((x, i) => `<path class="heart" d="M${x} 222 c-4 -6 -12 -2 -8 4 l8 8 l8 -8 c4 -6 -4 -10 -8 -4z" fill="#e0506a"/>`).join('')}</g></g>
+    <g data-a="act"><g class="cta"><rect x="70" y="302" width="180" height="44" rx="22" fill="${ac}"/><text x="160" y="330" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Jetzt kaufen →</text></g>
+      <g class="fx fx-act"><circle class="ripple" cx="214" cy="326" r="12" fill="none" stroke="#fff" stroke-width="3"/><g class="cursor"><path d="M210 320 l0 20 l5 -5 l4 9 l4 -2 l-4 -9 l7 0 z" fill="#fff" stroke="#222" stroke-width="1.4"/></g><g transform="translate(286 300)"><circle r="11" fill="#d8402e"/><text y="4" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">1</text></g></g></g>
+    </g>
   </svg>`;
-  stepper($('#aida-step'), 4, i => { $('#aida-st').innerHTML = `<b>${A[i][1]}:</b> ${A[i][2]}`; $$('#ad [data-a]').forEach(g => g.style.opacity = g.dataset.a === A[i][3] ? 1 : .28); });
+  const KEY = A.map(x => x[3]), YC = [52, 144, 246, 324];
+  stepper($('#aida-step'), 4, i => {
+    $('#aida-st').innerHTML = `<b>${A[i][1]}:</b> ${A[i][2]}`;
+    const svg = $('#ad-svg'); svg.dataset.p = KEY[i];
+    $$('#ad [data-a]').forEach(g => g.style.opacity = g.dataset.a === KEY[i] ? 1 : .28);
+    $$('#ad .tier').forEach(g => g.classList.toggle('on', +g.dataset.t === i));
+    const ty = 20 + i * 86 + 40, tx = 72 + (120 - i * 24 - 12) / 2;
+    $('#ad-link').setAttribute('d', `M${tx} ${ty} C ${tx + 40} ${ty}, 130 ${YC[i]}, 168 ${YC[i]}`);
+  });
 })();
 opinion($('#op'), [
   {t: '„Glänzt wie nie zuvor!“', why: 'Nicht messbar – ein typisches Werbeversprechen. Glanz hängt auch von Haartyp und Pflege ab.'},

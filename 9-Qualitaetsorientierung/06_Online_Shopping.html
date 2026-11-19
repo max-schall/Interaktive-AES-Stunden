@@ -505,7 +505,8 @@ input[type=range]{accent-color:var(--accent);width:100%}
 
 /* ---------- SVG-Grafiken (Pyramide, Kreis, Diagramme) ---------- */
 .svgfig{width:100%;height:auto;display:block}
-.svgfig text{font-family:var(--f-body);fill:var(--ink)}
+.svgfig text{font-family:var(--f-body)}
+.svgfig text:not([fill]){fill:var(--ink)}
 .svgfig .hit{cursor:pointer;transition:opacity .2s,filter .2s}
 .svgfig .hit:hover{filter:brightness(1.06)}
 .svgfig .dim{opacity:.28}
@@ -639,11 +640,12 @@ input[type=range]{accent-color:var(--accent);width:100%}
       <p class="eyebrow">Station 2 · Anwendung</p>
       <h2>Fake-Shop-Detektiv</h2>
       <p class="lead">„Ich glaube, mein Geld ist weg! Meine bereits bezahlte Smartwatch ist nach drei Wochen immer noch nicht da, und ich erreiche den Händler nicht!“</p>
-      <p>Tippe auf die markierten Stellen im Shop. Welche Warnzeichen findest du?</p>
-      <div class="ex-panel" id="fk-info"><p class="muted">Tippe auf eine markierte Stelle.</p></div>
+      <p>Untersuche den Shop wie ein Detektiv: Tippe auf alles, was dir verdächtig vorkommt. <b>Neun Warnzeichen</b> sind versteckt.</p>
+      <div class="ex-panel" id="fk-info"><p class="muted">Noch nichts gefunden. Tippe auf eine verdächtige Stelle im Shop.</p></div>
     </div>
     <div class="vis">
       <div id="shop" class="svgfig"></div>
+      <div class="controls"><button class="btn" id="fk-all">Alle Warnzeichen zeigen</button></div>
       
     </div>
   </div>
@@ -1288,7 +1290,12 @@ const ICONS = {
   kuh: 'M7 8C5 8 3 7 2 5c2 0 4 .5 5 1.5M17 8c2 0 4-1 5-3-2 0-4 .5-5 1.5M7 6.5c1-1.5 3-2 5-2s4 .5 5 2V14c0 1-.5 2-1.5 2.5L14 18v1.5a2 2 0 0 1-4 0V18l-1.5-1.5C7.5 16 7 15 7 14zM10 18h.01M14 18h.01M9.5 10v.01M14.5 10v.01',
   heu: 'M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 12.5h18M8 6v13M16 6v13',
   mist: 'M3 19c1-4 4-6 6-6 1-2 3-3 5-2 2 .5 3 2 3 4 2 .5 4 2 4 4zM9 9c-1-1 0-2 0-3M13 8c-1-1 0-2 0-3M17 10c-1-1 0-2 0-3',
-  wender: 'M12 22v-9M8 13h8l1-10H7zM10.5 6v4M13.5 6v4'
+  wender: 'M12 22v-9M8 13h8l1-10H7zM10.5 6v4M13.5 6v4',
+  baumwolle: 'M8 11a3 3 0 1 1 4-4.5A3 3 0 1 1 16 11a3 3 0 0 1-2 5h-4a3 3 0 0 1-2-5zM12 16v6M9 19l3-1 3 1',
+  spule: 'M6 3h12M6 21h12M8 3v18M16 3v18M8 7l8 2M8 11l8 2M8 15l8 2M16 17c2 0 3 1 4 3',
+  stoff: 'M4 4h16v16H4zM4 9h16M4 14h16M9 4v16M14 4v16',
+  eimer: 'M5 8h14l-1.5 12a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1zM5 8a7 3 0 0 1 14 0M12 3v2M10 13c0 1.5 4 1.5 4 0',
+  jeans: 'M6 3h12l1 18h-5l-2-11-2 11H5zM6 7h12M12 3v4'
 };
 function icon(name, cls = 'ico') { const d = ICONS[name]; return d ? `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>` : ''; }
 
@@ -1455,26 +1462,57 @@ sorter($('#sort'), [{id: 'p', name: 'Vorteil online'}, {id: 'n', name: 'Nachteil
   {t: 'persönliche Beratung durch Fachleute', c: 'e'}, {t: 'Ware anfassen und anprobieren', c: 'e'}, {t: 'sichert Arbeitsplätze vor Ort', c: 'e'}, {t: 'lebendige Innenstadt', c: 'e'}
 ]);
 (() => {
-  const ink = col('ink'), m = col('ink-2'), sf = col('surface'), s2 = col('surface-2');
-  $('#shop').innerHTML = `<svg viewBox="0 0 340 380" style="max-height:min(62vh,28rem);display:block;margin:0 auto" role="img" aria-label="Erfundener Online-Shop mit Warnzeichen">
-    <rect x="4" y="4" width="332" height="372" rx="14" fill="${s2}"/>
-    <rect x="4" y="4" width="332" height="34" rx="14" fill="${sf}"/>
-    <g class="hs" data-k="url"><rect x="16" y="11" width="230" height="20" rx="10" fill="${s2}"/><text x="26" y="25" font-size="11" fill="${m}">http://smartwatsch-mega-deals24.shop</text></g>
-    <g class="hs" data-k="logo"><text x="20" y="66" font-size="17" font-weight="700" fill="${ink}" font-family="Fraunces, serif">TechWorld Store</text></g>
-    <rect x="20" y="80" width="140" height="120" rx="10" fill="${sf}"/><circle cx="90" cy="140" r="34" fill="none" stroke="${m}" stroke-width="6"/><rect x="78" y="96" width="24" height="12" rx="3" fill="${m}"/><rect x="78" y="172" width="24" height="12" rx="3" fill="${m}"/>
-    <text x="175" y="98" font-size="13" font-weight="700" fill="${ink}">Smartwatch Pro X</text>
-    <g class="hs" data-k="preis"><text x="175" y="124" font-size="12" fill="${m}" text-decoration="line-through">349,00 €</text><text x="175" y="148" font-size="22" font-weight="700" fill="#B3402E">39,99 €</text><text x="175" y="166" font-size="11" fill="#B3402E">−89 % nur heute!</text></g>
-    <g class="hs" data-k="zahl"><rect x="175" y="178" width="148" height="26" rx="6" fill="${sf}"/><text x="183" y="195" font-size="10.5" fill="${ink}">Zahlung: nur Vorkasse</text></g>
-    <g class="hs" data-k="siegel"><circle cx="60" cy="250" r="26" fill="#E8B23A"/><text x="60" y="247" text-anchor="middle" font-size="8.5" font-weight="700" fill="#2b2b2b">100 %</text><text x="60" y="259" text-anchor="middle" font-size="8.5" font-weight="700" fill="#2b2b2b">SICHER</text></g>
-    <text x="100" y="246" font-size="11" fill="${ink}">Super-Kundenbewertungen:</text><text x="100" y="263" font-size="11" fill="${ink}">★★★★★ „Toll!!!“ „Toll!!!“</text>
-    <rect x="20" y="296" width="300" height="1" fill="${m}" opacity=".4"/>
-    <g class="hs" data-k="agb"><text x="20" y="322" font-size="11" fill="${m}">AGB: wird überarbeitet</text></g>
-    <g class="hs" data-k="impr"><text x="190" y="322" font-size="11" fill="${m}">Impressum: –</text></g>
-    <rect x="80" y="338" width="180" height="28" rx="14" fill="${col('accent')}"/><text x="170" y="357" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">Jetzt kaufen</text>
+  /* Fake-Shop als Browserfenster. Die Warnzeichen sind versteckt: Wer eines antippt, markiert es. */
+  const ink = col('ink'), m = col('ink-2'), sf = col('surface'), s2 = col('surface-2'), red = '#B3402E';
+  $('#shop').innerHTML = `<svg viewBox="0 0 360 430" style="max-height:min(64vh,30rem);display:block;margin:0 auto" role="img" aria-label="Erfundener Online-Shop mit versteckten Warnzeichen" id="shop-svg">
+    <style>
+      #shop-svg .hs{cursor:zoom-in}
+      #shop-svg .hs .mark{opacity:0;transition:opacity .3s}
+      #shop-svg .hs[data-seen] .mark{opacity:1}
+      #shop-svg .hs:hover .hov{opacity:.08}
+      #shop-svg .hov{opacity:0;transition:opacity .2s}
+      #shop-svg .blink{animation:fs-blink 1s steps(2) infinite}
+      @keyframes fs-blink{50%{opacity:.35}}
+      @media (prefers-reduced-motion:reduce){#shop-svg *{animation:none!important}}
+    </style>
+    <!-- Browser -->
+    <rect x="2" y="2" width="356" height="426" rx="12" fill="${s2}" stroke="${m}" stroke-opacity=".35"/>
+    <rect x="2" y="2" width="356" height="52" rx="12" fill="${sf}"/><rect x="2" y="40" width="356" height="14" fill="${sf}"/>
+    <circle cx="16" cy="15" r="4" fill="#e0695a"/><circle cx="29" cy="15" r="4" fill="#e3b341"/><circle cx="42" cy="15" r="4" fill="#5db06a"/>
+    <path d="M60 24 v-10 q0 -4 4 -4 h120 q4 0 4 4 v10" fill="${s2}"/><text x="70" y="21" font-size="9" fill="${m}">TechWorld – MEGA Deals!!!</text>
+    <g class="hs" data-k="url"><rect class="hov" x="10" y="28" width="300" height="20" rx="10" fill="${red}"/><rect x="12" y="29" width="296" height="18" rx="9" fill="${s2}"/><path d="M22 43 l5 -9 l5 9z" fill="none" stroke="${red}" stroke-width="1.3"/><text x="27" y="42" text-anchor="middle" font-size="6" font-weight="700" fill="${red}">!</text><text x="37" y="41.5" font-size="9.5" fill="${red}">Nicht sicher</text><text x="90" y="41.5" font-size="9.5" fill="${m}">http://smartwatsch-mega-deals24.shop</text></g>
+    <!-- Shop-Kopf -->
+    <g class="hs" data-k="logo"><rect class="hov" x="14" y="60" width="150" height="26" rx="4" fill="${red}"/><circle cx="26" cy="73" r="8" fill="${col('accent')}"/><text x="26" y="77" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">TW</text><text x="40" y="78" font-size="15" font-weight="700" fill="${ink}" font-family="Fraunces, serif">TechWorld Store</text></g>
+    <text x="226" y="77" font-size="9.5" fill="${m}">Start · Deals · Hilfe</text>
+    <!-- Produkt -->
+    <rect x="16" y="94" width="140" height="132" rx="10" fill="${sf}"/>
+    <rect x="72" y="104" width="28" height="16" rx="4" fill="#59616c"/><rect x="72" y="200" width="28" height="16" rx="4" fill="#59616c"/>
+    <rect x="56" y="118" width="60" height="84" rx="16" fill="#2b2f36"/><rect x="62" y="124" width="48" height="72" rx="11" fill="#11161c"/>
+    <text id="fs-clock" x="86" y="160" text-anchor="middle" font-size="15" font-weight="700" fill="#7fd1ff">10:08</text><text x="86" y="176" text-anchor="middle" font-size="7" fill="#7fd1ff">♥ 72</text>
+    <text x="168" y="108" font-size="13" font-weight="700" fill="${ink}">Smartwatch Pro X</text>
+    <g class="hs" data-k="preis"><rect class="hov" x="164" y="114" width="150" height="56" rx="4" fill="${red}"/><text x="168" y="128" font-size="11" fill="${m}" text-decoration="line-through">349,00 €</text><text x="168" y="152" font-size="24" font-weight="700" fill="${red}">39,99 €</text><text x="168" y="166" font-size="10.5" fill="${red}">−89 % nur heute!</text></g>
+    <g class="hs" data-k="druck"><rect class="hov" x="164" y="174" width="180" height="40" rx="4" fill="${red}"/><rect x="166" y="176" width="176" height="17" rx="4" fill="${red}"/><text id="fs-timer" x="254" y="188" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff">Angebot endet in 04:59</text><text class="blink" x="168" y="207" font-size="9.5" font-weight="700" fill="${red}">Nur noch 2 Stück auf Lager!</text></g>
+    <!-- Bezahlung und Siegel -->
+    <g class="hs" data-k="zahl"><rect class="hov" x="14" y="234" width="332" height="30" rx="4" fill="${red}"/><text x="18" y="253" font-size="9.5" fill="${ink}">Bezahlung:</text>
+      <rect x="72" y="240" width="64" height="18" rx="4" fill="${sf}" stroke="${ink}" stroke-opacity=".4"/><text x="104" y="252.5" text-anchor="middle" font-size="9" font-weight="700" fill="${ink}">Vorkasse</text>
+      ${['Rechnung', 'PayPal', 'Lastschrift'].map((t, i) => `<rect x="${142 + i * 66}" y="240" width="60" height="18" rx="4" fill="${s2}" stroke="${m}" stroke-opacity=".3"/><text x="${172 + i * 66}" y="252.5" text-anchor="middle" font-size="8.5" fill="${m}" opacity=".6">${t}</text><path d="M${146 + i * 66} 249 h52" stroke="${m}" stroke-opacity=".6"/>`).join('')}</g>
+    <g class="hs" data-k="siegel"><rect class="hov" x="14" y="270" width="60" height="60" rx="30" fill="${red}"/><circle cx="44" cy="300" r="26" fill="#E8B23A"/><circle cx="44" cy="300" r="21" fill="none" stroke="#fff" stroke-width="1.2" stroke-dasharray="2 2"/><text x="44" y="297" text-anchor="middle" font-size="8.5" font-weight="700" fill="#2b2b2b">100 %</text><text x="44" y="309" text-anchor="middle" font-size="8.5" font-weight="700" fill="#2b2b2b">SICHER</text></g>
+    <g class="hs" data-k="bew"><rect class="hov" x="82" y="270" width="264" height="62" rx="4" fill="${red}"/><text x="88" y="283" font-size="10" font-weight="700" fill="${ink}">Kundenbewertungen (5,0 ★)</text>
+      ${[0, 1, 2].map(i => `<text x="88" y="${298 + i * 13}" font-size="9" fill="${ink}"><tspan fill="#E8B23A">★★★★★</tspan> „Toll!!! Super Shop!!!“ – Kunde, 12.03.</text>`).join('')}</g>
+    <!-- Fußzeile -->
+    <rect x="16" y="342" width="328" height="1" fill="${m}" opacity=".35"/>
+    <g class="hs" data-k="agb"><rect class="hov" x="14" y="348" width="118" height="18" rx="4" fill="${red}"/><text x="18" y="361" font-size="10" fill="${m}">AGB: wird überarbeitet</text></g>
+    <g class="hs" data-k="impr"><rect class="hov" x="144" y="348" width="200" height="18" rx="4" fill="${red}"/><text x="148" y="361" font-size="10" fill="${m}">Impressum: –   Kontakt: nur Formular</text></g>
+    <rect x="90" y="378" width="180" height="32" rx="16" fill="${col('accent')}"/><text x="180" y="399" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Jetzt kaufen</text>
   </svg>`;
-  const I = {url: ['Auffällige Internetadresse', 'Kein Schloss-Symbol, „http://“ statt „https://“ und eine merkwürdige Schreibweise („smartwatsch“).'], logo: ['Name passt nicht zur Adresse', 'Dubiose Logos oder Namen, die nicht mit der Internetadresse übereinstimmen.'], preis: ['Zu günstige Preise', 'Das neueste Gerät mit fast 90 % Rabatt? Vergleiche mit anderen Anbietenden!'], zahl: ['Bezahlmethode nur Vorkasse', 'Nur Vorauszahlung oder Sofortüberweisung: Das Geld ist weg, wenn nichts kommt. Sicherer ist Kauf auf Rechnung.'], siegel: ['Unechtes Siegel', 'Echte Gütesiegel wie „Trusted Shops“ oder „E-Commerce Europe“ sind immer mit dem Zertifikat verlinkt. Gütesiegel anklicken!'], agb: ['Fehlende AGB', 'Seriöse Shops haben vollständige Allgemeine Geschäftsbedingungen.'], impr: ['Fehlendes Impressum', 'Mindestens Name, Adresse und Telefonnummer müssen angegeben sein.']};
-  requestAnimationFrame(() => $$('#shop g.hs').forEach(g => { const b = g.getBBox(); const r = svgEl('rect', {x: b.x - 4, y: b.y - 3, width: b.width + 8, height: b.height + 6, rx: 6, fill: 'transparent', stroke: col('accent'), 'stroke-width': 1.6, 'stroke-dasharray': '4 3'}); g.insertBefore(r, g.firstChild); }));
-  hotspots($('#shop'), $('#fk-info'), Object.fromEntries(Object.entries(I).map(([k, [h, d]]) => [k, `<h4>${h}</h4><p>${d}</p>`])));
+  const I = {url: ['Auffällige Internetadresse', 'Der Browser warnt „Nicht sicher“: „http://“ statt „https://“, kein Schloss-Symbol. Dazu eine merkwürdige Schreibweise („smartwatsch“) und eine ungewöhnliche Endung.'], logo: ['Name passt nicht zur Adresse', 'Der Shop heißt „TechWorld Store“, die Adresse lautet ganz anders. Dubiose Logos oder Namen sind ein Warnzeichen.'], preis: ['Zu günstige Preise', 'Das neueste Gerät mit fast 90 % Rabatt? Vergleiche mit anderen Anbietenden!'], druck: ['Zeitdruck und Knappheit', 'Ein ablaufender Countdown und „Nur noch 2 Stück!“ sollen dich zum schnellen Kauf drängen – ohne nachzudenken.'], zahl: ['Bezahlmethode nur Vorkasse', 'Alle anderen Zahlarten sind „gerade nicht verfügbar“. Bei Vorkasse ist das Geld weg, wenn nichts kommt. Sicherer ist Kauf auf Rechnung.'], siegel: ['Unechtes Siegel', 'Echte Gütesiegel wie „Trusted Shops“ oder „E-Commerce Europe“ sind immer mit dem Zertifikat verlinkt. Gütesiegel anklicken!'], bew: ['Gefälschte Bewertungen', 'Nur Bestnoten, immer derselbe Text, alle am selben Tag und ohne Namen: So sehen gekaufte oder erfundene Bewertungen aus.'], agb: ['Fehlende AGB', 'Seriöse Shops haben vollständige Allgemeine Geschäftsbedingungen.'], impr: ['Fehlendes Impressum', 'Mindestens Name, Adresse und Telefonnummer müssen angegeben sein. Nur ein Kontaktformular reicht nicht.']};
+  const KEYS = Object.keys(I);
+  /* gefundene Stellen: gestrichelter Rahmen und Nummer (erst nach dem Antippen sichtbar) */
+  requestAnimationFrame(() => $$('#shop g.hs').forEach(g => { const bb = $('.hov', g).getBBox(), n = KEYS.indexOf(g.dataset.k) + 1; const mk = svgEl('g', {class: 'mark'}, g); svgEl('rect', {x: bb.x - 2, y: bb.y - 2, width: bb.width + 4, height: bb.height + 4, rx: 6, fill: 'none', stroke: red, 'stroke-width': 2, 'stroke-dasharray': '5 3'}, mk); svgEl('circle', {cx: bb.x + bb.width, cy: bb.y, r: 8, fill: red}, mk); const tx = svgEl('text', {x: bb.x + bb.width, y: bb.y + 3.5, 'text-anchor': 'middle', 'font-size': 9, 'font-weight': 700, fill: '#fff'}, mk); tx.textContent = n; }));
+  hotspots($('#shop'), $('#fk-info'), Object.fromEntries(Object.entries(I).map(([k, [h, d]]) => [k, `<h4>${KEYS.indexOf(k) + 1}. ${h}</h4><p>${d}</p>`])));
+  $('#fk-all').onclick = () => { $$('#shop g.hs').forEach(g => g.dataset.seen = 1); $('#fk-info').innerHTML = `<h4>Alle ${KEYS.length} Warnzeichen</h4><ol class="facts">${KEYS.map(k => `<li><b>${I[k][0]}</b></li>`).join('')}</ol>`; };
+  /* Countdown läuft – und beginnt nach Ablauf einfach von vorn */
+  let sec = 299; setInterval(() => { sec = sec > 0 ? sec - 1 : 299; const t = $('#fs-timer'); if (t) t.textContent = `Angebot endet in ${String(Math.floor(sec / 60)).padStart(2, '0')}:${String(sec % 60).padStart(2, '0')}`; }, 1000);
 })();
 trueFalse($('#tf'), [
   {t: 'Online bestellte Turnschuhe nach 10 Tagen zurückschicken', ok: true, why: 'Innerhalb von 14 Tagen ohne Grund.'},

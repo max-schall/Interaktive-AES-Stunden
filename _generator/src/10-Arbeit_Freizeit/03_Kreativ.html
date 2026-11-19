@@ -122,50 +122,71 @@ explore($('#ex'), [
   const S = ['Fäden mit einer Durchziehschlaufe am Schlüsselring befestigen: zwei kurze Innenfäden in der Mitte, zwei doppelt so lange Arbeitsfäden rechts und links.', 'Rechten Arbeitsfaden (weiß) vorne über die Innenfäden nach links legen.', 'Linken Arbeitsfaden (bunt) hinten herum nach vorne durch die weiße Schlaufe ziehen. Knoten festziehen.', 'Nächster Knoten: genauso, aber spiegelverkehrt beginnen – links nach rechts. Weiß bleibt immer vorne, bunt hinten.', 'Wiederholen, bis die gewünschte Länge erreicht ist. Verknoten, Reste abschneiden und fransig auskämmen. Fertig!'];
   let k = 0;
   stepper($('#mk-step'), S.length, i => { k = i; $('#mk-st').innerHTML = `<b>${i + 1}.</b> ${S[i]}`; });
-  canvasLoop($('#cv-m'), 'makramee', (ctx, w, h, t) => {
-    const u = Math.min(w / 80, h / 100), cx = w / 2, B = '#d9824a', BD = '#9c5226', WH = '#f4efe4', WD = '#b9ad98';
-    const rope = (pts, c, d, wd = 3.2 * u) => {
-      const path = () => { ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]); for (let i = 1; i < pts.length; i++) { const p = pts[i]; p.length === 4 ? ctx.quadraticCurveTo(p[0], p[1], p[2], p[3]) : ctx.lineTo(p[0], p[1]); } };
+  /* Kreuzknoten: Fäden als geglättete Linien; vorne/hinten über die Zeichenreihenfolge.
+     Der Faden, der gerade bewegt wird, „zeichnet sich“ mit Pfeilspitze nach (Endlosschleife). */
+  let k0 = -1, tk = 0;
+  const B = '#d9824a', BD = '#9c5226', WH = '#f6f1e6', WD = '#a89c86';
+  /* Catmull-Rom → dichte Punktliste */
+  const smooth = P => { const out = []; for (let i = 0; i < P.length - 1; i++) { const p0 = P[i - 1] || P[i], p1 = P[i], p2 = P[i + 1], p3 = P[i + 2] || p2; for (let j = 0; j < 12; j++) { const t = j / 12, t2 = t * t, t3 = t2 * t; out.push([.5 * (2 * p1[0] + (-p0[0] + p2[0]) * t + (2 * p0[0] - 5 * p1[0] + 4 * p2[0] - p3[0]) * t2 + (-p0[0] + 3 * p1[0] - 3 * p2[0] + p3[0]) * t3), .5 * (2 * p1[1] + (-p0[1] + p2[1]) * t + (2 * p0[1] - 5 * p1[1] + 4 * p2[1] - p3[1]) * t2 + (-p0[1] + 3 * p1[1] - 3 * p2[1] + p3[1]) * t3)]); } } out.push(P[P.length - 1]); return out; };
+  canvasLoop($('#cv-m'), 'makramee', (ctx, w, h, t, dt) => {
+    if (k !== k0) { k0 = k; tk = 0; } tk += dt;
+    const u = Math.min(w / 80, h / 100), ox = w / 2 - 40 * u, X = x => ox + x * u, Y = y => y * u;
+    /* Faden zeichnen: pts in Einheiten, Anteil f (0…1) */
+    const rope = (pts, c, d, f = 1, wd = 3) => {
+      const q = smooth(pts).map(([x, y]) => [X(x), Y(y)]); const n = Math.max(2, Math.round(q.length * f)); const r = q.slice(0, n);
+      const path = () => { ctx.beginPath(); r.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); };
       ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-      path(); ctx.strokeStyle = d; ctx.lineWidth = wd + 2; ctx.stroke();
-      path(); ctx.strokeStyle = c; ctx.lineWidth = wd; ctx.stroke();
-      path(); ctx.strokeStyle = alpha(d, .55); ctx.lineWidth = wd * .55; ctx.setLineDash([u * .7, u * 1.1]); ctx.stroke(); ctx.setLineDash([]);
+      path(); ctx.strokeStyle = col('surface'); ctx.lineWidth = (wd + 2.4) * u; ctx.stroke();
+      path(); ctx.strokeStyle = d; ctx.lineWidth = (wd + .9) * u; ctx.stroke();
+      path(); ctx.strokeStyle = c; ctx.lineWidth = wd * u; ctx.stroke();
+      path(); ctx.strokeStyle = alpha(d, .5); ctx.lineWidth = wd * .45 * u; ctx.setLineDash([u * .8, u * 1.2]); ctx.stroke(); ctx.setLineDash([]);
+      if (f < 1) { const [x1, y1] = r[r.length - 1], [x0, y0] = r[Math.max(0, r.length - 4)], a = Math.atan2(y1 - y0, x1 - x0); ctx.fillStyle = col('accent'); ctx.beginPath(); ctx.moveTo(x1 + Math.cos(a) * 3 * u, y1 + Math.sin(a) * 3 * u); ctx.lineTo(x1 + Math.cos(a + 2.4) * 2.6 * u, y1 + Math.sin(a + 2.4) * 2.6 * u); ctx.lineTo(x1 + Math.cos(a - 2.4) * 2.6 * u, y1 + Math.sin(a - 2.4) * 2.6 * u); ctx.closePath(); ctx.fill(); }
     };
+    const M = (pts, m) => m ? pts.map(([x, y]) => [80 - x, y]) : pts;
+    /* Anhänger schwingt leicht */
+    ctx.save(); ctx.translate(X(40), Y(8)); ctx.rotate(Math.sin(t * 1.3) * .02); ctx.translate(-X(40), -Y(8));
     /* Schlüsselring */
-    const ry = 10 * u;
-    ctx.lineWidth = 2.4 * u; ctx.strokeStyle = '#7d8590'; ctx.beginPath(); ctx.arc(cx, ry, 7 * u, 0, 7); ctx.stroke();
-    ctx.lineWidth = .8 * u; ctx.strokeStyle = '#e6eaee'; ctx.beginPath(); ctx.arc(cx, ry, 7 * u, Math.PI * 1.1, Math.PI * 1.6); ctx.stroke();
-    const n = k < 2 ? 0 : k === 2 ? 1 : k === 3 ? 2 : 6, kh = 7.5 * u, y0 = ry + 9 * u, bottom = h - 9 * u;
-    /* Innenfäden */
-    rope([[cx - 1.8 * u, ry + 6 * u], [cx - 1.8 * u, bottom - (k === 4 ? 6 * u : 0)]], WH, WD, 2.6 * u);
-    rope([[cx + 1.8 * u, ry + 6 * u], [cx + 1.8 * u, bottom - (k === 4 ? 6 * u : 0)]], WH, WD, 2.6 * u);
-    /* Durchziehschlaufe */
-    rope([[cx - 7 * u, y0 - 2 * u], [cx - 6 * u, ry + 1 * u, cx, ry + 6.5 * u], [cx + 6 * u, ry + 1 * u, cx + 7 * u, y0 - 2 * u]], B, BD);
-    /* fertige Kreuzknoten: weiß vorne quer, bunte Schlaufen seitlich */
-    for (let i = 0; i < n; i++) {
-      const y = y0 + i * kh, l = i % 2 === 0;
-      rope([[cx - 6.5 * u, y + 1.5 * u], [cx - 9 * u, y + kh * .5, cx - 6.5 * u, y + kh - 1.5 * u]], B, BD);
-      rope([[cx + 6.5 * u, y + 1.5 * u], [cx + 9 * u, y + kh * .5, cx + 6.5 * u, y + kh - 1.5 * u]], B, BD);
-      rope([[cx + (l ? 7 : -7) * u, y + kh * .3], [cx, y + kh * .2, cx + (l ? -7 : 7) * u, y + kh * .55]], WH, WD);
+    ctx.lineWidth = 2.2 * u; ctx.strokeStyle = '#7d8590'; ctx.beginPath(); ctx.arc(X(40), Y(8), 5.5 * u, 0, 7); ctx.stroke();
+    ctx.lineWidth = .7 * u; ctx.strokeStyle = '#e6eaee'; ctx.beginPath(); ctx.arc(X(40), Y(8), 5.5 * u, Math.PI * 1.1, Math.PI * 1.6); ctx.stroke();
+    const done = k <= 2 ? 0 : k === 3 ? 1 : 8, kh = 6.5, y0 = 19, yy = y0 + done * kh, bot = k === 4 ? 86 : 97;
+    /* Innenfäden (hängen gerade) */
+    rope([[37.5, 14], [37.5, bot]], B, BD, 1, 2.4); rope([[42.5, 14], [42.5, bot]], WH, WD, 1, 2.4);
+    /* Durchziehschlaufen am Ring */
+    rope([[34, 19], [34, 15], [35.8, 12.6], [37.5, 15], [37.5, 17]], B, BD); rope([[46, 19], [46, 15], [44.2, 12.6], [42.5, 15], [42.5, 17]], WH, WD);
+    ctx.fillStyle = BD; ctx.fillRect(X(33.2), Y(15.5), 5.2 * u, 1.2 * u); ctx.fillStyle = WD; ctx.fillRect(X(41.6), Y(15.5), 5.2 * u, 1.2 * u);
+    /* fertige halbe Kreuzknoten: weißer Querbalken vorne, bunte Bögen seitlich */
+    for (let i = 0; i < done; i++) {
+      const y = y0 + i * kh;
+      rope([[34, y], [31.5, y + kh * .5], [34, y + kh]], B, BD); rope([[46, y], [48.5, y + kh * .5], [46, y + kh]], B, BD);
+      rope([[i % 2 ? 46 : 34, y + kh * .25], [40, y + kh * .5], [i % 2 ? 34 : 46, y + kh * .55]], WH, WD);
     }
-    const yy = y0 + n * kh, wig = Math.sin(t * 2.2) * .8 * u;
-    if (k < 4) {
-      const lx = cx - 7 * u, rx = cx + 7 * u;
-      if (k === 0) { rope([[lx, yy - 2 * u], [lx - 4 * u, yy + 30 * u]], B, BD); rope([[rx, yy - 2 * u], [rx + 4 * u, yy + 30 * u]], WH, WD); }
-      if (k >= 1) {
-        /* rechter Arbeitsfaden vorne über die Innenfäden nach links */
-        rope([[rx, yy - 2 * u], [cx, yy + 4 * u, lx - 9 * u, yy + 6 * u + wig], [lx - 13 * u, yy + 30 * u]], WH, WD);
-      }
-      if (k === 1) rope([[lx, yy - 2 * u], [lx - 4 * u, yy + 30 * u]], B, BD);
-      if (k >= 2) {
-        /* linker Faden hinten herum, vorne durch die Schlaufe */
-        rope([[lx, yy - 2 * u], [lx - 4 * u, yy + 10 * u, cx, yy + 11 * u], [rx + 10 * u, yy + 10 * u + wig, rx + 12 * u, yy + 30 * u]], B, BD);
-        rope([[rx + 3 * u, yy + 1 * u], [cx, yy + 6 * u, lx - 2 * u, yy + 4 * u]], WH, WD);
-      }
+    /* aktueller Knoten */
+    const D = 1.8, HOLD = 1, cyc = D + HOLD;
+    const prog = (start) => { const tt = tk % (2 * cyc) - start; return clamp(tt / D, 0, 1); };
+    if (k <= 3) {
+      const m = k === 3;  /* spiegelverkehrt */
+      const Wt = [[46, yy], [50, yy + 4], [47.5, yy + 9], [40, yy + 10.5], [32, yy + 10.5], [28, yy + 17], [26, yy + 40]];
+      const Bt = {a: [[34, yy], [31, yy + 8], [33, yy + 18]], b: [[33, yy + 18], [41, yy + 19], [49, yy + 16]], c: [[49, yy + 16], [47.5, yy + 11], [46.5, yy + 6]], d: [[46.5, yy + 6], [46, yy + 3], [50.5, yy + 7], [54, yy + 40]]};
+      const fw = k === 0 ? 0 : k === 1 ? prog(0) : k === 2 ? 1 : Math.min(1, (tk % (2 * cyc + D)) / D);
+      const fb = k <= 1 ? 0 : k === 2 ? (tk % cyc) / D : clamp(((tk % (2 * cyc + D)) - D) / D, 0, 1);
+      /* bunter Faden: Abschnitte hinten zuerst */
+      const segs = [Bt.a, Bt.b, Bt.c, Bt.d], lens = [.25, .3, .15, .3];
+      const part = i => { let acc = 0; for (let j = 0; j < i; j++) acc += lens[j]; return clamp((fb - acc) / lens[i], 0, 1); };
+      if (fb > 0) { if (part(1) > 0) rope(M(segs[1], m), B, BD, part(1)); if (part(2) > 0) rope(M(segs[2], m), B, BD, part(2)); }
+      /* weißer Arbeitsfaden */
+      if (fw > 0) rope(M(Wt, m), WH, WD, Math.max(.02, fw)); else rope(M([[46, yy], [48, yy + 20], [50, yy + 40]], m), WH, WD);
+      /* bunter Faden vorne */
+      if (fb > 0) { rope(M(segs[0], m), B, BD, part(0)); if (part(3) > 0) rope(M(segs[3], m), B, BD, part(3)); }
+      else rope(M([[34, yy], [32, yy + 20], [30, yy + 40]], m), B, BD);
+      const hint = k === 0 ? '' : fb > 0 && fb < 1 ? (m ? 'bunt: hinten herum, vorne durch die Schlaufe' : 'bunt: hinten herum, vorne durch die Schlaufe') : fw > 0 && fw < 1 ? (m ? 'weiß: vorne nach rechts' : 'weiß: vorne nach links') : '';
+      if (hint) label(ctx, '→ ' + hint, w / 2, Y(90), {size: 12, color: C.accent, weight: 700, maxW: w - 20});
     } else {
-      for (let i = -6; i <= 6; i++) { const x0 = cx + i * .9 * u; ctx.strokeStyle = i % 3 ? alpha(BD, .8) : alpha(WD, .9); ctx.lineWidth = .9 * u; ctx.beginPath(); ctx.moveTo(x0 * .5 + cx * .5, yy); ctx.quadraticCurveTo(x0, yy + 6 * u, x0 + i * .6 * u, bottom); ctx.stroke(); }
+      /* Fransen */
+      for (let i = -7; i <= 7; i++) { const x0 = 40 + i * .55; ctx.strokeStyle = i % 2 ? alpha(BD, .85) : alpha(WD, .95); ctx.lineWidth = .8 * u; ctx.beginPath(); ctx.moveTo(X(40 + i * .3), Y(yy + 1)); ctx.quadraticCurveTo(X(x0), Y(yy + 5), X(x0 + i * .45 + Math.sin(t * 1.5 + i) * .2), Y(bot)); ctx.stroke(); }
+      ctx.fillStyle = BD; roundRect(ctx, X(35), Y(yy - 1), 10 * u, 2.6 * u, 1.2 * u); ctx.fill();
     }
-    label(ctx, ['Befestigen', 'Weiß vorne nach links', 'Bunt hinten durch die Schlaufe', 'Spiegelverkehrt weiter', 'Fertig – Fransen auskämmen'][k], cx, h - 3.5 * u, {size: 16, font: DISPLAY, weight: 600, color: C.accent, maxW: w - 20});
+    ctx.restore();
+    label(ctx, ['Befestigen', 'Weiß vorne nach links', 'Bunt hinten durch die Schlaufe', 'Spiegelverkehrt weiter', 'Fertig – Fransen auskämmen'][k], w / 2, h - 3.5 * u, {size: 16, font: DISPLAY, weight: 600, color: C.accent, maxW: w - 20});
   });
 })();
 opinion($('#op'), [

@@ -505,7 +505,8 @@ input[type=range]{accent-color:var(--accent);width:100%}
 
 /* ---------- SVG-Grafiken (Pyramide, Kreis, Diagramme) ---------- */
 .svgfig{width:100%;height:auto;display:block}
-.svgfig text{font-family:var(--f-body);fill:var(--ink)}
+.svgfig text{font-family:var(--f-body)}
+.svgfig text:not([fill]){fill:var(--ink)}
 .svgfig .hit{cursor:pointer;transition:opacity .2s,filter .2s}
 .svgfig .hit:hover{filter:brightness(1.06)}
 .svgfig .dim{opacity:.28}
@@ -681,12 +682,18 @@ input[type=range]{accent-color:var(--accent);width:100%}
       <p class="eyebrow">Station 4 · Schritt 3</p>
       <h2>Erste Nähproben</h2>
       <p class="lead">Bevor du mit einem Werkstück startest, mache Übungen auf Papier – ohne Faden – entlang einer geraden, einer gezackten und einer Wellenlinie. Teste Einstellungen danach immer auf einem Stoffrest.</p>
-      <p><b>Simulation:</b> Halte die Taste „Gas geben“ gedrückt (wie das Fußpedal) und lenke den Stoff mit den Pfeilen ← → so, dass die Nadel auf der Linie bleibt.</p>
+      <p><b>Simulation:</b> Gib Gas (wie mit dem Fußpedal) und lenke gleichzeitig das Papier so, dass die Nadel auf der Linie bleibt:</p>
+      <ul class="facts">
+        <li><b>Tastatur:</b> Leertaste (oder ↑) halten und mit ← → lenken.</li>
+        <li><b>Maus / Touch:</b> auf das Papier drücken, gedrückt halten und zur Seite ziehen.</li>
+        <li><b>Knöpfe:</b> „Pedal treten“ rastet ein, dann mit ← → lenken.</li>
+      </ul>
+      <p class="note">Auf dieser Station lenken die Pfeiltasten das Papier. Weiterblättern mit Bild↓, Presenter oder dem Knopf unten.</p>
     </div>
     <div class="vis">
       <div class="vis-head"><h3>Wellenlinie</h3><div id="pr-seg"></div></div>
       <canvas id="cv-p" class="wide" aria-label="Nähübung: Stoff unter der Nadel lenken"></canvas>
-      <div class="controls"><button class="btn" id="pl">←</button><button class="btn primary" id="pg">Gas geben</button><button class="btn" id="pr">→</button><button class="btn" id="p0">Neu</button></div>
+      <div class="controls"><button class="btn" id="pl">←</button><button class="btn primary" id="pg" aria-pressed="false">Pedal treten</button><button class="btn" id="pr">→</button><button class="btn" id="p0">Neu</button></div>
       <p class="status" id="p-st"></p>
     </div>
   </div>
@@ -1302,7 +1309,12 @@ const ICONS = {
   kuh: 'M7 8C5 8 3 7 2 5c2 0 4 .5 5 1.5M17 8c2 0 4-1 5-3-2 0-4 .5-5 1.5M7 6.5c1-1.5 3-2 5-2s4 .5 5 2V14c0 1-.5 2-1.5 2.5L14 18v1.5a2 2 0 0 1-4 0V18l-1.5-1.5C7.5 16 7 15 7 14zM10 18h.01M14 18h.01M9.5 10v.01M14.5 10v.01',
   heu: 'M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 12.5h18M8 6v13M16 6v13',
   mist: 'M3 19c1-4 4-6 6-6 1-2 3-3 5-2 2 .5 3 2 3 4 2 .5 4 2 4 4zM9 9c-1-1 0-2 0-3M13 8c-1-1 0-2 0-3M17 10c-1-1 0-2 0-3',
-  wender: 'M12 22v-9M8 13h8l1-10H7zM10.5 6v4M13.5 6v4'
+  wender: 'M12 22v-9M8 13h8l1-10H7zM10.5 6v4M13.5 6v4',
+  baumwolle: 'M8 11a3 3 0 1 1 4-4.5A3 3 0 1 1 16 11a3 3 0 0 1-2 5h-4a3 3 0 0 1-2-5zM12 16v6M9 19l3-1 3 1',
+  spule: 'M6 3h12M6 21h12M8 3v18M16 3v18M8 7l8 2M8 11l8 2M8 15l8 2M16 17c2 0 3 1 4 3',
+  stoff: 'M4 4h16v16H4zM4 9h16M4 14h16M9 4v16M14 4v16',
+  eimer: 'M5 8h14l-1.5 12a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1zM5 8a7 3 0 0 1 14 0M12 3v2M10 13c0 1.5 4 1.5 4 0',
+  jeans: 'M6 3h12l1 18h-5l-2-11-2 11H5zM6 7h12M12 3v4'
 };
 function icon(name, cls = 'ico') { const d = ICONS[name]; return d ? `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>` : ''; }
 
@@ -1467,40 +1479,67 @@ checks($('#chk'), ['Ich weiß, wo der Not-Aus-Schalter ist.', 'Lange Haare sind 
 (() => {
   const ink = col('ink'), m = col('ink-2'), sf = col('surface'), ac = col('accent');
   const N = [[1, 'Nähfuß', 'Drückt den Stoff beim Nähen auf die Stichplatte.', 128, 219, 84, 256], [2, 'Nadelhalter', 'Hält die Nähnadel. Nadel mit der flachen Seite nach hinten einsetzen.', 136, 190, 196, 176], [3, 'Nähfuß-Hebel', 'Hebt und senkt den Nähfuß. Vor dem Nähen immer senken!', 176, 152, 212, 136], [4, 'Einstellrad für die Fadenspannung', 'Regelt, wie stark der Oberfaden gespannt ist.', 112, 96, 40, 96], [5, 'Spulerfadenführung', 'Führt den Faden beim Aufspulen des Unterfadens.', 250, 54, 236, 22], [6, 'Garnrollenhalter', 'Hier steckt die Garnrolle für den Oberfaden.', 300, 46, 300, 14], [7, 'Spuler', 'Wickelt den Unterfaden auf die Spule.', 360, 50, 362, 18], [8, 'Spulstopp', 'Stoppt das Aufspulen, wenn die Spule voll ist.', 388, 54, 420, 26], [9, 'Handrad', 'Bewegt die Nadel von Hand. Immer zu dir hin drehen.', 440, 120, 466, 168], [10, 'Sticheinstellungsrad', 'Wählt die Stichart (Geradstich, Zick-Zack …).', 374, 146, 330, 152], [11, 'Rückwärtsnähtaste', 'Zum Rückwärtsnähen, z. B. beim Verriegeln.', 366, 190, 330, 200], [12, 'Stichplatte', 'Metallplatte unter dem Nähfuß; die Markierungen helfen, gerade zu nähen.', 170, 206, 236, 248]];
-  const OL = '#3a3f4a', BODY = '#f5f2ec', BODY2 = '#e4ded3', MET = '#b9c0c9';
-  $('#nm').innerHTML = `<svg viewBox="0 0 480 290" role="img" aria-label="Nähmaschine mit nummerierten Teilen">
+  const OL = '#3a3f4a', BODY = '#f7f4ee', BODY2 = '#e2dbcf', MET = '#b9c0c9', DARK = '#5c636e';
+  /* Jedes Teil ist eine eigene Gruppe (#nm-pN). Ist ein Teil gewählt, wird es hervorgehoben und führt seine Bewegung vor. */
+  $('#nm').innerHTML = `<svg viewBox="0 0 480 290" role="img" aria-label="Nähmaschine mit nummerierten Teilen" id="nm-svg">
+    <style>
+      #nm-svg .part{transition:opacity .3s,filter .3s}
+      #nm-svg[data-sel] .part{opacity:.55}
+      #nm-svg[data-sel] .part.sel{opacity:1;filter:drop-shadow(0 0 4px ${ac})}
+      #nm-svg[data-sel="3"] #nm-p1,#nm-svg[data-sel="9"] #nm-p2{opacity:1}
+      #nm-svg .needle{animation:nm-up 1.6s ease-in-out infinite}
+      #nm-svg[data-sel="9"] .needle,#nm-svg[data-sel="2"] .needle{animation-duration:.7s}
+      #nm-svg[data-sel="9"] #nm-p9 .spokes{animation:nm-wheel .7s linear infinite}
+      #nm-svg[data-sel="4"] #nm-p4 .dial,#nm-svg[data-sel="10"] #nm-p10 .dial{animation:nm-turn 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+      #nm-svg[data-sel="7"] #nm-p7 .dial{animation:nm-spin 1s linear infinite;transform-box:fill-box;transform-origin:center}
+      #nm-svg[data-sel="6"] #nm-p6 .stripes{animation:nm-wheel .9s linear infinite}
+      #nm-svg[data-sel="3"] #nm-p1,#nm-svg[data-sel="1"] #nm-p1{animation:nm-foot 2s ease-in-out infinite}
+      #nm-svg[data-sel="3"] #nm-p3 .lever{animation:nm-lever 2s ease-in-out infinite;transform-box:fill-box;transform-origin:0% 50%}
+      #nm-svg[data-sel="11"] #nm-p11,#nm-svg[data-sel="8"] #nm-p8{animation:nm-press 1.2s ease-in-out infinite}
+      #nm-svg[data-sel="12"] #nm-p12 .marks{animation:nm-blink 1.2s ease-in-out infinite}
+      #nm-svg[data-sel="5"] .thread{stroke-dasharray:4 4;animation:nm-flow .6s linear infinite}
+      #nm-svg .hs circle.badge{transition:r .2s}
+      #nm-svg .hs.on circle.badge{r:15}
+      @keyframes nm-up{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+      @keyframes nm-wheel{to{transform:translateY(12px)}}
+      @keyframes nm-turn{0%,100%{transform:rotate(-50deg)}50%{transform:rotate(60deg)}}
+      @keyframes nm-spin{to{transform:rotate(360deg)}}
+      @keyframes nm-foot{0%,35%,100%{transform:translateY(0)}50%,85%{transform:translateY(-7px)}}
+      @keyframes nm-lever{0%,35%,100%{transform:rotate(0)}50%,85%{transform:rotate(-28deg)}}
+      @keyframes nm-press{0%,40%,100%{transform:translateY(0)}55%,85%{transform:translateY(2.5px)}}
+      @keyframes nm-blink{50%{opacity:.25}}
+      @keyframes nm-flow{to{stroke-dashoffset:-8}}
+      @media (prefers-reduced-motion:reduce){#nm-svg *{animation:none!important}}
+    </style>
     <defs><linearGradient id="nm-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${BODY}"/><stop offset="1" stop-color="${BODY2}"/></linearGradient>
-    <linearGradient id="nm-m" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9edf1"/><stop offset="1" stop-color="${MET}"/></linearGradient></defs>
-    <ellipse cx="250" cy="262" rx="210" ry="9" fill="rgba(0,0,0,.12)"/>
-    <path d="M56 204 H426 Q436 204 436 214 V244 Q436 252 428 252 H62 Q52 252 52 244 V212 Q52 204 56 204 Z" fill="url(#nm-b)" stroke="${OL}" stroke-width="2.2"/>
-    <path d="M60 240 H428" stroke="rgba(0,0,0,.12)" stroke-width="2"/>
-    <path d="M330 204 V118 H164 Q150 118 150 132 V192 Q150 200 142 200 H76 Q64 200 64 188 V78 Q64 56 88 56 H404 Q426 56 426 80 V204 Z" fill="url(#nm-b)" stroke="${OL}" stroke-width="2.2" stroke-linejoin="round"/>
-    <path d="M70 74 H420" stroke="${ac}" stroke-width="6" opacity=".85"/>
-    <path d="M168 118 H326" stroke="rgba(0,0,0,.08)" stroke-width="6"/>
-    <rect x="94" y="200" width="96" height="8" rx="2" fill="url(#nm-m)" stroke="${OL}" stroke-width="1.2"/>
-    <path d="M150 202 v4 M160 202 v4 M170 202 v4 M180 202 v4" stroke="${OL}" stroke-width="1"/>
-    <rect x="124" y="184" width="16" height="12" rx="2" fill="url(#nm-m)" stroke="${OL}" stroke-width="1.2"/>
-    <line x1="132" y1="160" x2="132" y2="186" stroke="${MET}" stroke-width="6"/><line x1="132" y1="160" x2="132" y2="186" stroke="${OL}" stroke-width="1" opacity=".5"/>
-    <line x1="132" y1="196" x2="132" y2="214" stroke="#7b8490" stroke-width="2"/>
-    <path d="M108 212 H150 Q154 212 152 218 L150 222 H112 Q106 222 108 216 Z" fill="url(#nm-m)" stroke="${OL}" stroke-width="1.4"/>
-    <path d="M150 146 h28 a6 6 0 0 1 0 12 h-28 z" fill="#6d7480" stroke="${OL}" stroke-width="1.2"/>
-    <circle cx="112" cy="96" r="13" fill="#d8dde3" stroke="${OL}" stroke-width="1.8"/><circle cx="112" cy="96" r="5" fill="#9aa3ad"/>
-    ${[0, 60, 120, 180, 240, 300].map(a => `<line x1="${112 + 9 * Math.cos(a * Math.PI / 180)}" y1="${96 + 9 * Math.sin(a * Math.PI / 180)}" x2="${112 + 12 * Math.cos(a * Math.PI / 180)}" y2="${96 + 12 * Math.sin(a * Math.PI / 180)}" stroke="${OL}" stroke-width="1"/>`).join('')}
-    <path d="M300 40 C230 40 140 44 120 84 M112 109 Q120 150 132 160" fill="none" stroke="${col('c1')}" stroke-width="1.6" stroke-dasharray="1 0"/>
-    <path d="M244 56 v-8 a6 6 0 0 1 12 0" fill="none" stroke="${OL}" stroke-width="2.2"/>
-    <line x1="300" y1="56" x2="300" y2="30" stroke="${OL}" stroke-width="3"/>
-    <rect x="288" y="26" width="24" height="24" rx="3" fill="${col('c1')}" stroke="${OL}" stroke-width="1.4"/>
-    <path d="M289 31 h22 M289 36 h22 M289 41 h22 M289 46 h22" stroke="rgba(255,255,255,.35)" stroke-width="1.2"/>
-    <rect x="286" y="22" width="28" height="5" rx="2" fill="#d9c9a5" stroke="${OL}" stroke-width="1"/><rect x="286" y="49" width="28" height="5" rx="2" fill="#d9c9a5" stroke="${OL}" stroke-width="1"/>
-    <line x1="360" y1="56" x2="360" y2="40" stroke="${OL}" stroke-width="3"/><ellipse cx="360" cy="40" rx="9" ry="4" fill="#d8dde3" stroke="${OL}" stroke-width="1.4"/>
-    <rect x="382" y="46" width="12" height="10" rx="2" fill="#6d7480" stroke="${OL}" stroke-width="1.2"/>
-    <ellipse cx="440" cy="120" rx="14" ry="38" fill="#5c636e" stroke="${OL}" stroke-width="2"/>
-    <ellipse cx="436" cy="120" rx="9" ry="32" fill="#7a828d"/>
-    ${[-24, -12, 0, 12, 24].map(d => `<line x1="430" y1="${120 + d}" x2="444" y2="${120 + d}" stroke="#4a5059" stroke-width="1.4"/>`).join('')}
-    <circle cx="374" cy="146" r="18" fill="#d8dde3" stroke="${OL}" stroke-width="2"/><circle cx="374" cy="146" r="11" fill="${BODY}" stroke="${OL}" stroke-width="1.2"/><line x1="374" y1="146" x2="374" y2="132" stroke="${ac}" stroke-width="3" stroke-linecap="round"/>
-    <rect x="354" y="182" width="28" height="15" rx="4" fill="#d8dde3" stroke="${OL}" stroke-width="1.6"/><path d="M374 189.5 h-12 m4 -4 l-4 4 l4 4" fill="none" stroke="${OL}" stroke-width="1.6" stroke-linecap="round"/>
-    ${N.map(([n, , , x, y, bx, by]) => `<g class="hs" data-k="${n}" style="cursor:pointer"><line x1="${x}" y1="${y}" x2="${bx}" y2="${by}" stroke="${ac}" stroke-width="1.6"/><circle cx="${x}" cy="${y}" r="3" fill="${ac}"/><circle cx="${bx}" cy="${by}" r="12" fill="${ac}" stroke="${sf}" stroke-width="2"/><text x="${bx}" y="${by + 4.5}" text-anchor="middle" font-size="13" font-weight="700" style="fill:#fff">${n}</text></g>`).join('')}
+    <linearGradient id="nm-m" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#eef1f4"/><stop offset="1" stop-color="${MET}"/></linearGradient>
+    <clipPath id="nm-wc"><ellipse cx="440" cy="122" rx="13" ry="37"/></clipPath><clipPath id="nm-sc"><rect x="288" y="27" width="24" height="22"/></clipPath></defs>
+    <ellipse cx="248" cy="264" rx="214" ry="9" fill="rgba(0,0,0,.12)"/>
+    <!-- Grundplatte -->
+    <path d="M50 206 H432 Q442 206 442 216 V246 Q442 256 432 256 H58 Q46 256 46 246 V216 Q46 206 50 206 Z" fill="url(#nm-b)" stroke="${OL}" stroke-width="2.2"/>
+    <path d="M52 242 H436" stroke="rgba(0,0,0,.1)" stroke-width="2"/>
+    <!-- Ständer, Arm und Kopf -->
+    <path d="M334 206 V122 Q334 116 328 116 H170 Q158 116 158 128 V188 Q158 200 146 200 H80 Q66 200 66 186 V80 Q66 54 92 54 H402 Q428 54 428 80 V206 Z" fill="url(#nm-b)" stroke="${OL}" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M74 72 H420" stroke="${ac}" stroke-width="6" opacity=".85" stroke-linecap="round"/>
+    <path d="M172 120 H328" stroke="rgba(0,0,0,.07)" stroke-width="6"/>
+    <!-- Oberfaden: Garnrolle → Führung → Spannung → Nadel -->
+    <path class="thread" d="M300 30 C 270 26 252 40 250 50 C 210 54 140 58 122 84 M108 106 Q 116 140 132 168" fill="none" stroke="${col('c1')}" stroke-width="1.6"/>
+    <g class="part" id="nm-p12"><rect x="92" y="202" width="100" height="8" rx="2" fill="url(#nm-m)" stroke="${OL}" stroke-width="1.2"/><g class="marks"><path d="M150 203 v6 M158 203 v6 M166 203 v6 M174 203 v6 M182 203 v6" stroke="${OL}" stroke-width="1"/></g></g>
+    <g class="needle"><g class="part" id="nm-p2"><line x1="132" y1="150" x2="132" y2="184" stroke="${MET}" stroke-width="6"/><rect x="124" y="180" width="16" height="12" rx="2" fill="url(#nm-m)" stroke="${OL}" stroke-width="1.2"/><line x1="132" y1="192" x2="132" y2="212" stroke="#6b737e" stroke-width="2"/><circle cx="132" cy="208" r="1" fill="${col('c1')}"/></g></g>
+    <g class="part" id="nm-p1"><line x1="140" y1="168" x2="140" y2="212" stroke="${MET}" stroke-width="3"/><path d="M106 212 H152 Q156 212 154 218 L152 222 H110 Q104 222 106 216 Z" fill="url(#nm-m)" stroke="${OL}" stroke-width="1.4"/></g>
+    <g class="part" id="nm-p3"><g class="lever"><path d="M156 146 h26 a6 6 0 0 1 0 12 h-26 z" fill="${DARK}" stroke="${OL}" stroke-width="1.2"/></g></g>
+    <g class="part" id="nm-p4"><circle cx="112" cy="96" r="13" fill="#d8dde3" stroke="${OL}" stroke-width="1.8"/><g class="dial"><circle cx="112" cy="96" r="9" fill="#e9ecf0"/>${[0, 60, 120, 180, 240, 300].map(a => `<line x1="${112 + 6 * Math.cos(a * Math.PI / 180)}" y1="${96 + 6 * Math.sin(a * Math.PI / 180)}" x2="${112 + 11 * Math.cos(a * Math.PI / 180)}" y2="${96 + 11 * Math.sin(a * Math.PI / 180)}" stroke="${OL}" stroke-width="1"/>`).join('')}<line x1="112" y1="96" x2="112" y2="86" stroke="${ac}" stroke-width="2.4" stroke-linecap="round"/></g></g>
+    <g class="part" id="nm-p5"><path d="M244 54 v-8 a6 6 0 0 1 12 0 v3" fill="none" stroke="${OL}" stroke-width="2.4"/></g>
+    <g class="part" id="nm-p6"><line x1="300" y1="54" x2="300" y2="28" stroke="${OL}" stroke-width="3"/><rect x="288" y="26" width="24" height="24" rx="3" fill="${col('c1')}" stroke="${OL}" stroke-width="1.4"/><g clip-path="url(#nm-sc)"><g class="stripes">${[-12, -6, 0, 6, 12, 18, 24].map(d => `<path d="M289 ${31 + d} h22" stroke="rgba(255,255,255,.4)" stroke-width="1.4"/>`).join('')}</g></g><rect x="286" y="22" width="28" height="5" rx="2" fill="#d9c9a5" stroke="${OL}" stroke-width="1"/><rect x="286" y="49" width="28" height="5" rx="2" fill="#d9c9a5" stroke="${OL}" stroke-width="1"/></g>
+    <g class="part" id="nm-p7"><line x1="360" y1="54" x2="360" y2="40" stroke="${OL}" stroke-width="3"/><g class="dial"><ellipse cx="360" cy="40" rx="10" ry="4.5" fill="#d8dde3" stroke="${OL}" stroke-width="1.4"/><line x1="352" y1="40" x2="368" y2="40" stroke="${OL}" stroke-width="1"/></g></g>
+    <g class="part" id="nm-p8"><rect x="382" y="45" width="13" height="10" rx="2" fill="${DARK}" stroke="${OL}" stroke-width="1.2"/></g>
+    <g class="part" id="nm-p9"><ellipse cx="440" cy="122" rx="14" ry="38" fill="${DARK}" stroke="${OL}" stroke-width="2"/><ellipse cx="437" cy="122" rx="9" ry="32" fill="#7a828d"/><g clip-path="url(#nm-wc)"><g class="spokes">${[-48, -36, -24, -12, 0, 12, 24, 36].map(d => `<line x1="428" y1="${122 + d}" x2="452" y2="${122 + d}" stroke="#454b53" stroke-width="1.6"/>`).join('')}</g></g><path d="M458 104 q8 18 0 36" fill="none" stroke="${ac}" stroke-width="2" marker-end="url(#nm-ar)" opacity=".8"/></g>
+    <defs><marker id="nm-ar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="${ac}"/></marker></defs>
+    <g class="part" id="nm-p10"><circle cx="374" cy="146" r="18" fill="#d8dde3" stroke="${OL}" stroke-width="2"/><g class="dial"><circle cx="374" cy="146" r="11" fill="${BODY}" stroke="${OL}" stroke-width="1.2"/><line x1="374" y1="146" x2="374" y2="132" stroke="${ac}" stroke-width="3" stroke-linecap="round"/></g></g>
+    <g class="part" id="nm-p11"><rect x="354" y="182" width="28" height="15" rx="4" fill="#d8dde3" stroke="${OL}" stroke-width="1.6"/><path d="M374 189.5 h-12 m4 -4 l-4 4 l4 4" fill="none" stroke="${OL}" stroke-width="1.6" stroke-linecap="round"/></g>
+    ${N.map(([n, , , x, y, bx, by]) => `<g class="hs" data-k="${n}" style="cursor:pointer"><line x1="${x}" y1="${y}" x2="${bx}" y2="${by}" stroke="${ac}" stroke-width="1.6"/><circle cx="${x}" cy="${y}" r="3" fill="${ac}"/><circle class="badge" cx="${bx}" cy="${by}" r="12" fill="${ac}" stroke="${sf}" stroke-width="2"/><text x="${bx}" y="${by + 4.5}" text-anchor="middle" font-size="13" font-weight="700" style="fill:#fff;pointer-events:none">${n}</text></g>`).join('')}
   </svg>`;
+  $('#nm').addEventListener('click', e => { const h = e.target.closest('.hs'); if (!h) return; const svg = $('#nm-svg'); svg.dataset.sel = h.dataset.k; $$('#nm-svg .part').forEach(g => g.classList.toggle('sel', g.id === 'nm-p' + h.dataset.k)); });
   hotspots($('#nm'), $('#nm-info'), Object.fromEntries(N.map(([n, t, d]) => [n, `<h4>${n} ${t}</h4><p>${d}</p>`])));
 })();
 (() => {
@@ -1528,26 +1567,68 @@ checks($('#chk'), ['Ich weiß, wo der Not-Aus-Schalter ist.', 'Lange Haare sind 
   });
 })();
 (() => {
-  let off = 0, pos = 0, gas = false, dir = 0, ok = 0, all = 0, type = 'w', hist = [];
+  /* Nähprobe: Gas (Pedal) und Lenken gleichzeitig – per Tastatur (Leertaste/↑ + ←/→), per Maus/Touch
+     (auf dem Papier gedrückt halten und zur Seite ziehen) oder mit den Knöpfen (Pedal rastet ein). */
+  const LEN = 1400;
+  let off = 0, pos = 0, ok = 0, all = 0, type = 'w', hist = [], latch = false, kGas = false, pGas = false, kL = false, kR = false, bL = false, bR = false, pX = null;
   seg($('#pr-seg'), [['g', 'gerade'], ['z', 'gezackt'], ['w', 'Welle']], v => { type = v; reset(); });
   const path = s => type === 'g' ? 0 : type === 'w' ? Math.sin(s / 60) * 40 : (Math.abs(((s / 50) % 2 + 2) % 2 - 1) * 2 - 1) * 35;
-  function reset() { off = 0; pos = 0; ok = 0; all = 0; hist = []; $('#p-st').textContent = 'Halte „Gas geben“ gedrückt.'; }
-  const hold = (b, f, g) => { b.addEventListener('pointerdown', e => { e.preventDefault(); f(); }); ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => b.addEventListener(ev, g)); };
-  hold($('#pg'), () => gas = true, () => gas = false); hold($('#pl'), () => dir = -1, () => dir = 0); hold($('#pr'), () => dir = 1, () => dir = 0);
+  const gas = () => latch || kGas || pGas;
+  function reset() { off = 0; pos = 0; ok = 0; all = 0; hist = []; latch = false; updBtn(); $('#p-st').innerHTML = 'Gas geben und dabei lenken: <b>Leertaste</b> halten + <b>← →</b>, oder mit der Maus auf das Papier drücken und zur Seite ziehen.'; }
+  function updBtn() { $('#pg').textContent = latch ? 'Pedal loslassen' : 'Pedal treten'; $('#pg').setAttribute('aria-pressed', latch); }
+  /* Knöpfe: Pointer-Capture, damit mehrere Finger gleichzeitig drücken können */
+  const hold = (b, on, off2) => { b.addEventListener('pointerdown', e => { e.preventDefault(); b.setPointerCapture(e.pointerId); on(); }); ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(ev => b.addEventListener(ev, off2)); };
+  hold($('#pl'), () => bL = true, () => bL = false); hold($('#pr'), () => bR = true, () => bR = false);
+  $('#pg').onclick = () => { latch = !latch; updBtn(); };
   $('#p0').onclick = reset;
-  document.addEventListener('keydown', e => { if (cur !== STATIONS.indexOf($('#probe'))) return; if (e.key === 'ArrowUp' || e.key === ' ') { gas = true; e.preventDefault(); } });
-  document.addEventListener('keyup', e => { if (e.key === 'ArrowUp' || e.key === ' ') gas = false; });
+  /* Maus/Touch direkt auf dem Papier: gedrückt halten = Gas, Zeigerposition = Lenkung */
+  const cv = $('#cv-p');
+  cv.style.touchAction = 'none'; cv.style.cursor = 'grab';
+  cv.addEventListener('pointerdown', e => { cv.setPointerCapture(e.pointerId); pGas = true; pX = e.offsetX; cv.style.cursor = 'grabbing'; });
+  cv.addEventListener('pointermove', e => { if (pGas) pX = e.offsetX; });
+  ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(ev => cv.addEventListener(ev, () => { pGas = false; pX = null; cv.style.cursor = 'grab'; }));
+  /* Tastatur: auf dieser Station steuern die Pfeiltasten den Stoff (Weiterblättern mit Bild↓ / Presenter) */
+  const here = () => STATIONS[cur] === 'probe';
+  window.addEventListener('keydown', e => {
+    if (!here() || e.target.closest('input, select, textarea')) return;
+    const k = e.key;
+    if (k === ' ' || k === 'ArrowUp') kGas = true; else if (k === 'ArrowLeft') kL = true; else if (k === 'ArrowRight') kR = true; else return;
+    e.preventDefault(); e.stopPropagation();
+  }, true);
+  window.addEventListener('keyup', e => { const k = e.key; if (k === ' ' || k === 'ArrowUp') kGas = false; else if (k === 'ArrowLeft') kL = false; else if (k === 'ArrowRight') kR = false; }, true);
+  window.addEventListener('blur', () => { kGas = kL = kR = false; });
   reset();
   canvasLoop($('#cv-p'), 'probe', (ctx, w, h, t, dt) => {
-    const nx = w * .5, ny = h * .3;
-    if (gas && pos < 1400) { pos += dt * 90; off += dir * dt * 90; const d = Math.abs(off - path(pos)); all++; if (d < 10) ok++; hist.push([pos, off]); if (hist.length > 400) hist.shift(); $('#p-st').innerHTML = `Genauigkeit: <b>${Math.round(ok / all * 100)} %</b>${pos >= 1400 ? ' – fertig!' : ''}`; }
+    const nx = w * .5, ny = h * .3, sp = 90;
+    let dir = (kR || bR ? 1 : 0) - (kL || bL ? 1 : 0);
+    if (gas() && pos < LEN) {
+      pos += dt * sp;
+      if (pX != null) off += clamp((pX - nx) / 40, -1, 1) * dt * sp * 1.2; else off += dir * dt * sp;
+      const d = Math.abs(off - path(pos)); all++; if (d < 10) ok++;
+      hist.push([pos, off]); if (hist.length > 600) hist.shift();
+      if (pos >= LEN) { latch = false; updBtn(); }
+      $('#p-st').innerHTML = `Genauigkeit: <b>${Math.round(ok / all * 100)} %</b>${pos >= LEN ? ' – fertig! Mit „Neu“ noch einmal.' : ''}`;
+    }
+    /* Papier mit Linien */
     ctx.fillStyle = '#fbf9f3'; roundRect(ctx, 0, 0, w, h, 10); ctx.fill(); ctx.strokeStyle = 'rgba(80,110,160,.12)'; ctx.lineWidth = 1; for (let yy = ((ny - pos) % 24 + 24) % 24; yy < h; yy += 24) { ctx.beginPath(); ctx.moveTo(0, yy); ctx.lineTo(w, yy); ctx.stroke(); }
     ctx.strokeStyle = alpha(C.ink2, .5); ctx.lineWidth = 2; ctx.setLineDash([6, 5]); ctx.beginPath();
     for (let yy = 0; yy <= h; yy += 4) { const s = pos + (yy - ny); ctx.lineTo(nx + path(s) - off, yy); } ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle = C.accent; hist.forEach(([s, o]) => { const yy = ny - (pos - s); if (yy > 0 && (Math.round(s) % 9) < 3) { ctx.beginPath(); ctx.arc(nx + o - off, yy, 1.6, 0, 7); ctx.fill(); } });
+    /* Einstichlöcher: grün auf der Linie, rot daneben */
+    hist.forEach(([s, o]) => { const yy = ny - (pos - s); if (yy > 0 && (Math.round(s) % 9) < 3) { const good = Math.abs(o - path(s)) < 10; ctx.fillStyle = good ? C.good : C.bad; ctx.beginPath(); ctx.arc(nx + o - off, yy, 1.8, 0, 7); ctx.fill(); } });
+    /* Nähfuß und Nadel */
     ctx.fillStyle = 'rgba(195,202,211,.6)'; ctx.strokeStyle = '#59616c'; ctx.lineWidth = 1.5; roundRect(ctx, nx - 28, ny - 14, 56, 28, 9); ctx.fill(); ctx.stroke();
     ctx.fillStyle = '#9aa3ad'; ctx.fillRect(nx - 6, 0, 12, ny - 16); ctx.strokeRect(nx - 6, -2, 12, ny - 14);
-    ctx.strokeStyle = '#59616c'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(nx, ny - 16); ctx.lineTo(nx, ny - (gas ? (Math.sin(t * 30) + 1) * 4 : 6)); ctx.stroke(); dotAt(ctx, nx, ny, gas ? '#c0392b' : '#59616c', 3.5);
+    ctx.strokeStyle = '#59616c'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(nx, ny - 16); ctx.lineTo(nx, ny - (gas() ? (Math.sin(t * 30) + 1) * 4 : 6)); ctx.stroke(); dotAt(ctx, nx, ny, gas() ? '#c0392b' : '#59616c', 3.5);
+    /* Anzeigen: Pedal, Lenkung, Fortschritt */
+    const pg = gas(), dirShow = pX != null ? clamp((pX - nx) / 40, -1, 1) : dir;
+    ctx.fillStyle = alpha(col('surface'), .9); roundRect(ctx, 10, h - 42, 150, 32, 8); ctx.fill();
+    ctx.fillStyle = pg ? C.good : alpha(C.ink2, .35); roundRect(ctx, 18, h - 34, 34, 16, 4); ctx.fill();
+    label(ctx, 'Pedal', 35, h - 26, {size: 10, color: '#fff', halo: false});
+    [-1, 1].forEach(d => { ctx.fillStyle = Math.sign(dirShow) === d ? C.accent : alpha(C.ink2, .3); ctx.beginPath(); const x = d < 0 ? 72 : 104; ctx.moveTo(x + (d < 0 ? 0 : 14), h - 26); ctx.lineTo(x + (d < 0 ? 14 : 0), h - 34); ctx.lineTo(x + (d < 0 ? 14 : 0), h - 18); ctx.closePath(); ctx.fill(); });
+    label(ctx, 'lenken', 124, h - 26, {size: 10, color: C.ink2, weight: 400, align: 'left'});
+    ctx.fillStyle = alpha(C.ink2, .2); roundRect(ctx, w - 130, h - 30, 110, 8, 4); ctx.fill();
+    ctx.fillStyle = C.accent; roundRect(ctx, w - 130, h - 30, 110 * Math.min(1, pos / LEN), 8, 4); ctx.fill();
+    label(ctx, 'Strecke', w - 136, h - 26, {size: 10, color: C.ink2, weight: 400, align: 'right'});
   });
 })();
 matcher($('#match'), [['Steppstich', 'Teile zusammennähen, Säume'], ['Zick-Zack-Stich', 'Stoffkanten versäubern'], ['Stichlänge', 'Abstand der Einstiche'], ['Stichbreite', 'seitliche Bewegung der Nadel'], ['Verriegeln', 'Naht am Anfang und Ende sichern'], ['Handrad', 'Nadel von Hand bewegen']]);

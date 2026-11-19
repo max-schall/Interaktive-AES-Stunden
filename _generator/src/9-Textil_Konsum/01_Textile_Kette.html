@@ -48,7 +48,7 @@ inter: Die textile Kette Schritt für Schritt · Weltreise einer Jeans · Natur-
       <p class="note">Beispielroute (typisch, vereinfacht).</p>
     </div>
     <div class="vis">
-      <canvas id="cv-r" class="wide" aria-label="Route einer Jeans durch sechs Länder"></canvas>
+      <canvas id="cv-r" class="wide" aria-label="Globus mit der Route einer Jeans durch sechs Länder"></canvas>
       <div class="controls"><button class="btn primary" id="r-go">Reise starten</button></div>
       <p class="status" id="r-st"></p>
     </div>
@@ -116,33 +116,152 @@ inter: Die textile Kette Schritt für Schritt · Weltreise einer Jeans · Natur-
 </section>
 
 <script>
-const ST = [['Faserherstellung', 'Naturfasern wie Baumwolle werden angebaut und geerntet; Chemiefasern aus Erdöl oder Holz-Cellulose hergestellt.', 'blatt'], ['Garnherstellung', 'Aus den einzelnen Fasern wird durch Spinnen ein Garn.', 'kreislauf'], ['Flächenherstellung', 'Durch Weben, Stricken oder Filzen entsteht aus dem Garn eine textile Fläche – ein Stoff.', 'paket'], ['Textilveredelung', 'Chemisch, mechanisch oder thermisch werden die Eigenschaften verändert: Bleichen, Mercerisieren (Baumwolle mit Natronlauge behandeln), Färben, Bedrucken, Imprägnieren (wasserabweisend machen).', 'pinsel'], ['Konfektion', 'Zuschneiden und Nähen des Kleidungsstücks.', 'nadel'], ['Transport und Handel', 'Transport nach Deutschland, Verkauf im Geschäft oder online.', 'lkw'], ['Gebrauch und Pflege', 'Lüften, waschen, trocknen, bügeln – damit die Kleidung lange schön bleibt.', 'waschen'], ['Entsorgung oder Recycling', 'Altkleidercontainer, Secondhand, Faserrückgewinnung, Verbrennung.', 'muell']];
+const ST = [['Faserherstellung', 'Naturfasern wie Baumwolle werden angebaut und geerntet; Chemiefasern aus Erdöl oder Holz-Cellulose hergestellt.', 'baumwolle'], ['Garnherstellung', 'Aus den einzelnen Fasern wird durch Spinnen ein Garn.', 'spule'], ['Flächenherstellung', 'Durch Weben, Stricken oder Filzen entsteht aus dem Garn eine textile Fläche – ein Stoff.', 'stoff'], ['Textilveredelung', 'Chemisch, mechanisch oder thermisch werden die Eigenschaften verändert: Bleichen, Mercerisieren (Baumwolle mit Natronlauge behandeln), Färben, Bedrucken, Imprägnieren (wasserabweisend machen).', 'eimer'], ['Konfektion', 'Zuschneiden und Nähen des Kleidungsstücks.', 'jeans'], ['Transport und Handel', 'Transport nach Deutschland, Verkauf im Geschäft oder online.', 'lkw'], ['Gebrauch und Pflege', 'Lüften, waschen, trocknen, bügeln – damit die Kleidung lange schön bleibt.', 'waschen'], ['Entsorgung oder Recycling', 'Altkleidercontainer, Secondhand, Faserrückgewinnung, Verbrennung.', 'kreislauf']];
 (() => {
   let k = 0;
   stepper($('#k-step'), 8, i => { k = i; $('#k-st').innerHTML = `<b>${i + 1}. ${ST[i][0]}:</b> ${ST[i][1]}`; });
+  /* Bild in der Mitte: wie das Produkt bei jedem Schritt aussieht */
+  const IND = '#3d5a8a', IND2 = '#2c4470';
+  const scene = (ctx, i, x, y, S, t) => {
+    ctx.save(); ctx.translate(x, y); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    const F = (c, f) => { ctx.fillStyle = c; ctx.beginPath(); f(); ctx.fill(); };
+    if (i === 0) { /* Baumwollpflanze */
+      ctx.strokeStyle = '#6a8f4e'; ctx.lineWidth = S * .05; ctx.beginPath(); ctx.moveTo(0, S * .5); ctx.quadraticCurveTo(S * .05, 0, 0, -S * .15); ctx.moveTo(0, S * .15); ctx.quadraticCurveTo(-S * .2, 0, -S * .3, -S * .1); ctx.moveTo(0, S * .2); ctx.quadraticCurveTo(S * .2, S * .05, S * .3, -S * .05); ctx.stroke();
+      [[0, -.28], [-.32, -.22], [.32, -.17]].forEach(([a, b], j) => { const bob = Math.sin(t * 1.5 + j) * S * .01; F('#8a6a3c', () => ctx.arc(a * S, b * S + S * .08 + bob, S * .07, 0, 7)); [[-.06, 0], [.06, 0], [0, -.07], [-.03, .05], [.04, .05]].forEach(([c, d]) => { F('#ffffff', () => ctx.arc((a + c) * S, (b + d) * S + bob, S * .075, 0, 7)); ctx.strokeStyle = '#cfc6b3'; ctx.lineWidth = 1.2; ctx.stroke(); }); ctx.strokeStyle = 'rgba(0,0,0,.12)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(a * S, b * S + bob, S * .13, 0, 7); ctx.stroke(); });
+    } else if (i === 1) { /* Garnspule, Faden läuft ab */
+      F('#c9a46a', () => { ctx.rect(-S * .28, -S * .42, S * .56, S * .08); ctx.rect(-S * .28, S * .34, S * .56, S * .08); });
+      F('#f3efe6', () => ctx.rect(-S * .22, -S * .34, S * .44, S * .68)); ctx.strokeStyle = '#cfc6b3'; ctx.lineWidth = 1.2;
+      for (let k = 0; k < 14; k++) { const yy = -S * .32 + k * S * .048 + ((t * S * .05) % (S * .048)); ctx.beginPath(); ctx.moveTo(-S * .22, yy); ctx.lineTo(S * .22, yy + S * .03); ctx.stroke(); }
+      ctx.strokeStyle = '#f3efe6'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(S * .22, 0); ctx.bezierCurveTo(S * .4, S * .05 + Math.sin(t * 3) * 4, S * .45, -S * .2, S * .55, -S * .1); ctx.stroke(); ctx.strokeStyle = '#cfc6b3'; ctx.lineWidth = 1; ctx.stroke();
+    } else if (i === 2 || i === 3) { /* gewebter Stoff (Schritt 3: wird gefärbt) */
+      const n = 9, c = S * .8 / n, dye = i === 3 ? clamp((t % 4) / 2.5, 0, 1) : 0;
+      for (let r = 0; r < n; r++) for (let q = 0; q < n; q++) { const over = (r + q) % 2 === 0; const xx = -S * .4 + q * c, yy = -S * .4 + r * c; const lit = r / n < dye; ctx.fillStyle = lit ? (over ? IND : IND2) : (over ? '#f4f0e6' : '#ddd5c4'); ctx.fillRect(xx + .5, yy + .5, c - 1, c - 1); }
+      ctx.strokeStyle = 'rgba(0,0,0,.18)'; ctx.lineWidth = 1; ctx.strokeRect(-S * .4, -S * .4, S * .8, S * .8);
+      if (i === 3) { F('#7a828d', () => { ctx.moveTo(-S * .2, -S * .62); ctx.lineTo(S * .2, -S * .62); ctx.lineTo(S * .15, -S * .46); ctx.lineTo(-S * .15, -S * .46); ctx.closePath(); }); for (let k = 0; k < 3; k++) { const pp = (t * .8 + k / 3) % 1; F(IND, () => ctx.arc((k - 1) * S * .1, lerp(-S * .45, -S * .38 + dye * S * .8, pp), S * .025, 0, 7)); } }
+    } else if (i === 4) { /* Jeans wird zugeschnitten und genäht */
+      F(IND, () => { ctx.moveTo(-S * .26, -S * .42); ctx.lineTo(S * .26, -S * .42); ctx.lineTo(S * .3, S * .45); ctx.lineTo(S * .06, S * .45); ctx.lineTo(0, -S * .05); ctx.lineTo(-S * .06, S * .45); ctx.lineTo(-S * .3, S * .45); ctx.closePath(); });
+      ctx.strokeStyle = '#e0a84a'; ctx.lineWidth = 1.5; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(-S * .24, -S * .3); ctx.lineTo(S * .24, -S * .3); ctx.moveTo(0, -S * .3); ctx.lineTo(0, -S * .08); ctx.moveTo(-S * .2, -S * .3); ctx.quadraticCurveTo(-S * .2, -S * .18, -S * .1, -S * .18); ctx.stroke(); ctx.setLineDash([]);
+      const nx = S * .42, ny = -S * .1 + Math.sin(t * 10) * S * .03; ctx.strokeStyle = '#59616c'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(nx, -S * .45); ctx.lineTo(nx, ny); ctx.stroke();
+    } else if (i === 5) { /* Containerschiff / Lkw unterwegs */
+      const dx = ((t * S * .2) % (S * 1.2)) - S * .6;
+      ctx.strokeStyle = alpha(C.water, .6); ctx.lineWidth = 2; ctx.beginPath(); for (let xx = -S * .6; xx <= S * .6; xx += 6) ctx.lineTo(xx, S * .22 + Math.sin(xx * .08 + t * 3) * 3); ctx.stroke();
+      ctx.save(); ctx.beginPath(); ctx.rect(-S * .6, -S * .6, S * 1.2, S * 1.2); ctx.clip(); ctx.translate(dx, 0);
+      F('#6b7380', () => { ctx.moveTo(-S * .32, S * .05); ctx.lineTo(S * .34, S * .05); ctx.lineTo(S * .26, S * .22); ctx.lineTo(-S * .26, S * .22); ctx.closePath(); });
+      ['#c0573e', '#3d6e8f', '#d39b2e', '#5b8a4e'].forEach((c, j) => F(c, () => ctx.rect(-S * .26 + j * S * .13, -S * .1, S * .12, S * .14)));
+      F('#e9ecef', () => ctx.rect(S * .2, -S * .2, S * .08, S * .25)); ctx.restore();
+    } else if (i === 6) { /* Waschmaschine, Jeans dreht sich */
+      F('#e9ecef', () => ctx.rect(-S * .32, -S * .4, S * .64, S * .8)); ctx.strokeStyle = '#8b939e'; ctx.lineWidth = 2; ctx.strokeRect(-S * .32, -S * .4, S * .64, S * .8);
+      ctx.beginPath(); ctx.moveTo(-S * .32, -S * .26); ctx.lineTo(S * .32, -S * .26); ctx.stroke(); F('#8b939e', () => ctx.arc(S * .2, -S * .33, S * .03, 0, 7));
+      F('#cfe0ea', () => ctx.arc(0, S * .07, S * .22, 0, 7)); ctx.stroke();
+      ctx.save(); ctx.beginPath(); ctx.arc(0, S * .07, S * .2, 0, 7); ctx.clip(); ctx.rotate(t * 3); ctx.translate(0, 0); F(IND, () => { ctx.rect(-S * .14, -S * .03, S * .28, S * .1); ctx.rect(-S * .05, -S * .14, S * .1, S * .28); }); ctx.restore();
+    } else { /* Altkleidercontainer und Recyclingpfeile */
+      F('#7f9c6a', () => ctx.rect(-S * .28, -S * .25, S * .56, S * .65)); F('#5f7b4d', () => ctx.rect(-S * .18, -S * .15, S * .36, S * .08));
+      ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(0, S * .15, S * .12, t, t + 4.6); ctx.stroke();
+      const hy = -S * .4 - Math.abs(Math.sin(t * 2)) * S * .08; F(IND, () => { ctx.moveTo(-S * .1, hy); ctx.lineTo(S * .1, hy); ctx.lineTo(S * .12, hy + S * .14); ctx.lineTo(-S * .12, hy + S * .14); ctx.closePath(); });
+    }
+    ctx.restore();
+  };
   canvasLoop($('#cv-k'), 'kette', (ctx, w, h, t) => {
-    const cx = w / 2, cy = h / 2, R = Math.min(w * .38, h * .38);
-    ctx.strokeStyle = alpha(C.ink2, .25); ctx.lineWidth = 3; ctx.beginPath(); ctx.ellipse(cx, cy, R * 1.25, R, 0, 0, 7); ctx.stroke();
-    ST.forEach(([n, , ico], i) => { const a = -Math.PI / 2 + i / 8 * Math.PI * 2, x = cx + R * 1.25 * Math.cos(a), y = cy + R * Math.sin(a), on = i === k, done = i < k;
-      ctx.fillStyle = on ? col('accent') : done ? alpha(C.accent, .35) : col('surface-2'); ctx.beginPath(); ctx.arc(x, y, on ? 24 : 18, 0, 7); ctx.fill();
-      ctx.save(); ctx.translate(x - 10, y - 10); ctx.scale(.85, .85); ctx.strokeStyle = on ? '#fff' : C.ink2; ctx.lineWidth = 1.8; ctx.stroke(new Path2D(ICONS[ico])); ctx.restore();
-      label(ctx, String(i + 1), x + (on ? 22 : 16), y - (on ? 18 : 14), {size: 11, color: C.ink2}); });
-    label(ctx, ST[k][0], cx, cy, {size: 16, font: DISPLAY, weight: 600, color: C.accent});
-    const p = (t * .1) % 1, a = -Math.PI / 2 + p * Math.PI * 2; dotAt(ctx, cx + R * 1.25 * Math.cos(a), cy + R * Math.sin(a), C.ink, 3);
+    const cx = w / 2, cy = h / 2, ry = h * .4, rx = Math.min(w * .42, ry * 1.55), nr = Math.min(w, h) * .055;
+    const P = i => { const a = -Math.PI / 2 + i / 8 * Math.PI * 2; return [cx + rx * Math.cos(a), cy + ry * Math.sin(a), a]; };
+    /* Pfeile zwischen den Stationen */
+    for (let i = 0; i < 8; i++) {
+      const [x0, y0] = P(i), [x1, y1] = P((i + 1) % 8), on = i === k - 1 || (k === 0 && i === 7), dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
+      const s0 = [x0 + ux * (nr + 6), y0 + uy * (nr + 6)], s1 = [x1 - ux * (nr + 8), y1 - uy * (nr + 8)];
+      arrow(ctx, s0[0], s0[1], s1[0], s1[1], on ? C.accent : alpha(C.ink2, .3), on ? 3 : 2, 10);
+      if (on) { const pp = (t * .6) % 1; dotAt(ctx, lerp(s0[0], s1[0], pp), lerp(s0[1], s1[1], pp), C.accent, 3); }
+    }
+    ST.forEach(([n, , ico], i) => {
+      const [x, y, a] = P(i), on = i === k, done = i < k, r = on ? nr * 1.25 : nr;
+      ctx.fillStyle = on ? col('accent') : done ? mix(col('accent'), col('surface'), .65) : col('surface-2'); ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
+      const sz = r * 1.1; ctx.save(); ctx.translate(x - sz / 2, y - sz / 2); ctx.scale(sz / 24, sz / 24); ctx.strokeStyle = on ? '#fff' : C.ink2; ctx.lineWidth = 1.8; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(new Path2D(ICONS[ico])); ctx.restore();
+      const lx = x + Math.cos(a) * (r + 8), ly = y + Math.sin(a) * (r + 8);
+      label(ctx, `${i + 1}`, lx, ly, {size: 11, color: on ? C.accent : C.ink2, align: Math.cos(a) > .3 ? 'left' : Math.cos(a) < -.3 ? 'right' : 'center'});
+    });
+    /* Mitte: Bild + Name + Wert */
+    const S = Math.min(rx, ry) * .78;
+    scene(ctx, k, cx, cy - S * .12, S, t);
+    label(ctx, ST[k][0], cx, cy + S * .62, {size: 15, font: DISPLAY, weight: 600, color: C.accent, maxW: rx * 1.3});
+    const val = [1, 2, 3, 4, 6, 7, 7, 1][k], bw = S * 1.1, by = cy + S * .78;
+    ctx.fillStyle = alpha(C.ink2, .15); roundRect(ctx, cx - bw / 2, by, bw, 6, 3); ctx.fill();
+    ctx.fillStyle = k === 7 ? C.bad : C.good; roundRect(ctx, cx - bw / 2, by, bw * val / 7, 6, 3); ctx.fill();
+    label(ctx, k >= 6 ? 'Wert sinkt mit der Nutzung' : 'Wert steigt', cx, by + 16, {size: 10, color: C.ink2, weight: 400});
   });
 })();
 (() => {
-  const P = [['Baumwolle anbauen', 'Usbekistan', 0], ['Spinnen', 'Türkei', 3000], ['Weben, Färben', 'China', 6500], ['Nähen', 'Bangladesch', 3000], ['Veredeln (Used-Look)', 'Tunesien', 8000], ['Verkauf', 'Deutschland', 1800]];
-  let tt = -1;
+  /* Stark vereinfachte Kontinente (Länge, Breite) für einen Orthografie-Globus */
+  const LAND = [
+    [[-17,21],[-16,28],[-10,31],[-6,36],[10,37],[11,33],[20,31],[25,32],[32,31],[34,28],[39,16],[43,12],[51,12],[48,5],[40,-3],[40,-11],[35,-24],[32,-29],[27,-34],[20,-35],[18,-32],[12,-18],[13,-6],[9,-1],[9,4],[4,6],[-8,4],[-13,8],[-17,14]],
+    [[-9,37],[-9,43],[-2,44],[-4,48],[2,51],[8,54],[10,57],[5,60],[5,62],[14,66],[20,70],[28,71],[40,67],[60,69],[70,73],[80,73],[100,77],[115,73],[130,71],[150,71],[170,69],[180,66],[178,62],[163,60],[156,51],[150,59],[140,54],[142,47],[135,43],[130,42],[127,38],[126,35],[122,37],[121,31],[119,25],[110,21],[108,16],[109,12],[105,9],[100,13],[100,6],[103,1],[98,8],[98,16],[94,17],[92,22],[88,22],[85,20],[80,15],[78,8],[73,17],[72,21],[67,24],[62,25],[57,26],[56,24],[59,22],[55,17],[52,16],[45,13],[43,16],[39,22],[35,28],[34,31],[35,36],[30,37],[27,37],[26,40],[23,40],[22,37],[19,40],[16,38],[18,40],[13,44],[12,45],[9,44],[6,43],[3,43],[0,39],[-2,37],[-6,36]],
+    [[-5,50],[1,51],[2,53],[-2,56],[-3,59],[-6,58],[-5,55],[-3,54],[-4,52]],
+    [[130,31],[132,34],[136,35],[140,36],[141,41],[143,44],[141,45],[140,40],[137,37],[133,35]],
+    [[95,5],[98,4],[104,-2],[106,-6],[102,-4]], [[109,1],[113,-3],[117,-1],[119,5],[116,7],[111,2]],
+    [[114,-22],[114,-34],[118,-35],[123,-34],[131,-31],[138,-35],[141,-38],[147,-39],[150,-37],[153,-28],[153,-25],[146,-19],[142,-11],[136,-12],[131,-12],[126,-14],[122,-18]],
+    [[-168,66],[-162,70],[-140,70],[-120,70],[-95,72],[-80,73],[-62,66],[-60,55],[-55,50],[-66,45],[-70,42],[-76,38],[-80,32],[-81,25],[-83,29],[-90,30],[-97,27],[-97,21],[-90,21],[-87,15],[-83,9],[-79,9],[-80,7],[-85,10],[-92,15],[-105,20],[-110,24],[-115,30],[-118,34],[-124,40],[-124,48],[-132,55],[-150,60],[-165,60]],
+    [[-80,8],[-73,12],[-62,11],[-51,4],[-35,-5],[-39,-15],[-48,-28],[-58,-38],[-65,-42],[-68,-50],[-72,-53],[-75,-48],[-73,-37],[-71,-18],[-76,-14],[-81,-5],[-79,1]],
+    [[-50,60],[-43,60],[-22,70],[-20,80],[-40,83],[-60,82],[-72,77],[-55,68]], [[44,-25],[47,-25],[50,-15],[49,-12],[44,-16]]
+  ];
+  const WATER = [[[28,41],[28,44],[30,46],[34,46],[38,47],[41,42],[36,41.5],[30,41]], [[47,45],[50,47],[53,45],[54,41],[54,37],[50,37],[49,40],[47,43]]];
+  /* Stationen der Jeans: [Schritt, Land, Ort, Länge, Breite] */
+  const P = [['Baumwolle anbauen', 'Usbekistan', 'Taschkent', 69.2, 41.3], ['Spinnen', 'Türkei', 'Istanbul', 29, 41], ['Weben, Färben', 'China', 'Shanghai', 121.5, 31.2], ['Nähen', 'Bangladesch', 'Dhaka', 90.4, 23.8], ['Veredeln (Used-Look)', 'Tunesien', 'Tunis', 10.2, 36.8], ['Verkauf', 'Deutschland', 'Frankfurt', 8.7, 50.1]];
+  const RAD = Math.PI / 180, vec = (lo, la) => [Math.cos(la * RAD) * Math.cos(lo * RAD), Math.cos(la * RAD) * Math.sin(lo * RAD), Math.sin(la * RAD)];
+  const ll = v => [Math.atan2(v[1], v[0]) / RAD, Math.asin(clamp(v[2], -1, 1)) / RAD];
+  const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+  const slerp = (a, b, f) => { const om = Math.acos(clamp(dot(a, b), -1, 1)); if (om < 1e-6) return a; const s0 = Math.sin((1 - f) * om) / Math.sin(om), s1 = Math.sin(f * om) / Math.sin(om); return [a[0] * s0 + b[0] * s1, a[1] * s0 + b[1] * s1, a[2] * s0 + b[2] * s1]; };
+  const V = P.map(p => vec(p[3], p[4])), KM = V.slice(1).map((v, i) => Math.round(Math.acos(clamp(dot(V[i], v), -1, 1)) * 6371 / 50) * 50);
+  /* Polygone verdichten, damit sie sich sauber um den Globus wölben */
+  const dense = poly => { const o = []; poly.forEach((p, i) => { const q = poly[(i + 1) % poly.length], n = Math.max(1, Math.ceil(Math.max(Math.abs(q[0] - p[0]), Math.abs(q[1] - p[1])) / 3)); for (let j = 0; j < n; j++) o.push([lerp(p[0], q[0], j / n), lerp(p[1], q[1], j / n)]); }); return o; };
+  const LD = LAND.map(dense), WD = WATER.map(dense);
+  let tt = -1, view = [40, 30];
   $('#r-go').onclick = () => { tt = 0; };
   canvasLoop($('#cv-r'), 'reise', (ctx, w, h, t, dt) => {
-    if (tt >= 0 && tt < P.length) tt += dt * .8;
-    const n = tt < 0 ? 0 : Math.min(P.length - 1, Math.floor(tt)), f = tt < 0 ? 0 : clamp(tt - n, 0, 1);
-    const pos = i => [lerp(40, w - 40, i / (P.length - 1)), h * (.5 + (i % 2 ? .18 : -.18))];
-    for (let i = 0; i < P.length - 1; i++) { const [x0, y0] = pos(i), [x1, y1] = pos(i + 1); ctx.strokeStyle = alpha(C.ink2, .25); ctx.lineWidth = 2; ctx.setLineDash([4, 5]); ctx.beginPath(); ctx.moveTo(x0, y0); ctx.quadraticCurveTo((x0 + x1) / 2, h * .5, x1, y1); ctx.stroke(); ctx.setLineDash([]);
-      const g = i < n ? 1 : i === n && tt >= 0 && n < P.length - 1 ? f : 0; if (g > 0) { ctx.strokeStyle = C.accent; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x0, y0); for (let k = 1; k <= 20 * g; k++) { const u = k / 20, mx = (x0 + x1) / 2, my = h * .5; ctx.lineTo((1 - u) ** 2 * x0 + 2 * u * (1 - u) * mx + u * u * x1, (1 - u) ** 2 * y0 + 2 * u * (1 - u) * my + u * u * y1); } ctx.stroke(); } }
-    let km = 0; P.forEach(([s, l, d], i) => { const [x, y] = pos(i), on = tt >= 0 && i <= n; if (on) km += d; dotAt(ctx, x, y, on ? C.accent : alpha(C.ink2, .4), on ? 8 : 6); const up = i % 2 === 0; label(ctx, l, x, y + (up ? -30 : 30), {size: 13, weight: 700, color: on ? C.ink : C.ink2}); label(ctx, s, x, y + (up ? -15 : 45), {size: 11, weight: 400, color: C.ink2}); });
-    if (tt >= 0) { label(ctx, `≈ ${numDE(km, 0)} km`, w / 2, h - 14, {size: 16, font: DISPLAY, weight: 600, color: C.accent}); $('#r-st').innerHTML = `<b>${n + 1}. ${P[n][0]}</b> in ${P[n][1]}${n === P.length - 1 ? ' – je nach Route legt eine Jeans bis zu 50 000 km zurück!' : ''}`; }
+    const LEG = 2.4;
+    if (tt >= 0 && tt < (P.length - 1) * LEG + 1) tt += dt;
+    const leg = tt < 0 ? -1 : Math.min(P.length - 2, Math.floor(tt / LEG)), f = tt < 0 ? 0 : clamp((tt - leg * LEG) / (LEG * .8), 0, 1), fe = ease(f);
+    const fin = tt >= (P.length - 1) * LEG;
+    /* Blickrichtung: vor dem Start langsam drehen, danach dem Reiseweg folgen */
+    let target;
+    if (tt < 0) target = [60 + Math.sin(t * .25) * 40, 28];
+    else if (fin) target = ll(slerp(V[4], V[5], 1));
+    else target = ll(slerp(V[leg], V[leg + 1], fe));
+    view = [lerp(view[0], target[0], Math.min(1, dt * 3)), lerp(view[1], clamp(target[1], 10, 45), Math.min(1, dt * 3))];
+    const gx = w * .34, gy = h * .5, R = Math.min(w * .32, h * .45), l0 = view[0] * RAD, p0 = view[1] * RAD;
+    const proj = (lo, la) => { const L = lo * RAD - l0, ph = la * RAD, c = Math.sin(p0) * Math.sin(ph) + Math.cos(p0) * Math.cos(ph) * Math.cos(L); let x = Math.cos(ph) * Math.sin(L), y = Math.cos(p0) * Math.sin(ph) - Math.sin(p0) * Math.cos(ph) * Math.cos(L); if (c < 0) { const m = Math.hypot(x, y) || 1; x /= m; y /= m; } return [gx + x * R, gy - y * R, c >= 0]; };
+    const projV = v => { const [lo, la] = ll(v); return proj(lo, la); };
+    /* Meer, Gradnetz, Land */
+    const og = ctx.createRadialGradient(gx - R * .35, gy - R * .35, R * .1, gx, gy, R); og.addColorStop(0, '#bcd7ea'); og.addColorStop(1, '#6f9fc4');
+    ctx.fillStyle = og; ctx.beginPath(); ctx.arc(gx, gy, R, 0, 7); ctx.fill();
+    ctx.save(); ctx.beginPath(); ctx.arc(gx, gy, R, 0, 7); ctx.clip();
+    ctx.strokeStyle = 'rgba(255,255,255,.25)'; ctx.lineWidth = 1;
+    for (let lo = -180; lo < 180; lo += 30) { ctx.beginPath(); let pen = false; for (let la = -90; la <= 90; la += 5) { const [x, y, v] = proj(lo, la); if (v) { pen ? ctx.lineTo(x, y) : ctx.moveTo(x, y); pen = true; } else pen = false; } ctx.stroke(); }
+    for (let la = -60; la <= 60; la += 30) { ctx.beginPath(); let pen = false; for (let lo = -180; lo <= 180; lo += 5) { const [x, y, v] = proj(lo, la); if (v) { pen ? ctx.lineTo(x, y) : ctx.moveTo(x, y); pen = true; } else pen = false; } ctx.stroke(); }
+    const poly = (pts, fill) => { const q = pts.map(([lo, la]) => proj(lo, la)); if (!q.some(p => p[2])) return; ctx.fillStyle = fill; ctx.beginPath(); q.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.closePath(); ctx.fill(); };
+    LD.forEach(pg => poly(pg, '#9dbb7f')); WD.forEach(pg => poly(pg, '#86b0d2'));
+    /* Route: gestrichelt die ganze Strecke, kräftig der zurückgelegte Teil */
+    const arcPts = (a, b, upto) => { const o = []; for (let j = 0; j <= 40 * upto; j++) o.push(projV(slerp(a, b, j / 40))); return o; };
+    const drawArc = (pts, c, lw, dash) => { ctx.strokeStyle = c; ctx.lineWidth = lw; ctx.setLineDash(dash); ctx.beginPath(); let pen = false; pts.forEach(([x, y, v]) => { if (v) { pen ? ctx.lineTo(x, y) : ctx.moveTo(x, y); pen = true; } else pen = false; }); ctx.stroke(); ctx.setLineDash([]); };
+    for (let i = 0; i < P.length - 1; i++) drawArc(arcPts(V[i], V[i + 1], 1), 'rgba(255,255,255,.7)', 1.6, [4, 4]);
+    for (let i = 0; i <= leg; i++) drawArc(arcPts(V[i], V[i + 1], i < leg || fin ? 1 : fe), C.bad, 3, []);
+    /* Orte */
+    P.forEach((p, i) => { const [x, y, v] = proj(p[3], p[4]); if (!v) return; const on = tt >= 0 && (i <= leg + (f >= 1 ? 1 : 0) || fin); dotAt(ctx, x, y, on ? C.bad : '#ffffff', on ? 5 : 4); const [ox, oy] = [[8, -9], [8, 10], [8, -9], [8, 10], [-8, 11], [-8, -9]][i]; label(ctx, p[1], x + ox, y + oy, {size: 11, align: ox > 0 ? 'left' : 'right', color: on ? C.ink : C.ink2}); });
+    /* Jeans unterwegs */
+    if (tt >= 0 && !fin) { const [x, y, v] = projV(slerp(V[leg], V[leg + 1], fe)); if (v) { ctx.fillStyle = '#3d5a8a'; ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x - 6, y - 7); ctx.lineTo(x + 6, y - 7); ctx.lineTo(x + 7, y + 8); ctx.lineTo(x + 2, y + 8); ctx.lineTo(x, y - 1); ctx.lineTo(x - 2, y + 8); ctx.lineTo(x - 7, y + 8); ctx.closePath(); ctx.fill(); ctx.stroke(); } }
+    ctx.restore();
+    /* Glanz und Rand */
+    const sh = ctx.createRadialGradient(gx - R * .4, gy - R * .45, 0, gx - R * .4, gy - R * .45, R * .8); sh.addColorStop(0, 'rgba(255,255,255,.35)'); sh.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = sh; ctx.beginPath(); ctx.arc(gx, gy, R, 0, 7); ctx.fill();
+    ctx.strokeStyle = alpha(C.ink2, .4); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(gx, gy, R, 0, 7); ctx.stroke();
+    /* Etappenliste mit Kilometern */
+    const tx = w * .7, ty = h * .08, rh = (h * .78) / P.length; let km = 0;
+    P.forEach((p, i) => {
+      const y = ty + i * rh, reached = tt >= 0 && (i <= leg || (i === leg + 1 && f >= 1) || fin), d = i ? KM[i - 1] : 0;
+      if (reached) km += d;
+      ctx.fillStyle = reached ? C.bad : alpha(C.ink2, .3); ctx.beginPath(); ctx.arc(tx, y + 10, 5, 0, 7); ctx.fill();
+      if (i < P.length - 1) { ctx.strokeStyle = alpha(C.ink2, .3); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(tx, y + 16); ctx.lineTo(tx, y + rh + 4); ctx.stroke(); }
+      label(ctx, `${p[1]}`, tx + 12, y + 6, {size: 12, align: 'left', color: reached ? C.ink : C.ink2});
+      label(ctx, i ? `${p[0]} · +${numDE(d, 0)} km` : p[0], tx + 12, y + 21, {size: 10, align: 'left', color: C.ink2, weight: 400, maxW: w - tx - 16});
+    });
+    label(ctx, tt < 0 ? 'Reise starten …' : `≈ ${numDE(km, 0)} km Luftlinie`, gx, h - 12, {size: 15, font: DISPLAY, weight: 600, color: C.accent});
+    if (tt >= 0) { const cur2 = fin ? P.length - 1 : f >= 1 ? leg + 1 : leg; $('#r-st').innerHTML = `<b>${cur2 + 1}. ${P[cur2][0]}</b> in ${P[cur2][1]}${fin ? ` – zusammen schon rund ${numDE(KM.reduce((a, b) => a + b, 0), 0)} km Luftlinie. Auf echten Schiffs- und Lkw-Routen legt eine Jeans bis zu 50 000 km zurück – mehr als einmal um die Erde (40 000 km)!` : ''}`; }
   });
 })();
 sorter($('#sort'), [{id: 'n', name: 'Naturfaser'}, {id: 'c', name: 'Chemiefaser'}], [

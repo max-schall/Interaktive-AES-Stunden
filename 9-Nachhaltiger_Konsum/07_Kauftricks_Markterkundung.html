@@ -505,7 +505,8 @@ input[type=range]{accent-color:var(--accent);width:100%}
 
 /* ---------- SVG-Grafiken (Pyramide, Kreis, Diagramme) ---------- */
 .svgfig{width:100%;height:auto;display:block}
-.svgfig text{font-family:var(--f-body);fill:var(--ink)}
+.svgfig text{font-family:var(--f-body)}
+.svgfig text:not([fill]){fill:var(--ink)}
 .svgfig .hit{cursor:pointer;transition:opacity .2s,filter .2s}
 .svgfig .hit:hover{filter:brightness(1.06)}
 .svgfig .dim{opacity:.28}
@@ -1303,7 +1304,12 @@ const ICONS = {
   kuh: 'M7 8C5 8 3 7 2 5c2 0 4 .5 5 1.5M17 8c2 0 4-1 5-3-2 0-4 .5-5 1.5M7 6.5c1-1.5 3-2 5-2s4 .5 5 2V14c0 1-.5 2-1.5 2.5L14 18v1.5a2 2 0 0 1-4 0V18l-1.5-1.5C7.5 16 7 15 7 14zM10 18h.01M14 18h.01M9.5 10v.01M14.5 10v.01',
   heu: 'M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 12.5h18M8 6v13M16 6v13',
   mist: 'M3 19c1-4 4-6 6-6 1-2 3-3 5-2 2 .5 3 2 3 4 2 .5 4 2 4 4zM9 9c-1-1 0-2 0-3M13 8c-1-1 0-2 0-3M17 10c-1-1 0-2 0-3',
-  wender: 'M12 22v-9M8 13h8l1-10H7zM10.5 6v4M13.5 6v4'
+  wender: 'M12 22v-9M8 13h8l1-10H7zM10.5 6v4M13.5 6v4',
+  baumwolle: 'M8 11a3 3 0 1 1 4-4.5A3 3 0 1 1 16 11a3 3 0 0 1-2 5h-4a3 3 0 0 1-2-5zM12 16v6M9 19l3-1 3 1',
+  spule: 'M6 3h12M6 21h12M8 3v18M16 3v18M8 7l8 2M8 11l8 2M8 15l8 2M16 17c2 0 3 1 4 3',
+  stoff: 'M4 4h16v16H4zM4 9h16M4 14h16M9 4v16M14 4v16',
+  eimer: 'M5 8h14l-1.5 12a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1zM5 8a7 3 0 0 1 14 0M12 3v2M10 13c0 1.5 4 1.5 4 0',
+  jeans: 'M6 3h12l1 18h-5l-2-11-2 11H5zM6 7h12M12 3v4'
 };
 function icon(name, cls = 'ico') { const d = ICONS[name]; return d ? `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>` : ''; }
 
@@ -1465,31 +1471,77 @@ function ringSVG(root, parts, o = {}) {
 /* ================= Inhalte dieser Stunde ================= */
 
 (() => {
+  /* Grundriss: Eingang rechts unten, Laufweg gegen den Uhrzeigersinn, Kassen links unten */
   const T = [
-    [70, 215, 'Eingang mit Obst und Gemüse', 'Frisches, schön beleuchtetes Obst und Gemüse gleich am Eingang macht gute Laune und vermittelt Frische. Der Wagen füllt sich sofort.'],
-    [150, 185, 'Bremszone', 'Hinter dem Eingang verlangsamen Aufsteller und Sonderangebote den Schritt – man „bremst“ und verweilt länger.'],
-    [330, 40, 'Milch und Grundnahrungsmittel hinten', 'Was man immer braucht (Milch, Eier, Brot), steht ganz hinten. So musst du durch den ganzen Laden laufen und nimmst Ungeplantes mit.'],
-    [230, 110, 'Laufweg gegen den Uhrzeigersinn', 'Die meisten Menschen sind Rechtshänder und greifen rechts lieber zu – der Laufweg ist darauf ausgerichtet. Breite Gänge laden zum Bummeln ein.'],
-    [120, 70, 'Duft und Musik', 'Frischer Brot- oder Kaffeeduft regt den Appetit an, ruhige Musik verlangsamt die Schritte.'],
-    [250, 200, 'Wühltisch mit Angeboten', 'Rote Rabattschilder sprechen das Belohnungszentrum an – die Vernunft schaltet oft aus. „3 für 2“ bringt dich dazu, mehr zu kaufen.'],
-    [355, 205, 'Quengelzone an der Kasse', 'In der Wartezeit an der Kasse liegen Süßigkeiten, Kaugummis und Spielzeug in Kinderhöhe.'],
-    [40, 120, 'großer Einkaufswagen', 'In übergroßen Wagen mit schräger Fläche rollen die Produkte nach hinten. Der Wagen wirkt leerer – man legt mehr hinein.']
+    [304, 112, 'Eingang mit Obst und Gemüse', 'Frisches, schön beleuchtetes Obst und Gemüse gleich am Eingang macht gute Laune und vermittelt Frische. Der Wagen füllt sich sofort.'],
+    [326, 214, 'Bremszone', 'Hinter dem Eingang verlangsamen Aufsteller und Sonderangebote den Schritt – man „bremst“ und verweilt länger.'],
+    [378, 50, 'Milch und Grundnahrungsmittel hinten', 'Was man immer braucht (Milch, Eier, Brot), steht ganz hinten. So musst du durch den ganzen Laden laufen und nimmst Ungeplantes mit.'],
+    [190, 62, 'Laufweg gegen den Uhrzeigersinn', 'Die meisten Menschen sind Rechtshänder und greifen rechts lieber zu – der Laufweg ist darauf ausgerichtet. Breite Gänge laden zum Bummeln ein.'],
+    [24, 54, 'Duft und Musik', 'Frischer Brot- oder Kaffeeduft regt den Appetit an, ruhige Musik verlangsamt die Schritte.'],
+    [244, 203, 'Wühltisch mit Angeboten', 'Rote Rabattschilder sprechen das Belohnungszentrum an – die Vernunft schaltet oft aus. „3 für 2“ bringt dich dazu, mehr zu kaufen.'],
+    [128, 222, 'Quengelzone an der Kasse', 'In der Wartezeit an der Kasse liegen Süßigkeiten, Kaugummis und Spielzeug in Kinderhöhe.'],
+    [374, 230, 'großer Einkaufswagen', 'In übergroßen Wagen mit schräger Fläche rollen die Produkte nach hinten. Der Wagen wirkt leerer – man legt mehr hinein.']
   ];
-  let s = `<svg viewBox="0 0 400 260" class="svgfig" role="img" aria-label="Grundriss eines Supermarkts"><rect x="6" y="6" width="388" height="248" rx="10" fill="${col('surface-2')}" stroke="${col('line')}"/>`;
-  for (let i = 0; i < 4; i++) s += `<rect x="${110 + i * 55}" y="60" width="26" height="110" rx="4" fill="${col('surface')}" stroke="${col('line')}"/>`;
-  s += `<rect x="20" y="20" width="360" height="22" rx="4" fill="${alpha(col('c3'), .25)}"/><text x="200" y="35" text-anchor="middle" class="sm">Kühlregal · Milch · Eier · Brot</text>`;
-  s += `<rect x="20" y="190" width="90" height="50" rx="6" fill="${alpha(col('c2'), .3)}"/><text x="65" y="250" text-anchor="middle" class="sm">Obst & Gemüse</text><rect x="320" y="190" width="60" height="50" rx="6" fill="${alpha(col('c1'), .3)}"/><text x="350" y="250" text-anchor="middle" class="sm">Kassen</text><path d="M60 250 L60 255" stroke="${col('ink')}"/><text x="18" y="182" class="sm">Eingang →</text>`;
-  s += `<path d="M65 180 C 90 120, 100 50, 200 50 S 330 60, 340 180" fill="none" stroke="${col('accent')}" stroke-width="2" stroke-dasharray="5 5"/>`;
-  T.forEach(([x, y], i) => s += `<g class="hit" data-k="${i}"><circle cx="${x}" cy="${y}" r="12" fill="${col('accent')}"/><text x="${x}" y="${y + 4}" text-anchor="middle" class="lbl" style="fill:#fff;font-size:12px">${i + 1}</text></g>`);
-  $('#mk').innerHTML = s + '</svg>';
+  const ac = col('accent'), ink2 = col('ink-2'), sf = col('surface'), s2 = col('surface-2'), ln = col('line');
+  const ROUTE = 'M345 258 L345 236 C 340 214, 300 200, 296 170 L 296 70 C 296 56, 290 52, 276 52 L 70 54 C 52 56, 46 66, 46 84 L 46 170 C 46 186, 60 192, 92 196';
+  const fruit = (x, y, c) => [0, 1, 2, 3, 4, 5].map(i => `<circle cx="${x + 6 + (i % 3) * 9}" cy="${y + 6 + Math.floor(i / 3) * 9}" r="3.6" fill="${c}"/>`).join('');
+  let svg = `<svg viewBox="0 0 400 272" class="svgfig" role="img" aria-label="Grundriss eines Supermarkts mit Laufweg">
+    <style>#mk .walker{offset-path:path('${ROUTE}');animation:mk-walk 16s linear infinite}@keyframes mk-walk{0%{offset-distance:0%;opacity:0}3%{opacity:1}95%{opacity:1}100%{offset-distance:100%;opacity:0}}#mk .flow{stroke-dasharray:6 6;animation:mk-flow 1.2s linear infinite}@keyframes mk-flow{to{stroke-dashoffset:-12}}#mk .note{animation:mk-note 3s ease-in-out infinite}@keyframes mk-note{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-5px);opacity:1}}@media (prefers-reduced-motion:reduce){#mk *{animation:none!important}}</style>
+    <rect x="8" y="8" width="384" height="254" rx="8" fill="${s2}" stroke="${ink2}" stroke-width="2.5"/>
+    <rect x="322" y="258" width="46" height="8" fill="${s2}"/><path d="M322 262 v-8 M368 262 v-8" stroke="${ink2}" stroke-width="2.5"/>
+    <text x="345" y="252" text-anchor="middle" class="sm">Eingang ↑</text>
+    <rect x="18" y="258" width="60" height="8" fill="${s2}"/><text x="48" y="252" text-anchor="middle" class="sm">Ausgang ↓</text>
+    <!-- Bäckerei und Kühlregal an der Rückwand -->
+    <rect x="16" y="16" width="96" height="22" rx="4" fill="${alpha(col('c5'), .35)}"/><text x="64" y="31" text-anchor="middle" class="sm">Bäckerei · Brot</text>
+    <rect x="120" y="16" width="264" height="22" rx="4" fill="${alpha(col('c3'), .3)}"/><text x="252" y="31" text-anchor="middle" class="sm">Kühlregal · Milch · Eier · Käse</text>
+    <g class="note"><text x="104" y="54" font-size="13" fill="${ink2}">♪</text></g><path d="M28 46 q4 -4 0 -8 q-4 -4 0 -8" fill="none" stroke="${col('c5')}" stroke-width="1.5" opacity=".8"/>
+    <!-- Regalgänge -->
+    ${[0, 1, 2, 3].map(i => `<rect x="${112 + i * 42}" y="76" width="18" height="96" rx="3" fill="${sf}" stroke="${ln}"/>${[0, 1, 2, 3, 4].map(j => `<rect x="${114 + i * 42}" y="${80 + j * 18}" width="14" height="12" rx="1.5" fill="${pal(i + j)}" opacity=".55"/>`).join('')}`).join('')}
+    <!-- Obst und Gemüse rechts vorne -->
+    <rect x="312" y="112" width="70" height="88" rx="6" fill="${alpha(col('c2'), .25)}"/>
+    <rect x="318" y="120" width="28" height="22" rx="3" fill="${sf}"/>${fruit(318, 120, '#c0392b')}<rect x="350" y="120" width="28" height="22" rx="3" fill="${sf}"/>${fruit(350, 120, '#e0a530')}
+    <rect x="318" y="146" width="28" height="22" rx="3" fill="${sf}"/>${fruit(318, 146, '#5a9a3c')}<rect x="350" y="146" width="28" height="22" rx="3" fill="${sf}"/>${fruit(350, 146, '#e07b2e')}
+    <text x="347" y="190" text-anchor="middle" class="sm">Obst & Gemüse</text>
+    <!-- Bremszone: Aufsteller mit Rabattschildern -->
+    <rect x="280" y="208" width="34" height="24" rx="3" fill="${sf}" stroke="${ln}"/><rect x="284" y="212" width="26" height="8" rx="2" fill="#c0392b"/><text x="297" y="219" text-anchor="middle" font-size="6.5" font-weight="700" fill="#fff">−20 %</text>
+    <!-- Wühltisch -->
+    <rect x="174" y="190" width="56" height="26" rx="5" fill="${sf}" stroke="${ln}"/><rect x="178" y="194" width="20" height="9" rx="2" fill="#c0392b"/><text x="188" y="201" text-anchor="middle" font-size="6" font-weight="700" fill="#fff">3 für 2</text>
+    <!-- Kassen mit Quengelzone -->
+    ${[0, 1, 2].map(i => `<rect x="${20 + i * 34}" y="206" width="12" height="34" rx="2" fill="${sf}" stroke="${ln}"/><rect x="${33 + i * 34}" y="206" width="16" height="34" rx="2" fill="${alpha(col('c1'), .3)}"/>${[0, 1, 2].map(j => `<rect x="${34 + i * 34}" y="${210 + j * 10}" width="5" height="6" fill="${pal(j + i * 2)}"/>`).join('')}`).join('')}
+    <text x="62" y="201" text-anchor="middle" class="sm">Kassen</text>
+    <!-- Einkaufswagen -->
+    <g transform="translate(372 210)" stroke="${ink2}" stroke-width="1.4" fill="none"><path d="M-8 0 h3 l3 10 h10 l2 -7 h-14"/><circle cx="-1" cy="13" r="1.6"/><circle cx="8" cy="13" r="1.6"/></g>
+    <!-- Laufweg -->
+    <path d="${ROUTE}" fill="none" stroke="${ac}" stroke-width="2.4" class="flow" opacity=".75"/>
+    <g class="walker"><circle r="7" fill="${ac}"/><circle r="7" fill="none" stroke="${sf}" stroke-width="2"/><path d="M-3 -1 l3 3 l3 -3" stroke="#fff" stroke-width="1.6" fill="none" transform="rotate(-90)"/></g>`;
+  T.forEach(([x, y], i) => svg += `<g class="hit" data-k="${i}" style="cursor:pointer"><circle cx="${x}" cy="${y}" r="11" fill="${ac}" stroke="${sf}" stroke-width="2"/><text x="${x}" y="${y + 4}" text-anchor="middle" class="lbl" style="fill:#fff;font-size:12px;pointer-events:none">${i + 1}</text></g>`);
+  $('#mk').innerHTML = svg + '</svg>';
   $('#mk').addEventListener('click', e => { const h = e.target.closest('[data-k]'); if (!h) return; $$('#mk .hit').forEach(x => x.classList.toggle('dim', x !== h)); const t = T[+h.dataset.k]; $('#mk-info').innerHTML = `<h4>${+h.dataset.k + 1}. ${t[2]}</h4><p>${t[3]}</p>`; });
 })();
 (() => {
-  const Z = [['Reckzone', 'über 1,60 m', 'Kleinere Mengen, günstigere Produkte, die man suchen muss – man muss sich strecken.', 'c6'], ['Sichtzone', '1,20–1,60 m (Augenhöhe)', 'Teure Markenprodukte und Produkte mit hoher Gewinnspanne. Hier greifen die meisten zu.', 'c1'], ['Griffzone', '0,80–1,20 m', 'Bequem erreichbar: beliebte Produkte. Bei Kinderprodukten: Süßigkeiten in Augenhöhe der Kinder.', 'c5'], ['Bückzone', 'unter 0,80 m', 'Günstige Produkte, Eigenmarken, schwere Großpackungen – man muss sich bücken.', 'c2']];
-  let s = '<svg viewBox="0 0 300 260" class="svgfig" role="img" aria-label="Regal mit vier Zonen">';
-  Z.forEach(([n, h, , c], i) => { const y = 10 + i * 60; s += `<g class="hit" data-k="${i}"><rect x="50" y="${y}" width="200" height="56" rx="4" fill="${col(c)}" fill-opacity=".75"/><text x="150" y="${y + 26}" text-anchor="middle" class="lbl" style="fill:#fff">${n}</text><text x="150" y="${y + 43}" text-anchor="middle" class="lbl" style="fill:#fff;font-size:10px">${h}</text></g>`; });
-  s += `<circle cx="275" cy="78" r="10" fill="none" stroke="${col('ink-2')}" stroke-width="2"/><path d="M275 88 v60 M275 105 l-12 18 M275 105 l12 18 M275 148 l-10 30 M275 148 l10 30" stroke="${col('ink-2')}" stroke-width="2" fill="none"/></svg>`;
-  $('#rg').innerHTML = s;
+  /* Regal mit Höhenskala, Produkten und zwei Personen (Erwachsene/r und Kind) */
+  const Z = [['Reckzone', 'über 1,60 m', 'Kleinere Mengen, günstigere Produkte, die man suchen muss – man muss sich strecken.', 'c6', 1.6, 2.0], ['Sichtzone', '1,20–1,60 m (Augenhöhe)', 'Teure Markenprodukte und Produkte mit hoher Gewinnspanne. Hier greifen die meisten zu.', 'c1', 1.2, 1.6], ['Griffzone', '0,80–1,20 m', 'Bequem erreichbar: beliebte Produkte. Bei Kinderprodukten: Süßigkeiten in Augenhöhe der Kinder.', 'c5', .8, 1.2], ['Bückzone', 'unter 0,80 m', 'Günstige Produkte, Eigenmarken, schwere Großpackungen – man muss sich bücken.', 'c2', 0, .8]];
+  const ink2 = col('ink-2'), sf = col('surface'), base = 286, K = 130, Y = m => base - m * K, X0 = 58, X1 = 238;
+  /* Produkte je Zone: [Breite, Höhe, Farbe, Preis] */
+  const PR = [[[18, 22, '#b9c0c9', '0,89'], [18, 26, '#c9b9a5', '1,19'], [22, 20, '#aab7a2', '0,99'], [18, 24, '#c4c4c4', '1,09']], [[26, 40, '#c0392b', '2,49'], [24, 44, '#2f6fa8', '2,99'], [26, 38, '#e0a530', '3,29'], [22, 42, '#7a3e9d', '2,79']], [[22, 34, '#e07b2e', '1,79'], [18, 30, '#f2c94c', '0,99'], [22, 34, '#ff7eb6', '1,49'], [20, 30, '#4caf8a', '1,29']], [[36, 52, '#d6c7a8', '0,79'], [34, 48, '#cbb994', '0,69'], [36, 54, '#d9cdb3', '0,85']]];
+  let svg = `<svg viewBox="0 0 330 300" class="svgfig" role="img" aria-label="Regal mit vier Zonen, Erwachsener und Kind">
+    <style>#rg .eye{stroke-dasharray:4 4;animation:rg-eye 1.4s linear infinite}@keyframes rg-eye{to{stroke-dashoffset:-8}}@media (prefers-reduced-motion:reduce){#rg *{animation:none!important}}</style>
+    <!-- Höhenskala -->
+    <line x1="30" y1="${Y(0)}" x2="30" y2="${Y(2)}" stroke="${ink2}" stroke-width="1.5"/>
+    ${[0, .4, .8, 1.2, 1.6, 2].map(m => `<line x1="26" y1="${Y(m)}" x2="34" y2="${Y(m)}" stroke="${ink2}" stroke-width="1.2"/><text x="22" y="${Y(m) + 3.5}" text-anchor="end" font-size="9" fill="${ink2}">${String(m).replace('.', ',')} m</text>`).join('')}
+    <!-- Regal -->
+    <rect x="${X0 - 6}" y="${Y(2) - 4}" width="${X1 - X0 + 12}" height="${Y(0) - Y(2) + 4}" rx="3" fill="${col('surface-2')}" stroke="${ink2}" stroke-width="1.5"/>`;
+  Z.forEach(([n, hh, , c, m0, m1], i) => {
+    const y0 = Y(m1), y1 = Y(m0);
+    svg += `<g class="hit" data-k="${i}" style="cursor:pointer"><rect x="${X0}" y="${y0}" width="${X1 - X0}" height="${y1 - y0}" fill="${col(c)}" fill-opacity=".16"/>`;
+    let x = X0 + 6; PR[i].forEach(([pw, ph, pc, price]) => { svg += `<rect x="${x}" y="${y1 - 4 - ph}" width="${pw}" height="${ph}" rx="2" fill="${pc}" stroke="rgba(0,0,0,.25)"/><rect x="${x + 3}" y="${y1 - 4 - ph + 5}" width="${pw - 6}" height="${Math.min(10, ph / 3)}" rx="1" fill="rgba(255,255,255,.55)"/>`; svg += `<rect x="${x}" y="${y1 - 2}" width="${pw}" height="9" fill="${i === 1 ? '#fff6c2' : '#ffffff'}" stroke="rgba(0,0,0,.2)" stroke-width=".6"/><text x="${x + pw / 2}" y="${y1 + 5}" text-anchor="middle" font-size="${i === 1 ? 7.5 : 6.5}" font-weight="700" fill="#333">${price}</text>`; x += pw + 8; });
+    svg += `<rect x="${X0 - 6}" y="${y1 - 2}" width="${X1 - X0 + 12}" height="3" fill="${ink2}"/><text x="${X1 - 4}" y="${y0 + 12}" text-anchor="end" class="lbl" style="font-size:11px;fill:${col(c)}">${n}</text></g>`;
+  });
+  /* Erwachsene Person (Augen ≈ 1,60 m) und Kind (Augen ≈ 1,05 m) */
+  const person = (x, hgt, c) => { const top = Y(hgt), hr = hgt * 7; const eye = top + hr; return `<circle cx="${x}" cy="${top + hr}" r="${hr}" fill="none" stroke="${c}" stroke-width="2"/><path d="M${x} ${top + 2 * hr} V${Y(hgt * .48)} M${x} ${Y(hgt * .72)} l-${hgt * 9} ${hgt * 14} M${x} ${Y(hgt * .72)} l${hgt * 9} ${hgt * 14} M${x} ${Y(hgt * .48)} l-${hgt * 7} ${Y(0) - Y(hgt * .48)} M${x} ${Y(hgt * .48)} l${hgt * 7} ${Y(0) - Y(hgt * .48)}" stroke="${c}" stroke-width="2" fill="none" stroke-linecap="round"/><line class="eye" x1="${x - hr - 2}" y1="${eye}" x2="${X1}" y2="${eye}" stroke="${c}" stroke-width="1.5"/>`; };
+  svg += person(290, 1.72, ink2) + person(266, 1.15, col('accent'));
+  svg += `<text x="290" y="${Y(0) + 12}" text-anchor="middle" font-size="9" fill="${ink2}">Erwachsene</text><text x="262" y="${Y(0) + 12}" text-anchor="end" font-size="9" fill="${col('accent')}">Kind</text></svg>`;
+  $('#rg').innerHTML = svg;
   $('#rg').addEventListener('click', e => { const h = e.target.closest('[data-k]'); if (!h) return; $$('#rg .hit').forEach(x => x.classList.toggle('dim', x !== h)); const z = Z[+h.dataset.k]; $('#rg-info').innerHTML = `<h4>${z[0]} (${z[1]})</h4><p>${z[2]}</p>`; });
 })();
 scenes($('#sc'), [
