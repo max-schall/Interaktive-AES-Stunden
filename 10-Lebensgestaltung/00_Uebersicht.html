@@ -431,7 +431,7 @@ h3{font-weight:600;font-stretch:100%;font-size:1.25rem;line-height:1.2}
 .quote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--ink-2);margin-top:.3rem}
 
 /* ---------- Symbole ---------- */
-.ico{width:1.6rem;height:1.6rem;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ico{width:1.6rem;height:1.6rem;flex:none;overflow:visible;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- Kacheln mit Detailansicht (explore) ---------- */
 .explore{display:flex;flex-direction:column;gap:.8rem}
@@ -566,6 +566,19 @@ input[type=range]{accent-color:var(--accent);width:100%}
 }
 @media (max-width:920px){.model[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}}
 .ex-tile b{word-break:break-word}
+/* Monatskalender (Saisonkalender) */
+.cal-nav{display:flex;align-items:center;gap:.5rem;margin:.2rem 0 .5rem}
+.cal-nav b{font-family:var(--f-display);font-size:1.3rem;min-width:8.5rem;text-align:center}
+.cal-nav .btn{padding:.25rem .7rem}
+.cal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.4rem;margin-bottom:.6rem}
+.cal button{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 0 .35rem;border:1.5px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;overflow:hidden;min-width:0}
+.cal button::before{content:"";display:block;width:100%;height:.55rem;background:var(--sea,var(--line))}
+.cal button::after{content:"";position:absolute;top:.12rem;left:28%;right:28%;height:.3rem;background:radial-gradient(circle,var(--surface) 0 40%,transparent 45%) 0 0/50% 100% repeat-x}
+.cal button .mm{font-weight:700;font-size:.95rem;margin-top:.25rem}
+.cal button .ico{width:1.05rem;height:1.05rem;color:var(--sea,var(--ink-2));margin-top:.1rem}
+.cal button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface));box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.cal button:hover{border-color:var(--ink-2)}
+@media (max-width:520px){.cal{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 </style>
 </head>
@@ -603,7 +616,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">1</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde · Buch S. 252–253</p>
+        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde</p>
         <h2>Welche Wohnform passt zu dir?</h2>
         <p class="l-q"><b>Leitfrage:</b> Welche Wohnform passt zu meinen Bedürfnissen und meinem Geldbeutel?</p>
         <ul class="facts"><li>Auszug mit durchschnittlich ca. 24 Jahren (2021)</li><li>Wohnformen: zu Hause bleiben, WG, Wohnheim, Untermiete, eigene Wohnung (allein oder als Paar), Immobilie kaufen</li><li>Jede Wohnform hat Vor- und Nachteile</li><li>Selbstständig wohnen: mehr Rechte, aber auch mehr Pflichten</li></ul>
@@ -614,7 +627,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">2</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 2 · 1 Unterrichtsstunde · Buch S. 254–255</p>
+        <p class="eyebrow">Stunde 2 · 1 Unterrichtsstunde</p>
         <h2>Hast du deine Finanzen im Griff?</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie behalte ich meine Finanzen im Blick und vermeide Schulden?</p>
         <ul class="facts"><li>Finanzmanagement: Planung, Verwaltung, Kontrolle der Finanzen</li><li>Haushaltsbuch: Einnahmen und Ausgaben gegenüberstellen</li><li>50:30:20-Regel: Fixkosten, Wünsche, Rücklagen</li><li>Kredit: geliehenes Geld plus Zinsen in Raten</li><li>gute und schlechte Schulden, Verschuldung und Überschuldung</li></ul>
@@ -625,7 +638,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">3</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde · Buch S. 256–257</p>
+        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde</p>
         <h2>Absicherung durch Versicherungen</h2>
         <p class="l-q"><b>Leitfrage:</b> Welche Versicherungen brauche ich wirklich?</p>
         <ul class="facts"><li>Versicherungen dienen der finanziellen Absicherung von Risiken</li><li>Fünf gesetzliche Sozialversicherungen nach dem Solidaritätsprinzip</li><li>Individualversicherungen: Beitrag nach persönlichem Risiko, meist freiwillig</li><li>Sinnvoll für alle: Privathaftpflicht, Berufsunfähigkeitsversicherung; Pflicht für Fahrzeuge: Kfz-Haftpflicht</li></ul>
@@ -636,7 +649,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">4</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde · Buch S. 258–259</p>
+        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde</p>
         <h2>Flächen-Nutzungs-Konkurrenz</h2>
         <p class="l-q"><b>Leitfrage:</b> Wer entscheidet, wofür die begrenzte Fläche der Erde genutzt wird?</p>
         <ul class="facts"><li>Fläche ist begrenzt: Landwirtschaft, Siedlung, Verkehr, Industrie, Wald, Erholung</li><li>Konkurrenz: Energie oder Nahrung, Fleisch oder Nahrung für alle, Wohnen oder Grün, Baumwolle oder Lebensraum</li><li>Landgrabbing: Industrieländer kaufen Flächen in Entwicklungsländern</li><li>Unser Konsum hinterlässt einen ökologischen Fußabdruck</li></ul>
@@ -647,7 +660,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">5</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde · Buch S. 260–261</p>
+        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde</p>
         <h2>Gemeinsam nachhaltiger konsumieren</h2>
         <p class="l-q"><b>Leitfrage:</b> Muss ich alles besitzen, was ich nutze?</p>
         <ul class="facts"><li>Gemeinschaftlicher Konsum: leihen, tauschen, mieten, teilen</li><li>Bibliothek der Dinge, Tauschbörsen, Repaircafés, Kleidung mieten</li><li>Geteilte Mobilität: Car- und Bikesharing (stationsbasiert, free-floating), Fahrgemeinschaften</li><li>Schont Geldbeutel, Ressourcen und Umwelt</li></ul>
@@ -658,7 +671,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">6</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 6 · 1 Unterrichtsstunde · Buch S. 262–263</p>
+        <p class="eyebrow">Stunde 6 · 1 Unterrichtsstunde</p>
         <h2>Wiederholung und Selbsttest</h2>
         <p class="l-q"><b>Leitfrage:</b> Bin ich bereit, auf eigenen Beinen zu stehen?</p>
         <ul class="facts"><li>Fachbegriffe als Karteikarten und Paare</li><li>Fallbeispiel: Nila und Kai ziehen zusammen</li><li>Quiz mit 15 Fragen (10 zufällig pro Runde)</li><li>„Ich kann …“-Liste mit Links zurück in die Stunden</li></ul>

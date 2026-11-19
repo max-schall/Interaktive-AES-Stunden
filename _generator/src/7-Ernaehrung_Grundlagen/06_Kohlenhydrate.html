@@ -160,14 +160,74 @@ sorter($('#sort'), [{id: '1', name: 'Einfachzucker'}, {id: '2', name: 'Zweifachz
   const S = ['<b>Mund:</b> Beim Kauen wird das Brot zerkleinert. Das Enzym Amylase im Speichel baut einen Teil der Stärke zu Malzzucker ab. (Kaue lange: Brot schmeckt dann leicht süß!)', '<b>Magen:</b> Der Speisebrei wird mit Wasser verdünnt und mit Magensäure durchmischt.', '<b>Dünndarm:</b> Erst hier wird die Stärke vollständig zu Traubenzucker (Glukose) abgebaut.', '<b>Blut:</b> Über die Dünndarmwand gelangt die Glukose ins Blut und steht den Zellen als Brennstoff zur Verfügung.'];
   let k = 0;
   stepper($('#v-step'), 4, i => { k = i; $('#v-st').innerHTML = S[i]; });
+  /* Körperumriss mit Verdauungsorganen (links) und Lupe auf die Stärke (rechts) */
+  const hexP = (ctx, x, y, r) => { ctx.beginPath(); for (let i = 0; i < 6; i++) { const a = Math.PI / 6 + i * Math.PI / 3; ctx.lineTo(x + r * Math.cos(a), y + r * Math.sin(a)); } ctx.closePath(); };
+  const glc = (ctx, x, y, r) => { hexP(ctx, x, y, r); ctx.fillStyle = col('c5'); ctx.fill(); ctx.strokeStyle = mix(col('c5'), '#000000', .35); ctx.lineWidth = 1.2; ctx.stroke(); };
+  /* Punkt auf einer Polylinie bei Anteil p (0…1) */
+  const along = (pts, p) => { let L = 0; const seg = []; for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); seg.push(d); L += d; } let q = clamp(p, 0, 1) * L; for (let i = 0; i < seg.length; i++) { if (q <= seg[i]) { const f = q / seg[i]; return [lerp(pts[i][0], pts[i + 1][0], f), lerp(pts[i][1], pts[i + 1][1], f)]; } q -= seg[i]; } return pts[pts.length - 1]; };
   canvasLoop($('#cv-v'), 'verdauung', (ctx, w, h, t) => {
-    const P = [[w * .5, h * .12, 'Mund'], [w * .45, h * .45, 'Magen'], [w * .55, h * .78, 'Dünndarm'], [w * .85, h * .5, 'Blut']];
-    ctx.strokeStyle = alpha(C.ink2, .35); ctx.lineWidth = 16; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(P[0][0], P[0][1]); ctx.quadraticCurveTo(w * .35, h * .3, P[1][0], P[1][1]); ctx.quadraticCurveTo(w * .6, h * .6, P[2][0], P[2][1]); ctx.stroke();
-    ctx.strokeStyle = alpha(C.bad, .35); ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(P[2][0] + 20, P[2][1]); ctx.quadraticCurveTo(w * .8, h * .8, P[3][0], P[3][1]); ctx.lineTo(P[3][0], h * .1); ctx.stroke();
-    P.forEach(([x, y, n], i) => { ctx.fillStyle = i === k ? col('accent') : col('surface-2'); ctx.beginPath(); ctx.arc(x, y, 22, 0, 7); ctx.fill(); label(ctx, n, x + (i === 3 ? -34 : 34), y, {size: 13, align: i === 3 ? 'right' : 'left', color: i === k ? C.accent : C.ink2}); });
-    const [x, y] = P[k], len = [12, 9, 1, 1][k];
-    for (let i = 0; i < len; i++) { const a = t * 1.5 + i * .6; ctx.fillStyle = col('c5'); ctx.beginPath(); ctx.arc(x + Math.cos(a) * (8 + i * 1.2), y + Math.sin(a) * (8 + i * 1.2), 4, 0, 7); ctx.fill(); }
-    if (k >= 2) for (let i = 0; i < 8; i++) { const p = (t * .4 + i / 8) % 1; ctx.fillStyle = col('c5'); ctx.beginPath(); ctx.arc(lerp(P[2][0] + 20, P[3][0], p), lerp(P[2][1], P[3][1], p) + Math.sin(p * 6) * 6, 4, 0, 7); ctx.fill(); }
+    const u = h / 100, bx = w * .22, X = v => bx + v * u, Y = v => v * u;
+    const ink = col('ink-2'), acc = col('accent'), red = col('bad');
+    const ON = i => i === k;
+    /* Körper: Kopf, Hals, Rumpf (Schnittbild) */
+    ctx.fillStyle = col('surface-2'); ctx.strokeStyle = alpha(ink, .55); ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.ellipse(X(0), Y(12), 8 * u, 10 * u, 0, 0, 7); ctx.fill(); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(X(-4), Y(20)); ctx.lineTo(X(-4.5), Y(27)); ctx.bezierCurveTo(X(-14), Y(28), X(-21), Y(30), X(-22), Y(38)); ctx.bezierCurveTo(X(-23), Y(60), X(-19), Y(80), X(-18), Y(100)); ctx.lineTo(X(18), Y(100)); ctx.bezierCurveTo(X(19), Y(80), X(23), Y(60), X(22), Y(38)); ctx.bezierCurveTo(X(21), Y(30), X(14), Y(28), X(4.5), Y(27)); ctx.lineTo(X(4), Y(20)); ctx.fill(); ctx.stroke();
+    /* Leber (nur angedeutet) */
+    ctx.fillStyle = alpha('#9b5a43', .22); ctx.beginPath(); ctx.moveTo(X(-17), Y(44)); ctx.bezierCurveTo(X(-16), Y(38), X(0), Y(38), X(6), Y(43)); ctx.bezierCurveTo(X(2), Y(50), X(-10), Y(56), X(-17), Y(52)); ctx.closePath(); ctx.fill();
+    /* Blutgefäße und Herz */
+    const vesA = ON(3) ? 1 : .45;
+    ctx.strokeStyle = alpha(red, .55 * vesA); ctx.lineWidth = 2.2 * u / 3.5 + 1;
+    ctx.beginPath(); ctx.moveTo(X(3), Y(37)); ctx.lineTo(X(1.5), Y(20)); ctx.lineTo(X(0), Y(8)); ctx.moveTo(X(3), Y(37)); ctx.lineTo(X(-1), Y(95)); ctx.moveTo(X(3), Y(37)); ctx.bezierCurveTo(X(10), Y(31), X(17), Y(32), X(21), Y(40)); ctx.stroke();
+    ctx.fillStyle = alpha(red, ON(3) ? .9 : .5); ctx.beginPath(); ctx.ellipse(X(3), Y(37), 4 * u, 3.6 * u, -.5, 0, 7); ctx.fill();
+    /* Dickdarm (Rahmen) */
+    const LI = [[X(-12), Y(90)], [X(-13), Y(66)], [X(-8), Y(63)], [X(9), Y(63)], [X(14), Y(66)], [X(13.5), Y(86)], [X(8), Y(91)], [X(2), Y(93)], [X(1.5), Y(99)]];
+    ctx.strokeStyle = mix('#c89a7a', col('surface-2'), .2); ctx.lineWidth = 4.6 * u; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+    ctx.beginPath(); LI.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.stroke();
+    /* Dünndarm (Schlingen) */
+    const SI = [[X(1), Y(60)]]; for (let r = 0; r < 4; r++) { const y = Y(68 + r * 5.2), L = X(-7.5), R = X(8.5); const pts = r % 2 ? [[R, y], [L, y]] : [[L, y], [R, y]]; SI.push(...pts); }
+    SI.push([X(-8), Y(87)]);
+    const siCol = ON(2) ? acc : '#d9a08a';
+    ctx.strokeStyle = siCol; ctx.lineWidth = 2.6 * u; ctx.beginPath(); SI.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.stroke();
+    /* Speiseröhre */
+    const ES = [[X(0), Y(18)], [X(.5), Y(30)], [X(2), Y(44)], [X(4), Y(47)]];
+    ctx.strokeStyle = ON(1) ? alpha(acc, .7) : '#d7a891'; ctx.lineWidth = 2.6 * u; ctx.beginPath(); ES.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.stroke();
+    /* Magen (Bohnenform, linke Körperseite = rechts im Bild) */
+    const stomach = () => { ctx.beginPath(); ctx.moveTo(X(3), Y(46)); ctx.bezierCurveTo(X(8), Y(41), X(18), Y(42), X(17), Y(52)); ctx.bezierCurveTo(X(16), Y(60), X(7), Y(62), X(1), Y(59)); ctx.bezierCurveTo(X(4), Y(57), X(9), Y(55), X(8), Y(51)); ctx.bezierCurveTo(X(7), Y(48), X(4), Y(49), X(3), Y(46)); ctx.closePath(); };
+    ctx.fillStyle = ON(1) ? alpha(acc, .55) : '#e3b3a0'; ctx.strokeStyle = alpha(ink, .5); ctx.lineWidth = 1.2; stomach(); ctx.fill(); ctx.stroke();
+    /* Mund */
+    ctx.fillStyle = ON(0) ? acc : alpha(red, .55); ctx.beginPath(); ctx.ellipse(X(1), Y(17), 3.2 * u, 1.4 * u, 0, 0, 7); ctx.fill();
+    /* Speisebrei / Zucker bewegt sich */
+    const cyc = (t * .35) % 1;
+    if (k === 0) { const r = 1.6 * u * (1 - .3 * Math.abs(Math.sin(t * 4))); ctx.fillStyle = col('c5'); ctx.beginPath(); ctx.arc(X(1) + Math.sin(t * 5) * u, Y(17), r, 0, 7); ctx.fill(); }
+    if (k === 1) { if (cyc < .4) { const [x, y] = along(ES, cyc / .4); ctx.fillStyle = col('c5'); ctx.beginPath(); ctx.arc(x, y, 1.5 * u, 0, 7); ctx.fill(); } for (let i = 0; i < 7; i++) { const a = t * 2 + i * .9; ctx.fillStyle = col('c5'); ctx.beginPath(); ctx.arc(X(11) + Math.cos(a) * 3.5 * u, Y(52) + Math.sin(a) * 3 * u, .9 * u, 0, 7); ctx.fill(); } }
+    if (k === 2) for (let i = 0; i < 6; i++) { const [x, y] = along(SI, (cyc + i / 6) % 1); glc(ctx, x, y, .9 * u); }
+    if (k === 3) {
+      const V = [[X(0), Y(77)], [X(-1), Y(60)], [X(1.5), Y(45)], [X(3), Y(37)]], V2 = [[X(3), Y(37)], [X(1.5), Y(20)], [X(0), Y(8)]], V3 = [[X(3), Y(37)], [X(10), Y(32.5)], [X(17), Y(33)], [X(21), Y(40)]];
+      for (let i = 0; i < 6; i++) { const p = (cyc + i / 6) % 1; const pt = p < .5 ? along(V, p * 2) : along(i % 2 ? V2 : V3, (p - .5) * 2); glc(ctx, pt[0], pt[1], .9 * u); }
+    }
+    /* Beschriftungen mit Hinweislinien */
+    const LB = [[0, 'Mund', X(3), Y(17), 14], [1, 'Speiseröhre', X(1), Y(31), 31], [1, 'Magen', X(16), Y(50), 48], [2, 'Dünndarm', X(8.5), Y(73), 66], [-1, 'Dickdarm', X(13.5), Y(82), 82], [3, 'Herz und Blut', X(6), Y(36), 39]];
+    const lx = X(30);
+    LB.forEach(([i, n, x, y, ly]) => { const on = i === k || i === 1 && k === 1; ctx.strokeStyle = alpha(on ? acc : ink, on ? .9 : .45); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(lx - 4, Y(ly)); ctx.stroke(); label(ctx, n, lx, Y(ly), {size: 12, align: 'left', color: on ? acc : C.ink2, weight: on ? 700 : 400}); });
+    /* Lupe: Was passiert mit der Stärke? */
+    const zx = w * .62, zy = h * .12, zw = w * .35, zh = h * .76, cx = zx + zw / 2, cy = zy + zh * .52, r = Math.min(zw, zh) * .055;
+    ctx.fillStyle = col('surface'); ctx.strokeStyle = alpha(ink, .35); ctx.lineWidth = 1.5; roundRect(ctx, zx, zy, zw, zh, 12); ctx.fill(); ctx.stroke();
+    label(ctx, ['Lupe: im Mund', 'Lupe: im Magen', 'Lupe: im Dünndarm', 'Lupe: im Blut'][k], cx, zy + 14, {size: 12, color: C.ink2, weight: 400});
+    const sub = ['Stärke → teils Malzzucker', 'Speisebrei + Magensäure', 'alles → Traubenzucker', 'Glukose zu den Zellen'][k];
+    label(ctx, sub, cx, zy + zh - 14, {size: 13, color: acc, maxW: zw - 16});
+    const sp = r * 1.9;
+    const chain = (groups, y, wob) => { let x0 = cx - (groups.reduce((a, g) => a + g, 0) * sp + (groups.length - 1) * sp * .6) / 2 + sp / 2; groups.forEach((g, gi) => { for (let i = 0; i < g; i++) { const x = x0 + i * sp, yy = y + Math.sin(t * 2 + gi + i * .5) * wob; if (i) { ctx.strokeStyle = mix(col('c5'), '#000000', .35); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x - sp + r * .8, yy); ctx.lineTo(x - r * .8, yy); ctx.stroke(); } glc(ctx, x, yy, r); } x0 += g * sp + sp * .6; }); };
+    if (k === 0) { chain([8], cy - r * 3.2, 1.5); chain([2, 2, 4], cy + r * 1.6, 2); label(ctx, 'Amylase im Speichel spaltet', cx, cy + r * 5.2, {size: 11, color: C.ink2, weight: 400}); }
+    if (k === 1) { chain([5], cy - r * 3, 3); chain([2, 3], cy + r * 1.5, 3); for (let i = 0; i < 10; i++) { const a = i * 2.4 + t, rr = zw * .36; label(ctx, 'H⁺', cx + Math.cos(a) * rr, cy + Math.sin(a) * rr * .55, {size: 11, color: red, weight: 700}); } }
+    if (k === 2) { const n = 12; for (let i = 0; i < n; i++) { const a = i / n * Math.PI * 2 + t * .3, rr = zw * .3 + Math.sin(t * 2 + i) * 3; glc(ctx, cx + Math.cos(a) * rr, cy - zh * .06 + Math.sin(a) * rr * .6, r); } label(ctx, 'einzelne Glukose-Bausteine', cx, cy + zh * .22, {size: 12, color: C.ink2, weight: 400}); }
+    if (k === 3) {
+      const wy = cy - zh * .08, vy = cy + zh * .14;
+      ctx.fillStyle = alpha(red, .22); ctx.fillRect(zx + 8, vy, zw - 16, zh * .2); label(ctx, 'Blutgefäß', zx + zw - 14, vy + zh * .2 + 10, {size: 11, align: 'right', color: red, weight: 700});
+      ctx.strokeStyle = alpha(ink, .6); ctx.setLineDash([4, 4]); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(zx + 8, wy); ctx.lineTo(zx + zw - 8, wy); ctx.stroke(); ctx.setLineDash([]);
+      label(ctx, 'Darmwand', zx + 14, wy - 10, {size: 11, align: 'left', color: C.ink2, weight: 400});
+      for (let i = 0; i < 6; i++) { const p = (t * .3 + i / 6) % 1, x = zx + zw * (.15 + .7 * ((i * .37) % 1)); const y = p < .5 ? lerp(zy + zh * .25, vy + zh * .1, p * 2) : vy + zh * .1; const xx = p < .5 ? x : x + (p - .5) * zw * .5; if (xx < zx + zw - 10) glc(ctx, xx, y, r); }
+    }
   });
 })();
 

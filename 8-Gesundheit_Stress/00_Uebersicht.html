@@ -431,7 +431,7 @@ h3{font-weight:600;font-stretch:100%;font-size:1.25rem;line-height:1.2}
 .quote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--ink-2);margin-top:.3rem}
 
 /* ---------- Symbole ---------- */
-.ico{width:1.6rem;height:1.6rem;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ico{width:1.6rem;height:1.6rem;flex:none;overflow:visible;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- Kacheln mit Detailansicht (explore) ---------- */
 .explore{display:flex;flex-direction:column;gap:.8rem}
@@ -566,6 +566,19 @@ input[type=range]{accent-color:var(--accent);width:100%}
 }
 @media (max-width:920px){.model[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}}
 .ex-tile b{word-break:break-word}
+/* Monatskalender (Saisonkalender) */
+.cal-nav{display:flex;align-items:center;gap:.5rem;margin:.2rem 0 .5rem}
+.cal-nav b{font-family:var(--f-display);font-size:1.3rem;min-width:8.5rem;text-align:center}
+.cal-nav .btn{padding:.25rem .7rem}
+.cal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.4rem;margin-bottom:.6rem}
+.cal button{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 0 .35rem;border:1.5px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;overflow:hidden;min-width:0}
+.cal button::before{content:"";display:block;width:100%;height:.55rem;background:var(--sea,var(--line))}
+.cal button::after{content:"";position:absolute;top:.12rem;left:28%;right:28%;height:.3rem;background:radial-gradient(circle,var(--surface) 0 40%,transparent 45%) 0 0/50% 100% repeat-x}
+.cal button .mm{font-weight:700;font-size:.95rem;margin-top:.25rem}
+.cal button .ico{width:1.05rem;height:1.05rem;color:var(--sea,var(--ink-2));margin-top:.1rem}
+.cal button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface));box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.cal button:hover{border-color:var(--ink-2)}
+@media (max-width:520px){.cal{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 </style>
 </head>
@@ -603,7 +616,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">1</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde · Buch S. 110–111</p>
+        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde</p>
         <h2>Gesundheit – was ist das eigentlich?</h2>
         <p class="l-q"><b>Leitfrage:</b> Kann ein Mensch mit einer chronischen Krankheit gesund sein?</p>
         <ul class="facts"><li>WHO: Zustand vollständigen körperlichen, seelischen und sozialen Wohlbefindens</li><li>Salutogenese: Gesundheit als Prozess zwischen gesund und krank</li><li>Kohärenzgefühl: Verstehbarkeit, Bewältigbarkeit, Sinnhaftigkeit</li><li>Faktoren: Körper, Geist, Ernährung, Bewegung, Entspannung, Motivation</li></ul>
@@ -614,7 +627,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">2</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 2 · 1 Unterrichtsstunde · Buch S. 112–113</p>
+        <p class="eyebrow">Stunde 2 · 1 Unterrichtsstunde</p>
         <h2>Was hat Einfluss auf deine Gesundheit?</h2>
         <p class="l-q"><b>Leitfrage:</b> Welche Einflüsse auf meine Gesundheit habe ich selbst in der Hand?</p>
         <ul class="facts"><li>Persönliche Anlagen: Alter, Geschlecht, Erbanlagen</li><li>Individuelle Lebensführung: Ernährung, Bewegung, Genussmittel</li><li>Soziales Umfeld, Lebens- und Arbeitsbedingungen</li><li>Kulturelle, wirtschaftliche, politische und Umweltbedingungen</li></ul>
@@ -625,7 +638,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">3</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde · Buch S. 114–115</p>
+        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde</p>
         <h2>Was kannst du für deine Gesundheit tun?</h2>
         <p class="l-q"><b>Leitfrage:</b> Was hilft mir am meisten, gesund und fit zu bleiben?</p>
         <ul class="facts"><li>Gesundheitsressourcen: vollwertige Ernährung, ausreichend Bewegung, soziale Kontakte</li><li>Bewegungsmangel durch Medienkonsum und seine Folgen</li><li>Hobbys, Ehrenamt und Freizeitangebote</li><li>Verantwortung für die eigene Gesundheit übernehmen</li></ul>
@@ -636,7 +649,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">4</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde · Buch S. 116–117</p>
+        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde</p>
         <h2>Vorsorge muss sein</h2>
         <p class="l-q"><b>Leitfrage:</b> Warum gehe ich zum Arzt, obwohl ich gar nicht krank bin?</p>
         <ul class="facts"><li>Gesundheitsförderung erhält und fördert Gesundheit, Prävention ist ein Teil davon</li><li>Primäre Prävention: Krankheiten verhindern (Impfung, Zahnpflege, kein Rauchen)</li><li>Sekundäre Prävention: Früherkennung (Vorsorgeuntersuchungen, Screenings)</li><li>Tertiäre Prävention: Folgen begrenzen (Reha, Nachsorge)</li></ul>
@@ -647,7 +660,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">5</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 5 · 2 Unterrichtsstunden (mit Übungen) · Buch S. 118–119</p>
+        <p class="eyebrow">Stunde 5 · 2 Unterrichtsstunden (mit Übungen)</p>
         <h2>Erste Hilfe leisten</h2>
         <p class="l-q"><b>Leitfrage:</b> Was mache ich, wenn jemand vor mir zusammenbricht?</p>
         <ul class="facts"><li>Grundsätze: Ruhe bewahren, Überblick, Unfallstelle absichern, Eigensicherung</li><li>Rettungskette und Notruf 112 mit den W-Fragen</li><li>Bewusstsein und Atmung prüfen, stabile Seitenlage oder Wiederbelebung (30 : 2)</li><li>Wunden versorgen, Verbrennungen kühlen, PECH-Regel</li></ul>
@@ -658,7 +671,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">6</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 6 · 2 Unterrichtsstunden (mit Umfrage) · Buch S. 120–123</p>
+        <p class="eyebrow">Stunde 6 · 2 Unterrichtsstunden (mit Umfrage)</p>
         <h2>Stress – was steckt dahinter?</h2>
         <p class="l-q"><b>Leitfrage:</b> Ist Stress immer schlecht?</p>
         <ul class="facts"><li>Stress entsteht durch Stressoren; Bewertung ist subjektiv</li><li>Körperreaktionen: Adrenalin, Puls, Atmung, Muskelspannung</li><li>Eustress und Distress; Unter- und Überforderung</li><li>Methode: Eine Umfrage durchführen (fünf Schritte, Fragetypen)</li></ul>
@@ -669,7 +682,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">7</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 7 · 1 Unterrichtsstunde · Buch S. 124–125</p>
+        <p class="eyebrow">Stunde 7 · 1 Unterrichtsstunde</p>
         <h2>Resilienz – das macht dich stark</h2>
         <p class="l-q"><b>Leitfrage:</b> Warum kommen manche Menschen besser durch Krisen als andere?</p>
         <ul class="facts"><li>Resilienz = seelische Widerstandskraft (lat. resilire: zurückspringen)</li><li>Schutzfaktoren: Familie, Freunde, Immunsystem, Umgang mit Stress, Selbstwertgefühl</li><li>Sieben Säulen nach Reivich und Shatté</li><li>Resilienz kann trainiert werden</li></ul>
@@ -680,7 +693,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">8</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 8 · 1 Unterrichtsstunde · Buch S. 126–127</p>
+        <p class="eyebrow">Stunde 8 · 1 Unterrichtsstunde</p>
         <h2>Stress-Strategien – chill doch mal!</h2>
         <p class="l-q"><b>Leitfrage:</b> Was kann ich tun, wenn mir alles zu viel wird?</p>
         <ul class="facts"><li>Stress ist individuell – Strategien helfen</li><li>Instrumentelle Strategie: Stressoren verändern, verringern, verhindern</li><li>Kognitive Strategie: Einstellung und Bewertung ändern</li><li>Regenerative Strategie: Erholung, Schlaf, Bewegung, Musik, Kontakte; kurzfristige Maßnahmen</li></ul>
@@ -691,7 +704,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">9</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 9 · 1 Unterrichtsstunde · Buch S. 128–129</p>
+        <p class="eyebrow">Stunde 9 · 1 Unterrichtsstunde</p>
         <h2>Beratungsstellen – lass dir helfen!</h2>
         <p class="l-q"><b>Leitfrage:</b> Wo bekomme ich Hilfe, wenn ich nicht mehr weiterweiß?</p>
         <ul class="facts"><li>Beratung hilft aus Krisen: Familien-, Jugend-, Sucht-, Mobbing-, Ernährungsberatung</li><li>Schulsozialarbeit und Nummer gegen Kummer (116 111)</li><li>Grundsätze: freiwillig, vertraulich, kostenlos</li><li>Mobbing und Cybermobbing haben gesundheitliche Folgen</li></ul>
@@ -702,7 +715,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">10</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 10 · 1 Unterrichtsstunde · Buch S. 130–131</p>
+        <p class="eyebrow">Stunde 10 · 1 Unterrichtsstunde</p>
         <h2>Wiederholung und Selbsttest</h2>
         <p class="l-q"><b>Leitfrage:</b> Weiß ich, was mich gesund hält – und was ich in Krisen tun kann?</p>
         <ul class="facts"><li>Fachbegriffe als Karteikarten und Paare</li><li>Fallbeispiel: Prüfungswoche</li><li>Quiz mit 18 Fragen (10 zufällig pro Runde)</li><li>„Ich kann …“-Liste mit Links zurück in die Stunden</li></ul>

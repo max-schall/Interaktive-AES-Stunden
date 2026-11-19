@@ -431,7 +431,7 @@ h3{font-weight:600;font-stretch:100%;font-size:1.25rem;line-height:1.2}
 .quote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--ink-2);margin-top:.3rem}
 
 /* ---------- Symbole ---------- */
-.ico{width:1.6rem;height:1.6rem;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ico{width:1.6rem;height:1.6rem;flex:none;overflow:visible;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- Kacheln mit Detailansicht (explore) ---------- */
 .explore{display:flex;flex-direction:column;gap:.8rem}
@@ -566,6 +566,19 @@ input[type=range]{accent-color:var(--accent);width:100%}
 }
 @media (max-width:920px){.model[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}}
 .ex-tile b{word-break:break-word}
+/* Monatskalender (Saisonkalender) */
+.cal-nav{display:flex;align-items:center;gap:.5rem;margin:.2rem 0 .5rem}
+.cal-nav b{font-family:var(--f-display);font-size:1.3rem;min-width:8.5rem;text-align:center}
+.cal-nav .btn{padding:.25rem .7rem}
+.cal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.4rem;margin-bottom:.6rem}
+.cal button{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 0 .35rem;border:1.5px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;overflow:hidden;min-width:0}
+.cal button::before{content:"";display:block;width:100%;height:.55rem;background:var(--sea,var(--line))}
+.cal button::after{content:"";position:absolute;top:.12rem;left:28%;right:28%;height:.3rem;background:radial-gradient(circle,var(--surface) 0 40%,transparent 45%) 0 0/50% 100% repeat-x}
+.cal button .mm{font-weight:700;font-size:.95rem;margin-top:.25rem}
+.cal button .ico{width:1.05rem;height:1.05rem;color:var(--sea,var(--ink-2));margin-top:.1rem}
+.cal button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface));box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.cal button:hover{border-color:var(--ink-2)}
+@media (max-width:520px){.cal{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 </style>
 </head>
@@ -603,7 +616,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">1</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde · Buch S. 152–153</p>
+        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde</p>
         <h2>Du und deine Bedürfnisse – was wünschst du dir?</h2>
         <p class="l-q"><b>Leitfrage:</b> Was brauche ich wirklich – und was wünsche ich mir nur?</p>
         <ul class="facts"><li>Bedürfnis = empfundener Mangel mit dem Wunsch, ihn zu beseitigen</li><li>Bedarf befriedigt Bedürfnisse, materiell oder nicht-materiell</li><li>Bedürfnispyramide nach Maslow: Grund-, Sicherheits-, soziale, Individual-Bedürfnisse, Selbstverwirklichung</li><li>Defizit- und Wachstumsbedürfnisse</li></ul>
@@ -614,7 +627,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">2</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 2 · 1 Unterrichtsstunde · Buch S. 154–155</p>
+        <p class="eyebrow">Stunde 2 · 1 Unterrichtsstunde</p>
         <h2>Nachhaltigkeit leben – denkst du heute schon an morgen?</h2>
         <p class="l-q"><b>Leitfrage:</b> Was bedeutet „enkeltauglich“ leben?</p>
         <ul class="facts"><li>Herkunft aus der Forstwirtschaft vor 300 Jahren</li><li>Nachhaltig: so leben, dass nachfolgende Generationen ihre Bedürfnisse auch befriedigen können</li><li>Drei-Säulen-Modell: Ökologie, Ökonomie, Soziales</li><li>Agenda 2030 mit 17 Nachhaltigkeitszielen (SDGs)</li></ul>
@@ -625,7 +638,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">3</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 3 · 1–2 Unterrichtsstunden · Buch S. 156–157</p>
+        <p class="eyebrow">Stunde 3 · 1–2 Unterrichtsstunden</p>
         <h2>Dein ökologischer Fußabdruck</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie viele Erden bräuchten wir, wenn alle so leben würden wie wir?</p>
         <ul class="facts"><li>Der ökologische Fußabdruck vergleicht verfügbare Ressourcen mit dem Verbrauch</li><li>Seit 1971 verbraucht die Menschheit mehr, als die Natur nachliefert; Erdüberlastungstag</li><li>CO₂-Fußabdruck pro Kopf in Deutschland ca. 10,5 t: Ernährung, Wohnen, Mobilität, Konsum, Infrastruktur</li><li>Tipps für einen kleineren Fußabdruck</li></ul>
@@ -636,7 +649,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">4</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde · Buch S. 158–159</p>
+        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde</p>
         <h2>So kannst du Verpackungsabfall reduzieren</h2>
         <p class="l-q"><b>Leitfrage:</b> Ist Glas wirklich besser als Plastik?</p>
         <ul class="facts"><li>Verpackungen schützen, verlängern Haltbarkeit, erleichtern Transport – oder sind nur Werbeträger</li><li>Plastik: leicht und stabil, aber verrottet nicht; ökologische und soziale Folgen</li><li>CO₂ je kg Verpackung, Recyclingquoten; stoffliche und energetische Verwertung</li><li>Je weniger Verpackung, desto besser: unverpackt, Mehrweg, Stofftasche</li></ul>
@@ -647,7 +660,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">5</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde · Buch S. 160–161</p>
+        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde</p>
         <h2>Fleischkonsum frisst Ressourcen</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie viel Wasser steckt in einem Burger?</p>
         <ul class="facts"><li>Fleischkonsum in Deutschland fast doppelt so hoch wie von der DGE empfohlen (300–600 g pro Woche)</li><li>Gesundheitliche, ökologische, soziale und wirtschaftliche Auswirkungen</li><li>Virtuelles Wasser: 15 400 l für 1 kg Rindfleisch</li><li>Methan ist 25-mal klimaschädlicher als CO₂; bewusst und weniger Fleisch essen</li></ul>
@@ -658,7 +671,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">6</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 6 · 1–2 Unterrichtsstunden · Buch S. 162–163</p>
+        <p class="eyebrow">Stunde 6 · 1–2 Unterrichtsstunden</p>
         <h2>Schone Ressourcen – rette Lebensmittel</h2>
         <p class="l-q"><b>Leitfrage:</b> Warum landet so viel Essen im Müll – und was kann ich dagegen tun?</p>
         <ul class="facts"><li>10,9 Millionen Tonnen Lebensmittelabfälle pro Jahr in Deutschland, mehr als die Hälfte in Privathaushalten</li><li>Ca. 78 kg pro Person und Jahr, etwa die Hälfte vermeidbar</li><li>Vermeidbare und unvermeidbare Abfälle, MHD und Verbrauchsdatum</li><li>Tipps: planen, richtig lagern, Sinne nutzen, Reste verwerten</li></ul>
@@ -669,7 +682,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">7</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 7 · 2 Unterrichtsstunden (mit Markterkundung) · Buch S. 164–167</p>
+        <p class="eyebrow">Stunde 7 · 2 Unterrichtsstunden (mit Markterkundung)</p>
         <h2>Tricks, die dich zum Kauf verführen – Markterkundung</h2>
         <p class="l-q"><b>Leitfrage:</b> Warum ist meine Einkaufstasche am Ende immer voller als geplant?</p>
         <ul class="facts"><li>Verkaufsstrategien: Atmosphäre, Laufwege, Bremszonen, Sonderangebote, Einkaufswagen, Regalplatzierung, Kundenkarten</li><li>Regalzonen: Reck-, Sicht-, Griff-, Bückzone; Quengelzone an der Kasse</li><li>Gegenstrategien: Einkaufsliste, satt einkaufen, Grundpreis vergleichen</li><li>Methode Markterkundung in fünf Schritten</li></ul>
@@ -680,7 +693,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">8</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 8 · 1 Unterrichtsstunde · Buch S. 180–181 (Training, Auszug)</p>
+        <p class="eyebrow">Stunde 8 · 1 Unterrichtsstunde</p>
         <h2>Wiederholung und Selbsttest</h2>
         <p class="l-q"><b>Leitfrage:</b> Kann ich nachhaltige Konsumentscheidungen treffen und begründen?</p>
         <ul class="facts"><li>Fachbegriffe als Karteikarten und Paare</li><li>Fallbeispiel: Wochenendeinkauf</li><li>Quiz mit 16 Fragen (10 zufällig pro Runde)</li><li>„Ich kann …“-Liste mit Links zurück in die Stunden</li></ul>

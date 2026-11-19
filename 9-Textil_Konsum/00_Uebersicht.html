@@ -431,7 +431,7 @@ h3{font-weight:600;font-stretch:100%;font-size:1.25rem;line-height:1.2}
 .quote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--ink-2);margin-top:.3rem}
 
 /* ---------- Symbole ---------- */
-.ico{width:1.6rem;height:1.6rem;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ico{width:1.6rem;height:1.6rem;flex:none;overflow:visible;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- Kacheln mit Detailansicht (explore) ---------- */
 .explore{display:flex;flex-direction:column;gap:.8rem}
@@ -566,6 +566,19 @@ input[type=range]{accent-color:var(--accent);width:100%}
 }
 @media (max-width:920px){.model[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}}
 .ex-tile b{word-break:break-word}
+/* Monatskalender (Saisonkalender) */
+.cal-nav{display:flex;align-items:center;gap:.5rem;margin:.2rem 0 .5rem}
+.cal-nav b{font-family:var(--f-display);font-size:1.3rem;min-width:8.5rem;text-align:center}
+.cal-nav .btn{padding:.25rem .7rem}
+.cal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.4rem;margin-bottom:.6rem}
+.cal button{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 0 .35rem;border:1.5px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;overflow:hidden;min-width:0}
+.cal button::before{content:"";display:block;width:100%;height:.55rem;background:var(--sea,var(--line))}
+.cal button::after{content:"";position:absolute;top:.12rem;left:28%;right:28%;height:.3rem;background:radial-gradient(circle,var(--surface) 0 40%,transparent 45%) 0 0/50% 100% repeat-x}
+.cal button .mm{font-weight:700;font-size:.95rem;margin-top:.25rem}
+.cal button .ico{width:1.05rem;height:1.05rem;color:var(--sea,var(--ink-2));margin-top:.1rem}
+.cal button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface));box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.cal button:hover{border-color:var(--ink-2)}
+@media (max-width:520px){.cal{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 </style>
 </head>
@@ -603,7 +616,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">1</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde · Buch S. 168–169</p>
+        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde</p>
         <h2>Textile Kette – Lebensweg deiner Kleidung</h2>
         <p class="l-q"><b>Leitfrage:</b> Welche Weltreise hat mein T-Shirt hinter sich?</p>
         <ul class="facts"><li>Die textile Kette von der Faser bis zur Entsorgung</li><li>Naturfasern und Chemiefasern, Mischgewebe schwer recycelbar</li><li>Wertschöpfungskette: Produktion in Ländern mit niedrigen Löhnen und Sozialstandards</li><li>Altkleider: nur ca. 10 % an Bedürftige, 40 % Export, 40 % Recycling, 10 % verbrannt</li></ul>
@@ -614,7 +627,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">2</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 2 · 1 Unterrichtsstunde · Buch S. 170–171</p>
+        <p class="eyebrow">Stunde 2 · 1 Unterrichtsstunde</p>
         <h2>Fast Fashion – Folgen für die Umwelt</h2>
         <p class="l-q"><b>Leitfrage:</b> Was kostet ein T-Shirt die Umwelt?</p>
         <ul class="facts"><li>Fast Fashion: schnell wechselnde Kollektionen zu sehr niedrigen Preisen</li><li>Jugendliche gaben 2021 rund 3,1 Mrd. € für Mode aus, 4,7 kg Kleidung pro Person werden jährlich weggeworfen</li><li>Bekleidungsökologie: Human-, Produktions-, Entsorgungsökologie</li><li>Wasser, Pestizide, Chemikalien, CO₂, Mikroplastik</li></ul>
@@ -625,7 +638,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">3</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde · Buch S. 172–173</p>
+        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde</p>
         <h2>Fast Fashion – soziale Auswirkungen</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie kann ein T-Shirt weniger kosten als eine Pizza?</p>
         <ul class="facts"><li>Moderne Sklaverei: schlechte Arbeitszeiten (bis 16 Stunden, 6–7 Tage), niedrige Löhne (Mindestlohn Bangladesch ca. 85 € im Monat)</li><li>Mangelnder Sicherheits- und Gesundheitsschutz</li><li>Kinderarbeit (ca. 160 Mio. Kinder weltweit) und mangelnde Rechte</li><li>Preisaufteilung: Ein teures T-Shirt ist nicht automatisch fairer</li></ul>
@@ -636,7 +649,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">4</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 4 · 1–2 Unterrichtsstunden (mit Upcycling) · Buch S. 174–175</p>
+        <p class="eyebrow">Stunde 4 · 1–2 Unterrichtsstunden (mit Upcycling)</p>
         <h2>Slow Fashion – Nachhaltigkeit zum Anziehen</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie kann ich Mode lieben, ohne der Umwelt zu schaden?</p>
         <ul class="facts"><li>Am nachhaltigsten: weniger kaufen</li><li>Gebrauchswert erhalten: Pflegesymbole beachten, seltener waschen, lufttrocknen, reparieren</li><li>Secondhand, Tauschen, Upcycling statt Downcycling</li><li>Bio-Baumwolle und Siegel; Kleidercontainer prüfen</li></ul>
@@ -647,7 +660,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">5</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde · Buch S. 176–177</p>
+        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde</p>
         <h2>Kreislaufwirtschaft statt Wegwerfkultur</h2>
         <p class="l-q"><b>Leitfrage:</b> Warum geht mein Smartphone kaputt, kurz nachdem die Garantie abgelaufen ist?</p>
         <ul class="facts"><li>Der ideale Produktionsprozess ist ein Kreislauf ohne Abfall</li><li>Technischer Kreislauf (Gebrauchsgüter) und biologischer Kreislauf (Verbrauchsgüter)</li><li>Geplante Obsoleszenz; EU-Regeln: Reparierbarkeit, Ersatzteile, einheitliche Ladekabel</li><li>Elektroschrott enthält wertvolle Rohstoffe – richtig entsorgen</li></ul>
@@ -658,7 +671,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">6</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 6 · 1 Unterrichtsstunde · Buch S. 178–179</p>
+        <p class="eyebrow">Stunde 6 · 1 Unterrichtsstunde</p>
         <h2>Fair Trade – du kannst etwas bewirken!</h2>
         <p class="l-q"><b>Leitfrage:</b> Was bringt es einer Kakaobäuerin, wenn ich faire Schokolade kaufe?</p>
         <ul class="facts"><li>Ziel: Handelsbeziehungen mit Dialog, Transparenz und Respekt; bessere Lebens- und Arbeitsbedingungen</li><li>Fairtrade-Mindestpreis und Fairtrade-Prämie für Kooperativen</li><li>Standards: angemessener Lohn, keine Kinder- und Zwangsarbeit, Versammlungsfreiheit, Diskriminierungsverbot, umweltverträglicher Anbau</li><li>Siegel erkennen; Mischprodukte mit mind. 20 % fairen Zutaten</li></ul>
@@ -669,7 +682,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">7</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 7 · 1 Unterrichtsstunde · Buch S. 180–181</p>
+        <p class="eyebrow">Stunde 7 · 1 Unterrichtsstunde</p>
         <h2>Wiederholung und Selbsttest</h2>
         <p class="l-q"><b>Leitfrage:</b> Kann ich Kleidung und Konsumgüter verantwortungsvoll auswählen und nutzen?</p>
         <ul class="facts"><li>Fachbegriffe als Karteikarten und Paare</li><li>Fallbeispiel: die neue Jacke</li><li>Quiz mit 16 Fragen (10 zufällig pro Runde)</li><li>„Ich kann …“-Liste mit Links zurück in die Stunden</li></ul>

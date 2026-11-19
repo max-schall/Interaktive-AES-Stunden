@@ -132,13 +132,13 @@ inter: Messer-Anatomie zum Antippen · Messer und Lebensmittel zuordnen · Krall
 
 explore($('#ex-m'), [
   {ico: 'messer', t: 'Gemüsemesser', d: 'Kleines Messer, hauptsächlich zum <b>Putzen</b> von Obst und Gemüse.'},
-  {ico: 'karotte', t: 'Sparschäler', d: 'Zum <b>sparsamen Schälen</b> von Obst und Gemüse – es geht nur eine dünne Schicht verloren.'},
+  {ico: 'schaeler', t: 'Sparschäler', d: 'Zum <b>sparsamen Schälen</b> von Obst und Gemüse – es geht nur eine dünne Schicht verloren.'},
   {ico: 'messer', t: 'Schälmesser', d: 'Alternative zum Sparschäler. Kochprofis schälen damit z. B. Kartoffeln.'},
   {ico: 'messer', t: 'großes Kochmesser', d: 'Lange Klinge für <b>große und harte Lebensmittel</b> wie Kürbis und Sellerie. Auch zum Hacken von Kräutern oder Nüssen.'},
   {ico: 'messer', t: 'kleines Kochmesser', d: 'Für <b>kleine oder weiche Lebensmittel</b> wie Zwiebeln, Bananen und Fleisch.'},
-  {ico: 'brot', t: 'Brotmesser', d: '<b>Grober Wellenschliff</b>, der an eine Säge erinnert: schneidet die feste Kruste, ohne die weiche Krume zusammenzudrücken. Auch für Kuchen wie Marmorkuchen.'},
-  {ico: 'apfel', t: 'Tomatenmesser', d: '<b>Feiner Wellenschliff:</b> durchtrennt die feste Tomatenhaut, ohne das weiche Innere zu zerdrücken.'},
-  {ico: 'blatt', t: 'Wiegemesser', d: 'Gebogene Klinge mit zwei Griffen zum <b>Hacken</b> von Kräutern und Nüssen.'}
+  {ico: 'saegemesser', t: 'Brotmesser', d: '<b>Grober Wellenschliff</b>, der an eine Säge erinnert: schneidet die feste Kruste, ohne die weiche Krume zusammenzudrücken. Auch für Kuchen wie Marmorkuchen.'},
+  {ico: 'saegemesser', t: 'Tomatenmesser', d: '<b>Feiner Wellenschliff:</b> durchtrennt die feste Tomatenhaut, ohne das weiche Innere zu zerdrücken.'},
+  {ico: 'wiegemesser', t: 'Wiegemesser', d: 'Gebogene Klinge mit zwei Griffen zum <b>Hacken</b> von Kräutern und Nüssen.'}
 ], {hint: 'Tippe auf ein Messer.'});
 
 /* Griffe */
@@ -259,7 +259,7 @@ explore($('#ex-m'), [
     if (k === 3) { arrow(xk - 120, 40, xk - 250, 'Hand wandert nach hinten'); const s = E('text', {x: Math.min(560, xk + 46), y: BY + 34, 'text-anchor': 'middle', class: 'lbl', style: `fill:${col('ink')};font-size:14px`}); s.textContent = 'Scheiben'; }
   };
 
-  /* ---------- Tunnelgriff (Blick von der Seite, wie im Buch) ---------- */
+  /* ---------- Tunnelgriff (Blick von der Seite) ---------- */
   const OX = 262, OR = 104, OH = 92;
   const onion = () => {
     E('path', {d: `M${OX - OR} ${BY} A${OR} ${OH} 0 0 1 ${OX + OR} ${BY} Z`, fill: 'url(#gr-onion)', stroke: '#9c7444', 'stroke-width': 1.6, 'stroke-linejoin': 'round'});

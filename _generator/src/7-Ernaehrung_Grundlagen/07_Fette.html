@@ -29,8 +29,8 @@ inter: Aufbau eines Fettes · Fettsäuren und Öle · Versteckte Fette entdecken
       <h2>Aufbau der Fette</h2>
       <p class="lead">Einfache Fette sind aus <b>Glycerin und drei Fettsäuren</b> aufgebaut. Die Fettsäuren bestimmen Eigenschaften und Gesundheitswert eines Fettes.</p>
       <ul class="facts">
-        <li><b>gesättigte Fettsäuren</b> – vor allem in festen Fetten wie Butter, Schmalz, Kokosfett</li>
-        <li><b>(mehrfach) ungesättigte Fettsäuren</b> – vor allem in flüssigen Ölen</li>
+        <li><b>gesättigte Fettsäuren</b> – keine Doppelbindungen, alle C-Atome sind mit H-Atomen gesättigt; vor allem in festen Fetten wie Butter, Schmalz, Kokosfett</li>
+        <li><b>ungesättigte Fettsäuren</b> – mindestens eine Doppelbindung (einfach ungesättigt: eine, mehrfach ungesättigt: mehrere); vor allem in flüssigen Ölen</li>
         <li><b>essenzielle Fettsäuren</b> (Omega-3, Omega-6) muss der Körper mit der Nahrung aufnehmen: in Pflanzenölen und Kaltwasserfischen wie Lachs, Makrele, Hering.</li>
       </ul>
     </div>
@@ -102,7 +102,7 @@ inter: Aufbau eines Fettes · Fettsäuren und Öle · Versteckte Fette entdecken
       <div class="heft-title"><h3>Fette</h3><span>AES · Klasse 7</span></div>
       <ol>
         <li data-step>Fette sind energieliefernde Makronährstoffe (<b>Brennstoffe</b>): 1 g = 37 kJ (9 kcal). Höchstens 1 g pro kg Körpergewicht am Tag.</li>
-        <li data-step>Aufbau: <b>Glycerin + drei Fettsäuren</b>. Fettsäuren sind gesättigt oder (mehrfach) ungesättigt. <b>Essenzielle Fettsäuren</b> (Omega-3, Omega-6) kommen in Pflanzenölen und Kaltwasserfischen vor.</li>
+        <li data-step>Aufbau: <b>Glycerin + drei Fettsäuren</b>. Gesättigte Fettsäuren haben <b>keine Doppelbindung</b> (alle C-Atome mit H-Atomen gesättigt), ungesättigte <b>mindestens eine Doppelbindung</b>. <b>Essenzielle Fettsäuren</b> (Omega-3, Omega-6) kommen in Pflanzenölen und Kaltwasserfischen vor.</li>
         <li data-step>Aufgaben: Energie und Energiespeicher, Schutz der Organe, Wärmeisolierung, Träger für Geschmacksstoffe und die fettlöslichen Vitamine A, D, E, K.</li>
         <li data-step>Achte besonders auf <b>versteckte Fette</b> in Wurst, Käse, Chips, Gebäck und Süßigkeiten.</li>
         <li data-step>Richtige Fettauswahl: hocherhitzbare Öle zum Braten, Butter zum Dünsten und Backen, kaltgepresste Öle für Salate.</li>
@@ -125,23 +125,63 @@ inter: Aufbau eines Fettes · Fettsäuren und Öle · Versteckte Fette entdecken
 <script>
 (() => {
   let typ = 'ges';
-  const T = {ges: '<b>Gesättigte Fettsäuren:</b> gerade Ketten, die sich dicht aneinanderlegen – das Fett ist fest (Butter, Kokosfett).', unges: '<b>Ungesättigte Fettsäuren:</b> Doppelbindungen machen Knicke – die Ketten liegen locker, das Fett ist flüssig (Öl).'};
-  seg($('#fs-seg'), [['ges', 'gesättigt'], ['unges', 'ungesättigt']], v => { typ = v; $('#fs-st').innerHTML = T[v]; });
+  const T = {
+    ges: '<b>Gesättigte Fettsäuren</b> haben <b>keine Doppelbindungen</b>: Jedes C-Atom ist mit so vielen H-Atomen verbunden wie möglich – es ist mit H-Atomen „gesättigt“. Die Ketten sind gerade und legen sich dicht aneinander, das Fett ist fest (Butter, Kokosfett).',
+    einfach: '<b>Einfach ungesättigte Fettsäuren</b> haben <b>eine Doppelbindung</b> (C=C). An dieser Stelle fehlen zwei H-Atome, die Kette ist nicht mehr gesättigt und bekommt einen Knick. Die Ketten liegen locker, das Fett ist flüssig (Olivenöl, Rapsöl).',
+    mehr: '<b>Mehrfach ungesättigte Fettsäuren</b> haben <b>zwei oder mehr Doppelbindungen</b> und damit mehrere Knicke. Dazu gehören die essenziellen Omega-3- und Omega-6-Fettsäuren (Leinöl, Walnüsse, Lachs).'
+  };
+  const DB = {ges: [], einfach: [8], mehr: [6, 9, 12]};          /* Doppelbindung zwischen C(i) und C(i+1) */
+  const DBZ = {ges: [], einfach: [3], mehr: [2, 5]};              /* in der Lupe */
+  seg($('#fs-seg'), [['ges', 'gesättigt'], ['einfach', 'einfach ungesättigt'], ['mehr', 'mehrfach ungesättigt']], v => { typ = v; $('#fs-st').innerHTML = T[v]; });
   canvasLoop($('#cv-f'), 'aufbau', (ctx, w, h, t) => {
-    const gx = w * .14, gy = h * .2, gh = h * .6;
-    ctx.fillStyle = col('c4'); roundRect(ctx, gx - 22, gy, 44, gh, 12); ctx.fill(); ctx.save(); ctx.translate(gx, gy + gh / 2); ctx.rotate(-Math.PI / 2); label(ctx, 'Glycerin', 0, 0, {size: 13, color: '#fff'}); ctx.restore();
+    const ink = col('ink-2'), fa = col('c5'), dbc = col('bad');
+    /* ---- oben: ganzes Fettmolekül (Glycerin + 3 Fettsäuren, Skelett) ---- */
+    const gx = w * .06, gy = h * .05, gh = h * .4;
+    ctx.fillStyle = col('c4'); roundRect(ctx, gx, gy, w * .07, gh, 10); ctx.fill();
+    ctx.save(); ctx.translate(gx + w * .035, gy + gh / 2); ctx.rotate(-Math.PI / 2); label(ctx, 'Glycerin', 0, 0, {size: 12, color: '#fff', halo: false}); ctx.restore();
+    const n = 18, segL = Math.min(w * .043, 26);
     for (let f = 0; f < 3; f++) {
-      const y0 = gy + gh * (.17 + f * .33); ctx.strokeStyle = col('c5'); ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(gx + 22, y0);
-      let x = gx + 22, y = y0; const seg = (w * .78) / 16;
-      for (let i = 0; i < 16; i++) { const kink = typ === 'unges' && (i === 6 || (f === 1 && i === 10)); x += seg; y += (i % 2 ? -1 : 1) * 7 + (kink ? 16 : 0) + Math.sin(t * 2 + f + i) * .6; ctx.lineTo(x, y); }
-      ctx.stroke(); label(ctx, `Fettsäure ${f + 1}`, gx + 40, y0 - 14, {size: 11, align: 'left', color: C.ink2});
+      const db = f === 0 && typ !== 'ges' ? DB[typ] : f === 2 && typ === 'mehr' ? [9] : f === 2 && typ === 'einfach' ? [] : f === 1 && typ !== 'ges' ? DB[typ] : [];
+      const P = [[gx + w * .07, gy + gh * (.17 + f * .33)]]; let head = 0;
+      /* Knick an jeder Doppelbindung (abwechselnd nach unten/oben), danach läuft die Kette wieder geradeaus */
+      const tgt = i => { let hd = 0; db.forEach((d, j) => { if (i > d) hd = j % 2 ? -.45 : .45; }); if (db.length && i > db[db.length - 1] + 3) hd = 0; return hd; };
+      for (let i = 0; i < n; i++) { head = tgt(i); const a = head + (i % 2 ? -.5 : .5); const [x, y] = P[P.length - 1]; P.push([x + Math.cos(a) * segL, y + Math.sin(a) * segL]); }
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = fa; ctx.lineWidth = 3.5;
+      ctx.beginPath(); P.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.stroke();
+      db.forEach(i => { const [x0, y0] = P[i + 1], [x1, y1] = P[i + 2], dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy), ox = -dy / L * 5, oy = dx / L * 5; ctx.strokeStyle = dbc; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.moveTo(x0 + ox, y0 + oy); ctx.lineTo(x1 + ox, y1 + oy); ctx.stroke(); });
+      label(ctx, `Fettsäure ${f + 1}` + (db.length ? ` · ${db.length} Doppelbindung${db.length > 1 ? 'en' : ''}` : ' · gesättigt'), gx + w * .09, P[0][1] - 13, {size: 11, align: 'left', color: C.ink2, weight: 400});
     }
+    /* ---- unten: Lupe auf einen Kettenabschnitt mit C- und H-Atomen ---- */
+    const zy = h * .52, zh = h * .45, zx = w * .03, zw = w * .94;
+    ctx.fillStyle = col('surface-2'); roundRect(ctx, zx, zy, zw, zh, 12); ctx.fill();
+    label(ctx, 'Lupe: Ausschnitt einer Fettsäure', zx + 12, zy + 14, {size: 11, align: 'left', color: C.ink2, weight: 400});
+    const nC = 9, cy = zy + zh * .54, sx = zw / (nC + 1.6), x0 = zx + sx * 1.1, rC = Math.min(sx * .3, zh * .11), rH = rC * .72, hb = zh * .27;
+    const dbz = DBZ[typ];
+    /* Bindungen */
+    label(ctx, '…', x0 - sx * .75, cy, {size: 16, color: C.ink2});
+    ctx.strokeStyle = ink; ctx.lineWidth = 2;
+    for (let i = 0; i < nC; i++) {
+      const x = x0 + i * sx;
+      if (i < nC - 1) { const dbl = dbz.includes(i); ctx.strokeStyle = dbl ? dbc : ink; ctx.lineWidth = dbl ? 3 : 2; ctx.beginPath(); if (dbl) { ctx.moveTo(x + rC, cy - 4); ctx.lineTo(x + sx - rC, cy - 4); ctx.moveTo(x + rC, cy + 4); ctx.lineTo(x + sx - rC, cy + 4); } else { ctx.moveTo(x + rC, cy); ctx.lineTo(x + sx - rC, cy); } ctx.stroke(); }
+      if (i === 0) { ctx.strokeStyle = ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x - rC, cy); ctx.lineTo(x - sx * .5, cy); ctx.stroke(); }
+    }
+    /* H-Atome: an jedem C oben und unten; an einer Doppelbindung nur eines (cis: oben); Kettenende CH3 */
+    const inDb = i => dbz.includes(i) || dbz.includes(i - 1);
+    for (let i = 0; i < nC; i++) {
+      const x = x0 + i * sx, Hs = inDb(i) ? [[0, -1]] : [[0, -1], [0, 1]];
+      if (i === nC - 1) Hs.push([1, 0]);
+      Hs.forEach(([dx, dy]) => { const hx = x + dx * hb * 1.1, hy = cy + dy * hb; ctx.strokeStyle = ink; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(x + dx * rC, cy + dy * rC); ctx.lineTo(hx - dx * rH, hy - dy * rH); ctx.stroke(); sphere(ctx, hx, hy, rH, '#e8e4dc', 'H', '#333', alpha(ink, .5)); });
+      if (inDb(i)) { ctx.strokeStyle = dbc; ctx.setLineDash([3, 3]); ctx.lineWidth = 1.4; ctx.beginPath(); ctx.arc(x, cy + hb, rH, 0, 7); ctx.stroke(); ctx.setLineDash([]); }
+      sphere(ctx, x, cy, rC, inDb(i) ? dbc : '#4a4a4a', 'C', '#fff');
+    }
+    if (dbz.length) { const xm = x0 + (dbz[0] + .5) * sx; label(ctx, 'C=C Doppelbindung: hier fehlen H-Atome', xm, zy + zh - 10, {size: 12, color: dbc, maxW: zw - 20}); }
+    else label(ctx, 'nur Einfachbindungen: jedes C-Atom ist mit H-Atomen gesättigt', zx + zw / 2, zy + zh - 10, {size: 12, color: C.good, maxW: zw - 20});
   });
   $('#fs-st').innerHTML = T.ges;
 })();
 explore($('#ex-a'), [
   {ico: 'flamme', t: 'Energie', d: 'Fette liefern sehr viel Energie (37 kJ/g) für Stoffwechsel und körperliche Arbeit.'},
-  {ico: 'paket', t: 'Energiespeicher', d: 'Überschüssiges Fett wird als langfristige Reserve gespeichert – als Fettpolster an Hüfte, Bauch und Po.'},
+  {ico: 'batterie', t: 'Energiespeicher', d: 'Überschüssiges Fett wird als langfristige Reserve gespeichert – als Fettpolster an Hüfte, Bauch und Po.'},
   {ico: 'schild', t: 'Schutz', d: 'Fett umhüllt innere Organe wie Nieren und Augäpfel und schützt sie vor Stößen.'},
   {ico: 'thermo', t: 'Wärme', d: 'Fett unter der Haut schützt vor Kälte und hält die Körpertemperatur aufrecht.'},
   {ico: 'nase', t: 'Geschmacksträger', d: 'Fett trägt Geschmacks- und Aromastoffe – deshalb schmeckt Vollmilch besser als Magermilch.'},

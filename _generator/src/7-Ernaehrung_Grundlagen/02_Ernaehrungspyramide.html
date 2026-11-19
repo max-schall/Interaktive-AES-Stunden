@@ -109,14 +109,14 @@ inter: Interaktive Pyramide zum Antippen · Lebensmittel einordnen · Mein Tag i
 
 <script>
 const G = [
-  {k: 'getr', n: 'Getränke', p: 6, a: 'g', ico: 'tropfen', d: 'Wasser, ungesüßte Kräuter- und Früchtetees, Saftschorlen (3 : 1). Limonaden und Energydrinks gehören zu den Extras.'},
+  {k: 'getr', n: 'Getränke', p: 6, a: 'g', ico: 'glas', d: 'Wasser, ungesüßte Kräuter- und Früchtetees, Saftschorlen (3 : 1). Limonaden und Energydrinks gehören zu den Extras.'},
   {k: 'gem', n: 'Gemüse', p: 3, a: 'g', ico: 'karotte', d: 'Alle Gemüsesorten, z. B. Tomaten, Kohlrabi, Blattsalate. Eine Portion kann ab und zu durch ein Glas Gemüsesaft ersetzt werden. Je bunter, desto besser!'},
   {k: 'obst', n: 'Obst', p: 2, a: 'g', ico: 'apfel', d: 'Alle Obstsorten, z. B. Birnen, Beeren, Bananen, Zitrusfrüchte. Ab und zu darf eine Portion ein Glas reiner Fruchtsaft, ein Smoothie oder eine Handvoll Trockenobst sein.'},
   {k: 'brot', n: 'Brot, Getreide, Beilagen', p: 4, a: 'g', ico: 'brot', d: 'Alle Getreidesorten (Weizen, Dinkel, Hafer, Reis, Hirse, Mais), Pseudogetreide (Quinoa, Amaranth), Mehl, Haferflocken, Nudeln, Kartoffeln. Vollkorn ist die beste Wahl.'},
   {k: 'milch', n: 'Milch und Milchprodukte', p: 3, a: 'y', ico: 'milch', d: 'Milch, Ayran, Buttermilch, Naturjoghurt, Quark, Käse. Fruchtjoghurt = 1 Portion Milch + 1 Portion Extras. Ein Glas Hafer- oder Sojadrink kann 1 Portion ersetzen.'},
   {k: 'eiw', n: 'Fleisch, Fisch, Ei, Hülsenfrüchte', p: 1, a: 'y', ico: 'fisch', d: 'Pflanzliche und tierische Eiweißquellen – am besten abwechseln. Hülsenfrüchte (Linsen, Erbsen, Bohnen) mindestens einmal pro Woche.'},
   {k: 'fett', n: 'Fette und Öle', p: 2, a: 'y', ico: 'oel', d: 'Pflanzenöle wie Raps- oder Olivenöl, Butter, Margarine, Nüsse und Saaten (Sonnenblumen-, Kürbiskerne, Sesam, Leinsamen, Chia). Eine kleine Handvoll Nüsse genügt.'},
-  {k: 'extra', n: 'Extras', p: 1, a: 'r', ico: 'stern', d: 'Lebensmittel mit viel Zucker und/oder Fett oder mit Alkohol: Süßigkeiten, Kuchen, Limonaden, Energydrinks, Fruchtnektare, gezuckerte Frühstücksflocken, Nuss-Nougat-Creme, Chips, Pommes. Eine Portion am Tag ist erlaubt – du kannst aber auch verzichten.'}
+  {k: 'extra', n: 'Extras', p: 1, a: 'r', ico: 'bonbon', d: 'Lebensmittel mit viel Zucker und/oder Fett oder mit Alkohol: Süßigkeiten, Kuchen, Limonaden, Energydrinks, Fruchtnektare, gezuckerte Frühstücksflocken, Nuss-Nougat-Creme, Chips, Pommes. Eine Portion am Tag ist erlaubt – du kannst aber auch verzichten.'}
 ];
 const AMP = {g: 'good', y: 'warn', r: 'bad'};
 /* Pyramide aus Bausteinen: Reihen von unten */
@@ -166,12 +166,12 @@ sorter($('#sort'), G.filter(g => g.k !== 'gem').map(g => ({id: g.k === 'obst' ? 
 
 explore($('#ex-h'), [
   {ico: 'hand', t: 'Gemüse, Obst', d: 'Was in <b>eine oder zwei Hände</b> passt: großes Obst (Apfel) eine Hand, kleines Obst und Gemüse (Beeren, Salat) zwei Hände zur Schale geformt.'},
-  {ico: 'brot', t: 'Brot', d: 'Eine Scheibe Brot so groß wie die <b>Handfläche mit Fingern</b>.'},
+  {ico: 'aehre', t: 'Brot', d: 'Eine Scheibe Brot so groß wie die <b>Handfläche mit Fingern</b>.'},
   {ico: 'schuessel', t: 'Nudeln, Reis, Kartoffeln', d: 'Gegart: <b>zwei Hände</b> zur Schale geformt. Kartoffeln: zwei faustgroße.'},
   {ico: 'milch', t: 'Milch', d: 'Ein <b>Glas</b> (200 ml) Milch, Buttermilch oder Ayran; ein Becher Joghurt (150 g); Käse: zwei Scheiben so groß wie die Handfläche.'},
   {ico: 'fleisch', t: 'Fleisch, Fisch', d: 'So groß und dick wie die <b>Handfläche</b> (ohne Finger).'},
   {ico: 'oel', t: 'Fette und Öle', d: '<b>1–2 Esslöffel</b> Öl; Butter so groß wie der Daumen bis zum ersten Glied; Nüsse: eine kleine Handvoll.'},
-  {ico: 'tropfen', t: 'Getränke', d: 'Ein <b>Glas</b> (200–250 ml). 6 Gläser ergeben etwa 1,5 Liter.'},
+  {ico: 'glas', t: 'Getränke', d: 'Ein <b>Glas</b> (200–250 ml). 6 Gläser ergeben etwa 1,5 Liter.'},
   {ico: 'stern', t: 'Extras', d: 'Was in <b>eine Hand</b> passt: z. B. eine Handvoll Gummibärchen oder Chips, ein Stück Kuchen.'}
 ], {hint: 'Tippe auf eine Lebensmittelgruppe.'});
 

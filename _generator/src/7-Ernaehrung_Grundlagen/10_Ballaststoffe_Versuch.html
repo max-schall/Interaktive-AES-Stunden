@@ -137,8 +137,8 @@ inter: Ballaststoffe auf ihrem Weg durch den Körper · Ballaststoff-Rechner · 
 <script>
 explore($('#ex-b'), [
   {ico: 'mund', t: 'im Mund', d: 'Die feste Faserstruktur erfordert kräftiges Kauen. So wird mehr Speichel gebildet – gut für die Zähne.'},
-  {ico: 'schuessel', t: 'im Magen', d: 'Ballaststoffe quellen auf, der Magen wird gedehnt. Das führt zu einem schnellen und anhaltenden Sättigungsgefühl – du isst weniger.'},
-  {ico: 'kreislauf', t: 'im Darm', d: 'Der Speisebrei nimmt Wasser auf, der Druck auf die Darmwand steigt, die Darmtätigkeit wird angeregt – Verstopfung wird verhindert. Lösliche Ballaststoffe werden zu Gasen abgebaut (Blähungen möglich).'},
+  {ico: 'magen', t: 'im Magen', d: 'Ballaststoffe quellen auf, der Magen wird gedehnt. Das führt zu einem schnellen und anhaltenden Sättigungsgefühl – du isst weniger.'},
+  {ico: 'darm', t: 'im Darm', d: 'Der Speisebrei nimmt Wasser auf, der Druck auf die Darmwand steigt, die Darmtätigkeit wird angeregt – Verstopfung wird verhindert. Lösliche Ballaststoffe werden zu Gasen abgebaut (Blähungen möglich).'},
   {ico: 'herz', t: 'im Stoffwechsel', d: 'Ballaststoffe haben einen positiven Einfluss auf Blutzucker und Cholesterin.'}
 ], {hint: 'Wo wirken Ballaststoffe?'});
 
@@ -156,30 +156,87 @@ explore($('#ex-s'), [
   {ico: 'karotte', t: 'Carotinoide', d: '<p>gelbe, orange oder rote Farbstoffe, z. B. Beta-Carotin in Karotten, Kürbis, Paprika, Tomaten.</p><p><b>Wirkung:</b> antioxidativ, stärken das Immunsystem.</p>'},
   {ico: 'apfel', t: 'Flavonoide', d: '<p>hellgelbe, rote, blaue Farbstoffe, z. B. in Äpfeln, Beeren, Auberginen, grünem und schwarzem Tee, Kakao.</p><p><b>Wirkung:</b> antioxidativ, entzündungshemmend, blutdrucksenkend.</p>'},
   {ico: 'blatt', t: 'Glucosinolate', d: '<p>Duft- und Aromastoffe, z. B. in allen Kohlarten, Rettich, Radieschen, Kresse, Senf.</p><p><b>Wirkung:</b> antibiotisch, krebsvorbeugend.</p>'},
-  {ico: 'schuessel', t: 'Saponine', d: '<p>Bitterstoffe, z. B. in Hülsenfrüchten, Soja, Spargel, Lakritz.</p><p><b>Wirkung:</b> Cholesterin senkend, entzündungshemmend.</p>'},
+  {ico: 'huelse', t: 'Saponine', d: '<p>Bitterstoffe, z. B. in Hülsenfrüchten, Soja, Spargel, Lakritz.</p><p><b>Wirkung:</b> Cholesterin senkend, entzündungshemmend.</p>'},
   {ico: 'nase', t: 'Sulfide', d: '<p>Duft- und Aromastoffe, z. B. in Zwiebeln, Knoblauch, Lauch, Schnittlauch.</p><p><b>Wirkung:</b> antibiotisch, antioxidativ, blutdrucksenkend.</p>'}
 ], {hint: 'Tippe auf eine Gruppe.'});
 
-/* virtuelles Labor */
+/* virtuelles Labor: links der Versuch mit dem gewählten Lebensmittel, rechts die Ergebnistabelle */
 (() => {
   const F = {Wasser: [0, 0], Öl: [1, 0], Erdnüsse: [1, 1], Sahne: [1, 0], Käse: [1, 0], Gurke: [0, 0], Salami: [1, 0], Apfel: [0, 0], Kartoffel: [0, 1], Brot: [0, 1], Nudeln: [0, 1], Zucker: [0, 0]};
-  let mode = 'fett'; const done = new Set();
-  const pickBtns = () => { $('#vs-pick').innerHTML = Object.keys(F).map(k => `<button class="btn" data-k="${k}" aria-pressed="${done.has(k)}" style="padding:.3rem .7rem;font-size:.85rem">${k}</button>`).join(''); };
-  seg($('#vs-seg'), [['fett', 'Fettfleckprobe'], ['iod', 'Iodprobe']], v => { mode = v; done.clear(); pickBtns(); $('#vs-st').innerHTML = v === 'fett' ? 'Wähle Lebensmittel – sie werden auf das Papier gerieben und getrocknet.' : 'Wähle Lebensmittel – ein Tropfen Iodlösung kommt darauf.'; });
-  $('#vs-pick').onclick = e => { const b = e.target.closest('[data-k]'); if (!b) return; done.add(b.dataset.k); b.setAttribute('aria-pressed', 'true'); const [f, s] = F[b.dataset.k]; $('#vs-st').innerHTML = mode === 'fett' ? `<b>${b.dataset.k}:</b> ${f ? 'glasiger, durchscheinender Fleck – <b>enthält Fett</b>.' : 'nach dem Trocknen nichts zu sehen – kein (nennenswertes) Fett.'}` : `<b>${b.dataset.k}:</b> ${s ? 'Färbung blauschwarz – <b>enthält Stärke</b>.' : 'bleibt gelbbraun – keine Stärke.'}`; };
-  canvasLoop($('#cv-vs'), 'versuch', (ctx, w, h) => {
-    const keys = Object.keys(F), cols = 4, cw = w / cols, ch = h / 3;
-    if (mode === 'fett') { ctx.fillStyle = '#fbfaf6'; roundRect(ctx, 6, 6, w - 12, h - 12, 6); ctx.fill(); ctx.strokeStyle = alpha(C.ink2, .3); ctx.stroke(); }
+  let mode = 'fett', cur = null, ta = 0; const done = {fett: new Set(), iod: new Set()};
+  const DUR = {fett: 4.2, iod: 2.8};
+  const pickBtns = () => { $('#vs-pick').innerHTML = Object.keys(F).map(k => `<button class="btn" data-k="${k}" aria-pressed="${done[mode].has(k)}" style="padding:.3rem .7rem;font-size:.85rem">${k}</button>`).join(''); };
+  const intro = () => mode === 'fett' ? 'Wähle ein Lebensmittel – es wird auf das Papier gerieben, dann trocknet das Papier.' : 'Wähle ein Lebensmittel – ein Tropfen Iodlösung kommt darauf.';
+  seg($('#vs-seg'), [['fett', 'Fettfleckprobe'], ['iod', 'Iodprobe']], v => { mode = v; cur = null; pickBtns(); $('#vs-st').innerHTML = intro(); });
+  $('#vs-pick').onclick = e => { const b = e.target.closest('[data-k]'); if (!b) return; cur = b.dataset.k; ta = 0; $$('#vs-pick .btn').forEach(x => x.classList.toggle('primary', x === b)); $('#vs-st').innerHTML = mode === 'fett' ? `<b>${cur}</b> wird auf das Papier gerieben …` : `Ein Tropfen Iodlösung auf <b>${cur}</b> …`; };
+  const result = k => { const [f, s] = F[k]; return mode === 'fett' ? `<b>${k}:</b> ${f ? 'glasiger, durchscheinender Fleck – <b>enthält Fett</b>.' : 'nach dem Trocknen nichts zu sehen – kein (nennenswertes) Fett.'}` : `<b>${k}:</b> ${s ? 'Färbung blauschwarz – <b>enthält Stärke</b>.' : 'bleibt gelbbraun – keine Stärke.'}`; };
+  /* Lebensmittel-Zeichnungen (Mitte x, y; Größe s) */
+  const food = (ctx, k, x, y, s) => {
+    const P = (c, f) => { ctx.fillStyle = c; ctx.beginPath(); f(); ctx.fill(); };
+    const st = c => { ctx.strokeStyle = c; ctx.lineWidth = 1.5; ctx.stroke(); };
+    switch (k) {
+      case 'Wasser': P(alpha(C.water, .45), () => ctx.ellipse(x, y, s * .5, s * .28, 0, 0, 7)); break;
+      case 'Öl': P('rgba(214,170,40,.75)', () => ctx.ellipse(x, y, s * .45, s * .26, 0, 0, 7)); P('rgba(255,255,255,.5)', () => ctx.ellipse(x - s * .15, y - s * .08, s * .1, s * .04, 0, 0, 7)); break;
+      case 'Erdnüsse': [-1, 1].forEach(d => { P('#d9b27a', () => { ctx.ellipse(x + d * s * .22, y - s * .08, s * .17, s * .13, d * .3, 0, 7); ctx.ellipse(x + d * s * .22, y + s * .12, s * .19, s * .15, d * .3, 0, 7); }); }); break;
+      case 'Sahne': P('#fffdf6', () => { ctx.moveTo(x - s * .4, y + s * .15); ctx.quadraticCurveTo(x - s * .3, y - s * .25, x, y - s * .35); ctx.quadraticCurveTo(x + s * .3, y - s * .25, x + s * .4, y + s * .15); ctx.closePath(); }); st('#d8cfb8'); break;
+      case 'Käse': P('#f2c94c', () => { ctx.moveTo(x - s * .45, y + s * .25); ctx.lineTo(x + s * .45, y + s * .25); ctx.lineTo(x + s * .3, y - s * .25); ctx.closePath(); }); st('#c79a22'); [[-.1, .08], [.15, .1], [.15, -.08]].forEach(([a, b]) => P('#d8a92e', () => ctx.arc(x + a * s, y + b * s, s * .05, 0, 7))); break;
+      case 'Gurke': P('#4f8a3a', () => ctx.arc(x, y, s * .38, 0, 7)); P('#cfe3a8', () => ctx.arc(x, y, s * .32, 0, 7)); for (let i = 0; i < 6; i++) { const a = i / 6 * 6.28; P('#e9f2d4', () => ctx.ellipse(x + Math.cos(a) * s * .14, y + Math.sin(a) * s * .14, s * .04, s * .025, a, 0, 7)); } break;
+      case 'Salami': P('#a8323a', () => ctx.arc(x, y, s * .38, 0, 7)); for (let i = 0; i < 9; i++) { const a = i * 2.4, r = s * (.08 + (i % 3) * .09); P('#f3d7c8', () => ctx.arc(x + Math.cos(a) * r, y + Math.sin(a) * r, s * .035, 0, 7)); } break;
+      case 'Apfel': P('#fbf1d2', () => { ctx.moveTo(x - s * .42, y + s * .1); ctx.quadraticCurveTo(x, y - s * .45, x + s * .42, y + s * .1); ctx.quadraticCurveTo(x, y + s * .3, x - s * .42, y + s * .1); }); ctx.strokeStyle = '#c0392b'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x - s * .42, y + s * .1); ctx.quadraticCurveTo(x, y - s * .45, x + s * .42, y + s * .1); ctx.stroke(); break;
+      case 'Kartoffel': P('#f3e2a6', () => ctx.ellipse(x, y, s * .42, s * .3, .2, 0, 7)); st('#b99a52'); break;
+      case 'Brot': P('#a8743c', () => { ctx.moveTo(x - s * .4, y + s * .32); ctx.lineTo(x - s * .4, y - s * .1); ctx.arc(x - s * .2, y - s * .1, s * .2, Math.PI, 0); ctx.arc(x + s * .2, y - s * .1, s * .2, Math.PI, 0); ctx.lineTo(x + s * .4, y + s * .32); ctx.closePath(); }); P('#ecd6a8', () => { ctx.moveTo(x - s * .33, y + s * .26); ctx.lineTo(x - s * .33, y - s * .08); ctx.arc(x - s * .18, y - s * .08, s * .15, Math.PI, 0); ctx.arc(x + s * .18, y - s * .08, s * .15, Math.PI, 0); ctx.lineTo(x + s * .33, y + s * .26); ctx.closePath(); }); break;
+      case 'Nudeln': ctx.strokeStyle = '#e9c46a'; ctx.lineWidth = s * .09; ctx.lineCap = 'round'; for (let i = 0; i < 4; i++) { ctx.beginPath(); ctx.arc(x - s * .2 + i * s * .13, y + (i % 2) * s * .08, s * .16, Math.PI * .9, Math.PI * 2.1); ctx.stroke(); } break;
+      case 'Zucker': for (let i = 0; i < 5; i++) { const xx = x - s * .3 + (i % 3) * s * .25, yy = y - s * .08 + Math.floor(i / 3) * s * .2; ctx.fillStyle = '#ffffff'; ctx.fillRect(xx, yy, s * .18, s * .18); ctx.strokeStyle = '#cfc8b8'; ctx.lineWidth = 1; ctx.strokeRect(xx, yy, s * .18, s * .18); } break;
+    }
+  };
+  canvasLoop($('#cv-vs'), 'versuch', (ctx, w, h, t, dt) => {
+    const ink = col('ink-2'), sw = w * .6, cx = sw / 2, cy = h * .56, S = Math.min(sw, h) * .42;
+    if (cur && ta < DUR[mode] + .5) { ta += dt; if (ta >= DUR[mode] && !done[mode].has(cur)) { done[mode].add(cur); const b = $(`#vs-pick [data-k="${cur}"]`); if (b) b.setAttribute('aria-pressed', 'true'); $('#vs-st').innerHTML = result(cur); } }
+    const [hasF, hasS] = cur ? F[cur] : [0, 0];
+    if (mode === 'fett') {
+      /* Lampe hinter dem Papier (Gegenlicht) */
+      const lit = cur && ta > 3.2 ? clamp((ta - 3.2) / .6, 0, 1) : 0;
+      if (lit) { const g = ctx.createRadialGradient(cx, cy, 5, cx, cy, S * 1.2); g.addColorStop(0, alpha('#fff3b0', .55 * lit)); g.addColorStop(1, alpha('#fff3b0', 0)); ctx.fillStyle = g; ctx.fillRect(0, 0, sw, h); }
+      /* Papier */
+      ctx.fillStyle = mix('#f4efe3', '#dcd3bf', lit * .5); ctx.strokeStyle = alpha(ink, .35); ctx.lineWidth = 1.5; roundRect(ctx, cx - S * 1.05, cy - S * .8, S * 2.1, S * 1.6, 6); ctx.fill(); ctx.stroke();
+      label(ctx, 'Papier', cx - S * 1.05 + 8, cy - S * .8 + 12, {size: 11, align: 'left', color: C.ink2, weight: 400});
+      if (cur) {
+        /* Fleck: nass während des Reibens, danach trocknet Wasser weg, Fett bleibt */
+        const wet = clamp(ta / 1.4, 0, 1), dry = clamp((ta - 2) / 1.2, 0, 1);
+        const a = hasF ? .55 : .5 * (1 - dry);
+        if (a > .01) { ctx.fillStyle = hasF ? alpha(mix('#f7e7a8', '#ffffff', lit * .6), a + lit * .3) : alpha('#c9c1ac', a); ctx.beginPath(); ctx.ellipse(cx, cy, S * .55 * wet, S * .3 * wet, .1, 0, 7); ctx.fill(); if (hasF && lit) { ctx.strokeStyle = alpha('#c9a640', .6); ctx.lineWidth = 1; ctx.stroke(); } }
+        /* Lebensmittel wird hin und her gerieben, dann weggenommen */
+        if (ta < 2) { const lift = clamp((ta - 1.5) / .5, 0, 1); food(ctx, cur, cx + Math.sin(ta * 9) * S * .3 * (1 - lift), cy - lift * S * 1.2, S * .7); }
+        if (ta > 2 && ta < 3.2) { const p = (ta - 2) / 1.2; ctx.strokeStyle = ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(cx + S * .8, cy - S * .5, 12, -Math.PI / 2, -Math.PI / 2 + p * Math.PI * 2); ctx.stroke(); label(ctx, 'trocknen …', cx + S * .8, cy - S * .5 + 26, {size: 11, color: C.ink2, weight: 400}); }
+        if (lit) label(ctx, 'gegen das Licht gehalten', cx, cy + S * .8 - 14, {size: 12, color: C.ink2, weight: 400});
+      } else label(ctx, 'Lebensmittel auswählen', cx, cy, {size: 14, color: C.ink2, weight: 400});
+    } else {
+      /* Teller mit Lebensmittel, Pipette mit Iodlösung */
+      ctx.fillStyle = '#ffffff'; ctx.strokeStyle = alpha(ink, .3); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.ellipse(cx, cy + S * .1, S * 1.05, S * .55, 0, 0, 7); ctx.fill(); ctx.stroke(); ctx.beginPath(); ctx.ellipse(cx, cy + S * .1, S * .75, S * .38, 0, 0, 7); ctx.stroke();
+      if (cur) {
+        food(ctx, cur, cx, cy + S * .05, S * 1.1);
+        const down = clamp(ta / .8, 0, 1), py = lerp(h * .02, cy - S * .75, ease(down));
+        /* Tropfen fällt */
+        if (ta > .8 && ta < 1.1) { const q = (ta - .8) / .3; ctx.fillStyle = '#b0702a'; ctx.beginPath(); ctx.arc(cx, lerp(py + S * .45, cy, q), 4, 0, 7); ctx.fill(); }
+        /* Färbung breitet sich aus */
+        if (ta > 1.1) { const sp = clamp((ta - 1.1) / 1.4, 0, 1), colr = hasS ? mix('#b0702a', '#1f1a3a', clamp((ta - 1.3) / 1, 0, 1)) : '#b0702a'; ctx.fillStyle = alpha(colr, .85); ctx.beginPath(); ctx.ellipse(cx, cy + S * .05, S * (.06 + .2 * sp), S * (.04 + .12 * sp), 0, 0, 7); ctx.fill(); }
+        /* Pipette */
+        const up = ta > 1.4 ? clamp((ta - 1.4) / .6, 0, 1) : 0, yy = lerp(py, h * .02 - S * .5, ease(up));
+        ctx.fillStyle = alpha(col('ink-2'), .8); roundRect(ctx, cx - 7, yy - S * .1, 14, S * .2, 5); ctx.fill();
+        ctx.fillStyle = alpha('#d9d4c4', .9); ctx.strokeStyle = alpha(ink, .6); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(cx - 5, yy + S * .1); ctx.lineTo(cx + 5, yy + S * .1); ctx.lineTo(cx + 2, yy + S * .45); ctx.lineTo(cx - 2, yy + S * .45); ctx.closePath(); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = alpha('#b0702a', .8); ctx.fillRect(cx - 3, yy + S * .28, 6, S * .15);
+        if (ta < 1.4) label(ctx, 'Iodlösung', cx + 14, yy + S * .25, {size: 11, align: 'left', color: C.ink2, weight: 400});
+      } else label(ctx, 'Lebensmittel auswählen', cx, cy, {size: 14, color: C.ink2, weight: 400});
+    }
+    /* Ergebnistabelle */
+    const tx = w * .63, tw = w * .35, keys = Object.keys(F), rh = (h - 40) / keys.length;
+    ctx.fillStyle = col('surface-2'); roundRect(ctx, tx, 6, tw, h - 12, 10); ctx.fill();
+    label(ctx, 'Lebensmittel', tx + 10, 20, {size: 11, align: 'left', color: C.ink2}); label(ctx, mode === 'fett' ? 'Fett?' : 'Stärke?', tx + tw - 10, 20, {size: 11, align: 'right', color: C.ink2});
     keys.forEach((k, i) => {
-      const x = (i % cols) * cw + cw / 2, y = Math.floor(i / cols) * ch + ch / 2;
-      if (mode === 'fett') { ctx.strokeStyle = alpha(C.ink2, .2); ctx.strokeRect((i % cols) * cw + 8, Math.floor(i / cols) * ch + 8, cw - 16, ch - 16); }
-      else { ctx.fillStyle = '#ffffff'; ctx.beginPath(); ctx.ellipse(x, y, cw * .38, ch * .38, 0, 0, 7); ctx.fill(); ctx.strokeStyle = alpha(C.ink2, .3); ctx.stroke(); }
-      if (done.has(k)) {
-        const [f, s] = F[k];
-        if (mode === 'fett' && f) { ctx.fillStyle = 'rgba(214,190,120,.45)'; ctx.beginPath(); ctx.ellipse(x, y + 4, cw * .28, ch * .22, .3, 0, 7); ctx.fill(); }
-        if (mode === 'iod') { ctx.fillStyle = k === 'Wasser' ? alpha(C.water, .3) : '#e8dcc4'; ctx.beginPath(); ctx.ellipse(x, y, cw * .25, ch * .2, 0, 0, 7); ctx.fill(); ctx.fillStyle = s ? '#1f1a3a' : '#b0702a'; ctx.beginPath(); ctx.arc(x, y, Math.min(cw, ch) * .1, 0, 7); ctx.fill(); }
-      }
-      label(ctx, k, x, Math.floor(i / cols) * ch + ch - 14, {size: 11, color: C.ink2, weight: 600});
+      const y = 34 + i * rh + rh / 2, d = done[mode].has(k), v = F[k][mode === 'fett' ? 0 : 1];
+      if (k === cur) { ctx.fillStyle = alpha(col('accent'), .12); ctx.fillRect(tx + 4, y - rh / 2, tw - 8, rh); }
+      label(ctx, k, tx + 10, y, {size: 11, align: 'left', color: C.ink, weight: 400});
+      label(ctx, d ? (v ? 'ja' : 'nein') : '?', tx + tw - 10, y, {size: 11, align: 'right', color: d ? (v ? C.good : C.ink2) : alpha(C.ink2, .5), weight: 700});
     });
   });
 })();

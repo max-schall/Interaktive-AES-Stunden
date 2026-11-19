@@ -53,6 +53,14 @@ def base_js():
     return (HERE / 'core.js').read_text(encoding='utf-8') + '\n' + (HERE / 'lib_aes.js').read_text(encoding='utf-8')
 
 
+def ghs_js():
+    """Offizielle GHS-Piktogramme (ghs/*.png) als Data-URIs, damit jede Datei eigenständig bleibt."""
+    import base64
+    imgs = {q.stem: 'data:image/png;base64,' + base64.b64encode(q.read_bytes()).decode()
+            for q in sorted((HERE / 'ghs').glob('GHS0*.png'))}
+    return 'const GHS_IMG = ' + json.dumps(imgs) + ';\n'
+
+
 META_RE = re.compile(r'^\s*<!--(.*?)-->', re.S)
 
 
@@ -165,7 +173,7 @@ def build_lesson(series, idx, lessons, outdir, css, js):
 {js}
 /* ================================================================ */
 /* ================= Inhalte dieser Stunde ================= */
-{ljs}
+{ghs_js() if 'GHS_IMG' in ljs else ''}{ljs}
 startApp();
 }})();
 </script>
@@ -180,7 +188,7 @@ def build_overview(series, lessons, outdir, css):
     items = []
     for k, (path, meta, body, _) in enumerate(lessons):
         facts = ''.join(f'<li>{f.strip()}</li>' for f in meta.get('facts', '').split('|') if f.strip())
-        book = f' · Buch {meta["book"]}' if meta.get('book') else ''
+        book = ''  # keine Buchverweise in der Ausgabe
         items.append(f'''    <li class="lesson">
       <div class="l-num">{k + 1}</div>
       <div class="l-body">

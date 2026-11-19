@@ -431,7 +431,7 @@ h3{font-weight:600;font-stretch:100%;font-size:1.25rem;line-height:1.2}
 .quote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--ink-2);margin-top:.3rem}
 
 /* ---------- Symbole ---------- */
-.ico{width:1.6rem;height:1.6rem;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ico{width:1.6rem;height:1.6rem;flex:none;overflow:visible;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- Kacheln mit Detailansicht (explore) ---------- */
 .explore{display:flex;flex-direction:column;gap:.8rem}
@@ -566,6 +566,19 @@ input[type=range]{accent-color:var(--accent);width:100%}
 }
 @media (max-width:920px){.model[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}}
 .ex-tile b{word-break:break-word}
+/* Monatskalender (Saisonkalender) */
+.cal-nav{display:flex;align-items:center;gap:.5rem;margin:.2rem 0 .5rem}
+.cal-nav b{font-family:var(--f-display);font-size:1.3rem;min-width:8.5rem;text-align:center}
+.cal-nav .btn{padding:.25rem .7rem}
+.cal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.4rem;margin-bottom:.6rem}
+.cal button{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 0 .35rem;border:1.5px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;overflow:hidden;min-width:0}
+.cal button::before{content:"";display:block;width:100%;height:.55rem;background:var(--sea,var(--line))}
+.cal button::after{content:"";position:absolute;top:.12rem;left:28%;right:28%;height:.3rem;background:radial-gradient(circle,var(--surface) 0 40%,transparent 45%) 0 0/50% 100% repeat-x}
+.cal button .mm{font-weight:700;font-size:.95rem;margin-top:.25rem}
+.cal button .ico{width:1.05rem;height:1.05rem;color:var(--sea,var(--ink-2));margin-top:.1rem}
+.cal button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface));box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.cal button:hover{border-color:var(--ink-2)}
+@media (max-width:520px){.cal{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 </style>
 </head>
@@ -602,7 +615,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">1</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 1 · 1–2 Unterrichtsstunden · Buch S. 74–75</p>
+        <p class="eyebrow">Stunde 1 · 1–2 Unterrichtsstunden</p>
         <h2>Wovon ist dein Energiebedarf abhängig?</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie viel Energie brauche ich – und wie lange muss ich für eine Brezel Rad fahren?</p>
         <ul class="facts"><li>Energiegehalt in kJ und kcal (1 kcal ≈ 4,2 kJ)</li><li>Grundumsatz ≈ 1 kcal pro kg Körpergewicht und Stunde</li><li>Leistungsumsatz und PAL-Wert</li><li>Gesamtenergiebedarf = Grundumsatz × PAL, Energiebilanz</li></ul>
@@ -613,7 +626,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">2</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 2 · 1–2 Unterrichtsstunden · Buch S. 76–77</p>
+        <p class="eyebrow">Stunde 2 · 1–2 Unterrichtsstunden</p>
         <h2>Wie beeinflusst dein Essen unser Klima?</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie klimafreundlich ist mein Lieblingsessen?</p>
         <ul class="facts"><li>Treibhauseffekt und Treibhausgase CO₂, Methan, Lachgas; CO₂-Äquivalente</li><li>Ernährung verursacht ca. 15 % der Treibhausgase in Deutschland, tierische Lebensmittel den größten Teil</li><li>Treibhausgase entlang der Lebensmittelkette</li><li>Fünf Dimensionen nachhaltiger Ernährung, Verpackung und Zero Waste</li></ul>
@@ -624,7 +637,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">3</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde · Buch S. 78–79</p>
+        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde</p>
         <h2>Konventionell oder ökologisch?</h2>
         <p class="l-q"><b>Leitfrage:</b> Was unterscheidet einen Bio-Hof von einem konventionellen Betrieb?</p>
         <ul class="facts"><li>Konventionelle Landwirtschaft: hohe Erträge, günstige Preise, aber Umweltbelastungen</li><li>Ökologische Landwirtschaft: Kreislaufwirtschaft im Einklang mit der Natur</li><li>Vier Grundsätze: Boden, Tierschutz, Gewässerschutz, Artenvielfalt</li><li>2021 wurden knapp 89 % der Fläche konventionell bewirtschaftet</li></ul>
@@ -635,7 +648,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">4</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 4 · 1–2 Unterrichtsstunden · Buch S. 80–81 und Saisonkalender S. 293–295</p>
+        <p class="eyebrow">Stunde 4 · 1–2 Unterrichtsstunden</p>
         <h2>Regional, saisonal und bio-logisch!</h2>
         <p class="l-q"><b>Leitfrage:</b> Warum ist die Tomate im Juli klimafreundlicher als im Januar?</p>
         <ul class="facts"><li>Regionale Produkte: kurze Wege, frisch, reif geerntet, Arbeitsplätze in der Region</li><li>Saisonal: Freilandware statt beheiztes Gewächshaus</li><li>Bio-Lebensmittel erkennt man am EU-Bio-Siegel; Anbauverbände mit strengeren Regeln</li><li>„Regional“ ist nicht geschützt – genau hinschauen</li></ul>
@@ -646,7 +659,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">5</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde · Buch S. 82–83</p>
+        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde</p>
         <h2>Vegetarismus – die Besser-Esser?</h2>
         <p class="l-q"><b>Leitfrage:</b> Ist vegetarisch automatisch gesünder und nachhaltiger?</p>
         <ul class="facts"><li>Formen: flexitarisch, pescetarisch, ovo-lakto-, ovo-, lakto-vegetarisch, vegan, frutarisch</li><li>Fünf Beweggründe: ethisch, religiös, ökologisch, sozial, gesundheitlich</li><li>Pflanzliche Eiweißquellen und Kombinationen</li><li>Kritische Nährstoffe bei veganer Ernährung, z. B. Vitamin B₁₂</li></ul>
@@ -657,7 +670,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">6</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 6 · 1–2 Unterrichtsstunden · Buch S. 84–85</p>
+        <p class="eyebrow">Stunde 6 · 1–2 Unterrichtsstunden</p>
         <h2>Die Planetary Health Diet – dein Speiseplan für die Zukunft</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie können sich 10 Milliarden Menschen im Jahr 2050 gesund ernähren, ohne den Planeten zu zerstören?</p>
         <ul class="facts"><li>Planetary Health: Gesundheit des Menschen und der Erde hängen zusammen</li><li>Speiseplan mit ca. 2500 kcal: viel Vollkorn, Gemüse, Obst, Hülsenfrüchte, Nüsse; wenig Fleisch, Zucker, gesättigte Fette</li><li>Ziele der Weltgemeinschaft (SDGs)</li><li>Kritik: nicht für alle passend, kulturelle Gewohnheiten</li></ul>
@@ -668,7 +681,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">7</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 7 · 1 Unterrichtsstunde · Buch S. 86–89</p>
+        <p class="eyebrow">Stunde 7 · 1 Unterrichtsstunde</p>
         <h2>Wiederholung und Selbsttest</h2>
         <p class="l-q"><b>Leitfrage:</b> Kann ich nachhaltig und bedarfsgerecht essen – und es begründen?</p>
         <ul class="facts"><li>Fachbegriffe als Karteikarten und Paare</li><li>Fallbeispiel: Wochenplan für die Familie</li><li>Quiz mit 16 Fragen (10 zufällig pro Runde)</li><li>„Ich kann …“-Liste mit Links zurück in die Stunden</li></ul>

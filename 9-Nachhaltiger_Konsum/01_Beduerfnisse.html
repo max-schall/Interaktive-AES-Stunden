@@ -432,7 +432,7 @@ h3{font-weight:600;font-stretch:100%;font-size:1.25rem;line-height:1.2}
 .quote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--ink-2);margin-top:.3rem}
 
 /* ---------- Symbole ---------- */
-.ico{width:1.6rem;height:1.6rem;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ico{width:1.6rem;height:1.6rem;flex:none;overflow:visible;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- Kacheln mit Detailansicht (explore) ---------- */
 .explore{display:flex;flex-direction:column;gap:.8rem}
@@ -567,6 +567,19 @@ input[type=range]{accent-color:var(--accent);width:100%}
 }
 @media (max-width:920px){.model[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}}
 .ex-tile b{word-break:break-word}
+/* Monatskalender (Saisonkalender) */
+.cal-nav{display:flex;align-items:center;gap:.5rem;margin:.2rem 0 .5rem}
+.cal-nav b{font-family:var(--f-display);font-size:1.3rem;min-width:8.5rem;text-align:center}
+.cal-nav .btn{padding:.25rem .7rem}
+.cal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.4rem;margin-bottom:.6rem}
+.cal button{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 0 .35rem;border:1.5px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;overflow:hidden;min-width:0}
+.cal button::before{content:"";display:block;width:100%;height:.55rem;background:var(--sea,var(--line))}
+.cal button::after{content:"";position:absolute;top:.12rem;left:28%;right:28%;height:.3rem;background:radial-gradient(circle,var(--surface) 0 40%,transparent 45%) 0 0/50% 100% repeat-x}
+.cal button .mm{font-weight:700;font-size:.95rem;margin-top:.25rem}
+.cal button .ico{width:1.05rem;height:1.05rem;color:var(--sea,var(--ink-2));margin-top:.1rem}
+.cal button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface));box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.cal button:hover{border-color:var(--ink-2)}
+@media (max-width:520px){.cal{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 </style>
 </head>
@@ -736,7 +749,8 @@ function mix(a, b, t) { const A = rgb(a), B = rgb(b); return `rgb(${A.map((v, i)
 const lerp = (a, b, t) => a + (b - a) * t;
 const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-function rng(seed) { let s = seed >>> 0; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; }
+/* Startwert erst durchmischen, damit benachbarte Seeds (rng(i), rng(i + 1)) nicht fast gleiche Werte liefern */
+function rng(seed) { let s = seed >>> 0; s = Math.imul(s ^ s >>> 16, 0x45d9f3b); s = Math.imul(s ^ s >>> 16, 0x45d9f3b); s = (s ^ s >>> 16) >>> 0; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; }
 const fmt = (v, d = 3) => v.toLocaleString('de-DE', {maximumSignificantDigits: d});
 const fix = (v, d = 1) => v.toLocaleString('de-DE', {minimumFractionDigits: d, maximumFractionDigits: d});
 const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -1177,15 +1191,15 @@ const ICONS = {
   fisch: 'M3 12c3-5 9-6 13-2l4-3v10l-4-3c-4 4-10 3-13-2zM8 11v.01',
   ei: 'M12 3c-3.5 0-6 6-6 10a6 6 0 0 0 12 0c0-4-2.5-10-6-10z',
   milch: 'M8 3h8M9 3v3l-2 3v12h10V9l-2-3V3M7 13h10',
-  fleisch: 'M15 4a6 6 0 0 1 4 9l-6 6a4 4 0 0 1-6-1 4 4 0 0 1-3-6l5-6a6 6 0 0 1 6-2zM6 18l-2 2',
-  oel: 'M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11zM9.5 14.5a2.5 2.5 0 0 0 2.5 2.5',
+  fleisch: 'M3.5 11c0-4.5 4.5-7 9.5-7s8.5 3 8.5 7.5-4 8.5-9.5 8.5S3.5 16 3.5 11zM7.5 10c1.5-2 4.5-2.5 6.5-1M13.3 13a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0',
+  oel: 'M10 2h4v3l2 3v12a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V8l2-3zM10 5h4M12 12c-1.3 1.6-2 2.7-2 3.5a2 2 0 0 0 4 0c0-.8-.7-1.9-2-3.5z',
   tropfen: 'M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z',
   zucker: 'M4 9l8-5 8 5v8l-8 4-8-4zM4 9l8 4 8-4M12 13v8',
   salz: 'M8 9h8l1 12H7zM9 9V6a3 3 0 0 1 6 0v3M11 4v.01M13 4v.01',
   blatt: 'M5 19c0-9 5-14 15-14 0 10-5 15-14 15M5 19l8-8',
-  messer: 'M4 20 16 8l2-4-1-1-4 2L3 17zM14 10l4 4-3 3',
+  messer: 'M8 14.5 3 19.5l1.5 1.5 5-5M8 14.5 20 3c1.5 4 .5 8-3 11l-5.5 5.5z',
   topf: 'M4 10h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4zM2 10h2m16 0h2M9 6c0-1 1-1 1-2m4 2c0-1 1-1 1-2',
-  pfanne: 'M3 12a6 4 0 0 0 12 0zM15 12h7M3 12h12',
+  pfanne: 'M2 10h15l-1.4 5.8a2 2 0 0 1-2 1.5H5.4a2 2 0 0 1-2-1.5zM17 11.3l5-1.6',
   flamme: 'M12 21a6 6 0 0 0 6-6c0-4-3-6-3-9-2 1-3 3-3 5-1-1-2-2-2-4-2 2-4 5-4 8a6 6 0 0 0 6 6z',
   thermo: 'M14 14V5a2 2 0 0 0-4 0v9a4 4 0 1 0 4 0zM12 17v.01M12 9v6',
   schnee: 'M12 2v20M4 7l16 10M20 7 4 17M9 4l3 2 3-2M9 20l3-2 3 2',
@@ -1199,14 +1213,14 @@ const ICONS = {
   ohr: 'M7 9a5 5 0 0 1 10 0c0 3-3 4-3 7a3 3 0 0 1-6 0M10 9a2 2 0 0 1 4 0',
   nase: 'M12 3c0 5-4 9-4 12a2 2 0 0 0 2 2h1m5-2a2 2 0 0 1-2 2h-1',
   mund: 'M4 12c3 4 13 4 16 0M4 12c3-2 6-2 8-1 2-1 5-1 8 1',
-  hand: 'M8 13V5a1.5 1.5 0 0 1 3 0v6m0-1V4a1.5 1.5 0 0 1 3 0v6m0-1V5a1.5 1.5 0 0 1 3 0v8c0 4-3 8-7 8s-6-2-7-5l-2-4a1.5 1.5 0 0 1 2.5-1.5L8 13',
+  hand: 'M18 11V6a2 2 0 0 0-4 0M14 10V4a2 2 0 0 0-4 0v2M10 10.5V6a2 2 0 0 0-4 0v8M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15',
   person: 'M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM4 21a8 8 0 0 1 16 0',
   gruppe: 'M9 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM3 20a6 6 0 0 1 12 0M16 5a3 3 0 0 1 0 6m2 9a6 6 0 0 0-3-5',
   haus: 'M3 11 12 3l9 8M5 9v11h14V9M10 20v-6h4v6',
   euro: 'M18 6a7 7 0 1 0 0 12M4 10h9M4 14h9',
   wagen: 'M3 4h2l2.5 11h10L20 7H6.5M9 20a1 1 0 1 0 0-.01M17 20a1 1 0 1 0 0-.01',
   shirt: 'M8 3 3 6l2 5 2-1v11h10V10l2 1 2-5-5-3a4 4 0 0 1-8 0z',
-  kreislauf: 'M7 7h10l-3-3M17 17H7l3 3M20 10v4M4 14v-4',
+  kreislauf: 'M20 12a8 8 0 0 1-14 5.3M4 12a8 8 0 0 1 14-5.3M18 2.5v4.2h-4.2M6 21.5v-4.2h4.2',
   erde: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18',
   fuss: 'M8 3c2 0 3 2 3 5s-1 5-3 5-3-2-3-5 1-5 3-5zM6 16h4v2a2 2 0 0 1-4 0zM16 7c2 0 3 2 3 4s-1 4-3 4-3-2-3-4 1-4 3-4zM14 18h4v1a2 2 0 0 1-4 0z',
   paket: 'M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10M7.5 5l9 4',
@@ -1223,7 +1237,7 @@ const ICONS = {
   musik: 'M9 18V5l11-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM20 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0z',
   sprechen: 'M4 5h16v11H9l-5 4z',
   handy: 'M7 2h10v20H7zM11 18h2',
-  rad: 'M5 18a3 3 0 1 0 0-.01M19 18a3 3 0 1 0 0-.01M5 18l4-8h6l4 8M9 10 7 6H5m10 4-2-4h3',
+  rad: 'M2.5 16a3.5 3.5 0 1 0 7.0 0a3.5 3.5 0 1 0 -7.0 0M14.5 16a3.5 3.5 0 1 0 7.0 0a3.5 3.5 0 1 0 -7.0 0M6 16l4-7h5.5l2.5 7M10 9l2.5 7H6M15.5 9 14.5 6H17M10 9 9 7H7',
   laufen: 'M14 4a2 2 0 1 0 0-.01M10 21l2-6-3-3 2-5 4 3h3M6 12l3-4m3 7 3 2v4',
   waage: 'M12 3v18M5 21h14M4 8h16M4 8 2 14a3 3 0 0 0 4 0zM20 8l-2 6a3 3 0 0 0 4 0z',
   buch: 'M4 4h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4zM20 4h-6a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6z',
@@ -1247,8 +1261,42 @@ const ICONS = {
   baum: 'M12 22v-6M12 2 5 12h4l-3 4h12l-3-4h4z',
   wasserhahn: 'M4 10h9a3 3 0 0 1 3 3v1M4 7v6M16 17v.01M16 20v.01M9 10V6h3',
   schuessel: 'M3 11h18a9 9 0 0 1-18 0zM8 7c0-1 1-1 1-2m3 2c0-1 1-1 1-2m3 2c0-1 1-1 1-2',
-  loeffel: 'M7 3c2 0 3 2 3 4s-1 3-2 3v11M17 3v6c0 1-1 2-2 2v10M15 3v4m4-4v4',
+  loeffel: 'M12 2c2.8 0 4.5 2.4 4.5 5S14.6 11.5 12 11.5 7.5 9.6 7.5 7 9.2 2 12 2zM12 11.5V22',
   kuehl: 'M6 2h12v20H6zM6 9h12M9 5v2M9 12v3',
+  telefon: 'M5 3h3.5l2 5-2.5 1.5a11 11 0 0 0 5.5 5.5L15 12.5l5 2V18a2 2 0 0 1-2 2A15 15 0 0 1 3 5a2 2 0 0 1 2-2z',
+  glas: 'M6 3h12l-1.6 17.1a1 1 0 0 1-1 .9H8.6a1 1 0 0 1-1-.9zM6.7 10c2-1 3.5 1 5.3 0s3.3-1 5.3 0',
+  huelse: 'M3 16c5 4 13 2 17-7 .8-2 1-4 1-6-2 .3-3.5 1.2-4.5 2.5C13 11 8 13 3 16zM7.0 14.6a1.5 1.5 0 1 0 3.0 0a1.5 1.5 0 1 0 -3.0 0M10.9 12.4a1.5 1.5 0 1 0 3.0 0a1.5 1.5 0 1 0 -3.0 0M14.3 9.2a1.5 1.5 0 1 0 3.0 0a1.5 1.5 0 1 0 -3.0 0',
+  aehre: 'M12 22V9M12 9c-1.6-1.6-1.6-4.4 0-6 1.6 1.6 1.6 4.4 0 6zM12 13c-3 0-4.5-1.8-4.5-4 2.4 0 4.5 1.5 4.5 4zM12 13c3 0 4.5-1.8 4.5-4-2.4 0-4.5 1.5-4.5 4zM12 17.5c-3 0-4.5-1.8-4.5-4 2.4 0 4.5 1.5 4.5 4zM12 17.5c3 0 4.5-1.8 4.5-4-2.4 0-4.5 1.5-4.5 4z',
+  bonbon: 'M7.8 12a4.2 4.2 0 1 0 8.4 0a4.2 4.2 0 1 0 -8.4 0M8.3 10 3 6.5v11L8.3 14M15.7 10 21 6.5v11L15.7 14M10.5 10.5l3 3',
+  teller: 'M6.5 12a5.5 5.5 0 1 0 11.0 0a5.5 5.5 0 1 0 -11.0 0M9 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0M2.5 3.5v5a1.5 1.5 0 0 0 3 0v-5M4 10v10.5M21.5 3.5c-1.6 1-2.2 3-2.2 6.5h2.2v10.5',
+  reibe: 'M7 4h10l2 17H5zM9 4a3 3 0 0 1 6 0M9.5 9h1.5m2 0h1.5M9 13h1.5m2.5 0h1.5M8.5 17h1.5m3.5 0h1.5',
+  hobel: 'M4 3h9l7 18h-9zM6.7 9.5h8.8M9 14.5a3 1.3 0 0 0 6 0',
+  wellholz: 'M7 9h10a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1zM6 12H2.5M18 12h3.5M2.5 10.5v3M21.5 10.5v3',
+  sieb: 'M3 9h14a7 7 0 0 1-14 0zM17 10.5l4.5-3M6.5 13h7M8 16h4',
+  kelle: 'M4 12h12a6 6 0 0 1-12 0zM16 12V4.5a2 2 0 0 1 4 0V6',
+  schaumkelle: 'M3 15a6 6 0 1 0 12 0a6 6 0 1 0 -12 0M7 13v.01M11 13v.01M9 15.5v.01M7 18v.01M11 18v.01M13.3 10.7 21 3',
+  schneebesen: 'M12 22v-6M12 16C7 12 7 3 12 2c5 1 5 10 0 14zM12 16c-2-4-2-11 0-14 2 3 2 10 0 14z',
+  ruehrgeraet: 'M4 4h11l3 3v3H7a3 3 0 0 1-3-3zM9 10v4m6-4v4M9 14c-2 2.3-2 5 0 7 2-2 2-4.7 0-7zM15 14c-2 2.3-2 5 0 7 2-2 2-4.7 0-7z',
+  stabmixer: 'M9 2h6v9l-1 2h-4l-1-2zM12 5v2M11 13v4m2-4v4M7.5 17h9L15 21H9z',
+  schaber: 'M12 2v10M8 12h8v5a4 4 0 0 1-4 4 4 4 0 0 1-4-4z',
+  stecker: 'M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0zM12 17v5',
+  wolle: 'M3.5 13a7.5 7.5 0 1 0 15.0 0a7.5 7.5 0 1 0 -15.0 0M4.5 10.5c4 .5 8.5 5 9.5 10M4 15c3.5 0 6.5 2.5 7.5 5.5M8.5 6c5 .5 9.5 5 10 11M15.5 6.5 21.5 2.5',
+  werkzeug: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z',
+  tausch: 'M7 7h10l-3-3M17 17H7l3 3M20 10v4M4 14v-4',
+  magen: 'M8 2v4C5 7 3 10 4 14c1 5 6 8 11 6 3-1 5-4 5-7s-2-5-4.5-5-3.5 1.5-4.5.5S10 6.5 10 5V2',
+  darm: 'M6 21V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v15M9.5 8h5a1 1 0 0 1 0 2.5h-5a1 1 0 0 0 0 2.5h5a1 1 0 0 1 0 2.5h-5a1 1 0 0 0 0 2.5H13',
+  batterie: 'M3 7h15a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3zM19 10h2v4h-2M6.5 10v4M10 10v4M13.5 10v4',
+  zitrone: 'M3 13a9 9 0 0 0 18 0zM6.5 13a5.5 5.5 0 0 0 11 0M12 13v8M12 13l-5 5M12 13l5 5',
+  becher: 'M5 5h12v13a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3zM17 8h1.5a2.5 2.5 0 0 1 0 5H17M5 10h3m-3 4h3',
+  saegemesser: 'M2 10.5h5v3H2zM7 9h14.5v3l-1.25 1.5L19 12l-1.25 1.5L16.5 12l-1.25 1.5L14 12l-1.25 1.5L11.5 12l-1.25 1.5L9 12l-1.25 1.5L7 12.5z',
+  wiegemesser: 'M3 13c3 8 15 8 18 0zM5 13V6.5m14 6.5V6.5M3.5 5h3M17.5 5h3',
+  schaeler: 'M10.5 13h3v9h-3zM12 13c-4 0-6-3-6-9M12 13c4 0 6-3 6-9M6 4h12M8.5 7h7',
+  besteck: 'M7 3c2 0 3 2 3 4s-1 3-2 3v11M17 3v6c0 1-1 2-2 2v10M15 3v4m4-4v4',
+  ringe: 'M7 6a5 1.6 0 1 0 10 0a5 1.6 0 1 0 -10 0M6 10a6 1.8 0 1 0 12 0a6 1.8 0 1 0 -12 0M5.5 14a6.5 2 0 1 0 13.0 0a6.5 2 0 1 0 -13.0 0M5 18.5a7 2.2 0 1 0 14 0a7 2.2 0 1 0 -14 0',
+  kuh: 'M7 8C5 8 3 7 2 5c2 0 4 .5 5 1.5M17 8c2 0 4-1 5-3-2 0-4 .5-5 1.5M7 6.5c1-1.5 3-2 5-2s4 .5 5 2V14c0 1-.5 2-1.5 2.5L14 18v1.5a2 2 0 0 1-4 0V18l-1.5-1.5C7.5 16 7 15 7 14zM10 18h.01M14 18h.01M9.5 10v.01M14.5 10v.01',
+  heu: 'M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 12.5h18M8 6v13M16 6v13',
+  mist: 'M3 19c1-4 4-6 6-6 1-2 3-3 5-2 2 .5 3 2 3 4 2 .5 4 2 4 4zM9 9c-1-1 0-2 0-3M13 8c-1-1 0-2 0-3M17 10c-1-1 0-2 0-3',
+  wender: 'M12 22v-9M8 13h8l1-10H7zM10.5 6v4M13.5 6v4'
 };
 function icon(name, cls = 'ico') { const d = ICONS[name]; return d ? `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>` : ''; }
 

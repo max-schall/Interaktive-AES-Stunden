@@ -431,7 +431,7 @@ h3{font-weight:600;font-stretch:100%;font-size:1.25rem;line-height:1.2}
 .quote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--ink-2);margin-top:.3rem}
 
 /* ---------- Symbole ---------- */
-.ico{width:1.6rem;height:1.6rem;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ico{width:1.6rem;height:1.6rem;flex:none;overflow:visible;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- Kacheln mit Detailansicht (explore) ---------- */
 .explore{display:flex;flex-direction:column;gap:.8rem}
@@ -566,6 +566,19 @@ input[type=range]{accent-color:var(--accent);width:100%}
 }
 @media (max-width:920px){.model[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}}
 .ex-tile b{word-break:break-word}
+/* Monatskalender (Saisonkalender) */
+.cal-nav{display:flex;align-items:center;gap:.5rem;margin:.2rem 0 .5rem}
+.cal-nav b{font-family:var(--f-display);font-size:1.3rem;min-width:8.5rem;text-align:center}
+.cal-nav .btn{padding:.25rem .7rem}
+.cal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.4rem;margin-bottom:.6rem}
+.cal button{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 0 .35rem;border:1.5px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;overflow:hidden;min-width:0}
+.cal button::before{content:"";display:block;width:100%;height:.55rem;background:var(--sea,var(--line))}
+.cal button::after{content:"";position:absolute;top:.12rem;left:28%;right:28%;height:.3rem;background:radial-gradient(circle,var(--surface) 0 40%,transparent 45%) 0 0/50% 100% repeat-x}
+.cal button .mm{font-weight:700;font-size:.95rem;margin-top:.25rem}
+.cal button .ico{width:1.05rem;height:1.05rem;color:var(--sea,var(--ink-2));margin-top:.1rem}
+.cal button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface));box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.cal button:hover{border-color:var(--ink-2)}
+@media (max-width:520px){.cal{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 </style>
 </head>
@@ -603,7 +616,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">1</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde · Buch S. 204–205</p>
+        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde</p>
         <h2>Wozu brauchen wir Freizeit?</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie viel Freizeit habe ich – und wie nutze ich sie gut?</p>
         <ul class="facts"><li>Freizeit: Zeit ohne Arbeit und besondere Verpflichtungen</li><li>Funktionen: Gesundheit, Ruhe und Entspannung, soziale Kontakte, Entfaltung</li><li>Zeitfresser erkennen, gemeinsam Aufgaben teilen: mehr Freizeit</li><li>Ein übervoller Freizeitkalender ist genauso ungesund wie ein stressiger Alltag</li></ul>
@@ -614,7 +627,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">2</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 2 · 2 Unterrichtsstunden (Praxis) · Buch S. 206–207</p>
+        <p class="eyebrow">Stunde 2 · 2 Unterrichtsstunden (Praxis)</p>
         <h2>Methode: Nähen mit der Nähmaschine</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie werde ich startklar an der Nähmaschine?</p>
         <ul class="facts"><li>Sicherheit geht vor: Haare zusammenbinden, Schmuck ablegen, Not-Aus kennen</li><li>Teile der Nähmaschine benennen</li><li>Grundstiche: Steppstich (Geradstich) und Zick-Zack-Stich; Stichlänge und Stichbreite</li><li>Verriegeln: Nähte am Anfang und Ende sichern; Nähproben erst auf Papier, dann auf Stoff</li></ul>
@@ -625,7 +638,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">3</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 3 · 1–2 Unterrichtsstunden (mit Makramee) · Buch S. 208–209</p>
+        <p class="eyebrow">Stunde 3 · 1–2 Unterrichtsstunden (mit Makramee)</p>
         <h2>Werde kreativ in deiner Freizeit</h2>
         <p class="l-q"><b>Leitfrage:</b> Welche kreative Ader steckt in mir?</p>
         <ul class="facts"><li>Kreative Hobbys: Herstellen und (Um-)Gestalten stehen im Vordergrund</li><li>Textile Kulturtechniken: Weben, Stricken, Nähen, Knüpfen, Filzen</li><li>DIY – „Do it yourself“: selbst und möglichst nachhaltig herstellen</li><li>Makramee-Schlüsselanhänger mit Kreuzknoten</li></ul>
@@ -636,7 +649,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">4</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde · Buch S. 210–211</p>
+        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde</p>
         <h2>Ist Arbeit gleich Arbeit?</h2>
         <p class="l-q"><b>Leitfrage:</b> Ist nur bezahlte Arbeit „richtige“ Arbeit?</p>
         <ul class="facts"><li>Arbeit: körperliche und/oder geistige Tätigkeit, die die Existenz sichert</li><li>Erwerbsarbeit, Hausarbeit, Familienarbeit, Ehrenamt</li><li>Entlohnung: Geld oder Anerkennung, Wertschätzung, Gemeinwohl</li><li>Wandel des Modells „Hausfrau und Mutter“: Haus- und Familienarbeit wird neu verteilt</li></ul>
@@ -647,7 +660,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">5</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde · Buch S. 212–213</p>
+        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde</p>
         <h2>Bist du ausgeglichen? Work-Life-Balance</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie bringe ich Schule, Arbeit und Privatleben ins Gleichgewicht?</p>
         <ul class="facts"><li>Work-Life-Balance: Arbeits- und Privatleben ausgewogen für ein gesundes, glückliches Leben</li><li>Einflussfaktoren: Familie und Freunde, Arbeitszeiten, Pendeln, Karrierewunsch, Erwartungen, Betriebsklima, Freizeitstress</li><li>Folgen fehlender Balance: Erschöpfung, Leistungsabfall, im schlimmsten Fall Burn-out</li><li>Immer wieder ausbalancieren: Ziele, Pausen, Kontakte, Bewegung</li></ul>
@@ -658,7 +671,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">6</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 6 · 1 Unterrichtsstunde · Buch S. 214–215</p>
+        <p class="eyebrow">Stunde 6 · 1 Unterrichtsstunde</p>
         <h2>Wiederholung und Selbsttest</h2>
         <p class="l-q"><b>Leitfrage:</b> Kann ich Arbeit und Freizeit gesund und sinnvoll gestalten?</p>
         <ul class="facts"><li>Fachbegriffe als Karteikarten und Paare</li><li>Fallbeispiel: Tara braucht eine Pause</li><li>Quiz mit 15 Fragen (10 zufällig pro Runde)</li><li>„Ich kann …“-Liste mit Links zurück in die Stunden</li></ul>

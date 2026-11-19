@@ -431,7 +431,7 @@ h3{font-weight:600;font-stretch:100%;font-size:1.25rem;line-height:1.2}
 .quote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--ink-2);margin-top:.3rem}
 
 /* ---------- Symbole ---------- */
-.ico{width:1.6rem;height:1.6rem;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ico{width:1.6rem;height:1.6rem;flex:none;overflow:visible;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- Kacheln mit Detailansicht (explore) ---------- */
 .explore{display:flex;flex-direction:column;gap:.8rem}
@@ -566,6 +566,19 @@ input[type=range]{accent-color:var(--accent);width:100%}
 }
 @media (max-width:920px){.model[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}}
 .ex-tile b{word-break:break-word}
+/* Monatskalender (Saisonkalender) */
+.cal-nav{display:flex;align-items:center;gap:.5rem;margin:.2rem 0 .5rem}
+.cal-nav b{font-family:var(--f-display);font-size:1.3rem;min-width:8.5rem;text-align:center}
+.cal-nav .btn{padding:.25rem .7rem}
+.cal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.4rem;margin-bottom:.6rem}
+.cal button{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 0 .35rem;border:1.5px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;overflow:hidden;min-width:0}
+.cal button::before{content:"";display:block;width:100%;height:.55rem;background:var(--sea,var(--line))}
+.cal button::after{content:"";position:absolute;top:.12rem;left:28%;right:28%;height:.3rem;background:radial-gradient(circle,var(--surface) 0 40%,transparent 45%) 0 0/50% 100% repeat-x}
+.cal button .mm{font-weight:700;font-size:.95rem;margin-top:.25rem}
+.cal button .ico{width:1.05rem;height:1.05rem;color:var(--sea,var(--ink-2));margin-top:.1rem}
+.cal button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface));box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.cal button:hover{border-color:var(--ink-2)}
+@media (max-width:520px){.cal{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 </style>
 </head>
@@ -603,7 +616,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">1</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde · Buch S. 186–187</p>
+        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde</p>
         <h2>Kaufentscheidungen und Werbung</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie treffe ich Kaufentscheidungen – und wer beeinflusst mich dabei?</p>
         <ul class="facts"><li>Vier Kaufentscheidungstypen: extensiv, limitiert, habitualisiert, impulsiv</li><li>Werbung will Bedürfnisse wecken und zum Kauf animieren</li><li>Das AIDA-Modell: Attention, Interest, Desire, Action</li><li>Werbeversprechen immer hinterfragen</li></ul>
@@ -614,7 +627,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">2</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 2 · 1 Unterrichtsstunde · Buch S. 188–189</p>
+        <p class="eyebrow">Stunde 2 · 1 Unterrichtsstunde</p>
         <h2>Bewusste Kaufentscheidungen treffen</h2>
         <p class="l-q"><b>Leitfrage:</b> Woran erkenne ich das beste Produkt für mich?</p>
         <ul class="facts"><li>Qualitätsanforderungen sind individuell verschieden</li><li>Fünf Stufen im Kaufentscheidungsprozess</li><li>Produkte mit gewichteten Qualitätsmerkmalen vergleichen</li><li>Preis-Leistungs-Verhältnis: teurer heißt nicht besser</li></ul>
@@ -625,7 +638,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">3</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde · Buch S. 190–191</p>
+        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde</p>
         <h2>Qualität garantiert? Siegel und Labels</h2>
         <p class="l-q"><b>Leitfrage:</b> Kann ich einem Siegel blind vertrauen?</p>
         <ul class="facts"><li>Über 1000 Labels: Gütesiegel, Gütezeichen, Prüfzeichen, Eigenmarken</li><li>Zertifizierte Siegel werden von staatlichen oder unabhängigen Stellen vergeben und kontrolliert</li><li>Ökolabels für Lebensmittel, Textilien und Elektrogeräte</li><li>Co-Labelling: Eigenmarke neben einem gleichbedeutenden Siegel</li></ul>
@@ -636,7 +649,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">4</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde · Buch S. 192–193</p>
+        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde</p>
         <h2>Verbraucherschutz – so bist du gut beraten</h2>
         <p class="l-q"><b>Leitfrage:</b> Wer hilft mir, wenn ich beim Einkaufen über den Tisch gezogen werde?</p>
         <ul class="facts"><li>Verbraucherschutzorganisationen informieren, beraten, unterstützen und leisten rechtlichen Beistand</li><li>Drei Institutionen: Aufsichtsbehörden, Schlichtungsstellen, Verbraucherzentralen</li><li>Stiftung Warentest testet unabhängig; viele Vergleichsportale nicht</li><li>Mogelpackungen: weniger Inhalt bei gleichem Preis</li></ul>
@@ -647,7 +660,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">5</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 5 · 1–2 Unterrichtsstunden · Buch S. 194–195</p>
+        <p class="eyebrow">Stunde 5 · 1–2 Unterrichtsstunden</p>
         <h2>Verbraucherrechte – dein gutes Recht</h2>
         <p class="l-q"><b>Leitfrage:</b> Muss der Laden mein kaputtes Smartphone zurücknehmen?</p>
         <ul class="facts"><li>Gewährleistung: zwei Jahre gesetzlich vorgeschrieben – Nacherfüllung, Minderung, Rücktritt, Schadenersatz</li><li>Garantie und Umtausch sind freiwillig</li><li>Widerruf: 14 Tage bei Internet- und Haustürgeschäften</li><li>Offene und verdeckte Mängel; Belege aufbewahren; AGB lesen</li></ul>
@@ -658,7 +671,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">6</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 6 · 1 Unterrichtsstunde · Buch S. 196–197</p>
+        <p class="eyebrow">Stunde 6 · 1 Unterrichtsstunde</p>
         <h2>Vor Ort einkaufen oder online shoppen?</h2>
         <p class="l-q"><b>Leitfrage:</b> Ist Online-Shopping immer die bessere Wahl?</p>
         <ul class="facts"><li>Vor- und Nachteile von Online-Shopping und Einzelhandel</li><li>Fernabsatz: „zahlungspflichtig bestellen“, 14 Tage Widerrufsrecht, Ausnahmen</li><li>Fake Shops erkennen: Adresse, Logos, Preise, AGB, Impressum, Bezahlung, Siegel</li><li>Der wachsende Onlinehandel gefährdet den Einzelhandel vor Ort</li></ul>
@@ -669,7 +682,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">7</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 7 · 2 Unterrichtsstunden (Praxis) · Buch S. 198–199</p>
+        <p class="eyebrow">Stunde 7 · 2 Unterrichtsstunden (Praxis)</p>
         <h2>Methode: Einen Warentest durchführen</h2>
         <p class="l-q"><b>Leitfrage:</b> Welches Produkt ist wirklich das beste?</p>
         <ul class="facts"><li>Ziel von Warentests: unabhängige Informationen für eine objektivere Produktauswahl</li><li>Vorbild Stiftung Warentest: Prüfkriterien, Gewichtung, Qualitätsurteil</li><li>Sieben Schritte vom Testthema bis zur Veröffentlichung</li><li>Blindprobe und Notenskala sehr gut (1) bis mangelhaft (5)</li></ul>
@@ -680,7 +693,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">8</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 8 · 1 Unterrichtsstunde · Buch S. 200–201</p>
+        <p class="eyebrow">Stunde 8 · 1 Unterrichtsstunde</p>
         <h2>Wiederholung und Selbsttest</h2>
         <p class="l-q"><b>Leitfrage:</b> Kann ich bewusst und sicher einkaufen und meine Rechte nutzen?</p>
         <ul class="facts"><li>Fachbegriffe als Karteikarten und Paare</li><li>Fallbeispiel: Zeyneps Kopfhörer</li><li>Quiz mit 16 Fragen (10 zufällig pro Runde)</li><li>„Ich kann …“-Liste mit Links zurück in die Stunden</li></ul>

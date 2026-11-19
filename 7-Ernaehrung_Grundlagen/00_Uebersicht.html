@@ -431,7 +431,7 @@ h3{font-weight:600;font-stretch:100%;font-size:1.25rem;line-height:1.2}
 .quote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--ink-2);margin-top:.3rem}
 
 /* ---------- Symbole ---------- */
-.ico{width:1.6rem;height:1.6rem;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ico{width:1.6rem;height:1.6rem;flex:none;overflow:visible;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- Kacheln mit Detailansicht (explore) ---------- */
 .explore{display:flex;flex-direction:column;gap:.8rem}
@@ -566,6 +566,19 @@ input[type=range]{accent-color:var(--accent);width:100%}
 }
 @media (max-width:920px){.model[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}}
 .ex-tile b{word-break:break-word}
+/* Monatskalender (Saisonkalender) */
+.cal-nav{display:flex;align-items:center;gap:.5rem;margin:.2rem 0 .5rem}
+.cal-nav b{font-family:var(--f-display);font-size:1.3rem;min-width:8.5rem;text-align:center}
+.cal-nav .btn{padding:.25rem .7rem}
+.cal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.4rem;margin-bottom:.6rem}
+.cal button{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 0 .35rem;border:1.5px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;overflow:hidden;min-width:0}
+.cal button::before{content:"";display:block;width:100%;height:.55rem;background:var(--sea,var(--line))}
+.cal button::after{content:"";position:absolute;top:.12rem;left:28%;right:28%;height:.3rem;background:radial-gradient(circle,var(--surface) 0 40%,transparent 45%) 0 0/50% 100% repeat-x}
+.cal button .mm{font-weight:700;font-size:.95rem;margin-top:.25rem}
+.cal button .ico{width:1.05rem;height:1.05rem;color:var(--sea,var(--ink-2));margin-top:.1rem}
+.cal button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface));box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.cal button:hover{border-color:var(--ink-2)}
+@media (max-width:520px){.cal{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 </style>
 </head>
@@ -603,7 +616,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">1</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde · Buch S. 52–53</p>
+        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde</p>
         <h2>Grundbegriffe für den Durchblick</h2>
         <p class="l-q"><b>Leitfrage:</b> Warum sind Pellkartoffeln „besser“ als Pommes – obwohl beides Kartoffeln sind?</p>
         <ul class="facts"><li>Lebensmittel, Nahrungsmittel, Genussmittel</li><li>Pflanzliche und tierische Nahrungsmittel</li><li>Nährstoffdichte = Nährstoffgehalt : Energiegehalt</li><li>Energiedichte in kJ/g oder kcal/g</li></ul>
@@ -614,7 +627,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">2</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 2 · 1–2 Unterrichtsstunden · Buch S. 54–55</p>
+        <p class="eyebrow">Stunde 2 · 1–2 Unterrichtsstunden</p>
         <h2>Die Ernährungspyramide – einfach spitze</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie viele Portionen von was sollte ich am Tag essen?</p>
         <ul class="facts"><li>Vollwertige Ernährung nach DGE</li><li>Acht Lebensmittelgruppen in 22 Bausteinen</li><li>Ampelfarben: reichlich, mäßig, sparsam</li><li>Portionsgrößen im Handmaß</li></ul>
@@ -625,7 +638,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">3</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde · Buch S. 56–57</p>
+        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde</p>
         <h2>Der Ernährungskreis – eine runde Sache</h2>
         <p class="l-q"><b>Leitfrage:</b> Was zeigt der Kreis, was die Pyramide nicht zeigt?</p>
         <ul class="facts"><li>DGE-Ernährungskreis mit sieben Lebensmittelgruppen</li><li>Mehr als ¾ pflanzlich, knapp ¼ tierisch</li><li>Nährstoffverteilung: 55 % Kohlenhydrate, 30 % Fett, 15 % Eiweiß</li><li>DGE-Empfehlungen „Gut essen und trinken“</li></ul>
@@ -636,7 +649,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">4</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde · Buch S. 58–59</p>
+        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde</p>
         <h2>Nährstoffe – Was steckt in deinem Essen?</h2>
         <p class="l-q"><b>Leitfrage:</b> Warum reichen Nudeln mit Ketchup auf Dauer nicht aus?</p>
         <ul class="facts"><li>Sechs Nährstoffe: Kohlenhydrate, Fette, Eiweiße, Vitamine, Mineralstoffe, Wasser</li><li>Makro- und Mikronährstoffe, energieliefernd oder nicht</li><li>Brennstoffe, Baustoffe, Wirkstoffe</li><li>Ballaststoffe und sekundäre Pflanzenstoffe, Nährwert</li></ul>
@@ -647,7 +660,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">5</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde · Buch S. 60–61</p>
+        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde</p>
         <h2>Wozu braucht dein Körper Wasser?</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie viel muss ich trinken – und was ist der beste Durstlöscher?</p>
         <ul class="facts"><li>Der Körper besteht zu ca. 65 % aus Wasser</li><li>Täglicher Verlust ca. 2,5 l – ca. 1,5 l trinken, ca. 1 l über Lebensmittel</li><li>Aufgaben: Baustoff, Lösungs- und Transportmittel, Temperaturregler</li><li>Leitungs- oder Mineralwasser, geeignete und ungeeignete Getränke</li></ul>
@@ -658,7 +671,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">6</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 6 · 1–2 Unterrichtsstunden · Buch S. 62–63</p>
+        <p class="eyebrow">Stunde 6 · 1–2 Unterrichtsstunden</p>
         <h2>Wozu braucht dein Körper Kohlenhydrate?</h2>
         <p class="l-q"><b>Leitfrage:</b> Ist „Low Carb“ eine gute Idee?</p>
         <ul class="facts"><li>Einfach-, Zweifach- und Vielfachzucker</li><li>Brennstoff: 1 g = 17 kJ, ca. 5 g pro kg Körpergewicht</li><li>Verdauung von Mund bis Dünndarm</li><li>Getreidekorn und Vollkorn, Zucker-Check (WHO: höchstens 25–50 g zugesetzter Zucker)</li></ul>
@@ -669,7 +682,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">7</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 7 · 1 Unterrichtsstunde · Buch S. 64–65</p>
+        <p class="eyebrow">Stunde 7 · 1 Unterrichtsstunde</p>
         <h2>Wozu braucht dein Körper Fette?</h2>
         <p class="l-q"><b>Leitfrage:</b> Welches Fett ist gut – und wo versteckt sich Fett?</p>
         <ul class="facts"><li>Pflanzliche und tierische Fette, fest, halbfest, flüssig</li><li>Glycerin und drei Fettsäuren; gesättigt, ungesättigt, essenziell (Omega-3, Omega-6)</li><li>Brennstoff (37 kJ/g), Schutz, Wärme, Geschmacksträger, fettlösliche Vitamine</li><li>Höchstens 1 g Fett pro kg Körpergewicht, versteckte Fette</li></ul>
@@ -680,7 +693,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">8</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 8 · 1 Unterrichtsstunde · Buch S. 66–67</p>
+        <p class="eyebrow">Stunde 8 · 1 Unterrichtsstunde</p>
         <h2>Wozu braucht dein Körper Eiweiße?</h2>
         <p class="l-q"><b>Leitfrage:</b> Brauche ich Protein-Shakes, um fit zu sein?</p>
         <ul class="facts"><li>Eiweiße (Proteine) als Baustoffe</li><li>20 Aminosäuren, acht davon unentbehrlich</li><li>Biologische Wertigkeit und Ergänzungswirkung (Kartoffel + Ei = 136)</li><li>Bedarf 0,9 g pro kg Körpergewicht, Denaturierung ab 60 °C</li></ul>
@@ -691,7 +704,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">9</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 9 · 1–2 Unterrichtsstunden · Buch S. 68–69</p>
+        <p class="eyebrow">Stunde 9 · 1–2 Unterrichtsstunden</p>
         <h2>Vitamine und Mineralstoffe – täglich für dich im Einsatz</h2>
         <p class="l-q"><b>Leitfrage:</b> Brauche ich Vitamin-C-Brausetabletten, wenn ich erkältet bin?</p>
         <ul class="facts"><li>Mikronährstoffe ohne Energie, essenziell, Schutz- und Reglerstoffe</li><li>Fettlösliche (A, D, E, K) und wasserlösliche Vitamine</li><li>Mengenelemente und Spurenelemente: Calcium, Eisen, Jod …</li><li>Vitaminschonend lagern und zubereiten</li></ul>
@@ -702,7 +715,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">10</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 10 · 2 Unterrichtsstunden (mit Versuchen) · Buch S. 70–73</p>
+        <p class="eyebrow">Stunde 10 · 2 Unterrichtsstunden (mit Versuchen)</p>
         <h2>Ballaststoffe, sekundäre Pflanzenstoffe und Versuche</h2>
         <p class="l-q"><b>Leitfrage:</b> Ist Vollkornbrot wirklich „gesünder“ – und wie weise ich Fett und Stärke nach?</p>
         <ul class="facts"><li>Ballaststoffe: löslich und unlöslich, mindestens 30 g am Tag</li><li>Wirkung in Mund, Magen und Darm</li><li>Sekundäre Pflanzenstoffe: Farbe, Duft, Geschmack – neun Gruppen</li><li>Methode: Einen Versuch durchführen (Fettfleckprobe, Stärkenachweis)</li></ul>
@@ -713,7 +726,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">11</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 11 · 1 Unterrichtsstunde · Buch S. 86–87 (Training, Auszug)</p>
+        <p class="eyebrow">Stunde 11 · 1 Unterrichtsstunde</p>
         <h2>Wiederholung und Selbsttest</h2>
         <p class="l-q"><b>Leitfrage:</b> Kann ich erklären, was in meinem Essen steckt und wozu mein Körper es braucht?</p>
         <ul class="facts"><li>Fachbegriffe als Karteikarten und Paare</li><li>Nährstoffe ihren Aufgaben zuordnen</li><li>Quiz mit 20 Fragen (10 zufällig pro Runde)</li><li>„Ich kann …“-Liste mit Links zurück in die Stunden</li></ul>

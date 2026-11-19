@@ -431,7 +431,7 @@ h3{font-weight:600;font-stretch:100%;font-size:1.25rem;line-height:1.2}
 .quote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--ink-2);margin-top:.3rem}
 
 /* ---------- Symbole ---------- */
-.ico{width:1.6rem;height:1.6rem;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ico{width:1.6rem;height:1.6rem;flex:none;overflow:visible;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- Kacheln mit Detailansicht (explore) ---------- */
 .explore{display:flex;flex-direction:column;gap:.8rem}
@@ -566,6 +566,19 @@ input[type=range]{accent-color:var(--accent);width:100%}
 }
 @media (max-width:920px){.model[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}}
 .ex-tile b{word-break:break-word}
+/* Monatskalender (Saisonkalender) */
+.cal-nav{display:flex;align-items:center;gap:.5rem;margin:.2rem 0 .5rem}
+.cal-nav b{font-family:var(--f-display);font-size:1.3rem;min-width:8.5rem;text-align:center}
+.cal-nav .btn{padding:.25rem .7rem}
+.cal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.4rem;margin-bottom:.6rem}
+.cal button{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 0 .35rem;border:1.5px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;overflow:hidden;min-width:0}
+.cal button::before{content:"";display:block;width:100%;height:.55rem;background:var(--sea,var(--line))}
+.cal button::after{content:"";position:absolute;top:.12rem;left:28%;right:28%;height:.3rem;background:radial-gradient(circle,var(--surface) 0 40%,transparent 45%) 0 0/50% 100% repeat-x}
+.cal button .mm{font-weight:700;font-size:.95rem;margin-top:.25rem}
+.cal button .ico{width:1.05rem;height:1.05rem;color:var(--sea,var(--ink-2));margin-top:.1rem}
+.cal button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface));box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.cal button:hover{border-color:var(--ink-2)}
+@media (max-width:520px){.cal{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 </style>
 </head>
@@ -603,7 +616,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">1</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde · Buch S. 26–27</p>
+        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde</p>
         <h2>Hygienisch rein – muss das sein?</h2>
         <p class="l-q"><b>Leitfrage:</b> Warum ist ein Haar in der Suppe mehr als nur eklig?</p>
         <ul class="facts"><li>Hygiene verhindert die Übertragung von Krankheitserregern</li><li>Drei Bereiche: persönliche Hygiene, Lebensmittelhygiene, Arbeitsplatzhygiene</li><li>Vorsicht bei rohem Fleisch, Fisch und Eiern</li><li>Die Chefkochprobe</li></ul>
@@ -614,7 +627,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">2</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 2 · 1 Unterrichtsstunde · Buch S. 28–29</p>
+        <p class="eyebrow">Stunde 2 · 1 Unterrichtsstunde</p>
         <h2>Küchenunfälle – Vorsicht, heiß und fettig!</h2>
         <p class="l-q"><b>Leitfrage:</b> Warum darf man brennendes Fett nie mit Wasser löschen?</p>
         <ul class="facts"><li>Die meisten Unfälle passieren zu Hause</li><li>Schnittverletzungen, Verbrennungen, Stürze vermeiden</li><li>Fettbrand: ersticken, nie mit Wasser löschen</li><li>Schutzvorrichtungen und Gefahrensymbole auf Reinigungsmitteln</li></ul>
@@ -625,7 +638,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">3</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde · Buch S. 30–31</p>
+        <p class="eyebrow">Stunde 3 · 1 Unterrichtsstunde</p>
         <h2>Arbeitsgeräte in der Küche</h2>
         <p class="l-q"><b>Leitfrage:</b> Welche Küchengeräte brauche ich wirklich?</p>
         <ul class="facts"><li>Die wichtigsten Arbeitsgeräte und ihre Verwendung</li><li>Waage mit TARA, Messbecher in Millilitern</li><li>Topfboden so groß wie die Herdplatte</li><li>Küchen-Gadgets kritisch prüfen</li></ul>
@@ -636,7 +649,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">4</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 4 · 1–2 Unterrichtsstunden (mit Praxis) · Buch S. 32–33</p>
+        <p class="eyebrow">Stunde 4 · 1–2 Unterrichtsstunden (mit Praxis)</p>
         <h2>Vorbereitung – Bist du startklar?</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie richte ich meinen Arbeitsplatz so ein, dass kein Chaos entsteht?</p>
         <ul class="facts"><li>Arbeitsplatz in fünf Schritten startklar machen</li><li>Rohware, Schneidebrett, verarbeitete Ware, Abfallschale – für Rechts- und Linkshänder</li><li>Waschen, Putzen, Schälen</li><li>Salat in stehendem Wasser waschen</li></ul>
@@ -647,7 +660,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">5</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 5 · 1–2 Unterrichtsstunden (mit Praxis) · Buch S. 34–35</p>
+        <p class="eyebrow">Stunde 5 · 1–2 Unterrichtsstunden (mit Praxis)</p>
         <h2>Zubereitung – Jetzt kannst du loslegen!</h2>
         <p class="l-q"><b>Leitfrage:</b> Warum wird ein Kuchen fest, wenn man den Eischnee unterrührt statt unterhebt?</p>
         <ul class="facts"><li>Zerkleinern: schneiden, hobeln, raspeln, reiben, hacken, pürieren, passieren</li><li>Mischen: rühren, schlagen, kneten, mixen, unterheben</li><li>Das richtige Arbeitsgerät zur Technik</li><li>Rezeptbegriffe genau befolgen</li></ul>
@@ -658,7 +671,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">6</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 6 · 1–2 Unterrichtsstunden (mit Schneideübung) · Buch S. 36–37</p>
+        <p class="eyebrow">Stunde 6 · 1–2 Unterrichtsstunden (mit Schneideübung)</p>
         <h2>Das richtige Messer für jeden Zweck</h2>
         <p class="l-q"><b>Leitfrage:</b> Warum schneidet man mit einem scharfen Messer sicherer als mit einem stumpfen?</p>
         <ul class="facts"><li>Bestandteile eines Messers: Griff, Klinge, Schneide, Messerrücken</li><li>Acht Messer und ihre Verwendung</li><li>Tunnelgriff, Krallengriff, Auflageschnitt</li><li>Sicherheitsregeln und Messerpflege</li></ul>
@@ -669,7 +682,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">7</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 7 · 2 Unterrichtsstunden (mit Kochversuch) · Buch S. 38–39</p>
+        <p class="eyebrow">Stunde 7 · 2 Unterrichtsstunden (mit Kochversuch)</p>
         <h2>Garverfahren in feuchter Hitze</h2>
         <p class="l-q"><b>Leitfrage:</b> Kochen, dünsten oder dämpfen – was ist am besten für die Karotte?</p>
         <ul class="facts"><li>Garen ist das Zubereiten von Lebensmitteln unter Wärmeeinwirkung</li><li>Kochen, Dünsten, Dämpfen, Quellen, Garziehen, Druckgaren</li><li>Temperatur und Flüssigkeitsmenge unterscheiden die Verfahren</li><li>Den Dampfdrucktopf sicher bedienen</li></ul>
@@ -680,7 +693,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">8</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 8 · 2 Unterrichtsstunden (mit Bratversuch und Erklärvideo) · Buch S. 40–43</p>
+        <p class="eyebrow">Stunde 8 · 2 Unterrichtsstunden (mit Bratversuch und Erklärvideo)</p>
         <h2>Garverfahren in trockener Hitze</h2>
         <p class="l-q"><b>Leitfrage:</b> Warum wird ein Schnitzel in heißem Fett knusprig – und in kaltem nicht?</p>
         <ul class="facts"><li>Braten, Schmoren, Grillen, Backen, Frittieren</li><li>Röststoffe entstehen bei hoher Temperatur</li><li>Backofenprogramme: Ober-/Unterhitze, Umluft, Unterhitze, Grill</li><li>Methode: Ein Erklärvideo erstellen</li></ul>
@@ -691,7 +704,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">9</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 9 · 2 Unterrichtsstunden (mit Kochpraxis) · Buch S. 44–47</p>
+        <p class="eyebrow">Stunde 9 · 2 Unterrichtsstunden (mit Kochpraxis)</p>
         <h2>Gut geplant ist halb gekocht – nach Rezept arbeiten</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie schaffe ich es, dass alles gleichzeitig fertig ist?</p>
         <ul class="facts"><li>Vier Aufgabenbereiche: Vorbereitungs-, Zubereitungs-, Aufräum- und sonstige Arbeiten</li><li>Spülen von Hand in der richtigen Reihenfolge</li><li>Rezepte lesen: Abkürzungen und Mengen</li><li>Methode: in sechs Schritten nach Rezept arbeiten, Arbeitsplan erstellen</li></ul>
@@ -702,7 +715,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">10</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 10 · 1 Unterrichtsstunde · Buch S. 48–49</p>
+        <p class="eyebrow">Stunde 10 · 1 Unterrichtsstunde</p>
         <h2>Wiederholung und Selbsttest</h2>
         <p class="l-q"><b>Leitfrage:</b> Bin ich fit für die Schulküche?</p>
         <ul class="facts"><li>Fachbegriffe als Karteikarten und Paare</li><li>Fallbeispiel: Gemüselasagne in der Ferienwohnung</li><li>Quiz mit 18 Fragen (10 zufällig pro Runde)</li><li>„Ich kann …“-Liste mit Links zurück in die Stunden</li></ul>

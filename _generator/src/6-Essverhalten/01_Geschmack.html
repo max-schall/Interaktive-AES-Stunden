@@ -132,9 +132,9 @@ inter: Geschmacksrichtungen entdecken · Vorliebe oder Abneigung sortieren · Ge
 
 <script>
 explore($('#ex-g'), [
-  {ico: 'zucker', t: 'süß', d: '<p>z. B. reifes Obst, Honig, Muttermilch.</p><p><b>Angeborene Vorliebe:</b> Süßes zeigt an, dass ein Lebensmittel reif ist und viel Energie (Kohlenhydrate) liefert.</p>'},
+  {ico: 'bonbon', t: 'süß', d: '<p>z. B. reifes Obst, Honig, Muttermilch.</p><p><b>Angeborene Vorliebe:</b> Süßes zeigt an, dass ein Lebensmittel reif ist und viel Energie (Kohlenhydrate) liefert.</p>'},
   {ico: 'salz', t: 'salzig', d: '<p>z. B. Brezel, Chips, Käse.</p><p><b>Angeborene Vorliebe:</b> Salz ist wichtig für den Wasserhaushalt des Körpers und war in der Natur früher schwer zu finden.</p>'},
-  {ico: 'apfel', t: 'sauer', d: '<p>z. B. Zitrone, unreifes Obst, Joghurt.</p><p><b>Angeborene Abneigung:</b> Unreife oder verdorbene Lebensmittel schmecken oft sauer.</p>'},
+  {ico: 'zitrone', t: 'sauer', d: '<p>z. B. Zitrone, unreifes Obst, Joghurt.</p><p><b>Angeborene Abneigung:</b> Unreife oder verdorbene Lebensmittel schmecken oft sauer.</p>'},
   {ico: 'blatt', t: 'bitter', d: '<p>z. B. Rosenkohl, Chicorée, Kaffee, dunkle Schokolade.</p><p><b>Angeborene Abneigung:</b> Viele giftige Pflanzen schmecken bitter – Vorsicht war überlebenswichtig.</p>'},
   {ico: 'schuessel', t: 'umami', d: '<p>z. B. Parmesan, reife Tomaten, Brühe, Sojasoße.</p><p>„Umami“ ist japanisch und bedeutet <b>herzhaft, würzig</b>. Es zeigt eiweißreiche Nahrung an.</p>'},
   {ico: 'oel', t: 'fettig', sub: 'kein Grundgeschmack', d: '<p>z. B. Pommes, Butter, Nüsse.</p><p>Fett ist streng genommen keine eigene Grundgeschmacksrichtung, wir mögen es aber von Geburt an: Es liefert besonders viel Energie.</p>'}
@@ -166,10 +166,10 @@ sorter($('#sort-evo'), [{id: 'v', name: 'angeborene Vorliebe'}, {id: 'a', name: 
 
 explore($('#ex-bio'), [
   {ico: 'baby', t: 'vor der Geburt', d: 'Das Baby schmeckt im Mutterleib das Fruchtwasser. Isst die Mutter abwechslungsreich, lernt das Kind schon verschiedene Geschmacksrichtungen kennen.'},
-  {ico: 'milch', t: 'Säugling', d: 'Süße Muttermilch – die angeborene Vorliebe für Süßes passt genau dazu. Babys trinken, bis sie satt sind.'},
+  {ico: 'baby', t: 'Säugling', d: 'Süße Muttermilch – die angeborene Vorliebe für Süßes passt genau dazu. Babys trinken, bis sie satt sind.'},
   {ico: 'haus', t: 'Kindheit', d: 'Die Familie bestimmt, was, wann und wie gegessen wird. Herkunft, Kultur und Religion prägen die Lieblingsgerichte, z. B. Omas Pfannkuchen.'},
   {ico: 'gruppe', t: 'Jugend', d: 'Freundinnen und Freunde, Schule, Werbung und soziale Medien werden wichtiger. Man probiert Neues aus, z. B. Streetfood oder vegetarische Gerichte.'},
-  {ico: 'erde', t: 'Erwachsene', d: 'Reisen, Beruf, eigener Haushalt, Werte (z. B. Tierwohl, Klima) und Geld beeinflussen die Auswahl. Der Geschmack verändert sich weiter.'}
+  {ico: 'person', t: 'Erwachsene', d: 'Reisen, Beruf, eigener Haushalt, Werte (z. B. Tierwohl, Klima) und Geld beeinflussen die Auswahl. Der Geschmack verändert sich weiter.'}
 ], {hint: 'Tippe auf einen Lebensabschnitt.'});
 
 cloze($('#cz'), 'Alle Menschen haben eine angeborene {Vorliebe|Abneigung} für Süßes. Bittere Lebensmittel können {giftig|besonders gesund|reif} sein, deshalb mögen wir sie zunächst nicht. Die fünfte Geschmacksrichtung heißt {umami|scharf|fettig} und bedeutet herzhaft. Bis man ein neues Lebensmittel mag, muss man es oft {8- bis 10-mal|ein einziges Mal|100-mal} probieren. Alle Erfahrungen mit Essen und Trinken bilden die {Essbiografie|Esskultur|Ernährungspyramide}.');

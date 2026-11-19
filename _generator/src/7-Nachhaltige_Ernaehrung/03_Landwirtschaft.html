@@ -97,14 +97,47 @@ quizTable($('#cmp'), $('#cmp-q'), $('#cmp-a'));
   const S = ['<b>Feld:</b> Auf den Feldern wachsen Getreide, Gemüse und Futterpflanzen – im Wechsel (Fruchtfolge).', '<b>Futter:</b> Ein Teil der Ernte wird zu Bio-Futter, meist vom eigenen Betrieb.', '<b>Tiere:</b> Die Tiere werden artgerecht gehalten und liefern Milch, Eier und Fleisch.', '<b>Dünger:</b> Ihr Mist wird zu organischem Dünger, der die Felder fruchtbar macht.', '<b>Lebensmittel:</b> Ein Teil der Ernte und tierische Produkte gehen als Bio-Lebensmittel zu den Menschen.'];
   let k = 0;
   stepper($('#k-step'), 5, i => { k = i; $('#k-st').innerHTML = S[i]; });
+  /* Kreislauf: vier Stationen auf einem Ring, dazwischen dicke Pfeilbögen mit fließenden Punkten */
+  const N = [['Feld', 'aehre', 'c2'], ['Futter', 'heu', 'c5'], ['Tiere', 'kuh', 'c1'], ['Dünger', 'mist', 'c4']];
+  const ARC = ['ernten', 'füttern', 'Mist sammeln', 'düngen'];
+  const ico = (ctx, name, x, y, sz, c) => { ctx.save(); ctx.translate(x - sz / 2, y - sz / 2); ctx.scale(sz / 24, sz / 24); ctx.strokeStyle = c; ctx.lineWidth = 1.8; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(new Path2D(ICONS[name])); ctx.restore(); };
   canvasLoop($('#cv-k'), 'kreislauf', (ctx, w, h, t) => {
-    const cx = w * .45, cy = h * .5, R = Math.min(w, h) * .33, N = [['Feld', 'blatt', 'c2'], ['Futter', 'paket', 'c5'], ['Tiere', 'herz', 'c1'], ['Dünger', 'kreislauf', 'c4']];
-    ctx.strokeStyle = alpha(C.ink2, .3); ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.stroke();
-    for (let i = 0; i < 4; i++) { const a = -Math.PI / 2 + i * Math.PI / 2 + .55; arrow(ctx, cx + R * Math.cos(a - .1), cy + R * Math.sin(a - .1), cx + R * Math.cos(a + .1), cy + R * Math.sin(a + .1), C.ink2, 3, 10); }
-    N.forEach(([n, ico, c], i) => { const a = -Math.PI / 2 + i * Math.PI / 2, x = cx + R * Math.cos(a), y = cy + R * Math.sin(a), on = i === k || (k === 4 && i === 0); ctx.fillStyle = on ? col(c) : col('surface-2'); ctx.beginPath(); ctx.arc(x, y, 30 + (on ? 4 * Math.sin(t * 3) : 0), 0, 7); ctx.fill(); label(ctx, n, x, y, {size: 13, color: on ? '#fff' : C.ink}); });
-    const p = (t * .15) % 1, a = -Math.PI / 2 + p * Math.PI * 2; ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(cx + R * Math.cos(a), cy + R * Math.sin(a), 5, 0, 7); ctx.fill();
-    const on5 = k === 4; ctx.fillStyle = on5 ? col('c3') : col('surface-2'); roundRect(ctx, w * .8, cy - 26, w * .18, 52, 12); ctx.fill(); label(ctx, 'Lebensmittel', w * .89, cy, {size: 12, color: on5 ? '#fff' : C.ink});
-    arrow(ctx, cx + R + 32, cy, w * .8 - 4, cy, on5 ? C.accent : alpha(C.ink2, .4), 3, 10);
+    const cx = w * .37, cy = h * .5, R = Math.min(w * .27, h * .37), nr = Math.min(w, h) * .1, gap = (nr + 8) / R;
+    const ang = i => -Math.PI / 2 + i * Math.PI / 2;
+    /* Pfeilbögen */
+    for (let i = 0; i < 4; i++) {
+      const a0 = ang(i) + gap, a1 = ang(i + 1) - gap - .06, on = k === i || k === 4 && i === 0, c = on ? col(N[i][2]) : alpha(C.ink2, .22);
+      ctx.strokeStyle = c; ctx.lineWidth = on ? 14 : 11; ctx.lineCap = 'butt'; ctx.beginPath(); ctx.arc(cx, cy, R, a0, a1); ctx.stroke();
+      /* Pfeilspitze tangential */
+      const ex = cx + R * Math.cos(a1), ey = cy + R * Math.sin(a1), ta = a1 + Math.PI / 2, hs = on ? 16 : 13;
+      ctx.fillStyle = c; ctx.beginPath(); ctx.moveTo(ex + Math.cos(ta) * hs, ey + Math.sin(ta) * hs); ctx.lineTo(ex + Math.cos(ta + 2.2) * hs * .9, ey + Math.sin(ta + 2.2) * hs * .9); ctx.lineTo(ex + Math.cos(ta - 2.2) * hs * .9, ey + Math.sin(ta - 2.2) * hs * .9); ctx.closePath(); ctx.fill();
+      /* fließende Punkte */
+      for (let j = 0; j < 3; j++) { const p = (t * .25 + j / 3) % 1, aa = lerp(a0, a1, p); ctx.fillStyle = on ? '#ffffff' : alpha('#ffffff', .8); ctx.beginPath(); ctx.arc(cx + R * Math.cos(aa), cy + R * Math.sin(aa), on ? 3 : 2.2, 0, 7); ctx.fill(); }
+      /* Beschriftung des Bogens außen */
+      const am = (ang(i) + ang(i + 1)) / 2, lr = R + 26;
+      label(ctx, ARC[i], cx + lr * Math.cos(am), cy + lr * Math.sin(am), {size: 11, color: on ? col(N[i][2]) : C.ink2, weight: on ? 700 : 400, align: Math.cos(am) > .2 ? 'left' : Math.cos(am) < -.2 ? 'right' : 'center'});
+    }
+    /* Stationen */
+    N.forEach(([n, ic, c], i) => {
+      const a = ang(i), x = cx + R * Math.cos(a), y = cy + R * Math.sin(a), on = i === k || (k === 4 && (i === 0 || i === 2));
+      ctx.fillStyle = on ? col(c) : col('surface'); ctx.strokeStyle = col(c); ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(x, y, nr + (i === k ? 2 * Math.sin(t * 3) : 0), 0, 7); ctx.fill(); ctx.stroke();
+      ico(ctx, ic, x, y - nr * .18, nr * .9, on ? '#ffffff' : col(c));
+      label(ctx, n, x, y + nr * .55, {size: 12, color: on ? '#fff' : C.ink, halo: !on});
+    });
+    label(ctx, 'Bio-Hof', cx, cy - 8, {size: 14, font: DISPLAY, weight: 600, color: C.ink2});
+    label(ctx, 'geschlossener Kreislauf', cx, cy + 10, {size: 10, color: C.ink2, weight: 400});
+    /* Lebensmittel für Menschen: aus Feld (Getreide, Gemüse) und von Tieren (Milch, Eier, Fleisch) */
+    const on5 = k === 4, bx = w * .76, bw = w * .22, by = cy - 34, c5 = on5 ? C.accent : alpha(C.ink2, .35);
+    ctx.fillStyle = on5 ? col('c3') : col('surface-2'); roundRect(ctx, bx, by, bw, 68, 12); ctx.fill();
+    ico(ctx, 'wagen', bx + bw / 2, by + 22, 26, on5 ? '#fff' : C.ink2);
+    label(ctx, 'Lebensmittel', bx + bw / 2, by + 48, {size: 12, color: on5 ? '#fff' : C.ink, halo: !on5});
+    const F = [cx, cy - R], T = [cx, cy + R], mx = bx + bw / 2;
+    ctx.setLineDash(on5 ? [] : [5, 5]); ctx.strokeStyle = c5; ctx.lineWidth = on5 ? 3 : 2; ctx.lineJoin = 'round';
+    ctx.beginPath(); ctx.moveTo(F[0] + nr + 2, F[1]); ctx.lineTo(mx, F[1]); ctx.lineTo(mx, by - 12); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(T[0] + nr + 2, T[1]); ctx.lineTo(mx, T[1]); ctx.lineTo(mx, by + 80); ctx.stroke(); ctx.setLineDash([]);
+    arrow(ctx, mx, by - 14, mx, by - 2, c5, 2, 10); arrow(ctx, mx, by + 82, mx, by + 70, c5, 2, 10);
+    label(ctx, 'Getreide, Gemüse', mx, F[1] - 12, {size: 10, color: on5 ? C.accent : C.ink2, weight: on5 ? 700 : 400});
+    label(ctx, 'Milch, Eier, Fleisch', mx, T[1] + 13, {size: 10, color: on5 ? C.accent : C.ink2, weight: on5 ? 700 : 400});
   });
 })();
 sorter($('#sort'), [{id: 'b', name: 'Bodenfruchtbarkeit'}, {id: 't', name: 'Tierschutz'}, {id: 'g', name: 'Gewässerschutz'}, {id: 'a', name: 'Artenvielfalt'}], [

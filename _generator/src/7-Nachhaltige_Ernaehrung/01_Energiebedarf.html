@@ -38,6 +38,7 @@ inter: Grundumsatz-Rechner · PAL-Werte im Alltag · Energiebilanz als Waage · 
     <div class="vis">
       <div class="vis-head"><h3>Grundumsatz-Rechner</h3></div>
       <div id="calc-g"></div>
+      <p class="note">Wie viel Energie du <b>insgesamt</b> brauchst, hängt zusätzlich davon ab, wie aktiv du bist. Das beschreibt der <b>PAL-Wert</b> – mehr dazu an der nächsten Station.</p>
     </div>
   </div>
 </section>
@@ -49,6 +50,7 @@ inter: Grundumsatz-Rechner · PAL-Werte im Alltag · Energiebilanz als Waage · 
       <h2>Leistungsumsatz und PAL-Wert</h2>
       <p class="lead">Der <b>Leistungsumsatz (LU)</b> ist die Energie, die du zusätzlich für körperliche Aktivitäten brauchst. Er wird mit dem <b>PAL-Wert</b> (Physical Activity Level) erfasst.</p>
       <p class="prompt"><b>Gesamtenergiebedarf</b> = Grundumsatz × PAL-Wert</p>
+      <p>Der PAL-Wert gibt an, <b>wievielmal so viel Energie</b> du am Tag brauchst wie im Liegen. PAL 1,6 heißt: Du brauchst das 1,6-Fache deines Grundumsatzes, also 60 % mehr.</p>
       <p>Deinen Leistungsumsatz steigerst du durch Sport, aber auch durch Alltagsaktivitäten wie Treppensteigen, zu Fuß gehen, Haus- und Gartenarbeit.</p>
     </div>
     <div class="vis">
@@ -58,10 +60,29 @@ inter: Grundumsatz-Rechner · PAL-Werte im Alltag · Energiebilanz als Waage · 
   </div>
 </section>
 
-<section class="station" id="bilanz" data-label="Energiebilanz" data-yr="Anwendung" data-title="Die Energiebilanz" data-sub="Zufuhr und Verbrauch">
+<section class="station" id="bedarf" data-label="Gesamtbedarf" data-yr="Anwendung" data-title="Dein Gesamtenergiebedarf" data-sub="Grundumsatz × PAL-Wert">
   <div class="model">
     <div class="txt">
       <p class="eyebrow">Station 3 · Anwendung</p>
+      <h2>Dein Gesamtenergiebedarf</h2>
+      <p class="lead">Jetzt kommen beide Teile zusammen: Der Grundumsatz wird mit dem PAL-Wert multipliziert.</p>
+      <ol class="facts">
+        <li><b>Grundumsatz</b> berechnen: 1 kcal × kg Körpergewicht × 24 h</li>
+        <li><b>PAL-Wert</b> wählen, der zu deinem Alltag passt (Schülerinnen und Schüler meist 1,6–1,7)</li>
+        <li><b>Gesamtenergiebedarf</b> = Grundumsatz × PAL-Wert</li>
+      </ol>
+    </div>
+    <div class="vis">
+      <div class="vis-head"><h3>Gesamtbedarf-Rechner</h3></div>
+      <div id="calc-pal"></div>
+    </div>
+  </div>
+</section>
+
+<section class="station" id="bilanz" data-label="Energiebilanz" data-yr="Anwendung" data-title="Die Energiebilanz" data-sub="Zufuhr und Verbrauch">
+  <div class="model">
+    <div class="txt">
+      <p class="eyebrow">Station 4 · Anwendung</p>
       <h2>Die Energiebilanz</h2>
       <p class="lead">Führst du deinem Körper langfristig genau so viel Energie zu, wie er verbraucht, ist die Energiebilanz <b>ausgeglichen</b>: Das Körpergewicht bleibt stabil.</p>
       <ul class="facts">
@@ -81,7 +102,7 @@ inter: Grundumsatz-Rechner · PAL-Werte im Alltag · Energiebilanz als Waage · 
 <section class="station" id="aktiv" data-label="Snack & Sport" data-yr="Vertiefung" data-title="Wie lange für einen Snack?" data-sub="Kalorien und Bewegung">
   <div class="model">
     <div class="txt">
-      <p class="eyebrow">Station 4 · Vertiefung</p>
+      <p class="eyebrow">Station 5 · Vertiefung</p>
       <h2>Wie lange für einen Snack?</h2>
       <p class="lead">Wie viele Minuten Bewegung braucht man, um die Energie eines Snacks zu verbrauchen? (Richtwerte für eine Jugendliche mit ca. 50 kg)</p>
       <p class="note">Achtung: Es geht nicht ums „Abtrainieren“. Essen ist Genuss und Energie für den Tag. Die Rechnung zeigt nur, wie viel Energie in Snacks und Getränken steckt.</p>
@@ -121,9 +142,14 @@ inter: Grundumsatz-Rechner · PAL-Werte im Alltag · Energiebilanz als Waage · 
 </section>
 
 <script>
-calc($('#calc-g'), [{id: 'kg', l: 'Körpergewicht', min: 25, max: 100, v: 52, unit: 'kg'}, {id: 'pal', l: 'PAL-Wert', min: 1.2, max: 2.4, step: .1, v: 1.6}], v => {
-  const gu = v.kg * 24, ge = gu * v.pal;
-  return `<span class="big">${numDE(Math.round(ge), 0)} kcal</span><p>Grundumsatz: 1 kcal × ${v.kg} kg × 24 h = <b>${numDE(gu, 0)} kcal</b><br>Gesamtbedarf: ${numDE(gu, 0)} kcal × ${numDE(v.pal, 1)} = <b>${numDE(Math.round(ge), 0)} kcal</b> ≈ ${numDE(Math.round(ge * 4.184), 0)} kJ</p>`;
+calc($('#calc-g'), [{id: 'kg0', l: 'Körpergewicht', min: 25, max: 100, v: 52, unit: 'kg'}], v => {
+  const gu = v.kg0 * 24;
+  return `<span class="big">${numDE(gu, 0)} kcal</span><p>Grundumsatz: 1 kcal × ${v.kg0} kg × 24 h = <b>${numDE(gu, 0)} kcal</b> ≈ ${numDE(Math.round(gu * 4.184), 0)} kJ am Tag</p>`;
+});
+const PALD = {1.2: 'nur sitzend oder liegend', 1.5: 'fast nur sitzend', 1.7: 'sitzend, gelegentlich gehend', 1.9: 'meist gehend oder stehend', 2.2: 'körperlich anstrengend'};
+calc($('#calc-pal'), [{id: 'kg', l: 'Körpergewicht', min: 25, max: 100, v: 52, unit: 'kg'}, {id: 'pal', l: 'PAL-Wert', opts: Object.keys(PALD).map(k => [k, numDE(+k, 1)]), v: '1.7'}], v => {
+  const pal = +v.pal || 1.7, gu = v.kg * 24, ge = gu * pal;
+  return `<span class="big">${numDE(Math.round(ge), 0)} kcal</span><p>Grundumsatz: 1 kcal × ${v.kg} kg × 24 h = <b>${numDE(gu, 0)} kcal</b><br>PAL ${numDE(pal, 1)}: ${PALD[pal] || ''}<br>Gesamtbedarf: ${numDE(gu, 0)} kcal × ${numDE(pal, 1)} = <b>${numDE(Math.round(ge), 0)} kcal</b> ≈ ${numDE(Math.round(ge * 4.184), 0)} kJ</p>`;
 });
 explore($('#ex-p'), [
   {ico: 'bett', t: 'PAL 1,2', sub: 'nur sitzend oder liegend', d: 'Ausschließlich sitzende oder liegende Lebensweise, z. B. alte, gebrechliche Menschen.'},

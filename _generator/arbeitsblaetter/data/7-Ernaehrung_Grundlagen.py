@@ -117,6 +117,7 @@ WS = {
     ('aufbau', [
         BOX('Zeichne den Aufbau eines einfachen Fettes und beschrifte Glycerin und Fettsäuren.', 25, loes='Glycerin als „Rückgrat“, daran drei Fettsäuren (Ketten).'),
         L('Feste Fette wie Butter bestehen vor allem aus [[gesättigten]] Fettsäuren, Öle aus [[ungesättigten]] Fettsäuren. Omega-3- und Omega-6-Fettsäuren sind [[essenziell]].'),
+        L('Gesättigte Fettsäuren haben [[keine]] Doppelbindung – alle C-Atome sind mit [[H-Atomen]] gesättigt. Ungesättigte Fettsäuren haben [[mindestens eine]] Doppelbindung.'),
     ]),
     ('aufgaben', [
         A('Nenne vier Aufgaben von Fett im Körper.', 2, 'Energie (37 kJ/g) und Energiespeicher; Schutz der Organe; Wärmeisolierung; Geschmacksträger; Transport der fettlöslichen Vitamine A, D, E, K.'),

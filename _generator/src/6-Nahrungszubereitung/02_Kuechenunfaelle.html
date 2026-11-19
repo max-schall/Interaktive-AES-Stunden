@@ -131,7 +131,7 @@ explore($('#ex-g'), [
   {ico: 'messer', t: 'Schnittverletzungen', d: '<ul><li>Tunnel- und Krallengriff verwenden</li><li>immer auf einem Brett schneiden</li><li>Messer zum Spülen am Griff festhalten, nie ins Spülbecken legen</li><li>fallende Messer nie auffangen</li><li>Vorsicht bei scharfkantigen Dosenrändern</li></ul>'},
   {ico: 'flamme', t: 'Verbrennungen', d: '<ul><li>heiße Töpfe, Pfannen, Bleche nur mit Topfhandschuhen anfassen – auch Deckel!</li><li>Abstand beim Öffnen des Backofens: Wasserdampf ist extrem heiß</li><li>heiße Flüssigkeiten (Nudelwasser) immer vom Körper weg ausschütten</li><li>Herdplatten ausschalten, wenn du sie nicht mehr brauchst</li><li>Herd erst reinigen, wenn er abgekühlt ist</li></ul>'},
   {ico: 'laufen', t: 'Stürze', d: '<ul><li>Boden sauber und trocken halten</li><li>Stolperfallen wie Besen und Eimer wegräumen</li><li>für obere Schränke immer eine Leiter verwenden</li></ul>'},
-  {ico: 'blitz', t: 'Elektrische Geräte', d: '<p>Reihenfolge: <b>startklar machen – einstecken – benutzen – ausstecken</b>. Erst ausstecken, dann reinigen!</p>'}
+  {ico: 'stecker', t: 'Elektrische Geräte', d: '<p>Reihenfolge: <b>startklar machen – einstecken – benutzen – ausstecken</b>. Erst ausstecken, dann reinigen!</p>'}
 ], {cols2: true, hint: 'Tippe auf eine Gefahrenquelle.'});
 
 /* Fettbrand-Simulation */
@@ -180,14 +180,14 @@ scenes($('#sc-n'), [
   {s: 'Auf dem Boden ist Nudelwasser verschüttet.', a: ['Sofort aufwischen und trocknen', 'Später aufwischen', 'Ein Schild hinstellen und weiterkochen'], ok: 0, why: 'Nasser Boden ist eine Rutschgefahr.'}
 ], {label: 'Notfall'});
 
-/* Gefahrensymbole (vereinfachte Darstellung) */
+/* Gefahrenpiktogramme (offizielle GHS-Bilder, GHS_IMG wird von build.py eingebettet) */
 (() => {
-  const dia = inner => `<svg viewBox="0 0 60 60" style="width:3.4rem;height:3.4rem"><rect x="12" y="12" width="36" height="36" transform="rotate(45 30 30)" fill="#fff" stroke="#d01c1f" stroke-width="4"/><g transform="translate(18 18) scale(1)" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">${inner}</g></svg>`;
+  const dia = code => `<img src="${GHS_IMG[code]}" width="72" height="72" alt="${code}" draggable="false" style="width:4.2rem;height:4.2rem">`;
   const S = [
-    {k: 'aetzend', t: 'ätzend', svg: '<path d="M4 4 l5 7 M14 3 l4 7"/><path d="M2 18 h9 v4 h-9z M13 18 h10 v4 h-10z" fill="#111"/><path d="M6 13 v3 M17 12 v4" stroke-dasharray="1 2"/>', d: 'Kann Haut und Augen schwer verätzen und Metalle angreifen, z. B. Backofenreiniger, Rohrreiniger, Entkalker. Handschuhe tragen, nicht einatmen.'},
-    {k: 'gesund', t: 'gesundheits­schädlich', svg: '<path d="M12 3 v12" stroke-width="3.5"/><circle cx="12" cy="21" r="1.8" fill="#111"/>', d: 'Ausrufezeichen: kann reizen, Allergien auslösen oder beim Verschlucken schädlich sein, z. B. manche Spülmaschinentabs und Weichspüler.'},
-    {k: 'umwelt', t: 'umwelt­gefährdend', svg: '<path d="M5 22 v-8 M5 14 l-3 2 M5 15 l3 -3 M2 22 h20"/><path d="M12 18 q4 -4 8 0 q-4 4 -8 0z M20 18 l3 -2 v4z"/>', d: 'Toter Baum und Fisch: giftig für Wasserlebewesen. Nie in den Ausguss kippen, sparsam verwenden, Reste zum Schadstoffmobil.'},
-    {k: 'brand', t: 'leicht entzündlich', svg: '<path d="M12 22 c-5 0 -7 -4 -6 -7 c1 -3 3 -4 3 -7 c2 1 3 3 3 5 c1 -2 2 -4 1 -7 c4 2 6 7 6 10 c0 4 -3 6 -7 6z"/><path d="M4 23 h16"/>', d: 'Flamme: fängt leicht Feuer, z. B. Spiritus, Grillanzünder, manche Sprays. Von Hitze und offener Flamme fernhalten.'}
+    {k: 'aetzend', t: 'ätzend', svg: 'GHS05', d: 'Ätzwirkung (GHS05): kann Haut und Augen schwer verätzen und Metalle angreifen, z. B. Backofenreiniger, Rohrreiniger, Entkalker. Handschuhe tragen, nicht einatmen.'},
+    {k: 'gesund', t: 'gesundheits­schädlich', svg: 'GHS07', d: 'Ausrufezeichen (GHS07): kann reizen, Allergien auslösen oder beim Verschlucken schädlich sein, z. B. manche Spülmaschinentabs und Weichspüler.'},
+    {k: 'umwelt', t: 'umwelt­gefährdend', svg: 'GHS09', d: 'Toter Baum und Fisch (GHS09): giftig für Wasserlebewesen. Nie in den Ausguss kippen, sparsam verwenden, Reste zum Schadstoffmobil.'},
+    {k: 'brand', t: 'leicht entzündlich', svg: 'GHS02', d: 'Flamme (GHS02): fängt leicht Feuer, z. B. Spiritus, Grillanzünder, manche Sprays. Von Hitze und offener Flamme fernhalten.'}
   ];
   $('#ghs').innerHTML = S.map((s, i) => `<button class="ex-tile" data-k="${i}" aria-pressed="false" style="align-items:center;text-align:center">${dia(s.svg)}<b>${s.t}</b></button>`).join('');
   $('#ghs').addEventListener('click', e => { const b = e.target.closest('[data-k]'); if (!b) return; $$('#ghs .ex-tile').forEach(x => x.setAttribute('aria-pressed', x === b)); const s = S[+b.dataset.k]; $('#ghs-info').innerHTML = `<h4>${s.t}</h4><p>${s.d}</p>`; });

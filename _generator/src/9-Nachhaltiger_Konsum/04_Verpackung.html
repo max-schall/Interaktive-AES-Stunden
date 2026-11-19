@@ -106,7 +106,7 @@ inter: CO₂-Vergleich der Materialien · Recycling-Quoten · Mülltrennung · E
 </section>
 
 <script>
-bars($('#bars'), [['Aluminium', 7.57], ['Weißblech', 3.11], ['Kunststoff', 2.0], ['Glas (Einweg)', .62], ['Papier', .53], ['Glas Mehrweg', .04], ['PET Mehrweg', .03]].map(([l, v]) => ({l, v, c: v > 1.5 ? 'c1' : v > .2 ? 'c5' : 'c2'})), {unit: 'kg', dec: 2, note: 'Pro kg Verpackungsgewicht, von der Herstellung bis zur Entsorgung (Buch S. 158). Achtung: Glas ist viel schwerer als Kunststoff!'});
+bars($('#bars'), [['Aluminium', 7.57], ['Weißblech', 3.11], ['Kunststoff', 2.0], ['Glas (Einweg)', .62], ['Papier', .53], ['Glas Mehrweg', .04], ['PET Mehrweg', .03]].map(([l, v]) => ({l, v, c: v > 1.5 ? 'c1' : v > .2 ? 'c5' : 'c2'})), {unit: 'kg', dec: 2, note: 'Pro kg Verpackungsgewicht, von der Herstellung bis zur Entsorgung. Achtung: Glas ist viel schwerer als Kunststoff!'});
 sorter($('#sort'), [{id: 'v', name: 'Vorteil'}, {id: 'n', name: 'Nachteil'}], [
   {t: 'leicht', c: 'v'}, {t: 'wasserdicht', c: 'v'}, {t: 'stabil', c: 'v'}, {t: 'hygienisch', c: 'v'},
   {t: 'verrottet nicht', c: 'n'}, {t: 'wird aus Erdöl hergestellt', c: 'n'}, {t: 'zerfällt zu Mikroplastik', c: 'n'}, {t: 'nur ca. 15 % werden stofflich recycelt', c: 'n'}

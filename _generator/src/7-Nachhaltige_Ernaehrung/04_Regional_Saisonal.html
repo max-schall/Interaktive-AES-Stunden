@@ -52,7 +52,8 @@ inter: Tomaten-Vergleich (CO₂ je kg) · Interaktiver Saisonkalender · Siegel-
     </div>
     <div class="vis">
       <div class="vis-head"><h3>Saisonkalender (vereinfacht)</h3></div>
-      <div class="slider"><label for="mo">Monat <output id="mo-o"></output></label><input type="range" id="mo" min="0" max="11" value="6"></div>
+      <div class="cal-nav"><button class="btn" id="mo-prev" aria-label="Vormonat">&lsaquo;</button><b id="mo-o" aria-live="polite"></b><button class="btn" id="mo-next" aria-label="Nächster Monat">&rsaquo;</button></div>
+      <div class="cal" id="cal" role="group" aria-label="Monat wählen"></div>
       <div id="sk"></div>
     </div>
   </div>
@@ -97,7 +98,7 @@ inter: Tomaten-Vergleich (CO₂ je kg) · Interaktiver Saisonkalender · Siegel-
       <div class="controls"><button class="btn primary" data-heft-next>Nächster Punkt</button><button class="btn" data-heft-all>Alles zeigen</button></div>
     </div>
     <div class="stack">
-      <div class="box"><span class="tag info">Recherche</span><p>Sucht im Saisonkalender (Buch S. 293) Obst und Gemüse, das es jetzt gerade frisch bei uns gibt, und plant daraus ein Gericht.</p></div>
+      <div class="box"><span class="tag info">Recherche</span><p>Sucht im Saisonkalender Obst und Gemüse, das es jetzt gerade frisch bei uns gibt, und plant daraus ein Gericht.</p></div>
     </div>
   </div>
 </section>
@@ -110,19 +111,26 @@ inter: Tomaten-Vergleich (CO₂ je kg) · Interaktiver Saisonkalender · Siegel-
 </section>
 
 <script>
-bars($('#bars'), [{l: 'konventionell, beheiztes Treibhaus', v: 9300, c: 'c1'}, {l: 'ökologisch, beheiztes Treibhaus', v: 9200, c: 'c1'}, {l: 'Freiland Spanien (mit Transport)', v: 600, c: 'c5'}, {l: 'konventionell, Freiland, regional, saisonal', v: 85, c: 'c2'}, {l: 'ökologisch, Freiland, regional, saisonal', v: 35, c: 'c2'}], {unit: 'g', dec: 0, note: 'Werte nach Buch S. 80. Selbst Bio-Tomaten aus dem beheizten Gewächshaus sind schlechter als konventionelle Freilandtomaten!'});
+bars($('#bars'), [{l: 'konventionell, beheiztes Treibhaus', v: 9300, c: 'c1'}, {l: 'ökologisch, beheiztes Treibhaus', v: 9200, c: 'c1'}, {l: 'Freiland Spanien (mit Transport)', v: 600, c: 'c5'}, {l: 'konventionell, Freiland, regional, saisonal', v: 85, c: 'c2'}, {l: 'ökologisch, Freiland, regional, saisonal', v: 35, c: 'c2'}], {unit: 'g', dec: 0, note: 'Gramm CO₂-Äquivalente je kg Tomaten (gerundete Richtwerte). Selbst Bio-Tomaten aus dem beheizten Gewächshaus sind schlechter als konventionelle Freilandtomaten!'});
 
 (() => {
   const M = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
   // [Name, Freiland-Monate (0–11), Lager-Monate]
   const P = [['Äpfel', [7, 8, 9, 10], [0, 1, 2, 3, 11]], ['Birnen', [7, 8, 9], [10, 11]], ['Erdbeeren', [4, 5, 6, 7], []], ['Kirschen', [5, 6, 7], []], ['Himbeeren', [5, 6, 7, 8], []], ['Heidelbeeren', [6, 7, 8], []], ['Pflaumen', [6, 7, 8], []], ['Rhabarber', [3, 4, 5], []], ['Spargel', [3, 4, 5], []], ['Radieschen', [3, 4, 5, 6, 7, 8], []], ['Kopfsalat', [4, 5, 6, 7, 8, 9], []], ['Spinat', [2, 3, 4, 8, 9, 10], []], ['Tomaten', [6, 7, 8, 9], []], ['Gurken', [5, 6, 7, 8], []], ['Zucchini', [5, 6, 7, 8], []], ['Paprika', [6, 7, 8, 9], []], ['Brokkoli', [5, 6, 7, 8, 9], []], ['Bohnen', [6, 7, 8, 9], []], ['Kürbis', [8, 9, 10], [11, 0, 1]], ['Karotten', [5, 6, 7, 8, 9, 10], [11, 0, 1, 2, 3, 4]], ['Kartoffeln', [5, 6, 7, 8, 9], [10, 11, 0, 1, 2, 3, 4]], ['Weißkohl', [6, 7, 8, 9, 10], [11, 0, 1, 2]], ['Rosenkohl', [9, 10, 11, 0, 1], []], ['Grünkohl', [10, 11, 0, 1], []], ['Feldsalat', [9, 10, 11, 0, 1, 2], []], ['Lauch', [6, 7, 8, 9, 10, 11, 0, 1, 2], []]];
+  /* Kalenderblätter: Farbe und Symbol nach Jahreszeit */
+  const SEA = i => i === 11 || i < 2 ? ['cold', 'schnee'] : i < 5 ? ['c2', 'blatt'] : i < 8 ? ['warn', 'sonne'] : ['c1', 'baum'];
+  let m = new Date().getMonth();
+  $('#cal').innerHTML = M.map((n, i) => { const [c, ic] = SEA(i); return `<button data-m="${i}" aria-pressed="false" style="--sea:var(--${c})" title="${n}"><span class="mm">${n.slice(0, 3)}</span>${icon(ic)}</button>`; }).join('');
+  $('#cal').onclick = e => { const b = e.target.closest('[data-m]'); if (b) { m = +b.dataset.m; upd(); } };
+  $('#mo-prev').onclick = () => { m = m === 0 ? 11 : m - 1; upd(); };
+  $('#mo-next').onclick = () => { m = m === 11 ? 0 : m + 1; upd(); };
   const upd = () => {
-    const m = +$('#mo').value; $('#mo-o').textContent = M[m];
+    $('#mo-o').textContent = M[m]; $$('#cal button').forEach(b => b.setAttribute('aria-pressed', +b.dataset.m === m));
     const fr = P.filter(p => p[1].includes(m)).map(p => p[0]), la = P.filter(p => p[2].includes(m)).map(p => p[0]), no = P.filter(p => !p[1].includes(m) && !p[2].includes(m)).map(p => p[0]);
     const chips = (a, c) => a.map(n => `<span class="tag" style="background:color-mix(in srgb,var(--${c}) 18%,transparent);color:var(--ink);font-size:.8rem;letter-spacing:0;text-transform:none">${n}</span>`).join(' ');
     $('#sk').innerHTML = `<p style="margin:.3rem 0 .2rem"><b class="good">frisch vom Feld:</b></p><div class="chip-row">${chips(fr, 'good') || '<span class="muted">kaum etwas – Zeit für Lagerware</span>'}</div><p style="margin:.6rem 0 .2rem"><b style="color:var(--warn)">Lagerware aus der Region:</b></p><div class="chip-row">${chips(la, 'warn') || '<span class="muted">–</span>'}</div><p style="margin:.6rem 0 .2rem"><b class="muted">keine Saison (Import oder Gewächshaus):</b></p><div class="chip-row">${chips(no, 'line')}</div>`;
   };
-  $('#mo').oninput = upd; upd();
+  upd();
 })();
 
 explore($('#ex-s'), [

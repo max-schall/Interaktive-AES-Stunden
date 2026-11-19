@@ -24,7 +24,8 @@ function mix(a, b, t) { const A = rgb(a), B = rgb(b); return `rgb(${A.map((v, i)
 const lerp = (a, b, t) => a + (b - a) * t;
 const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-function rng(seed) { let s = seed >>> 0; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; }
+/* Startwert erst durchmischen, damit benachbarte Seeds (rng(i), rng(i + 1)) nicht fast gleiche Werte liefern */
+function rng(seed) { let s = seed >>> 0; s = Math.imul(s ^ s >>> 16, 0x45d9f3b); s = Math.imul(s ^ s >>> 16, 0x45d9f3b); s = (s ^ s >>> 16) >>> 0; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; }
 const fmt = (v, d = 3) => v.toLocaleString('de-DE', {maximumSignificantDigits: d});
 const fix = (v, d = 1) => v.toLocaleString('de-DE', {minimumFractionDigits: d, maximumFractionDigits: d});
 const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };

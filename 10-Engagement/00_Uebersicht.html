@@ -431,7 +431,7 @@ h3{font-weight:600;font-stretch:100%;font-size:1.25rem;line-height:1.2}
 .quote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--ink-2);margin-top:.3rem}
 
 /* ---------- Symbole ---------- */
-.ico{width:1.6rem;height:1.6rem;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ico{width:1.6rem;height:1.6rem;flex:none;overflow:visible;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- Kacheln mit Detailansicht (explore) ---------- */
 .explore{display:flex;flex-direction:column;gap:.8rem}
@@ -566,6 +566,19 @@ input[type=range]{accent-color:var(--accent);width:100%}
 }
 @media (max-width:920px){.model[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}}
 .ex-tile b{word-break:break-word}
+/* Monatskalender (Saisonkalender) */
+.cal-nav{display:flex;align-items:center;gap:.5rem;margin:.2rem 0 .5rem}
+.cal-nav b{font-family:var(--f-display);font-size:1.3rem;min-width:8.5rem;text-align:center}
+.cal-nav .btn{padding:.25rem .7rem}
+.cal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.4rem;margin-bottom:.6rem}
+.cal button{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 0 .35rem;border:1.5px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;overflow:hidden;min-width:0}
+.cal button::before{content:"";display:block;width:100%;height:.55rem;background:var(--sea,var(--line))}
+.cal button::after{content:"";position:absolute;top:.12rem;left:28%;right:28%;height:.3rem;background:radial-gradient(circle,var(--surface) 0 40%,transparent 45%) 0 0/50% 100% repeat-x}
+.cal button .mm{font-weight:700;font-size:.95rem;margin-top:.25rem}
+.cal button .ico{width:1.05rem;height:1.05rem;color:var(--sea,var(--ink-2));margin-top:.1rem}
+.cal button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface));box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.cal button:hover{border-color:var(--ink-2)}
+@media (max-width:520px){.cal{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 </style>
 </head>
@@ -602,7 +615,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">1</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde · Buch S. 266–267</p>
+        <p class="eyebrow">Stunde 1 · 1 Unterrichtsstunde</p>
         <h2>Gemeinsam mehr erreichen – bist du dabei?</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie kann ich mich für andere und die Gesellschaft engagieren?</p>
         <ul class="facts"><li>Ehrenamt: freiwillige, unentgeltliche Arbeit im gemeinnützigen Bereich</li><li>Rund 30 Millionen Menschen engagieren sich in Deutschland</li><li>Active Citizenship: soziales und politisches Engagement der Bürgerschaft</li><li>Lernen durch Engagement (Service Learning): Lernen und Engagement verbinden</li></ul>
@@ -613,7 +626,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">2</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 2 · 1–2 Unterrichtsstunden · Buch S. 268–269</p>
+        <p class="eyebrow">Stunde 2 · 1–2 Unterrichtsstunden</p>
         <h2>Methode: Projekte planen, durchführen, bewerten</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie setzen wir gemeinsam ein Projekt Schritt für Schritt um?</p>
         <ul class="facts"><li>Drei Phasen: Planung, Durchführung, Bewertung</li><li>Planung: Thema, Ziel, Meilensteine, Arbeits- und Zeitplan</li><li>Durchführung: Informationen, Dokumentation, Abschlusspräsentation</li><li>Die 4 K: Kommunikation, Kollaboration, kritisches Denken, Kreativität</li></ul>
@@ -624,7 +637,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">3</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 3 · 2–6 Unterrichtsstunden · Buch S. 270–273</p>
+        <p class="eyebrow">Stunde 3 · 2–6 Unterrichtsstunden</p>
         <h2>Vier Projektideen</h2>
         <p class="l-q"><b>Leitfrage:</b> Welches Projekt wollen wir für unsere Schule umsetzen?</p>
         <ul class="facts"><li>Upcycling: ausgedienten Gegenständen einen neuen Look geben</li><li>Lebensmittelabfälle reduzieren: 78 kg Food Waste pro Person im Privathaushalt (2020)</li><li>Präventionstag: Life Skills nach WHO</li><li>Fair-Trade-Point: mobiler Verkaufsstand für fair gehandelte Produkte</li></ul>
@@ -635,7 +648,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">4</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde · Buch S. 274–277</p>
+        <p class="eyebrow">Stunde 4 · 1 Unterrichtsstunde</p>
         <h2>Schwerpunkt Ernährung und Gesundheit</h2>
         <p class="l-q"><b>Leitfrage:</b> Was habe ich in AES über Essen und Gesundheit gelernt – und was mache ich daraus?</p>
         <ul class="facts"><li>Essbiografie: Geschmack verändert sich durch innere und äußere Faktoren</li><li>Nachhaltig essen: pflanzenbetont, regional, saisonal, bio</li><li>Lebensmittel beurteilen: Pflichtangaben, Siegel, Qualitätsfächer</li><li>Gesundheit laut WHO, Einflussfaktoren, Salutogenese, Work-Life-Balance</li></ul>
@@ -646,7 +659,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">5</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde · Buch S. 278–281</p>
+        <p class="eyebrow">Stunde 5 · 1 Unterrichtsstunde</p>
         <h2>Schwerpunkt Konsum und Leben</h2>
         <p class="l-q"><b>Leitfrage:</b> Wie treffe ich gute Konsumentscheidungen – und wie will ich später leben?</p>
         <ul class="facts"><li>Konsumentscheidungen: Bedürfnisse, Werbung, Qualitätsmerkmale, Siegel</li><li>Verbraucherrechte: Gewährleistung, Garantie, 14 Tage Widerruf online</li><li>Nachhaltig und global denken: Fair Trade, weniger Verschwendung, gemeinschaftlicher Konsum</li><li>Arbeit, Freizeit, Familie, Wohnen: meine Zukunft planen</li></ul>
@@ -657,7 +670,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
     <li class="lesson">
       <div class="l-num">6</div>
       <div class="l-body">
-        <p class="eyebrow">Stunde 6 · 1 Unterrichtsstunde · Buch S. 264–281</p>
+        <p class="eyebrow">Stunde 6 · 1 Unterrichtsstunde</p>
         <h2>Großer Abschlusstest AES</h2>
         <p class="l-q"><b>Leitfrage:</b> Was habe ich in fünf Jahren AES gelernt?</p>
         <ul class="facts"><li>Fachbegriffe aus allen Klassenstufen</li><li>Großes Quiz mit 30 Fragen (12 zufällig pro Runde)</li><li>Fallbeispiel: Mein Projekt fürs Leben</li><li>„Ich kann …“-Liste mit Links in alle Reihen</li></ul>
